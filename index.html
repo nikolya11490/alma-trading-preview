@@ -942,18 +942,12 @@ footer .copy{grid-column:1/-1;margin:0;font-size:14px}
 /* переключатель языка */
 .top .lang{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0 8px;color:var(--text2);text-decoration:none;font:600 13px/1 var(--body);letter-spacing:.12em;border:1px solid var(--border)}
 .top .lang:hover{color:var(--text);border-color:var(--border-strong)}
-@media (max-width:900px){.top .lang{margin-left:auto}}
+@media (max-width:900px){.top .lang{margin-left:auto}.top .login{margin-left:0}}
+@media (max-width:420px){.top .login{padding:0 4px;font-size:14px}.top .lang{min-width:40px}}
 /* метка «скоро» */
 .soon{display:inline-block;vertical-align:middle;margin-left:8px;padding:3px 8px 4px;font:600 11px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--text);border:1px solid var(--border-strong);background:var(--surface2)}
 li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
-/* окно «лист ожидания» */
-.wl{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:16px;background:rgba(0,0,0,.72);backdrop-filter:blur(4px)}
-.wl[hidden]{display:none}
-.wl-box{position:relative;width:min(480px,100%);padding:32px 28px 26px;background:#0f0f0f;border:1px solid var(--border-strong)}
-.wl-box h3{margin:6px 0 12px;font:600 clamp(26px,4vw,34px)/1.1 var(--display,var(--body))}
-.wl-box p{color:var(--text2);margin:0 0 20px}
-.wl-box .btn{width:100%;justify-content:center}
-.wl-box .wl-s{margin:14px 0 0;font-size:14px;color:var(--text3)}
+/* кнопка «закрыть» в окнах */
 .wl-x{position:absolute;top:6px;right:6px;width:44px;height:44px;display:grid;place-items:center;background:none;border:0;color:var(--text2);font-size:28px;line-height:1;cursor:pointer}
 .wl-x:hover{color:var(--text)}
 /* зоны нажатия не меньше 44px */
@@ -1001,11 +995,9 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
 .zoom{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:56px 12px 12px;background:rgba(0,0,0,.9);cursor:zoom-out}
 .zoom[hidden]{display:none}
 .zoom img{max-width:100%;max-height:100%;object-fit:contain;border:1px solid var(--border-strong)}
-/* QR в окне листа ожидания: только на компьютере */
-.wl-qr{display:none;align-items:center;gap:16px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border)}
-.wl-qr img{width:132px;height:132px;flex:none;background:#fff;padding:6px;image-rendering:pixelated}
-.wl-qr span{font-size:14px;color:var(--text3)}
-@media (hover:hover) and (pointer:fine) and (min-width:700px){.wl-qr{display:flex}}
+
+/* шапка на телефоне: «Войти» и «Регистрация» помещаются — прячем надпись логотипа */
+@media (max-width:440px){.top .logo img,.top .logo .wm{display:none}}
 
 </style>
 </head>
@@ -1025,7 +1017,8 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
       <a href="#faq">Вопросы</a>
     </nav>
     <a class="lang" href="en.html" hreflang="en" lang="en" data-lang="en" aria-label="English version">EN</a>
-    <a class="btn btn-main btn-sm cut" href="https://t.me/almanacc_trading_bot?start=wl_top" data-wl="top"><span class="l-long">Лист ожидания</span><span class="l-short">Записаться</span></a>
+    <a class="login" href="app/#login">Войти</a>
+    <a class="btn btn-main btn-sm cut" href="app/#signup">Регистрация</a>
   </div>
 </header>
 
@@ -1040,13 +1033,13 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
       <h1 class="rv" style="--d:.1s">Профит при <em>любом исходе</em></h1>
       <p class="lead rv" style="--d:.25s">Сканер в лайве сравнивает линии букмекеров и находит <b>вилки</b>: ставки на все исходы у разных БК, которые дают плюс при любом результате. Кнопка <b>GO</b> сразу открывает купон у нужного букмекера.</p>
       <div class="cta rv" style="--d:.35s">
-        <a class="btn btn-main cut" href="https://t.me/almanacc_trading_bot?start=wl_hero" data-wl="hero">Встать в лист ожидания
+        <a class="btn btn-main cut" href="app/#signup">Зарегистрироваться
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-ghost cut cut-line" href="https://t.me/almanacc_trading_bot?start=hero">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.5 4.5 2.8 11.7c-.9.4-.9 1.6 0 1.9l4.7 1.6 1.8 5.6c.2.7 1.1.9 1.6.4l2.7-2.5 4.9 3.6c.6.4 1.4.1 1.6-.6l3.3-15.6c.2-1-.7-1.9-1.9-1.6Z"/><path d="m7.5 15.2 10-7.2-7.6 8.6"/></svg>
           Открыть в Telegram</a>
       </div>
-      <p class="have rv" style="--d:.42s">Регистрация откроется скоро. В день запуска бот пришлёт приглашение.</p>
+      <p class="have rv" style="--d:.42s">Уже есть аккаунт? <a href="app/#login">Войти в кабинет</a></p>
       <a class="scrollhint rv" style="--d:.5s" href="#story"><span class="line" aria-hidden="true"></span>Листайте вниз: как рождается вилка</a>
     </div>
   </div>
@@ -1113,7 +1106,7 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
           <h3>Одна кнопка GO, и купон открыт</h3>
           <p class="lead2">Нашли вилку, жмёте GO. Сканер сразу открывает купон этого события у нужного букмекера, с нужным рынком. Не надо искать матч в линии, пока кф не уплыл.</p>
           <ol><li>Скачайте расширение в личном кабинете: оно открывается после оплаты подписки</li><li>Войдите в аккаунты букмекеров в отдельном браузере</li><li>Установите расширение в браузер</li><li>Жмите GO у каждого плеча вилки, и купон автоматически откроется</li></ol>
-          <p class="ext"><a href="https://t.me/almanacc_trading_bot?start=wl_ext" data-wl="ext">Получить расширение</a><span>скачивается в личном кабинете после оплаты подписки</span></p>
+          <p class="ext"><a href="app/#ext">Скачать в личном кабинете</a><span>открывается после оплаты подписки</span></p>
         </div>
         <div>
           <div class="sa sa-static" aria-label="Окно вилки, пример">
@@ -1233,7 +1226,7 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
         <div class="pn">PROJECT ALMANACC</div><div class="who">Одна подписка, все возможности сканера</div>
         <div class="price"><span id="pp">$150</span> <small id="pper">за 1 месяц</small></div>
         <div class="pnote" id="pnote">$5 в день, на 67% выгоднее дня</div>
-        <a class="btn btn-main cut" id="pbuy" href="https://t.me/almanacc_trading_bot?start=wl_m1" data-wl="m1">Встать в лист ожидания</a>
+        <a class="btn btn-main cut" id="pbuy" href="app/?p=m#signup">Оформить подписку</a>
       </div>
       <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Лайв-вилки по десяткам букмекеров</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Кнопка GO: купон в один клик</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Калькулятор с перевесом и замком</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Рабочее место из окон</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Кф на других букмекерах</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Лента под себя</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Уведомления в Telegram</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Валуйные ставки <span class="soon">скоро</span></li></ul>
     </article>
@@ -1288,17 +1281,17 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
   <canvas data-scene="final" aria-hidden="true"></canvas>
   <div class="wrap">
     <div>
-      <p class="eyebrow rv">Скоро запуск</p>
+      <p class="eyebrow rv">Попробовать</p>
       <h2 class="rv" style="--d:.1s">Счёт матча <em>больше не&nbsp;важен</em></h2>
-      <p class="rv" style="--d:.2s">Встаньте в лист ожидания. В день запуска бот пришлёт приглашение. После оплаты подписки скачаете расширение GO в кабинете, настроите ленту под своих букмекеров и увидите, какие вилки есть в лайве.</p>
+      <p class="rv" style="--d:.2s">Зарегистрируйтесь через Google, Telegram или почту. После оплаты подписки скачаете расширение GO в кабинете, настроите ленту под своих букмекеров и увидите, какие вилки есть в лайве.</p>
       <div class="cta rv" id="cta" style="--d:.3s">
-        <a class="btn btn-main cut" href="https://t.me/almanacc_trading_bot?start=wl_final" data-wl="final">Встать в лист ожидания
+        <a class="btn btn-main cut" href="app/#signup">Зарегистрироваться
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-ghost cut cut-line" href="https://t.me/almanacc_trading_bot?start=final">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.5 4.5 2.8 11.7c-.9.4-.9 1.6 0 1.9l4.7 1.6 1.8 5.6c.2.7 1.1.9 1.6.4l2.7-2.5 4.9 3.6c.6.4 1.4.1 1.6-.6l3.3-15.6c.2-1-.7-1.9-1.9-1.6Z"/><path d="m7.5 15.2 10-7.2-7.6 8.6"/></svg>
           Открыть в Telegram</a>
       </div>
-      <p class="have rv" style="--d:.35s">Регистрация откроется скоро. В день запуска бот пришлёт приглашение.</p>
+      <p class="have rv" style="--d:.35s">Уже есть аккаунт? <a href="app/#login">Войти в кабинет</a></p>
     </div>
     <img class="lockup rv" loading="lazy" decoding="async" style="--d:.15s" src="assets/img/lockup.webp" alt="Логотип PROJECT ALMANACC" width="330" height="342">
   </div>
@@ -1308,23 +1301,12 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
 <footer>
   <div class="wrap">
     <a class="logo" href="#hero" aria-label="Наверх"><svg viewBox="0 0 490 491" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M247 2 L2 489 L81 489 L138 375 L408 332 L371 413 L409 489 L488 489 Z M246 165 L301 275 L181 294 Z"/></svg><img src="assets/img/logo.webp" alt="PROJECT ALMANACC" width="98" height="34"></a>
-    <nav aria-label="Подвал"><a href="#story">Как это работает</a><a href="#features">Возможности</a><a href="#pricing">Тарифы</a><a href="#faq">Вопросы</a><a href="https://t.me/almanacc_trading_bot?start=footer">Telegram</a></nav>
+    <nav aria-label="Подвал"><a href="#story">Как это работает</a><a href="#features">Возможности</a><a href="#pricing">Тарифы</a><a href="#faq">Вопросы</a><a href="https://t.me/almanacc_trading_bot?start=footer">Telegram</a><a href="app/#login">Войти</a></nav>
     <nav class="docs" aria-label="Документы"><a href="legal/terms.html">Пользовательское соглашение</a><a href="legal/refund.html">Оплата и возврат</a><a href="legal/privacy.html">Конфиденциальность</a><a href="legal/cookies.html">Cookie</a><a href="legal/risks.html">Риски и 18+</a><button type="button" id="cookie-settings">Настройки cookie</button></nav>
     <p class="legal">18+. PROJECT ALMANACC не принимает ставки и не является букмекером. Он показывает расхождения коэффициентов и считает суммы. Ставки связаны с риском: коэффициенты меняются, букмекеры могут ограничить аккаунт. Примеры на странице демонстрационные, лента и таблица кф взяты из записи работы сканера. Названия букмекеров принадлежат их владельцам. Сервис не предоставляется в США, Великобритании, Франции, Нидерландах и Австралии.</p>
     <p class="copy">© 2026 PROJECT ALMANACC</p>
   </div>
 </footer>
-<div class="wl" id="wl" role="dialog" aria-modal="true" aria-labelledby="wl-h" hidden>
-  <div class="wl-box cut cut-line">
-    <button type="button" class="wl-x" aria-label="Закрыть">×</button>
-    <p class="eyebrow">Лист ожидания</p>
-    <h3 id="wl-h">Открываемся скоро</h3>
-    <p>Регистрация пока закрыта. Запишитесь в Telegram-боте: в день запуска он пришлёт приглашение и напомнит цены. Расширение GO скачивается в личном кабинете после оплаты подписки.</p>
-    <a class="btn btn-main cut" id="wl-go" href="https://t.me/almanacc_trading_bot?start=wl_hero">Записаться в @almanacc_trading_bot</a>
-    <div class="wl-qr"><img id="wl-qr" width="132" height="132" alt="QR-код: открыть бота на телефоне"><span>Telegram только на телефоне? Наведите камеру на код.</span></div>
-    <p class="wl-s">Откроется Telegram, нажмите «Старт». Спама не будет: одно сообщение в день запуска.</p>
-  </div>
-</div>
 <div class="cookie" id="cookie" role="dialog" aria-label="Cookie" hidden>
   <p>Сайт использует только необходимые cookie<span class="ck-long">. Аналитику включим, только если разрешите</span>. <a href="legal/cookies.html">Подробнее</a></p>
   <div><button type="button" class="btn btn-ghost btn-sm" data-cookie="necessary"><span class="ck-long">Только необходимые</span><span class="ck-short">Отказаться</span></button><button type="button" class="btn btn-main btn-sm" data-cookie="all">Разрешить</button></div>
@@ -1485,7 +1467,7 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
 /* ===================== v8: рабочее место = лента + окно вилки + калькулятор ===================== */
 (function(){
   var D=document, H=D.documentElement, anim=H.classList.contains('anim'), NB='\u00a0';
-  var WL='https://t.me/almanacc_trading_bot?start=wl_';
+  var APP='app/';
   function $(s,r){return (r||D).querySelector(s)}
   function $$(s,r){return [].slice.call((r||D).querySelectorAll(s))}
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
@@ -1987,13 +1969,13 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
   }
 
   /* ---------- подписка: срок и цена ---------- */
-  var PER={d:{p:15,t:'за 1 день',n:'Попробовать сканер в деле',tag:'d1'},w:{p:50,t:'за 1 неделю',n:'≈$7.14 в день, на 52% выгоднее дня',tag:'w1'},m:{p:150,t:'за 1 месяц',n:'$5 в день, на 67% выгоднее дня',tag:'m1'}};
+  var PER={d:{p:15,t:'за 1 день',n:'Попробовать сканер в деле'},w:{p:50,t:'за 1 неделю',n:'≈$7.14 в день, на 52% выгоднее дня'},m:{p:150,t:'за 1 месяц',n:'$5 в день, на 67% выгоднее дня'}};
   var perG=$('#per');
   if(perG){
     perG.addEventListener('click',function(e){var b=e.target.closest('[data-per]');if(!b)return;var x=PER[b.dataset.per];
       $$('[data-per]',perG).forEach(function(y){y.setAttribute('aria-pressed',String(y===b))});
       $('#pp').textContent='$'+x.p; $('#pper').textContent=x.t; $('#pnote').textContent=x.n;
-      var pb=$('#pbuy'); pb.href=WL+x.tag; pb.dataset.wl=x.tag;});
+      $('#pbuy').href=APP+'?p='+b.dataset.per+'#signup';});
   }
 
   /* ---------- cookie ---------- */
@@ -2006,7 +1988,7 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
 
 </script>
 <script>
-/* ===================== v6: лист ожидания, язык ===================== */
+/* ===================== v6: язык ===================== */
 (function(){
   var D=document, H=D.documentElement;
   function $(s,r){return (r||D).querySelector(s)}
@@ -2019,25 +2001,6 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
     var sw=$('.lang'); if(sw){location.replace(sw.getAttribute('href'));return;}
   }
   $$('.lang').forEach(function(a){a.addEventListener('click',function(){store('alm_lang',a.dataset.lang)})});
-
-  /* лист ожидания: кнопки открывают окно с объяснением, оттуда — в бота с меткой источника */
-  var wl=$('#wl'); if(!wl)return;
-  var go=$('#wl-go'), back=null;
-  function open(href,from){go.href=href;back=from;var m=/[?&]start=([A-Za-z0-9_]+)/.exec(href),q=$('#wl-qr');if(q&&m){q.src='assets/qr/'+m[1]+'.svg'}wl.hidden=false;go.focus();D.body.style.overflow='hidden'}
-  function close(){wl.hidden=true;D.body.style.overflow='';if(back)back.focus()}
-  D.addEventListener('click',function(e){
-    var a=e.target.closest&&e.target.closest('[data-wl]'); if(!a)return;
-    e.preventDefault(); open(a.getAttribute('href'),a);
-  });
-  $('.wl-x',wl).addEventListener('click',close);
-  wl.addEventListener('click',function(e){if(e.target===wl)close()});
-  go.addEventListener('click',function(){setTimeout(close,300)});
-  D.addEventListener('keydown',function(e){
-    if(wl.hidden)return;
-    if(e.key==='Escape')close();
-    if(e.key==='Tab'){var f=$$('a,button',wl), a=f[0], z=f[f.length-1];
-      if(e.shiftKey&&D.activeElement===a){e.preventDefault();z.focus()} else if(!e.shiftKey&&D.activeElement===z){e.preventDefault();a.focus()}}
-  });
 })();
 
 </script>
