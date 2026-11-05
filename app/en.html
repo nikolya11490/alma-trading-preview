@@ -139,6 +139,8 @@ h3{font:600 16px/1.3 var(--body);margin:0}
 .pl li{display:flex;gap:10px;font-size:15px;color:var(--text2)}
 .pl li .ico{width:16px;height:16px;margin-top:3px;color:var(--text)}
 .pl .btn{width:100%}
+.free-pl .tag{color:var(--up);border-color:rgba(61,220,132,.45)}
+.panel.free .plan-name small{display:block;margin:6px 0 0}
 
 /* ===== таблица платежей ===== */
 .tbl{width:100%;border-collapse:collapse;font-size:15px}
@@ -426,7 +428,6 @@ h3{font:600 16px/1.3 var(--body);margin:0}
       <a href="#ext"><svg class="ico"><use href="#i-puzzle"/></svg>GO extension</a>
       <a href="#payments"><svg class="ico"><use href="#i-list"/></svg>Payments</a>
       <a href="#telegram"><svg class="ico"><use href="#i-send"/></svg>Telegram</a>
-      <a href="#team"><svg class="ico"><use href="#i-users"/></svg>Team</a>
       <a href="#security"><svg class="ico"><use href="#i-lock"/></svg>Security</a>
       <div class="sep" role="separator"></div>
       <button type="button" data-scanner><svg class="ico"><use href="#i-scan"/></svg>Open the scanner<svg class="ico ext"><use href="#i-ext"/></svg></button>
@@ -446,6 +447,7 @@ h3{font:600 16px/1.3 var(--body);margin:0}
       <div class="grid g-over">
         <div class="stack">
           <div class="panel cut plan-hero" data-subpanel></div>
+          <div class="panel cut plan-hero free hide" data-freepanel></div>
           <div class="panel cut">
             <div class="panel-h"><h2>Recent payments</h2><a class="btn btn-text btn-sm" href="#payments">All payments</a></div>
             <table class="tbl"><tbody data-last></tbody></table>
@@ -488,7 +490,7 @@ h3{font:600 16px/1.3 var(--body);margin:0}
           <ol class="steps">
             <li><span>Choose a term: 1 day, 1 week or 1 month. The invoice is in USDT</span></li>
             <li><span>Pay via <b style="color:var(--text)">@CryptoBot</b> in Telegram or by transfer from any wallet or exchange</span></li>
-            <li><span>The network confirms the transfer, usually within 1–5 minutes. The subscription turns on automatically and the GO extension unlocks</span></li>
+            <li><span>The network confirms the transfer, usually within 1–5 minutes. The subscription turns on automatically and the scanner opens with no time limit</span></li>
           </ol>
           <div class="note" style="margin-top:16px"><svg class="ico"><use href="#i-info"/></svg><span>The bot reminds you before the subscription ends: 3 days and 1 day before for a week or a month, 3 hours before for the 1-day plan. Weekly and monthly plans keep access for 48 more hours; the 1-day plan has no grace period</span></div>
         </div>
@@ -523,7 +525,7 @@ h3{font:600 16px/1.3 var(--body);margin:0}
         <div class="panel cut">
           <h2 style="margin-bottom:12px">Getting started</h2>
           <ol class="steps">
-            <li><span>Download the extension here: it unlocks after you pay for a subscription</span></li>
+            <li><span>Download the extension here: it is available right after you sign up</span></li>
             <li><span>Log in to your bookmaker accounts in a separate browser</span></li>
             <li><span>Install the extension in that browser</span></li>
             <li><span>Hit GO on each leg of the arb and the bet slip opens automatically</span></li>
@@ -535,7 +537,7 @@ h3{font:600 16px/1.3 var(--body);margin:0}
             <div><span>Stake</span><b>you enter it yourself</b></div>
             <div><span>Bookmaker passwords</span><b>never asked for or stored</b></div>
             <div><span>What it sends to us</span><b>only the bet slip address</b></div>
-            <div><span>When the subscription ends</span><b>it stops working</b></div>
+            <div><span>Without a subscription</span><b>works only in the free hour</b></div>
           </div>
         </div>
       </div>
@@ -572,29 +574,9 @@ h3{font:600 16px/1.3 var(--body);margin:0}
           <h2 style="margin-bottom:16px">What to send</h2>
           <div class="rule"><div class="l"><b>New arbs matching a filter</b><span>“Morning · tennis”, from 2%</span></div><input class="tog" type="checkbox" checked aria-label="New arbs"></div>
           <div class="rule"><div class="l"><b>Payment reminder</b><span data-remind></span></div><input class="tog" type="checkbox" checked aria-label="Payment reminder"></div>
+          <div class="rule"><div class="l"><b>Free hour</b><span>15 minutes before it starts</span></div><input class="tog" type="checkbox" checked aria-label="Free hour reminder"></div>
           <div class="rule"><div class="l"><b>Payment receipts</b><span>right after crediting</span></div><input class="tog" type="checkbox" checked aria-label="Receipts"></div>
           <div class="rule"><div class="l"><b>Quiet hours</b><span>from 01:00 to 08:00</span></div><input class="tog" type="checkbox" aria-label="Quiet hours"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ---------- КОМАНДА ---------- -->
-    <section id="team" data-view="team" class="hide">
-      <div class="topline"><div><h1>Team</h1><p class="sub">Team access on request: several seats, shared filters and one bill</p></div><a class="btn btn-main cut" href="https://t.me/almanacc_trading_bot?start=team">Message us</a></div>
-      <div class="grid g-2">
-        <div class="panel cut">
-          <div class="panel-h"><h2>Members</h2><span class="muted">on request</span></div>
-          <div class="seat"><div class="ava" data-ava2>?</div><div class="grow"><b data-uname2></b><span>account owner</span></div></div>
-          <div class="seat"><div class="ava" style="color:var(--text3)">+</div><div class="grow"><b style="color:var(--text2)">Invite by link</b><span>available once team access is set up</span></div><button class="btn btn-ghost btn-sm" disabled>Link</button></div>
-        </div>
-        <div class="panel cut">
-          <h2 style="margin-bottom:12px">How it works</h2>
-          <div class="kv">
-            <div><span>Seats and price</span><b>agreed in Telegram</b></div>
-            <div><span>Payment</span><b>one bill, paid by the owner</b></div>
-            <div><span>Alerts</span><b>everyone uses their own Telegram</b></div>
-            <div><span>Remove a member</span><b>access is closed immediately</b></div>
-          </div>
         </div>
       </div>
     </section>
@@ -639,7 +621,7 @@ h3{font:600 16px/1.3 var(--body);margin:0}
   function store(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k));if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
 
   /* ---------- тарифы (как на сайте) ---------- */
-  var FEATS=['Live arbs across dozens of bookmakers','GO button: bet slip in one click','Calculator with edge and lock','Workspace of windows','Odds at other bookmakers','Your feed, your way','Telegram alerts','Value bets (soon)'];
+  var FEATS=['Live arbs across dozens of bookmakers','GO button: bet slip in one click','Calculator with edge and lock','Workspace of windows','Odds at other bookmakers','Your feed, your way','Telegram alerts'];
   var PER={d:{n:'1 day',acc:'1 day',za:'day',days:1,price:15,disc:0},w:{n:'1 week',acc:'1 week',za:'week',days:7,price:50,disc:52},m:{n:'1 month',acc:'1 month',za:'month',days:30,price:150,disc:67}};
   var DAY_PRICE=15;
   var NETS={
@@ -680,6 +662,11 @@ h3{font:600 16px/1.3 var(--body);margin:0}
       tg:u.tg||'@nikolas',autorenew:true,dev:{name:'Windows · Chrome',at:t-20*3600e3},created:start-40*DAY};
   }
   function active(){return !!(S&&S.sub&&S.sub.until>now())}
+  /* ---------- бесплатный час: 1 hour on 2 days a week (расписание для примера, задаётся в админке) ---------- */
+  var FREE=[{d:2,h:19},{d:4,h:19}], FREE_MIN=60, WD=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  function freeNow(){if(S&&S.freeUntil&&S.freeUntil>now())return S.freeUntil;var t=new Date();for(var i=0;i<FREE.length;i++){var s=new Date(t);s.setHours(FREE[i].h,0,0,0);if(t.getDay()===FREE[i].d&&t>=s&&t<s.getTime()+FREE_MIN*6e4)return s.getTime()+FREE_MIN*6e4}return 0}
+  function freeNext(){var t=new Date(),best=0;for(var k=0;k<8;k++){FREE.forEach(function(f){var s=new Date(t);s.setDate(t.getDate()+k);s.setHours(f.h,0,0,0);if(s.getDay()===f.d&&s>t&&(!best||s<best))best=s.getTime()})}return best}
+  function canScan(){return active()||!!freeNow()}
 
   /* ---------- маршрутизация ---------- */
   var views=$$('[data-view]'), pendingPer=null;
@@ -774,7 +761,7 @@ h3{font:600 16px/1.3 var(--body);margin:0}
     if(!active()){
       var ended=S.sub&&S.sub.until<=now();
       el.innerHTML='<div class="panel-h" style="margin:0"><h2>Subscription</h2><span class="status s-off"><i></i>'+(ended?'Ended':'None yet')+'</span></div>'+
-        '<div class="empty"><div class="pr num">from $15 <small>for 1 day</small></div><p class="sub" style="margin:0">Choose a term: 1 day $15, 1 week $50 or 1 month $150. Payment unlocks the scanner and the GO extension</p></div>'+
+        '<div class="empty"><div class="pr num">from $15 <small>for 1 day</small></div><p class="sub" style="margin:0">Choose a term: 1 day $15, 1 week $50 or 1 month $150. A subscription opens the scanner with no time limit. Meanwhile there is a free hour on 2 days a week</p></div>'+
         '<div class="actions"><button class="btn btn-main cut" data-pay="m">Get 1 month</button><a class="btn btn-ghost cut" href="#billing">Choose a term</a></div>';
       return;
     }
@@ -788,8 +775,8 @@ h3{font:600 16px/1.3 var(--body);margin:0}
   }
   function renderSide(){
     var u=S.user, a=(u.name||u.email||'?').trim().charAt(0).toUpperCase();
-    $('[data-ava]').textContent=a; $('[data-ava2]').textContent=a;
-    $('[data-uname]').textContent=u.name||u.email; $('[data-uname2]').textContent=u.name||u.email;
+    $('[data-ava]').textContent=a;
+    $('[data-uname]').textContent=u.name||u.email;
     $('[data-umail]').textContent=(u.email||u.tg||'')+(active()?' · subscription active':'');
     $('[data-hello]').textContent=u.name?'Hello, '+u.name:'Overview';
   }
@@ -815,16 +802,31 @@ h3{font:600 16px/1.3 var(--body);margin:0}
         '<div class="muted" style="font-size:14px;margin-top:-8px">One subscription, every scanner feature</div>'+
         '<ul>'+FEATS.map(function(f){return '<li><svg class="ico"><use href="#i-check"/></svg>'+f+'</li>'}).join('')+'</ul>'+
         '<button class="btn btn-main cut" data-pay="'+per+'">'+(cur?'Renew for '+P.acc:'Pay for '+P.acc)+'</button></article>'+
-      '<article class="pl cut"><div class="h"><span class="nm">Team</span></div><div><div class="pr">on request</div><div class="pr-l"></div></div>'+
-      '<div class="muted" style="font-size:14px;margin-top:-8px">For several players</div><ul><li><svg class="ico"><use href="#i-check"/></svg>Several seats</li><li><svg class="ico"><use href="#i-check"/></svg>Shared filters</li><li><svg class="ico"><use href="#i-check"/></svg>One bill for everyone</li></ul>'+
-      '<a class="btn btn-ghost cut" href="'+TG+'?start=team">Message us</a></article>';
+      '<article class="pl cut free-pl"><div class="h"><span class="nm">Free hour</span><span class="tag">free</span></div><div><div class="pr">$0</div><div class="pr-l">1 hour on 2 days a week</div></div>'+
+      '<div class="muted" style="font-size:14px;margin-top:-8px">To try the scanner for real</div><ul><li><svg class="ico"><use href="#i-check"/></svg>Every feature, same as the subscription</li><li><svg class="ico"><use href="#i-check"/></svg>Feed, calculator and the GO button</li><li><svg class="ico"><use href="#i-check"/></svg>Telegram reminder 15 minutes before</li></ul>'+
+      '<a class="btn btn-ghost cut" href="#overview">Schedule</a></article>';
   }
+  function renderFree(){
+    var el=$('[data-freepanel]'); if(!el)return; if(!S||active()){el.classList.add('hide');return;} el.classList.remove('hide');
+    var fe=freeNow();
+    if(fe){var m=Math.max(0,Math.floor((fe-now())/1000));
+      el.innerHTML='<div class="panel-h"><h2>Free hour</h2><span class="status s-ok"><i></i>On now</span></div>'+
+        '<div class="row"><div class="days"><b class="num" data-freeleft>'+Math.floor(m/60)+':'+String(m%60).padStart(2,'0')+'</b><span>left</span></div></div>'+
+        '<p class="muted" style="margin:0;font-size:14px">The scanner, calculator and GO work in full. Like it? A subscription opens the scanner with no time limit</p>'+
+        '<div class="actions"><button class="btn btn-main cut" data-scanner>Open the scanner</button><a class="btn btn-ghost cut" href="#billing">Get a subscription</a></div>';return;}
+    var nx=freeNext(), d=new Date(nx), dd=Math.floor((nx-now())/DAY), hh=Math.ceil(((nx-now())%DAY)/3600e3);
+    el.innerHTML='<div class="panel-h"><h2>Free hour</h2><span class="status s-off"><i></i>Scheduled</span></div>'+
+      '<div class="row"><div class="plan-name" style="font-size:30px">'+WD[d.getDay()]+', '+tstr(nx)+'<small>'+dstr(nx)+'</small></div><div class="days"><b class="num">'+(dd?dd+NB+'d '+hh+NB+'h':hh+NB+'h')+'</b><span>to go</span></div></div>'+
+      '<p class="muted" style="margin:0;font-size:14px">1 hour on 2 days a week: the scanner, calculator and GO work in full. The bot reminds you 15 minutes before. The schedule here is an example</p>'+
+      '<div class="actions"><button class="btn btn-ghost cut" data-freesim>Simulate a free hour (demo)</button></div>';
+  }
+  setInterval(function(){if(!S||active())return;var fe=freeNow(),el=$('[data-freeleft]');if(fe&&el){var m=Math.max(0,Math.floor((fe-now())/1000));el.textContent=Math.floor(m/60)+':'+String(m%60).padStart(2,'0');if(m<=0){S.freeUntil=0;save();renderAll();}}},1000);
   function renderExt(){
-    var on=active();
-    $('[data-extstatus]').innerHTML=on?'<span class="status s-ok"><i></i>Available</span>':'<span class="status s-off"><i></i>Locked</span>';
-    $('[data-exttext]').textContent=on?'Download the extension and hit GO in the scanner: the bet slip opens at the right bookmaker':'Unlocks after you pay for a subscription';
+    var on=true;
+    $('[data-extstatus]').innerHTML='<span class="status s-ok"><i></i>Available</span>';
+    $('[data-exttext]').textContent=active()?'Download the extension and hit GO in the scanner: the bet slip opens at the right bookmaker':'Download it in advance: GO works in the free hour and with a subscription';
     $('[data-extbody]').innerHTML=on?
-      '<div class="panel cut ext-hero"><div class="ext-ico"><svg class="ico"><use href="#i-puzzle"/></svg></div><div><h2>PROJECT ALMANACC · GO</h2><p class="muted" style="margin:4px 0 0;font-size:14px">Version 1.0 · works while your subscription is active (until '+dstr(S.sub.until)+')</p></div>'+
+      '<div class="panel cut ext-hero"><div class="ext-ico"><svg class="ico"><use href="#i-puzzle"/></svg></div><div><h2>PROJECT ALMANACC · GO</h2><p class="muted" style="margin:4px 0 0;font-size:14px">Version 1.0 · '+(active()?'works while your subscription is active (until '+dstr(S.sub.until)+')':'works in the free hour and after you pay for a subscription')+'</p></div>'+
         '<button class="btn btn-main cut" data-dlext><svg class="ico"><use href="#i-dl"/></svg>Download the extension</button></div>':
       '<div class="locked"><div class="mk"><svg class="ico"><use href="#i-lock"/></svg></div><h2>The extension unlocks after you pay for a subscription</h2><p class="muted" style="margin:0">Any term works, even 1 day for $15</p><button class="btn btn-main cut" data-pay="m">Get a subscription</button></div>';
   }
@@ -851,7 +853,7 @@ h3{font:600 16px/1.3 var(--body);margin:0}
     $('[data-devices]').innerHTML=html;
   }
   function renderAll(){if(!S)return;$('[data-bal]').textContent=fmt(S.bal);$('[data-autorenew]').checked=!!S.autorenew;
-    renderSide();renderSub();renderPays();renderPlans();renderExt();renderTg();renderSec();}
+    renderSide();renderSub();renderFree();renderPays();renderPlans();renderExt();renderTg();renderSec();}
 
   /* ---------- боковая панель: оплата ---------- */
   var root=D.documentElement, body=$('[data-body]'), foot=$('[data-foot]'), co={}, timer=null, sim=null, lastFocus=null;
@@ -1019,7 +1021,8 @@ h3{font:600 16px/1.3 var(--body);margin:0}
     if(b.hasAttribute('data-otpgo')){var c=($('[data-otp]').value||'').replace(/\D/g,'');if(c.length!==6){err('Enter the 6 digits from the email');return;}signedIn({name:nameFromMail(authMail),email:authMail,via:'mail'});return;}
     if(b.hasAttribute('data-logout')){S=null;store(KEY,null);location.hash='login';toast('You are logged out');return;}
     /* account */
-    if(b.hasAttribute('data-scanner')){if(active())toast('Demo: the scanner opens here');else{toast('The scanner unlocks after you pay for a subscription');location.hash='billing';}return;}
+    if(b.hasAttribute('data-scanner')){if(canScan())toast(active()?'Demo: the scanner opens here':'Demo: the scanner opens here for the free hour');else{toast('The scanner opens in the free hour or after you pay for a subscription');location.hash='overview';}return;}
+    if(b.hasAttribute('data-freesim')){S.freeUntil=now()+FREE_MIN*6e4;save();renderAll();toast('Demo: free hour in progress');return;}
     if(b.dataset.period){state.period=b.dataset.period;renderPlans();}
     if(b.dataset.pay){e.preventDefault();open(b.dataset.pay);}
     if(b.hasAttribute('data-topup')){open(null,true);}

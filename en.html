@@ -155,7 +155,7 @@ section{position:relative}
 /* ===== история arbs (sticky) ===== */
 .story{padding-bottom:calc(var(--cut) + 40px)}
 .story-head{padding:110px 0 30px}
-.js .story-track{height:420vh}
+.js .story-track{height:260vh}
 .js .story-pin{position:sticky;top:0;height:100svh;display:flex;align-items:center}
 .story-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center}
 .steps{list-style:none;margin:0;padding:0;position:relative}
@@ -1008,6 +1008,56 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
 /* шапка на телефоне: «Log in» и «Sign up» помещаются — прячем надпись логотипа */
 @media (max-width:440px){.top .logo img,.top .logo .wm{display:none}}
 
+/* ===== v9 (docs/edits-batch.md) ===== */
+/* №10: отступы вдвое меньше только в двух переходах */
+.story{padding-bottom:calc(var(--cut)*.75 + 20px)}
+#features{padding-top:calc(var(--cut) + 50px)!important}
+.faq{padding-bottom:calc(var(--cut)*.85 + 40px)}
+.final.slice{padding-top:calc(var(--cut) + 50px)}
+
+/* №7: без плитки валуйных «Лайв» во всю ширину: текст слева, arbs справа */
+.t-live{grid-column:span 12;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:56px;align-items:start}
+.t-live>h3,.t-live>p{grid-column:1}
+.t-live .livelist{grid-column:2;grid-row:1 / span 2;margin-top:0}
+@media (max-width:1000px){.t-live{display:block}.t-live .livelist{margin-top:20px}}
+
+/* №5: бесплатный час */
+.hero p.free{margin:18px 0 0;font-size:16px;color:var(--text2);max-width:34em}
+.hero p.free b,.free-line b{color:var(--up);font-weight:600}
+
+/* №8: подсказка под суммой вероятностей */
+.calc .hint{margin-top:8px;font-size:13px;color:var(--text3)}
+.stage .calc .row{flex-wrap:wrap;row-gap:2px}
+
+/* №9: окно Arbs без внутренней прокрутки на телефоне */
+@media (max-width:899px){.wb-arbs{max-height:none}}
+
+/* №2: калькулятор — строки в одну линию, всё уменьшается пропорционально, шрифт не мельче 12px */
+.wb-calc .ac{font-size:clamp(12px,2.32cqi,14.5px)}
+.wb-calc .ac-x{overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.wb-calc .ac-x.more{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent)}
+.wb-calc .ac-in{min-width:42.9em}
+.wb-calc .ac .ac-row,.wb-calc .ac .ac-row.ac-leg{grid-template-columns:1.6em minmax(6.2em,1.6fr) 4.2em 2.4em 2em 4.4em 5.2em 2.1em 2.1em minmax(4.6em,1fr) 2.1em 2.1em;
+  grid-template-areas:none;column-gap:.35em;row-gap:0}
+.wb-calc .ac .ac-head{display:grid}
+.wb-calc .ac .ac-head>span{font-size:.88em;white-space:nowrap}
+.wb-calc .ac .ac-leg>*{grid-area:auto;grid-column:auto;grid-row:auto}
+.wb-calc .ac .ac-leg>:nth-child(4){display:block;text-align:center}
+.wb-calc .ac .ac-leg>:nth-child(10){text-align:right}
+.wb-calc .ac .ac-leg>:nth-child(12){justify-self:auto}
+.wb-calc .ac input,.wb-calc .ac select{min-height:2.3em;font-size:1em;padding:0 .4em}
+.wb-calc .ac .ib,.wb-calc .ac .rd{width:2.1em;height:2.1em;font-size:1em}
+.wb-calc .ac .ib svg{width:1em;height:1em}
+.wb-calc .ac .rd::before{width:1.25em;height:1.25em}
+.wb-calc .ac .no{width:1.55em;height:1.55em;font-size:.95em;min-width:0}
+.wb-calc .ac .ac-s{grid-template-columns:1.6em minmax(0,1fr) auto auto;gap:.7em;white-space:nowrap}
+.wb-calc .ac .ac-s>*{grid-column:auto}
+.wb-calc .ac .ac-tools{flex-wrap:nowrap;white-space:nowrap}
+.wb-calc .ac .ac-total{margin-left:auto;width:auto}
+
+/* №2: окна справа шире (52/47), чтобы калькулятор помещался в одну линию без прокрутки; лента уже */
+@media (min-width:761px){.wb-arbs .lf{min-width:600px}}
+
 </style>
 </head>
 <body>
@@ -1048,6 +1098,7 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.5 4.5 2.8 11.7c-.9.4-.9 1.6 0 1.9l4.7 1.6 1.8 5.6c.2.7 1.1.9 1.6.4l2.7-2.5 4.9 3.6c.6.4 1.4.1 1.6-.6l3.3-15.6c.2-1-.7-1.9-1.9-1.6Z"/><path d="m7.5 15.2 10-7.2-7.6 8.6"/></svg>
           Open in Telegram</a>
       </div>
+      <p class="free rv" style="--d:.4s"><b>Free</b> for 1 hour on 2 days a week: the scanner, calculator and GO. Just sign up</p>
       <p class="have rv" style="--d:.42s">Already have an account? <a href="app/en.html#login">Log in to your account</a></p>
       <a class="scrollhint rv" style="--d:.5s" href="#story"><span class="line" aria-hidden="true"></span>Scroll down: how an arb is born</a>
     </div>
@@ -1079,7 +1130,7 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
             <div class="lab l"><div class="bk">bet365.com</div><div class="mm">W1 · Player A</div><div class="odd num">2.10</div><div class="imp"><span class="dk">probability </span>priced in <span class="num">47.62%</span></div></div>
             <div class="mk">
               <div class="apex"><b class="num">+3.73%</b><span>apex = profit</span></div>
-              <svg viewBox="0 0 490 491" role="img" aria-label="Letter A: the left leg is the bet at bet365.com, the right one at 888sport.com, the crossbar is the sum of probabilities, the apex is the profit">
+              <svg viewBox="0 0 490 491" role="img" aria-label="Letter A: the left leg is the bet at bet365.com, the right one at 888sport.com, the bar below is the sum of implied probabilities, the apex is the profit">
                 <polygon class="g gl" points="247,2 2,489 81,489 246,165"/>
                 <g class="g gr"><polygon points="247,2 246,165 335,343.6 408,332"/><polygon points="408,332 371,413 409,489 488,489"/></g>
                 <polygon class="g gb" points="138,375 181,294 301,275 408,332"/>
@@ -1088,8 +1139,9 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
             <div class="lab r"><div class="bk">888sport.com</div><div class="mm">W2 · Player B</div><div class="odd num">2.05</div><div class="imp"><span class="dk">probability </span>priced in <span class="num">48.78%</span></div></div>
           </div>
           <div class="stack"><div class="calc">
-            <div class="row"><span><span class="dk">Crossbar: s</span><span class="mo">S</span>um of probabilities</span><b class="num">96.40% &lt; 100%</b></div>
+            <div class="row"><span>Sum of implied probabilities</span><b class="num">96.40% &lt; 100%</b></div>
             <div class="bar" aria-hidden="true"><span class="b1" style="width:47.62%"></span><span class="b2" style="width:48.78%"></span><span class="gap" style="width:3.6%"></span></div>
+            <div class="hint">under 100% means there’s an arb</div>
             <div class="verdict"><span class="big num">+3.73%</span><span><span class="dk">guaranteed </span>arb return</span></div>
           </div>
           <div class="split">
@@ -1113,9 +1165,9 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
       <article class="tile cut cut-line t-go rv">
         <div>
           <h3>One GO button, and the bet slip is open</h3>
-          <p class="lead2">Found an arb? Hit GO. The scanner instantly opens that event’s bet slip at the right bookmaker, on the right market. No hunting for the match while the odds drift away.</p>
-          <ol><li>Download the extension from your account: it unlocks after you pay for a subscription</li><li>Log in to your bookmaker accounts in a separate browser</li><li>Install the extension in that browser</li><li>Hit GO on each leg of the arb and the bet slip opens automatically</li></ol>
-          <p class="ext"><a href="app/en.html#ext">Download from your account</a><span>unlocks after you pay for a subscription</span></p>
+          <p class="lead2">Found an arb? Hit GO. The scanner instantly opens that event’s bet slip at the right bookmaker, on the right market. No hunting for the match before the odds change.</p>
+          <ol><li>Download the extension from your account after you sign up</li><li>Log in to your bookmaker accounts in a separate browser</li><li>Install the extension in that browser</li><li>Hit GO on each leg of the arb and the bet slip opens automatically</li></ol>
+          <p class="ext"><a href="app/en.html#ext">Download from your account</a><span>works in the free hour and with a subscription</span></p>
         </div>
         <div>
           <div class="sa sa-static" aria-label="Arb window, example">
@@ -1128,22 +1180,12 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
       </article>
       <article class="tile cut cut-line t-live rv">
         <h3>Live, where arbs last seconds</h3>
-        <p>The scanner watches bookmakers’ live lines. The odds change after every point, so every arb shows how long it has been alive. Pre-match is coming later.</p>
+        <p>The scanner watches bookmakers’ live lines. The odds change after every point, so every arb shows how long it has been alive.</p>
         <ul class="livelist" aria-label="Live arbs from the scanner, example">
           <li><span class="ll-ev"><b>TT Elite Series · G1</b>888sport.com · ladbrokes.com</span><b class="ll-p">24.1%</b><span class="ll-t" data-tick="1">1s</span></li>
           <li><span class="ll-ev"><b>Kazakh National League · 1H handicap</b>888sport.com · goldenbet.com</span><b class="ll-p">13.7%</b><span class="ll-t" data-tick="6">6s</span></li>
           <li><span class="ll-ev"><b>World Tennis. Women. Hungary · 2S handicap</b>fon.bet · bc.game</span><b class="ll-p">7.2%</b><span class="ll-t" data-tick="1">1s</span></li>
         </ul>
-      </article>
-      <article class="tile cut cut-line t-value rv" style="--d:.1s">
-        <h3>Value bets at a fair price <span class="soon">soon</span></h3>
-        <p>We take a sharp bookmaker’s line, strip its margin and get the fair odds. If someone offers more, that’s value. The scanner already finds value bets; we’re fine-tuning their window.</p>
-        <div class="vf">
-          <div class="r"><span>pinnacle.com, both outcomes</span><b>1.95 / 1.95</b></div>
-          <div class="r"><span>Margin: 1/1.95 + 1/1.95 − 1</span><b>2.56%</b></div>
-          <div class="r"><span>Fair odds</span><b>2.00</b></div>
-          <div class="r hl"><span>betano.bg offers 2.12, edge</span><b>+6.00%</b></div>
-        </div>
       </article>
       <article class="tile cut cut-line t-filter rv">
         <h3>Your feed, your way</h3>
@@ -1197,10 +1239,10 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
           <section class="win" data-w="arbs" aria-label="Arbs window"><div class="wh" tabindex="0" aria-label="Arbs window: drag it, arrows move it, Shift and arrows resize it"><span>Arbs</span><button type="button" class="wmin" aria-label="Minimise window">–</button></div><div class="wb wb-arbs"><div class="lf" id="lf" role="table" aria-label="Arb feed, recording"><div class="lf-row lf-head" id="lf-head" role="row"></div><div class="lf-body" id="lf-body"></div></div></div><span class="wr" aria-hidden="true"></span></section>
           <section class="win" data-w="sel" aria-label="Selected Arb window"><div class="wh" tabindex="0" aria-label="Selected Arb window: drag it, arrows move it, Shift and arrows resize it"><span>Selected Arb</span><button type="button" class="wmin" aria-label="Minimise window">–</button></div><div class="wb" id="ws-sel"></div><span class="wr" aria-hidden="true"></span></section>
           <section class="win" data-w="calc" aria-label="Arb Calculator window"><div class="wh" tabindex="0" aria-label="Arb Calculator window: drag it, arrows move it, Shift and arrows resize it"><span>Arb Calculator</span><button type="button" class="wmin" aria-label="Minimise window">–</button></div><div class="wb wb-calc"><p class="ac-src" id="ac-src" hidden></p><div class="ac">
-          <div class="ac-row ac-head" aria-hidden="true"><span></span><span>Bookmaker</span><span>Cur.</span><span>Rnd.</span><span></span><span>Odds</span><span>Stake</span><span></span><span></span><span class="r">Return</span><span></span><span></span></div>
+          <div class="ac-x" id="ac-x"><div class="ac-in"><div class="ac-row ac-head" aria-hidden="true"><span></span><span>Bookmaker</span><span>Cur.</span><span>Rnd.</span><span></span><span>Odds</span><span>Stake</span><span></span><span></span><span class="r">Return</span><span></span><span></span></div>
           <div id="ac-legs"></div>
           <div class="ac-tools"><button type="button" class="chipbtn" id="ac-add">+ outcome</button><button type="button" class="chipbtn" id="ac-rm" hidden>− outcome</button><button type="button" class="chipbtn" id="ac-reset">Reset</button><div class="ac-total">Total stake <b id="ac-total">$0.00</b></div></div>
-          <div class="ac-sum" id="ac-sum" aria-live="polite"></div>
+          <div class="ac-sum" id="ac-sum" aria-live="polite"></div></div></div>
           <div class="ac-verdict" id="ac-verdict" aria-live="polite"></div>
           <div class="ac-legend"><span><b>○</b> round the stake to 1, on by default</span><span><b>lock</b> 1st click: stake, 2nd: stake and odds</span><span><b>↺</b> reset the leg</span><span><b>=</b> equal profit</span><span><b>↑</b> edge: all the profit on one outcome, the rest break even</span></div>
         </div><p class="rate">example rate: £1 = $1.34, €1 = $1.16</p></div><span class="wr" aria-hidden="true"></span></section>
@@ -1237,10 +1279,10 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
         <div class="pnote" id="pnote">$5 a day, 67% cheaper than daily</div>
         <a class="btn btn-main cut" id="pbuy" href="app/en.html?p=m#signup">Get a subscription</a>
       </div>
-      <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Live arbs across dozens of bookmakers</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>GO button: bet slip in one click</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Calculator with edge and lock</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Workspace of windows</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Odds at other bookmakers</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Your feed, your way</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Telegram alerts</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Value bets <span class="soon">soon</span></li></ul>
+      <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Live arbs across dozens of bookmakers</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>GO button: bet slip in one click</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Calculator with edge and lock</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Workspace of windows</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Odds at other bookmakers</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Your feed, your way</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Telegram alerts</li></ul>
     </article>
-    <div class="team-line"><span><b>For teams</b> several seats and a shared bill, on request</span><a class="btn btn-ghost btn-sm cut cut-line" href="https://t.me/almanacc_trading_bot?start=en_team">Message us</a></div>
-    <p class="plans-note">Launch prices. Pay in USDT via @CryptoBot or from any wallet. The subscription doesn’t renew automatically: you pay for the term upfront, and the bot reminds you before it ends. The 1-day plan is non-refundable.</p>
+    <div class="team-line free-line"><span><b>Free</b> for 1 hour on 2 days a week, every scanner feature. The schedule is in your account and in the bot</span><a class="btn btn-ghost btn-sm cut cut-line" href="app/en.html#signup">Sign up</a></div>
+    <p class="plans-note">Pay in USDT via @CryptoBot or from any wallet. The subscription doesn’t renew automatically: you pay for the term upfront, and the bot reminds you before it ends. The 1-day plan is non-refundable.</p>
   </div>
 </section>
 
@@ -1270,6 +1312,10 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
         <div class="ans"><p>In USDT. Two ways: an invoice in the @CryptoBot Telegram bot, two taps if you have a wallet there. Or a transfer from any wallet or exchange to the address on the invoice.</p><p>The subscription doesn’t renew automatically: you pay for the term upfront, and the bot reminds you before it ends.</p></div>
       </details>
       <details>
+        <summary>Can I try it for free?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="ans"><p>Yes. On two days a week the scanner is open for free for 1 hour: the feed, the calculator and the GO button work in full. You only need to sign up. The free-hour schedule is in your account, and the bot reminds you 15 minutes before it starts.</p><p>The free hour is tied to your account and one device. If an hour isn’t enough, there is a 1-day plan for $15.</p></div>
+      </details>
+      <details>
         <summary>Can I get a refund?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
         <div class="ans"><p>Yes. Unused full days can be moved to your account balance at any time. You can withdraw money to a wallet within 14 days of payment, minus the network fee. The 1-day plan is non-refundable.</p><p>Refunds go to the same wallet and network the payment came from. Details in the <a href="legal/refund.html">payment and refund policy (in Russian)</a>.</p></div>
       </details>
@@ -1292,7 +1338,7 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
     <div>
       <p class="eyebrow rv">Try it</p>
       <h2 class="rv" style="--d:.1s">The match score <em>no longer&nbsp;matters</em></h2>
-      <p class="rv" style="--d:.2s">Sign up with Google, Telegram or email. Once you pay for a subscription, download the GO extension from your account, set up the feed for your bookmakers and see which arbs are live.</p>
+      <p class="rv" style="--d:.2s">Sign up with Google, Telegram or email. Download the GO extension from your account, set up the feed for your bookmakers and try the scanner in the free hour: 2 days a week, everything works in full.</p>
       <div class="cta rv" id="cta" style="--d:.3s">
         <a class="btn btn-main cut" href="app/en.html#signup">Sign up
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -1575,7 +1621,7 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
   var lf=$('#lf'), lfHead=$('#lf-head'), lfBody=$('#lf-body'), uid=0;
   function mk(p){var x=p[11]||{};return{id:++uid,lg:p[0],ev:p[1],sp:p[2],b:[p[3],p[4]],t:[p[5],p[6]],k:[p[7],p[8]],k0:[p[7],p[8]],age:p[9],ini:p[10],
     ev2:x.ev2,lg2:x.lg2,others:x.others,src:p,fresh:0,gone:0,dk:[0,0]}}
-  var live=POOL.slice(0,12).map(mk);
+  var live=POOL.slice(0,4).map(mk);
   var picked=live[1].id;
   function pr(r){return roi(r.k)}
   function byId(id){return live.find(function(x){return x.id===id})}
@@ -1623,13 +1669,14 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
     if(!lf||hover)return;
     live.forEach(function(r){r.fresh=0;r.dk=[0,0]});
     live=live.filter(function(r){return !r.gone});
-    var x=Math.random(), ch=null;
-    if(x<.45&&live.length){
+    var x=Math.random(), ch=null, nL=live.length;
+    if(nL>=5)x=.45;else if(nL<=3)x=.9;   /* держим 3–5 arbs */
+    if(x<.35&&live.length){
       var r=live[Math.floor(Math.random()*live.length)], i=Math.random()<.5?0:1, d=(Math.random()<.5?-1:1)*(1+Math.floor(Math.random()*4))/100;
       r.k[i]=Math.max(1.01,Math.round((r.k[i]+d)*100)/100); r.dk[i]=d; ch=r;
       if(pr(r)<0.3&&r.id!==picked) r.gone=1;
       if(r.id===picked&&pr(r)<0.3){r.k[i]=Math.round((r.k[i]-d)*100)/100;r.dk[i]=0;ch=null;}
-    } else if(x<.75&&live.length>9){
+    } else if(x<.55&&live.length>3){
       var cand=live.filter(function(r){return r.id!==picked}).sort(function(a,b){return b.age-a.age});
       if(cand.length)cand[Math.floor(Math.random()*Math.min(3,cand.length))].gone=1;
     } else {
@@ -1817,12 +1864,12 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
      ===================================================================== */
   var desk=$('#desk'), wide=matchMedia('(min-width:900px)');
   var LAY={
-    a:{arbs:[0,0,56,100],sel:[57,0,43,45],calc:[57,47,43,53]},
+    a:{arbs:[0,0,52,100],sel:[53,0,47,45],calc:[53,47,47,53]},
     b:{arbs:[0,0,100,45],sel:[0,47,46,53],calc:[47,47,53,53]},
-    c:{sel:[0,0,43,45],calc:[0,47,43,53],arbs:[44,0,56,100]}
+    c:{sel:[0,0,47,45],calc:[0,47,47,53],arbs:[48,0,52,100]}
   };
-  var wsStored=store('alm_ws_v2'), wsState=wsStored||{lay:'a',pos:clone(LAY.a),min:{}};
-  function wsSave(){store('alm_ws_v2',wsState)}
+  var wsStored=store('alm_ws_v3'), wsState=wsStored||{lay:'a',pos:clone(LAY.a),min:{}};
+  function wsSave(){store('alm_ws_v3',wsState)}
   function wsPlace(glide){
     if(!desk)return;
     desk.classList.toggle('glide',!!glide);
@@ -1993,6 +2040,17 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
   if(ck&&!st&&!store('alm_consent'))setTimeout(ckShow,900);
   $$('[data-cookie]').forEach(function(b){b.addEventListener('click',function(){store('alm_consent',{v:b.dataset.cookie,at:Date.now()});ck.hidden=true;})});
   var cs=$('#cookie-settings'); if(cs)cs.addEventListener('click',ckShow);
+})();
+
+</script>
+<script>
+/* v9 №2: калькулятор листается вбок, когда строки не влезают; справа затемнение, пока есть что листать */
+(function(){
+  var x=document.getElementById('ac-x'); if(!x) return;
+  function f(){var m=x.scrollWidth-x.clientWidth; x.classList.toggle('more', m>2 && x.scrollLeft<m-2);}
+  x.addEventListener('scroll',f,{passive:true}); addEventListener('resize',f);
+  if(window.ResizeObserver) new ResizeObserver(f).observe(x);
+  setTimeout(f,300); setTimeout(f,1500);
 })();
 
 </script>

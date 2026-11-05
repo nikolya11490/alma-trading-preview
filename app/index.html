@@ -139,6 +139,8 @@ h3{font:600 16px/1.3 var(--body);margin:0}
 .pl li{display:flex;gap:10px;font-size:15px;color:var(--text2)}
 .pl li .ico{width:16px;height:16px;margin-top:3px;color:var(--text)}
 .pl .btn{width:100%}
+.free-pl .tag{color:var(--up);border-color:rgba(61,220,132,.45)}
+.panel.free .plan-name small{display:block;margin:6px 0 0}
 
 /* ===== таблица платежей ===== */
 .tbl{width:100%;border-collapse:collapse;font-size:15px}
@@ -426,7 +428,6 @@ h3{font:600 16px/1.3 var(--body);margin:0}
       <a href="#ext"><svg class="ico"><use href="#i-puzzle"/></svg>Расширение GO</a>
       <a href="#payments"><svg class="ico"><use href="#i-list"/></svg>Платежи</a>
       <a href="#telegram"><svg class="ico"><use href="#i-send"/></svg>Telegram</a>
-      <a href="#team"><svg class="ico"><use href="#i-users"/></svg>Команда</a>
       <a href="#security"><svg class="ico"><use href="#i-lock"/></svg>Безопасность</a>
       <div class="sep" role="separator"></div>
       <button type="button" data-scanner><svg class="ico"><use href="#i-scan"/></svg>Открыть сканер<svg class="ico ext"><use href="#i-ext"/></svg></button>
@@ -446,6 +447,7 @@ h3{font:600 16px/1.3 var(--body);margin:0}
       <div class="grid g-over">
         <div class="stack">
           <div class="panel cut plan-hero" data-subpanel></div>
+          <div class="panel cut plan-hero free hide" data-freepanel></div>
           <div class="panel cut">
             <div class="panel-h"><h2>Последние платежи</h2><a class="btn btn-text btn-sm" href="#payments">Все платежи</a></div>
             <table class="tbl"><tbody data-last></tbody></table>
@@ -488,7 +490,7 @@ h3{font:600 16px/1.3 var(--body);margin:0}
           <ol class="steps">
             <li><span>Выбираете срок: 1 день, 1 неделя или 1 месяц. Счёт выставляется в USDT</span></li>
             <li><span>Платите через <b style="color:var(--text)">@CryptoBot</b> в Telegram или переводом с любого кошелька или биржи</span></li>
-            <li><span>Сеть подтверждает перевод, обычно за 1–5 минут. Подписка включается сама, расширение GO открывается</span></li>
+            <li><span>Сеть подтверждает перевод, обычно за 1–5 минут. Подписка включается сама, сканер открывается без ограничений по времени</span></li>
           </ol>
           <div class="note" style="margin-top:16px"><svg class="ico"><use href="#i-info"/></svg><span>Бот напомнит о конце подписки: для недели и месяца за 3 дня и за 1 день, для тарифа на 1 день за 3 часа. После недели и месяца ещё 48 часов доступа, у тарифа на 1 день этого запаса нет</span></div>
         </div>
@@ -523,7 +525,7 @@ h3{font:600 16px/1.3 var(--body);margin:0}
         <div class="panel cut">
           <h2 style="margin-bottom:12px">Как начать</h2>
           <ol class="steps">
-            <li><span>Скачайте расширение здесь: оно открывается после оплаты подписки</span></li>
+            <li><span>Скачайте расширение здесь: оно доступно сразу после регистрации</span></li>
             <li><span>Войдите в аккаунты букмекеров в отдельном браузере</span></li>
             <li><span>Установите расширение в браузер</span></li>
             <li><span>Жмите GO у каждого плеча вилки, и купон автоматически откроется</span></li>
@@ -535,7 +537,7 @@ h3{font:600 16px/1.3 var(--body);margin:0}
             <div><span>Сумма ставки</span><b>вписываете сами</b></div>
             <div><span>Пароли букмекеров</span><b>не запрашивает и не хранит</b></div>
             <div><span>Что передаёт сервису</span><b>только адрес купона</b></div>
-            <div><span>Когда подписка кончится</span><b>перестаёт работать</b></div>
+            <div><span>Без подписки</span><b>работает только в бесплатный час</b></div>
           </div>
         </div>
       </div>
@@ -572,29 +574,9 @@ h3{font:600 16px/1.3 var(--body);margin:0}
           <h2 style="margin-bottom:16px">Что присылать</h2>
           <div class="rule"><div class="l"><b>Новые вилки по фильтру</b><span>«Утро · теннис», от 2%</span></div><input class="tog" type="checkbox" checked aria-label="Новые вилки"></div>
           <div class="rule"><div class="l"><b>Напоминание об оплате</b><span data-remind></span></div><input class="tog" type="checkbox" checked aria-label="Напоминание об оплате"></div>
+          <div class="rule"><div class="l"><b>Бесплатный час</b><span>за 15 минут до начала</span></div><input class="tog" type="checkbox" checked aria-label="Напоминание о бесплатном часе"></div>
           <div class="rule"><div class="l"><b>Чеки об оплате</b><span>сразу после зачисления</span></div><input class="tog" type="checkbox" checked aria-label="Чеки"></div>
           <div class="rule"><div class="l"><b>Тихие часы</b><span>с 01:00 до 08:00</span></div><input class="tog" type="checkbox" aria-label="Тихие часы"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ---------- КОМАНДА ---------- -->
-    <section id="team" data-view="team" class="hide">
-      <div class="topline"><div><h1>Команда</h1><p class="sub">Командный доступ по запросу: несколько мест, общие фильтры и один счёт</p></div><a class="btn btn-main cut" href="https://t.me/almanacc_trading_bot?start=team">Написать нам</a></div>
-      <div class="grid g-2">
-        <div class="panel cut">
-          <div class="panel-h"><h2>Участники</h2><span class="muted">по запросу</span></div>
-          <div class="seat"><div class="ava" data-ava2>?</div><div class="grow"><b data-uname2></b><span>владелец аккаунта</span></div></div>
-          <div class="seat"><div class="ava" style="color:var(--text3)">+</div><div class="grow"><b style="color:var(--text2)">Пригласить по ссылке</b><span>станет доступно после подключения командного доступа</span></div><button class="btn btn-ghost btn-sm" disabled>Ссылка</button></div>
-        </div>
-        <div class="panel cut">
-          <h2 style="margin-bottom:12px">Как это устроено</h2>
-          <div class="kv">
-            <div><span>Число мест и цена</span><b>согласуем в Telegram</b></div>
-            <div><span>Оплата</span><b>один счёт, платит владелец</b></div>
-            <div><span>Уведомления</span><b>у каждого свой Telegram</b></div>
-            <div><span>Убрать участника</span><b>доступ закрывается сразу</b></div>
-          </div>
         </div>
       </div>
     </section>
@@ -639,7 +621,7 @@ h3{font:600 16px/1.3 var(--body);margin:0}
   function store(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k));if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
 
   /* ---------- тарифы (как на сайте) ---------- */
-  var FEATS=['Лайв-вилки по десяткам букмекеров','Кнопка GO: купон в один клик','Калькулятор с перевесом и замком','Рабочее место из окон','Кф на других букмекерах','Лента под себя','Уведомления в Telegram','Валуйные ставки (скоро)'];
+  var FEATS=['Лайв-вилки по десяткам букмекеров','Кнопка GO: купон в один клик','Калькулятор с перевесом и замком','Рабочее место из окон','Коэффициенты на других букмекерах','Лента под себя','Уведомления в Telegram'];
   var PER={d:{n:'1 день',acc:'1 день',za:'день',days:1,price:15,disc:0},w:{n:'1 неделя',acc:'1 неделю',za:'неделю',days:7,price:50,disc:52},m:{n:'1 месяц',acc:'1 месяц',za:'месяц',days:30,price:150,disc:67}};
   var DAY_PRICE=15;
   var NETS={
@@ -680,6 +662,11 @@ h3{font:600 16px/1.3 var(--body);margin:0}
       tg:u.tg||'@nikolas',autorenew:true,dev:{name:'Windows · Chrome',at:t-20*3600e3},created:start-40*DAY};
   }
   function active(){return !!(S&&S.sub&&S.sub.until>now())}
+  /* ---------- бесплатный час: 2 дня в неделю по 1 часу (расписание для примера, задаётся в админке) ---------- */
+  var FREE=[{d:2,h:19},{d:4,h:19}], FREE_MIN=60, WD=['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'];
+  function freeNow(){if(S&&S.freeUntil&&S.freeUntil>now())return S.freeUntil;var t=new Date();for(var i=0;i<FREE.length;i++){var s=new Date(t);s.setHours(FREE[i].h,0,0,0);if(t.getDay()===FREE[i].d&&t>=s&&t<s.getTime()+FREE_MIN*6e4)return s.getTime()+FREE_MIN*6e4}return 0}
+  function freeNext(){var t=new Date(),best=0;for(var k=0;k<8;k++){FREE.forEach(function(f){var s=new Date(t);s.setDate(t.getDate()+k);s.setHours(f.h,0,0,0);if(s.getDay()===f.d&&s>t&&(!best||s<best))best=s.getTime()})}return best}
+  function canScan(){return active()||!!freeNow()}
 
   /* ---------- маршрутизация ---------- */
   var views=$$('[data-view]'), pendingPer=null;
@@ -774,7 +761,7 @@ h3{font:600 16px/1.3 var(--body);margin:0}
     if(!active()){
       var ended=S.sub&&S.sub.until<=now();
       el.innerHTML='<div class="panel-h" style="margin:0"><h2>Подписка</h2><span class="status s-off"><i></i>'+(ended?'Закончилась':'Не оформлена')+'</span></div>'+
-        '<div class="empty"><div class="pr num">от $15 <small>за 1 день</small></div><p class="sub" style="margin:0">Выберите срок: 1 день $15, 1 неделя $50 или 1 месяц $150. После оплаты откроются сканер и расширение GO</p></div>'+
+        '<div class="empty"><div class="pr num">от $15 <small>за 1 день</small></div><p class="sub" style="margin:0">Выберите срок: 1 день $15, 1 неделя $50 или 1 месяц $150. Подписка открывает сканер без ограничений по времени. А пока есть бесплатный час: 2 дня в неделю</p></div>'+
         '<div class="actions"><button class="btn btn-main cut" data-pay="m">Оформить на месяц</button><a class="btn btn-ghost cut" href="#billing">Выбрать срок</a></div>';
       return;
     }
@@ -788,8 +775,8 @@ h3{font:600 16px/1.3 var(--body);margin:0}
   }
   function renderSide(){
     var u=S.user, a=(u.name||u.email||'?').trim().charAt(0).toUpperCase();
-    $('[data-ava]').textContent=a; $('[data-ava2]').textContent=a;
-    $('[data-uname]').textContent=u.name||u.email; $('[data-uname2]').textContent=u.name||u.email;
+    $('[data-ava]').textContent=a;
+    $('[data-uname]').textContent=u.name||u.email;
     $('[data-umail]').textContent=(u.email||u.tg||'')+(active()?' · подписка активна':'');
     $('[data-hello]').textContent=u.name?'Здравствуйте, '+u.name:'Обзор';
   }
@@ -815,16 +802,31 @@ h3{font:600 16px/1.3 var(--body);margin:0}
         '<div class="muted" style="font-size:14px;margin-top:-8px">Одна подписка, все возможности сканера</div>'+
         '<ul>'+FEATS.map(function(f){return '<li><svg class="ico"><use href="#i-check"/></svg>'+f+'</li>'}).join('')+'</ul>'+
         '<button class="btn btn-main cut" data-pay="'+per+'">'+(cur?'Продлить на '+P.acc:'Оплатить '+P.acc)+'</button></article>'+
-      '<article class="pl cut"><div class="h"><span class="nm">Команда</span></div><div><div class="pr">по запросу</div><div class="pr-l"></div></div>'+
-      '<div class="muted" style="font-size:14px;margin-top:-8px">Для нескольких игроков</div><ul><li><svg class="ico"><use href="#i-check"/></svg>Несколько мест</li><li><svg class="ico"><use href="#i-check"/></svg>Общие фильтры</li><li><svg class="ico"><use href="#i-check"/></svg>Один счёт на всех</li></ul>'+
-      '<a class="btn btn-ghost cut" href="'+TG+'?start=team">Написать</a></article>';
+      '<article class="pl cut free-pl"><div class="h"><span class="nm">Бесплатный час</span><span class="tag">бесплатно</span></div><div><div class="pr">$0</div><div class="pr-l">2 дня в неделю по 1 часу</div></div>'+
+      '<div class="muted" style="font-size:14px;margin-top:-8px">Чтобы попробовать сканер в деле</div><ul><li><svg class="ico"><use href="#i-check"/></svg>Все возможности, как в подписке</li><li><svg class="ico"><use href="#i-check"/></svg>Лента, калькулятор и кнопка GO</li><li><svg class="ico"><use href="#i-check"/></svg>Напоминание в Telegram за 15 минут</li></ul>'+
+      '<a class="btn btn-ghost cut" href="#overview">Расписание</a></article>';
   }
+  function renderFree(){
+    var el=$('[data-freepanel]'); if(!el)return; if(!S||active()){el.classList.add('hide');return;} el.classList.remove('hide');
+    var fe=freeNow();
+    if(fe){var m=Math.max(0,Math.floor((fe-now())/1000));
+      el.innerHTML='<div class="panel-h"><h2>Бесплатный час</h2><span class="status s-ok"><i></i>Идёт сейчас</span></div>'+
+        '<div class="row"><div class="days"><b class="num" data-freeleft>'+Math.floor(m/60)+':'+String(m%60).padStart(2,'0')+'</b><span>до конца</span></div></div>'+
+        '<p class="muted" style="margin:0;font-size:14px">Сканер, калькулятор и GO работают полностью. Понравилось? Подписка открывает сканер без ограничений по времени</p>'+
+        '<div class="actions"><button class="btn btn-main cut" data-scanner>Открыть сканер</button><a class="btn btn-ghost cut" href="#billing">Оформить подписку</a></div>';return;}
+    var nx=freeNext(), d=new Date(nx), dd=Math.floor((nx-now())/DAY), hh=Math.ceil(((nx-now())%DAY)/3600e3);
+    el.innerHTML='<div class="panel-h"><h2>Бесплатный час</h2><span class="status s-off"><i></i>По расписанию</span></div>'+
+      '<div class="row"><div class="plan-name" style="font-size:30px">'+WD[d.getDay()]+', '+tstr(nx)+'<small>'+dstr(nx)+'</small></div><div class="days"><b class="num">'+(dd?dd+NB+'дн '+hh+NB+'ч':hh+NB+'ч')+'</b><span>до начала</span></div></div>'+
+      '<p class="muted" style="margin:0;font-size:14px">2 дня в неделю по 1 часу: сканер, калькулятор и GO работают полностью. Бот напомнит за 15 минут. Расписание здесь для примера</p>'+
+      '<div class="actions"><button class="btn btn-ghost cut" data-freesim>Симулировать бесплатный час (демо)</button></div>';
+  }
+  setInterval(function(){if(!S||active())return;var fe=freeNow(),el=$('[data-freeleft]');if(fe&&el){var m=Math.max(0,Math.floor((fe-now())/1000));el.textContent=Math.floor(m/60)+':'+String(m%60).padStart(2,'0');if(m<=0){S.freeUntil=0;save();renderAll();}}},1000);
   function renderExt(){
-    var on=active();
-    $('[data-extstatus]').innerHTML=on?'<span class="status s-ok"><i></i>Доступно</span>':'<span class="status s-off"><i></i>Закрыто</span>';
-    $('[data-exttext]').textContent=on?'Скачайте расширение и жмите GO в сканере: купон откроется у нужного букмекера':'Откроется после оплаты подписки';
+    var on=true;
+    $('[data-extstatus]').innerHTML='<span class="status s-ok"><i></i>Доступно</span>';
+    $('[data-exttext]').textContent=active()?'Скачайте расширение и жмите GO в сканере: купон откроется у нужного букмекера':'Скачайте заранее: GO работает в бесплатный час и по подписке';
     $('[data-extbody]').innerHTML=on?
-      '<div class="panel cut ext-hero"><div class="ext-ico"><svg class="ico"><use href="#i-puzzle"/></svg></div><div><h2>PROJECT ALMANACC · GO</h2><p class="muted" style="margin:4px 0 0;font-size:14px">Версия 1.0 · работает, пока активна подписка (до '+dstr(S.sub.until)+')</p></div>'+
+      '<div class="panel cut ext-hero"><div class="ext-ico"><svg class="ico"><use href="#i-puzzle"/></svg></div><div><h2>PROJECT ALMANACC · GO</h2><p class="muted" style="margin:4px 0 0;font-size:14px">Версия 1.0 · '+(active()?'работает, пока активна подписка (до '+dstr(S.sub.until)+')':'работает в бесплатный час и после оплаты подписки')+'</p></div>'+
         '<button class="btn btn-main cut" data-dlext><svg class="ico"><use href="#i-dl"/></svg>Скачать расширение</button></div>':
       '<div class="locked"><div class="mk"><svg class="ico"><use href="#i-lock"/></svg></div><h2>Расширение откроется после оплаты подписки</h2><p class="muted" style="margin:0">Подойдёт любой срок, даже 1 день за $15</p><button class="btn btn-main cut" data-pay="m">Оформить подписку</button></div>';
   }
@@ -851,7 +853,7 @@ h3{font:600 16px/1.3 var(--body);margin:0}
     $('[data-devices]').innerHTML=html;
   }
   function renderAll(){if(!S)return;$('[data-bal]').textContent=fmt(S.bal);$('[data-autorenew]').checked=!!S.autorenew;
-    renderSide();renderSub();renderPays();renderPlans();renderExt();renderTg();renderSec();}
+    renderSide();renderSub();renderFree();renderPays();renderPlans();renderExt();renderTg();renderSec();}
 
   /* ---------- боковая панель: оплата ---------- */
   var root=D.documentElement, body=$('[data-body]'), foot=$('[data-foot]'), co={}, timer=null, sim=null, lastFocus=null;
@@ -1019,7 +1021,8 @@ h3{font:600 16px/1.3 var(--body);margin:0}
     if(b.hasAttribute('data-otpgo')){var c=($('[data-otp]').value||'').replace(/\D/g,'');if(c.length!==6){err('Введите 6 цифр из письма');return;}signedIn({name:nameFromMail(authMail),email:authMail,via:'mail'});return;}
     if(b.hasAttribute('data-logout')){S=null;store(KEY,null);location.hash='login';toast('Вы вышли');return;}
     /* кабинет */
-    if(b.hasAttribute('data-scanner')){if(active())toast('Демо: здесь откроется сканер');else{toast('Сканер откроется после оплаты подписки');location.hash='billing';}return;}
+    if(b.hasAttribute('data-scanner')){if(canScan())toast(active()?'Демо: здесь откроется сканер':'Демо: здесь откроется сканер на бесплатный час');else{toast('Сканер откроется в бесплатный час или после оплаты подписки');location.hash='overview';}return;}
+    if(b.hasAttribute('data-freesim')){S.freeUntil=now()+FREE_MIN*6e4;save();renderAll();toast('Демо: идёт бесплатный час');return;}
     if(b.dataset.period){state.period=b.dataset.period;renderPlans();}
     if(b.dataset.pay){e.preventDefault();open(b.dataset.pay);}
     if(b.hasAttribute('data-topup')){open(null,true);}
