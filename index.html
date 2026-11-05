@@ -765,6 +765,179 @@ footer .copy{grid-column:1/-1;margin:0;font-size:14px}
 @media (max-width:640px){.cp-ph{min-height:72px}.cp{min-height:0}}
 .sumin{width:96px;min-height:36px;padding:0 10px;background:var(--surface2);border:1px solid var(--border-strong);color:var(--text);font:600 15px var(--body);font-variant-numeric:tabular-nums}.sumin:focus{outline:2px solid #fff;outline-offset:0}
 
+/* ===================== v8 ===================== */
+/* бенто: «Лента под себя» во всю ширину (колонки | вид | окно «Настройки»), «Кф на других» — текст слева, таблица справа */
+.t-filter,.t-line{grid-column:span 12}
+.tf-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.15fr);gap:28px;align-items:start;margin-top:4px}
+.tf-side{display:contents}
+.tf-side .vopts{margin-top:24px}
+.tf-grid .fset{margin-top:24px}
+@media (max-width:1100px){.tf-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.tf-grid .fset{grid-column:span 2}}
+@media (max-width:700px){.tf-grid{grid-template-columns:minmax(0,1fr)}.tf-grid .fset{grid-column:auto}.tf-side .vopts{margin-top:8px}}
+.t-line{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:56px;align-items:start}
+.t-line>h3,.t-line>p{grid-column:1}
+.t-line .ot{grid-column:2;grid-row:1 / span 3;margin-top:0}
+@media (max-width:1000px){.t-line{display:block}.t-line .ot{margin-top:24px}}
+/* список колонок: подпись в одну строку, стрелки на месте */
+.col{grid-template-columns:20px minmax(0,1fr) 36px 36px}
+.col label{min-width:0}
+.col .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.col button{width:36px;height:36px}
+
+/* окно «Настройки» как в сканере */
+.fset{background:#1c1c1c;border:1px solid #333;font-size:14px;color:var(--text)}
+.fs-h{padding:12px 14px;font-size:15px;font-weight:600;background:#202020}
+.fs-tabs{display:flex;border-bottom:1px solid #333}
+.fs-tabs button{min-height:44px;padding:0 14px;background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;color:var(--text2);font:600 14px/1 var(--body);cursor:pointer}
+.fs-tabs button[aria-selected="true"]{color:#fff;border-bottom-color:#fff}
+.fs-tabs button:focus-visible{outline:2px solid #fff;outline-offset:-2px}
+.fs-p{padding:14px;display:grid;gap:12px}
+.fs-p[hidden]{display:none}
+.fs-p>*,.dd,.fset{min-width:0}
+.fld,.fset *{box-sizing:border-box}
+.fld{position:relative;display:grid;gap:4px;width:100%;min-height:52px;padding:7px 36px 7px 12px;background:#262626;border:0;border-bottom:1px solid #6a6a6a;color:var(--text);text-align:left;font:500 15px/1.3 var(--body);cursor:pointer}
+.fld small{font-size:12px;color:var(--text3)}
+.fld:focus-within,.dd-b:focus-visible{outline:2px solid #fff;outline-offset:-2px}
+.dd{position:relative}
+.dd-b{grid-template-columns:minmax(0,1fr)}
+.dd-v{min-width:0;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:22px}
+#dd-sp .dd-v{display:flex;gap:6px;align-items:center}
+.dd-v .spi svg{width:18px;height:18px}
+.dd-none{color:var(--text3)}
+.dd-c{position:absolute;right:8px;top:50%;width:22px;height:22px;transform:translateY(-50%);color:var(--text2)}
+.dd-b[aria-expanded="true"] .dd-c{transform:translateY(-50%) rotate(180deg)}
+.dd-p{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:6;max-height:260px;overflow:auto;background:#2a2a2a;border:1px solid #444;box-shadow:0 12px 30px rgba(0,0,0,.6);padding:4px 0}
+.dd-p[hidden]{display:none}
+.dd-o{display:flex;align-items:center;gap:10px;min-height:40px;padding:0 12px;cursor:pointer;color:var(--text)}
+.dd-o:hover{background:rgba(255,255,255,.06)}
+.dd-all{border-bottom:1px solid #3a3a3a}
+.dd-o .spi svg{width:18px;height:18px;display:block}
+.spi{display:inline-grid;place-items:center;color:var(--text)}
+.fs-2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.fs-2 .fld{padding-right:12px;cursor:text}
+.fin{display:flex;align-items:center;gap:6px}
+.fin input{flex:1;width:100%;min-width:0;min-height:28px;background:none;border:0;padding:0;color:var(--text);font:500 16px/1.3 var(--body);font-variant-numeric:tabular-nums}
+.fin input:focus{outline:0}
+.fin em{font-style:normal;color:var(--text3);font-size:14px}
+.fck{display:flex;align-items:center;gap:10px;min-height:44px;cursor:pointer;color:var(--text)}
+.fset input[type=checkbox]{appearance:none;width:24px;height:24px;margin:0;flex:none;border:1.5px solid #888;border-radius:3px;background:transparent;display:grid;place-items:center;cursor:pointer}
+.fset input[type=checkbox]:checked{background:#fff;border-color:#fff}
+.fset input[type=checkbox]:checked::after{content:"";width:10px;height:6px;border:2px solid #000;border-top:0;border-right:0;transform:translateY(-1px) rotate(-45deg)}
+.fset input[type=checkbox]:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.fs-hint{margin:0;font-size:13px;color:var(--text3)}
+.fs-al{display:grid;gap:4px;max-height:300px;overflow:auto}
+.al-r{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;align-items:center;font-size:14px;color:var(--text2)}
+.al-r input{min-height:38px;padding:0 10px;background:#262626;border:0;border-bottom:1px solid #6a6a6a;color:var(--text);font:500 14px var(--body);min-width:0}
+.al-r input:focus{outline:2px solid #fff;outline-offset:-2px}
+.fs-f{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid #333;font-size:13px;color:var(--text3)}
+
+/* «Кф на других букмекерах»: ровная рамка плеч, без квадратиков */
+.odds tr.leg td,.sa-o tr.leg td{border-top:0;border-left:0;border-right:0;border-bottom:1px solid var(--border);box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 #fff}
+.odds tr.leg td:first-child,.sa-o tr.leg td:first-child{border-left:0;box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 #fff,inset 1px 0 0 #fff}
+.odds tr.leg td:last-child,.sa-o tr.leg td:last-child{border-right:0;box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 #fff,inset -1px 0 0 #fff}
+.odds tr.leg td:first-child::before{content:none;display:none}
+.odds tr.leg+tr td{border-top:0}
+
+/* блок GO: окно вилки — статичный пример */
+.sa-static .gob-s{display:inline-grid;place-items:center;cursor:default}
+.sa-static .gob-s:hover{background:none;color:var(--text);border-color:var(--text2)}
+
+/* ===== рабочее место ===== */
+.t-ws .demo-tag{margin-top:16px;font-size:13px;padding:8px 12px;max-width:none}
+.desk{height:880px}
+.wb-arbs{overflow:auto}
+.wb-arbs .lf{margin:0;border:0;background:none;min-width:700px}
+.wb-arbs .lf .c-bk span{display:block;text-align:center;overflow:hidden;text-overflow:ellipsis}
+.wb-arbs .lf .c-bk .ini{margin-left:4px}
+.wb-arbs .lf-head{position:sticky;top:0;z-index:1}
+.wb-arbs .lf-row>div{padding:7px 8px}
+.wb-arbs .lf .c-sp svg{width:16px;height:16px}
+.wb-arbs .lf .c-go .gob{min-height:24px;min-width:40px}
+/* окно вилки */
+#ws-sel .sa-leg{grid-template-columns:minmax(0,1fr) auto auto 48px;grid-template-areas:"bk ty k go" "ev ev ev ev";gap:6px 10px}
+#ws-sel .sa-bk{grid-area:bk}#ws-sel .sa-ty{grid-area:ty}#ws-sel .sa-k{grid-area:k}#ws-sel .gob{grid-area:go}#ws-sel .sa-ev{grid-area:ev}
+#ws-sel .sa-ev{grid-template-columns:auto minmax(0,1fr);align-items:center;column-gap:10px}
+#ws-sel .sa-ev small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#ws-sel .sa-leg>*{align-self:center}
+.sa-bk{display:flex;align-items:center;gap:2px;min-width:0}
+.sa-bk .bkn{overflow:hidden;text-overflow:ellipsis}
+.sa-bk .ini{margin:0 2px 0 6px}
+.lnk,.eye{position:relative;flex:none;width:26px;height:26px;display:inline-grid;place-items:center;background:none;border:0;padding:0;color:var(--text2);cursor:pointer}
+.lnk svg{width:14px;height:14px}.eye svg{width:16px;height:16px}
+.lnk:hover,.eye:hover{color:#fff}
+.lnk:focus-visible,.eye:focus-visible,.pill:focus-visible{outline:2px solid #fff;outline-offset:1px}
+.lnk:hover::after,.lnk:focus-visible::after{content:attr(data-tip);position:absolute;left:calc(100% + 4px);top:50%;transform:translateY(-50%);z-index:5;white-space:nowrap;padding:4px 8px;background:#e9e9e9;color:#111;font:500 12px/1.2 var(--body);border-radius:3px;pointer-events:none}
+.pp{display:flex;align-items:center;gap:4px;min-width:0;flex-wrap:nowrap}
+.pill{flex:0 1 auto;min-width:0;display:inline-flex;align-items:center;gap:5px;max-width:100%;min-height:24px;padding:1px 7px 1px 9px;background:none;border:1px solid #bdbdbd;border-radius:999px;color:var(--text);font:500 12.5px/1.2 var(--body);cursor:copy}
+.pill span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;max-width:15em}
+.pill svg{width:12px;height:12px;flex:none;color:var(--text2)}
+.pill:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.dash{color:var(--text3)}
+.sa-ty{display:flex;align-items:center;gap:2px;white-space:nowrap}
+#ws-sel .sa-k{white-space:nowrap}
+#ws-sel .sa-ev small{max-width:100%}
+.sa-o .sa-oh{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.sa-oh em{font-style:normal;font-size:11px;padding:2px 6px;border:1px dashed var(--border-strong);color:var(--text2)}
+.sa-o th.n,.sa-o td.n{text-align:right}
+.sa-ol{padding:6px 10px 10px;color:var(--text3);font-size:12px}
+/* калькулятор в окне */
+.wb-calc{padding:8px 12px 12px;container-type:inline-size}
+.wb-calc .ac{margin-top:4px;font-size:13.5px}
+.wb-calc .ac-src{margin:2px 0 6px;font-size:13px}
+.wb-calc .ac input,.wb-calc .ac select{min-height:34px;font-size:14px}
+.wb-calc .ac .ib{width:32px;height:32px}
+.wb-calc .ac-legend{font-size:12.5px;gap:4px 16px}
+.wb-calc .rate{margin:8px 0 0;font-size:12px;color:var(--text3)}
+.wb-calc .ac-verdict{font-size:14px}
+@container (max-width:780px){
+  .ac-head{display:none}
+  .ac-row.ac-leg{grid-template-columns:24px minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr) 32px 32px 32px;
+    grid-template-areas:"no bk bk cur rd rs lk" ". kf st ret ret eq up";row-gap:6px;column-gap:6px}
+  .ac-leg>:nth-child(1){grid-area:no}.ac-leg>:nth-child(2){grid-area:bk}.ac-leg>:nth-child(3){grid-area:cur}
+  .ac-leg>:nth-child(4){display:none}.ac-leg>:nth-child(5){grid-area:rd}
+  .ac-leg>:nth-child(6){grid-area:kf}.ac-leg>:nth-child(7){grid-area:st}.ac-leg>:nth-child(8){grid-area:rs}
+  .ac-leg>:nth-child(9){grid-area:lk}.ac-leg>:nth-child(10){grid-area:ret;text-align:right}
+  .ac-leg>:nth-child(11){grid-area:eq}.ac-leg>:nth-child(12){grid-area:up}
+  .ac-s{grid-template-columns:22px minmax(0,1fr) auto auto;gap:10px}
+}
+@container (max-width:470px){
+  .ac-row.ac-leg{grid-template-columns:24px minmax(0,1fr) minmax(0,1fr) 32px 32px;
+    grid-template-areas:"no bk bk bk bk" ". cur okr rd rs" ". kf st lk eq" ". ret ret up up"}
+  .ac-leg>:nth-child(4){display:block;grid-area:okr;text-align:left}
+  .ac-leg>:nth-child(10){text-align:left}
+  .ac-leg>:nth-child(12){justify-self:end}
+  .ac-s{grid-template-columns:22px minmax(0,1fr);gap:4px 10px}
+  .ac-s>:nth-child(3),.ac-s>:nth-child(4){grid-column:2}
+  .ac-total{margin-left:0;width:100%}
+}
+/* номер плеча: цифра всегда видна */
+.ac .no,.ac-s .no{flex:none;min-width:22px;line-height:1}
+/* подсказки и меню «Скрыть» */
+.tip{position:fixed;z-index:85;max-width:280px;padding:7px 11px;background:#f2f2f2;color:#111;font:500 13px/1.35 var(--body);box-shadow:0 8px 24px rgba(0,0,0,.5);pointer-events:none}
+.tip[hidden]{display:none}
+.hm{position:fixed;z-index:80;width:min(340px,calc(100vw - 16px));background:#262626;border:1px solid #3d3d3d;box-shadow:0 16px 40px rgba(0,0,0,.65);font-size:14px;color:var(--text)}
+.hm[hidden]{display:none}
+.hm-t{padding:10px 14px 6px;color:var(--text3);font-size:13px}
+.hm-r{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 8px 8px 14px;border-top:1px solid #333}
+.hm-l{display:grid;gap:2px;min-width:0}
+.hm-l b{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hm-l small{color:var(--text3);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hm-d{display:flex;flex:none}
+.hm-d button{min-width:36px;min-height:36px;padding:0 4px;background:none;border:0;color:var(--text3);font:500 13px/1 var(--body);cursor:pointer}
+.hm-d button[aria-pressed="true"]{color:#fff;font-weight:700}
+.hm-d button:hover{color:#fff}
+.hm-d button:focus-visible{outline:2px solid #fff;outline-offset:-2px}
+.hm-n{padding:8px 14px 10px;border-top:1px solid #333;color:var(--text3);font-size:12.5px}
+@media (max-width:899px){
+  .desk{height:auto}
+  .wb-arbs{max-height:460px}
+  .win[data-w="calc"] .wb{max-height:none}
+  #ws-sel{max-height:560px}
+  #ws-sel .sa-leg{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"bk go" "ev ev" "ty k"}
+  #ws-sel .sa-ev{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:760px){.wb-arbs .lf{min-width:0}}
+
 /* ===================== v6 ===================== */
 /* переключатель языка */
 .top .lang{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0 8px;color:var(--text2);text-decoration:none;font:600 13px/1 var(--body);letter-spacing:.12em;border:1px solid var(--border)}
@@ -847,7 +1020,7 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
     <nav class="nav" aria-label="Разделы">
       <a href="#story">Как это работает</a>
       <a href="#features">Возможности</a>
-      <a href="#feed">Лента</a>
+      <a href="#ws" title="Попробуйте сканер: лента, окно вилки и калькулятор">Рабочее место</a>
       <a href="#pricing">Тарифы</a>
       <a href="#faq">Вопросы</a>
     </nav>
@@ -939,17 +1112,16 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
         <div>
           <h3>Одна кнопка GO, и купон открыт</h3>
           <p class="lead2">Нашли вилку, жмёте GO. Сканер сразу открывает купон этого события у нужного букмекера, с нужным рынком. Не надо искать матч в линии, пока кф не уплыл.</p>
-          <ol><li>Скачайте расширение в личном кабинете: оно открывается после оплаты подписки</li><li>Войдите к букмекерам в соседних вкладках</li><li>Жмите GO у каждого плеча вилки, сумму впишите сами</li></ol>
+          <ol><li>Скачайте расширение в личном кабинете: оно открывается после оплаты подписки</li><li>Войдите в аккаунты букмекеров в отдельном браузере</li><li>Установите расширение в браузер</li><li>Жмите GO у каждого плеча вилки, и купон автоматически откроется</li></ol>
           <p class="ext"><a href="https://t.me/almanacc_trading_bot?start=wl_ext" data-wl="ext">Получить расширение</a><span>скачивается в личном кабинете после оплаты подписки</span></p>
         </div>
         <div>
-          <div class="sa" aria-label="Окно вилки, пример">
+          <div class="sa sa-static" aria-label="Окно вилки, пример">
             <div class="sa-top"><span>Selected Arb</span><span>пример</span></div>
             <div class="sa-bar"><b>22.20% → 12.18%</b><span>BASKETBALL</span></div>
-            <div class="sa-leg" data-leg="1" data-c="{&quot;bk&quot;: &quot;admiralbet.it&quot;, &quot;ev&quot;: &quot;Sig Strasbourg - Cibona Zagreb&quot;, &quot;lg&quot;: &quot;Internazionali |> Champions League&quot;, &quot;ty&quot;: &quot;H1(−22.5)&quot;, &quot;k&quot;: 2.85}"><span class="sa-bk">admiralbet.it</span><span class="sa-ev"><em>Sig Strasbourg - Cibona Zagreb</em><small>Internazionali |> Champions League</small></span><span class="sa-ty">H1(−22.5)</span><span class="sa-k">3.60 → 2.85</span><button type="button" class="gob" data-go aria-label="GO: открыть купон admiralbet.it">go</button></div>
-            <div class="sa-leg" data-leg="2" data-c="{&quot;bk&quot;: &quot;bc.game&quot;, &quot;ev&quot;: &quot;SIG Strasbourg - KK Cibona&quot;, &quot;lg&quot;: &quot;International | Champions League&quot;, &quot;ty&quot;: &quot;H2(+22.5)&quot;, &quot;k&quot;: 1.85}"><span class="sa-bk">bc.game<i class="ini" title="Инициатор вилки" aria-label="инициатор вилки"></i></span><span class="sa-ev"><em>SIG Strasbourg - KK Cibona</em><small>International | Champions League</small></span><span class="sa-ty">H2(+22.5)</span><span class="sa-k">1.85 → 1.85</span><button type="button" class="gob" data-go aria-label="GO: открыть купон bc.game">go</button></div>
+            <div class="sa-leg"><span class="sa-bk">admiralbet.it</span><span class="sa-ev"><em>Sig Strasbourg - Cibona Zagreb</em><small>Internazionali |> Champions League</small></span><span class="sa-ty">H1(−22.5)</span><span class="sa-k">3.60 → 2.85</span><span class="gob gob-s" aria-hidden="true">go</span></div>
+            <div class="sa-leg"><span class="sa-bk">bc.game<i class="ini" title="Инициатор вилки" aria-label="инициатор вилки"></i></span><span class="sa-ev"><em>SIG Strasbourg - KK Cibona</em><small>International | Champions League</small></span><span class="sa-ty">H2(+22.5)</span><span class="sa-k">1.85 → 1.85</span><span class="gob gob-s" aria-hidden="true">go</span></div>
           </div>
-          <div class="go-cs"><div class="cp" id="go-c1" aria-live="polite"><div class="cp-ph">Нажмите go у admiralbet.it: здесь откроется купон</div></div><div class="cp" id="go-c2" aria-live="polite"><div class="cp-ph">Нажмите go у bc.game: здесь откроется купон</div></div></div>
         </div>
       </article>
       <article class="tile cut cut-line t-live rv">
@@ -973,14 +1145,31 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
       </article>
       <article class="tile cut cut-line t-filter rv">
         <h3>Лента под себя</h3>
-        <p>Выберите колонки, их порядок и вид. Настройки сохраняются и сразу меняют <a href="#feed">ленту ниже</a>.</p>
-        <ol class="cols" id="cols" aria-label="Колонки ленты: включить, выключить, поменять порядок"></ol>
-        <div class="vopts">
+        <p>Выберите колонки, их порядок и вид, настройте фильтры. Всё сохраняется в браузере и сразу меняет <a href="#ws">ленту в рабочем месте</a>.</p>
+        <div class="tf-grid">
+          <div class="tf-cols"><ol class="cols" id="cols" aria-label="Колонки ленты: включить, выключить, поменять порядок"></ol></div>
+          <div class="tf-side"><div class="vopts">
           <div class="vrow"><span>Округление прибыли</span><div class="seg" data-opt="round" role="group" aria-label="Округление прибыли"><button type="button" data-v="2">0.01</button><button type="button" data-v="1">0.1</button><button type="button" data-v="0">1</button></div></div>
           <div class="vrow"><span>Букмекеры, тип и кф</span><div class="seg" data-opt="stack" role="group" aria-label="Расположение"><button type="button" data-v="row">В строку</button><button type="button" data-v="col">Друг под другом</button></div></div>
           <div class="vrow"><span>Размер шрифта</span><div class="stepper"><button type="button" data-fs="-1" aria-label="Шрифт меньше">−</button><b id="fs">14px</b><button type="button" data-fs="1" aria-label="Шрифт больше">+</button></div></div>
           <div class="vrow"><label for="defsum">Сумма вилки по умолчанию, $</label><input id="defsum" class="sumin" inputmode="decimal" value="100" autocomplete="off"></div>
-          <div class="vrow"><span></span><button type="button" class="chipbtn" id="cols-reset">Сбросить</button></div>
+          <div class="vrow"><span></span><button type="button" class="chipbtn" id="cols-reset">Сбросить</button></div></div>
+          <section class="fset" id="fset" aria-label="Окно «Настройки»">
+            <div class="fs-h">Настройки</div>
+            <div class="fs-tabs" role="tablist" aria-label="Настройки"><button type="button" role="tab" id="fs-tab-f" aria-selected="true" aria-controls="fs-f">Фильтры вилок</button><button type="button" role="tab" id="fs-tab-a" aria-selected="false" aria-controls="fs-a">Алиасы буков</button></div>
+            <div class="fs-p" id="fs-f" role="tabpanel" aria-labelledby="fs-tab-f">
+              <div class="dd" id="dd-bk" data-kind="bk"><button type="button" class="dd-b fld" aria-expanded="false"><small>Bookmakers</small><span class="dd-v"></span><span class="dd-c"></span></button><div class="dd-p" hidden></div></div>
+              <div class="dd" id="dd-sp" data-kind="sp"><button type="button" class="dd-b fld" aria-expanded="false"><small>Sports</small><span class="dd-v"></span><span class="dd-c"></span></button><div class="dd-p" hidden></div></div>
+              <div class="fs-2"><label class="fld"><small>Min Profit %</small><span class="fin"><input id="f-minp" inputmode="decimal" autocomplete="off"><em>%</em></span></label><label class="fld"><small>Min Duration</small><span class="fin"><input id="f-mind" inputmode="numeric" autocomplete="off"><em>sec</em></span></label></div>
+              <label class="fck"><input type="checkbox" id="f-half"><span>Показывать только 0.5 форы/тоталы</span></label>
+              <label class="fck"><input type="checkbox" id="f-tn3"><span>Скрыть теннис на 3-й сет</span></label>
+            </div>
+            <div class="fs-p" id="fs-a" role="tabpanel" aria-labelledby="fs-tab-a" hidden>
+              <p class="fs-hint">Короткие имена букмекеров: так они подписаны в ленте и окне вилки.</p>
+              <div class="fs-al" id="fs-al"></div>
+            </div>
+            <div class="fs-f"><span id="fs-count" aria-live="polite"></span><button type="button" class="chipbtn" id="fs-reset">Сбросить фильтры</button></div>
+          </section></div>
         </div>
       </article>
       <article class="tile cut cut-line t-line rv" style="--d:.1s">
@@ -990,37 +1179,32 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
           <div class="ot-cap"><span>Победа в 6-м гейме · игрок 1 / игрок 2</span><span class="demo">пример из сканера</span></div>
           <table class="odds" id="odds">
             <thead><tr><th scope="col">Букмекер</th><th scope="col" class="n">↓ Игрок 1</th><th scope="col" class="n">Игрок 2</th></tr></thead>
-            <tbody><tr class="leg" data-n="1"><td>superbet.ro<i class="ini" title="Инициатор вилки" aria-label="инициатор вилки"></i></td><td class="n">1.90</td><td class="n">1.75</td></tr><tr><td>parimatch.com</td><td class="n">1.83</td><td class="n">1.83</td></tr><tr><td>admiralbet.it</td><td class="n">1.82</td><td class="n">1.82</td></tr><tr><td>bovada.lv</td><td class="n">1.74</td><td class="n">2.05</td></tr><tr><td>bet365.com</td><td class="n">1.73</td><td class="n">2.00</td></tr><tr><td>betano.bg</td><td class="n">1.72</td><td class="n">1.98</td></tr><tr><td>lottoland.co.uk</td><td class="n">1.72</td><td class="n">1.98</td></tr><tr><td>paddypower.com</td><td class="n">1.67</td><td class="n">2.10</td></tr><tr><td>coral.co.uk</td><td class="n">1.65</td><td class="n">2.10</td></tr><tr><td>ladbrokes.com</td><td class="n">1.65</td><td class="n">2.10</td></tr><tr><td>sportingbet.com</td><td class="n">1.65</td><td class="n">2.05</td></tr><tr class="leg leg2" data-n="2"><td>grosvenorcasinos.com</td><td class="n">1.62</td><td class="n">2.14</td></tr><tr><td>livescorebet.com</td><td class="n">1.61</td><td class="n">2.12</td></tr></tbody>
+            <tbody><tr class="leg"><td>superbet.ro<i class="ini" title="Инициатор вилки" aria-label="инициатор вилки"></i></td><td class="n">1.90</td><td class="n">1.75</td></tr><tr><td>parimatch.com</td><td class="n">1.83</td><td class="n">1.83</td></tr><tr><td>admiralbet.it</td><td class="n">1.82</td><td class="n">1.82</td></tr><tr><td>bovada.lv</td><td class="n">1.74</td><td class="n">2.05</td></tr><tr><td>bet365.com</td><td class="n">1.73</td><td class="n">2.00</td></tr><tr><td>betano.bg</td><td class="n">1.72</td><td class="n">1.98</td></tr><tr><td>lottoland.co.uk</td><td class="n">1.72</td><td class="n">1.98</td></tr><tr><td>paddypower.com</td><td class="n">1.67</td><td class="n">2.10</td></tr><tr><td>coral.co.uk</td><td class="n">1.65</td><td class="n">2.10</td></tr><tr><td>ladbrokes.com</td><td class="n">1.65</td><td class="n">2.10</td></tr><tr><td>sportingbet.com</td><td class="n">1.65</td><td class="n">2.05</td></tr><tr class="leg leg2"><td>grosvenorcasinos.com</td><td class="n">1.62</td><td class="n">2.14</td></tr><tr><td>livescorebet.com</td><td class="n">1.61</td><td class="n">2.12</td></tr></tbody>
             <tfoot><tr><td>Лучшие кф · вилка <span class="roi" id="ot-roi">0.64%</span></td><td class="n" id="ot-b1">1.90</td><td class="n" id="ot-b2">2.14</td></tr></tfoot>
           </table>
           <div class="ot-fx" id="ot-fx">1/1.90 + 1/2.14 = 0.9936 &lt; 1 → вилка 0.64%</div>
-          <div class="ot-legend"><span class="ini-legend"><i class="ini" title="Инициатор вилки" aria-label="инициатор вилки"></i> инициатор вилки: букмекер, чей кф отклонился от рынка. Обычно он первым исправит линию</span><span class="ini-legend">1 и 2 в рамке: два плеча вилки, остальное — рынок</span></div>
+          <div class="ot-legend"><span class="ini-legend"><i class="ini" title="Инициатор вилки" aria-label="инициатор вилки"></i> инициатор вилки: букмекер, чей кф отклонился от рынка. Обычно он первым исправит линию</span><span class="ini-legend">В рамке — два плеча вилки, остальное — рынок</span></div>
         </div>
       </article>
-      <article class="tile cut cut-line t-ws rv">
+      <article class="tile cut cut-line t-ws rv" id="ws">
         <div class="ws-h">
-          <div><h3>Рабочее место под себя</h3><p>Лента, окно вилки и калькулятор — отдельные окна. Двигайте их за заголовок, растягивайте за угол, сворачивайте. Нажмите на вилку в ленте, и окно вилки с калькулятором обновятся.</p></div>
+          <div><h3>Рабочее место под себя</h3><p>Лента, окно вилки и калькулятор — отдельные окна, как в сканере. Нажмите на вилку в ленте: окно вилки и калькулятор заполнятся её данными. Окна двигаются за заголовок, растягиваются за угол и сворачиваются.</p><p class="demo-tag"><span class="live-dot" aria-hidden="true"></span>Запись реальной ленты сканера, кф не текущие</p></div>
           <div class="seg ws-lay" role="group" aria-label="Раскладка окон"><button type="button" data-lay="a">Лента слева</button><button type="button" data-lay="b">Лента сверху</button><button type="button" data-lay="c">Лента справа</button><button type="button" data-lay="reset">Сбросить</button></div>
         </div>
         <div class="desk" id="desk">
-          <section class="win" data-w="arbs" aria-label="Окно Arbs"><div class="wh" tabindex="0" aria-label="Окно Arbs: перетащите, стрелки двигают, Shift и стрелки меняют размер"><span>Arbs</span><button type="button" class="wmin" aria-label="Свернуть окно">–</button></div><div class="wb" id="ws-arbs"></div><span class="wr" aria-hidden="true"></span></section>
+          <section class="win" data-w="arbs" aria-label="Окно Arbs"><div class="wh" tabindex="0" aria-label="Окно Arbs: перетащите, стрелки двигают, Shift и стрелки меняют размер"><span>Arbs</span><button type="button" class="wmin" aria-label="Свернуть окно">–</button></div><div class="wb wb-arbs"><div class="lf" id="lf" role="table" aria-label="Лента вилок, запись"><div class="lf-row lf-head" id="lf-head" role="row"></div><div class="lf-body" id="lf-body"></div></div></div><span class="wr" aria-hidden="true"></span></section>
           <section class="win" data-w="sel" aria-label="Окно Selected Arb"><div class="wh" tabindex="0" aria-label="Окно Selected Arb: перетащите, стрелки двигают, Shift и стрелки меняют размер"><span>Selected Arb</span><button type="button" class="wmin" aria-label="Свернуть окно">–</button></div><div class="wb" id="ws-sel"></div><span class="wr" aria-hidden="true"></span></section>
-          <section class="win" data-w="calc" aria-label="Окно Arb Calculator"><div class="wh" tabindex="0" aria-label="Окно Arb Calculator: перетащите, стрелки двигают, Shift и стрелки меняют размер"><span>Arb Calculator</span><button type="button" class="wmin" aria-label="Свернуть окно">–</button></div><div class="wb" id="ws-calc"></div><span class="wr" aria-hidden="true"></span></section>
-        </div>
-        <p class="ws-note"><span class="desk-only">Данные со скриншота рабочего места сканера. Раскладка сохраняется в браузере.</span><span class="mob">На телефоне окна идут друг под другом. Двигать и растягивать их можно на компьютере.</span></p>
-      </article>
-      <article class="tile cut cut-line t-calc rv">
-        <div class="calc-h"><h3>Калькулятор вилок</h3><span class="rate">курс для примера: £1 = $1.34, €1 = $1.16</span></div>
-        <p>Нажмите на вилку в <a href="#feed">ленте</a>, и калькулятор сразу посчитает ставки под вашу сумму из фильтра. Или впишите свои кф и ставки.</p>
-        <p class="ac-src" id="ac-src" hidden></p>
-        <div class="ac">
+          <section class="win" data-w="calc" aria-label="Окно Arb Calculator"><div class="wh" tabindex="0" aria-label="Окно Arb Calculator: перетащите, стрелки двигают, Shift и стрелки меняют размер"><span>Arb Calculator</span><button type="button" class="wmin" aria-label="Свернуть окно">–</button></div><div class="wb wb-calc"><p class="ac-src" id="ac-src" hidden></p><div class="ac">
           <div class="ac-row ac-head" aria-hidden="true"><span></span><span>Букмекер</span><span>Вал.</span><span>Окр.</span><span></span><span>Кф</span><span>Ставка</span><span></span><span></span><span class="r">Возврат</span><span></span><span></span></div>
           <div id="ac-legs"></div>
           <div class="ac-tools"><button type="button" class="chipbtn" id="ac-add">+ исход</button><button type="button" class="chipbtn" id="ac-rm" hidden>− исход</button><button type="button" class="chipbtn" id="ac-reset">Сбросить</button><div class="ac-total">Общая ставка <b id="ac-total">$0.00</b></div></div>
           <div class="ac-sum" id="ac-sum" aria-live="polite"></div>
           <div class="ac-verdict" id="ac-verdict" aria-live="polite"></div>
           <div class="ac-legend"><span><b>○</b> округление ставки до 1, включено по умолчанию</span><span><b>замок</b> 1-й клик: ставка, 2-й: ставка и кф</span><span><b>↺</b> сброс плеча</span><span><b>=</b> равная прибыль</span><span><b>↑</b> перевес: вся прибыль на исход, остальные в ноль</span></div>
+        </div><p class="rate">курс для примера: £1 = $1.34, €1 = $1.16</p></div><span class="wr" aria-hidden="true"></span></section>
         </div>
+        <div class="feed-help"><span><i class="ini" title="Инициатор вилки" aria-label="инициатор вилки"></i> инициатор вилки</span><span>Нажмите на вилку: окно вилки и калькулятор заполнятся её данными</span><span><b>go</b> купон откроется у букмекера через расширение</span><span>Точки инициатора в записи поставлены для примера</span></div>
+        <p class="ws-note"><span class="desk-only">Прибыль считается так: (1 / (1/k1 + 1/k2) − 1) · 100. Строки появляются, меняются и исчезают, как в сканере, при наведении лента замирает. Раскладка окон сохраняется в браузере.</span><span class="mob">На телефоне окна идут друг под другом. Двигать и растягивать их можно на компьютере.</span></p>
       </article>
       <article class="tile cut cut-line t-tg rv" style="--d:.1s">
         <div><h3>Уведомления в Telegram</h3>
@@ -1038,51 +1222,23 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
   </div>
 </section>
 
-<!-- 4. ДЕМО-ЛЕНТА -->
-<section class="feed ink" id="feed">
-  <div class="wrap feed-head">
-    <div>
-      <p class="eyebrow rv">Лента</p>
-      <h2 class="h2 rv" style="--d:.1s">Так выглядит лента вилок</h2>
-    </div>
-    <span class="demo-tag rv"><span class="live-dot" aria-hidden="true"></span>Запись реальной ленты сканера, кф не текущие</span>
-  </div>
-  <div class="wrap">
-    <div class="lf rv" id="lf" role="table" aria-label="Лента вилок, запись">
-      <div class="lf-row lf-head" id="lf-head" role="row"></div>
-      <div class="lf-body" id="lf-body"></div>
-    </div>
-    <div class="feed-help"><span><i class="ini" title="Инициатор вилки" aria-label="инициатор вилки"></i> инициатор вилки</span><span>Нажмите на строку: калькулятор посчитает ставки под вашу сумму</span><span>Точки инициатора в записи поставлены для примера</span><span><b>go</b> откроет купон у букмекера</span></div>
-    <p class="feed-note"><span>Прибыль считается так: (1 / (1/k1 + 1/k2) − 1) · 100. Строки появляются, меняются и исчезают так же, как в сканере, при наведении лента замирает. Колонки и вид настраиваются в блоке «Лента под себя».</span></p>
-  </div>
-</section>
-
 <!-- 5. ТАРИФЫ -->
-<section class="real ink" id="real">
-  <div class="wrap">
-    <p class="eyebrow rv">Без реконструкций</p>
-    <h2 class="h2 rv" style="--d:.1s">Так выглядит сканер. <span class="dim">Скриншоты из рабочей версии.</span></h2>
-    <div class="rs-grid rv" style="--d:.15s"><figure class="rs wide"><a class="rs-a" href="assets/shots/feed.webp" data-zoom aria-label="Лента вилок: открыть крупно"><img src="assets/shots/feed.webp" width="1600" height="866" loading="lazy" decoding="async" alt="Лента вилок: Лайв-вилки по десяткам букмекеров: лига, событие, кф, прибыль и сколько живёт вилка"></a><figcaption><b>Лента вилок</b>Лайв-вилки по десяткам букмекеров: лига, событие, кф, прибыль и сколько живёт вилка</figcaption></figure><figure class="rs wide"><a class="rs-a" href="assets/shots/workspace.webp" data-zoom aria-label="Рабочее место: открыть крупно"><img src="assets/shots/workspace.webp" width="1280" height="542" loading="lazy" decoding="async" alt="Рабочее место: Лента, окно вилки и калькулятор открыты рядом"></a><figcaption><b>Рабочее место</b>Лента, окно вилки и калькулятор открыты рядом</figcaption></figure><figure class="rs half"><a class="rs-a" href="assets/shots/arb.webp" data-zoom aria-label="Окно вилки: открыть крупно"><img src="assets/shots/arb.webp" width="1280" height="779" loading="lazy" decoding="async" alt="Окно вилки: Плечи с кнопками go и кф этого рынка у других букмекеров"></a><figcaption><b>Окно вилки</b>Плечи с кнопками go и кф этого рынка у других букмекеров</figcaption></figure><figure class="rs tall"><a class="rs-a" href="assets/shots/settings.webp" data-zoom aria-label="Настройка ленты: открыть крупно"><img src="assets/shots/settings.webp" width="625" height="1280" loading="lazy" decoding="async" alt="Настройка ленты: Колонки, порядок, вид и размер шрифта"></a><figcaption><b>Настройка ленты</b>Колонки, порядок, вид и размер шрифта</figcaption></figure><figure class="rs wide"><a class="rs-a" href="assets/shots/calc.webp" data-zoom aria-label="Калькулятор: открыть крупно"><img src="assets/shots/calc.webp" width="1280" height="365" loading="lazy" decoding="async" alt="Калькулятор: Ставки в разных валютах, округление, замок и перевес"></a><figcaption><b>Калькулятор</b>Ставки в разных валютах, округление, замок и перевес</figcaption></figure></div>
-    <p class="rs-note">Нажмите на скриншот, чтобы открыть крупно. Кф и суммы на скриншотах не текущие.</p>
-  </div>
-</section>
-
 <section class="pricing slice tone" id="pricing">
   <div class="wrap">
     <p class="eyebrow rv">Тарифы</p>
-    <h2 class="h2 rv" style="--d:.1s">Одна подписка. <span class="dim">Чем дольше срок, тем дешевле месяц.</span></h2>
-    <div class="per" id="per" role="group" aria-label="Срок подписки"><button type="button" data-per="1" aria-pressed="true">1 месяц</button><button type="button" data-per="3" aria-pressed="false">3 месяца<em>−10%</em></button><button type="button" data-per="12" aria-pressed="false">12 месяцев<em>−20%</em></button></div>
+    <h2 class="h2 rv" style="--d:.1s">Одна подписка. <span class="dim">Чем дольше срок, тем дешевле день.</span></h2>
+    <div class="per" id="per" role="group" aria-label="Срок подписки"><button type="button" data-per="d" aria-pressed="false">1 день</button><button type="button" data-per="w" aria-pressed="false">1 неделя<em>−52%</em></button><button type="button" data-per="m" aria-pressed="true">1 месяц<em>−67%</em></button></div>
     <article class="plan one cut cut-line rv">
       <div>
         <div class="pn">PROJECT ALMANACC</div><div class="who">Одна подписка, все возможности сканера</div>
-        <div class="price"><span id="pp">$100</span> <small id="pper">за 1 месяц</small></div>
-        <div class="pnote" id="pnote">Без скидки</div>
-        <a class="btn btn-main cut" id="pbuy" href="https://t.me/almanacc_trading_bot?start=wl_p1" data-wl="p1">Встать в лист ожидания</a>
+        <div class="price"><span id="pp">$150</span> <small id="pper">за 1 месяц</small></div>
+        <div class="pnote" id="pnote">$5 в день, на 67% выгоднее дня</div>
+        <a class="btn btn-main cut" id="pbuy" href="https://t.me/almanacc_trading_bot?start=wl_m1" data-wl="m1">Встать в лист ожидания</a>
       </div>
       <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Лайв-вилки по десяткам букмекеров</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Кнопка GO: купон в один клик</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Калькулятор с перевесом и замком</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Рабочее место из окон</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Кф на других букмекерах</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Лента под себя</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Уведомления в Telegram</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Валуйные ставки <span class="soon">скоро</span></li></ul>
     </article>
     <div class="team-line"><span><b>Для команды</b> несколько мест и общий счёт — по запросу</span><a class="btn btn-ghost btn-sm cut cut-line" href="https://t.me/almanacc_trading_bot?start=team">Написать</a></div>
-    <p class="plans-note">Цены на старте продаж. Оплата в USDT через @CryptoBot или с любого кошелька. Подписка не продлевается сама: оплачиваете срок вперёд, бот напомнит за 3 дня до конца.</p>
+    <p class="plans-note">Цены на старте продаж. Оплата в USDT через @CryptoBot или с любого кошелька. Подписка не продлевается сама: оплачиваете срок вперёд, бот заранее напомнит о конце срока. Тариф на 1 день не возвращается.</p>
   </div>
 </section>
 
@@ -1109,11 +1265,11 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
       </details>
       <details>
         <summary>Как оплатить?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <div class="ans"><p>В USDT. Два способа: счёт в Telegram-боте @CryptoBot, это два нажатия, если там есть кошелёк. Или перевод с любого кошелька или биржи по адресу из счёта.</p><p>Подписка не продлевается сама: вы оплачиваете срок вперёд, а бот напомнит за 3 дня до конца.</p></div>
+        <div class="ans"><p>В USDT. Два способа: счёт в Telegram-боте @CryptoBot, это два нажатия, если там есть кошелёк. Или перевод с любого кошелька или биржи по адресу из счёта.</p><p>Подписка не продлевается сама: вы оплачиваете срок вперёд, а бот заранее напомнит о конце срока.</p></div>
       </details>
       <details>
         <summary>Можно ли вернуть деньги?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <div class="ans"><p>Да. Неиспользованные полные дни можно в любой момент перевести на баланс в кабинете. Вывести деньги на кошелёк можно в течение 14 дней после оплаты, за вычетом комиссии сети.</p><p>Возврат идёт на тот же кошелёк и в той же сети, откуда пришла оплата. Подробно в <a href="legal/refund.html">политике оплаты и возврата</a>.</p></div>
+        <div class="ans"><p>Да. Неиспользованные полные дни можно в любой момент перевести на баланс в кабинете. Вывести деньги на кошелёк можно в течение 14 дней после оплаты, за вычетом комиссии сети. Тариф на 1 день не возвращается.</p><p>Возврат идёт на тот же кошелёк и в той же сети, откуда пришла оплата. Подробно в <a href="legal/refund.html">политике оплаты и возврата</a>.</p></div>
       </details>
       <details>
         <summary>Как дольше сохранить лимиты у букмекеров?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
@@ -1158,7 +1314,6 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
     <p class="copy">© 2026 PROJECT ALMANACC</p>
   </div>
 </footer>
-<div class="cpop" id="coupon-pop" role="dialog" aria-label="Купон букмекера" hidden><button type="button" class="cp-x" aria-label="Закрыть">×</button><div class="cp cp-body"></div></div>
 <div class="wl" id="wl" role="dialog" aria-modal="true" aria-labelledby="wl-h" hidden>
   <div class="wl-box cut cut-line">
     <button type="button" class="wl-x" aria-label="Закрыть">×</button>
@@ -1170,7 +1325,6 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
     <p class="wl-s">Откроется Telegram, нажмите «Старт». Спама не будет: одно сообщение в день запуска.</p>
   </div>
 </div>
-<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-label="Скриншот крупно" hidden><button type="button" class="wl-x" aria-label="Закрыть">×</button></div>
 <div class="cookie" id="cookie" role="dialog" aria-label="Cookie" hidden>
   <p>Сайт использует только необходимые cookie<span class="ck-long">. Аналитику включим, только если разрешите</span>. <a href="legal/cookies.html">Подробнее</a></p>
   <div><button type="button" class="btn btn-ghost btn-sm" data-cookie="necessary"><span class="ck-long">Только необходимые</span><span class="ck-short">Отказаться</span></button><button type="button" class="btn btn-main btn-sm" data-cookie="all">Разрешить</button></div>
@@ -1328,10 +1482,10 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
 })();
 </script>
 <script>
-/* ===================== v5: доработки ===================== */
+/* ===================== v8: рабочее место = лента + окно вилки + калькулятор ===================== */
 (function(){
   var D=document, H=D.documentElement, anim=H.classList.contains('anim'), NB='\u00a0';
-  var APP='https://app.alma.trading', WL='https://t.me/almanacc_trading_bot?start=wl_';
+  var WL='https://t.me/almanacc_trading_bot?start=wl_';
   function $(s,r){return (r||D).querySelector(s)}
   function $$(s,r){return [].slice.call((r||D).querySelectorAll(s))}
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
@@ -1339,7 +1493,19 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
   function roi(ks){var S=0;ks.forEach(function(k){S+=1/k});return (1/S-1)*100}
   function store(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
   function age(t){if(t<60)return t+'s';var m=Math.floor(t/60),s=t%60;return m+'m'+NB+(s<10?'0':'')+s+'s'}
+  function clone(x){return JSON.parse(JSON.stringify(x))}
   var DOT='<i class="ini" title="Инициатор вилки" aria-label="инициатор вилки"></i>';
+  var GO_HINT='Купон откроется у букмекера через расширение';
+
+  /* ---------- всплывающая подсказка (go, «Скопировано») ---------- */
+  var tip=D.createElement('div'); tip.className='tip'; tip.setAttribute('role','status'); tip.hidden=true; D.body.appendChild(tip);
+  function hint(el,text){
+    var r=el.getBoundingClientRect(); tip.textContent=text; tip.hidden=false;
+    var w=tip.offsetWidth, x=Math.min(innerWidth-w-8,Math.max(8,r.left+r.width/2-w/2)), y=r.top-tip.offsetHeight-8;
+    if(y<8)y=r.bottom+8; tip.style.left=x+'px'; tip.style.top=y+'px';
+    clearTimeout(tip._t); tip._t=setTimeout(function(){tip.hidden=true},2400);
+  }
+  addEventListener('scroll',function(){tip.hidden=true},{passive:true});
 
   /* ---------- лайв-тайл: тикающее время ---------- */
   var ll=$$('.ll-t');
@@ -1357,169 +1523,217 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
     $('#ot-fx').textContent='1/'+best[0].toFixed(2)+' ('+who[0]+') + 1/'+best[1].toFixed(2)+' ('+who[1]+') = '+S0.toFixed(4)+' < 1 → вилка '+r0.toFixed(2)+'%';
   }
 
-  /* ---------- купон букмекера (демо работы расширения) ---------- */
-  var pop=$('#coupon-pop');
-  function couponHTML(c,ms){
-    return '<div class="cp-h"><span>'+esc(c.bk)+'</span><span class="cp-t">купон</span></div>'+
-      '<div class="cp-b"><div class="cp-ev">'+esc(c.ev)+'</div>'+(c.lg?'<div class="cp-lg">'+esc(c.lg)+'</div>':'')+
-      '<div class="cp-m"><span>'+esc(c.ty)+'</span><b class="num">'+Number(c.k).toFixed(2)+'</b></div>'+
-      '<div class="cp-s"><span>Сумма</span><span class="cp-in">впишите сами</span></div></div>'+
-      '<div class="cp-f">Открыт за '+ms.toFixed(1).replace('.',',')+NB+'с через расширение · демо</div>';
-  }
-  function openCoupon(box,c){
-    var ms=.3+Math.random()*.3;
-    box.hidden=false; box.classList.remove('ready'); box.innerHTML='<div class="cp-load">Открываем '+esc(c.bk)+'…</div>';
-    setTimeout(function(){box.innerHTML=couponHTML(c,ms);box.classList.add('ready');},ms*1000);
-  }
-  function popCoupon(c){
-    if(!pop)return; openCoupon($('.cp-body',pop),c); pop.hidden=false;
-    clearTimeout(pop._t); pop._t=setTimeout(function(){pop.hidden=true},6500);
-  }
-  if(pop) $('.cp-x',pop).addEventListener('click',function(){pop.hidden=true});
-
-  /* ---------- блок GO ---------- */
-  $$('[data-go]').forEach(function(b){b.addEventListener('click',function(){
-    var row=b.closest('[data-leg]'), box=$('#go-c'+row.dataset.leg);
-    b.classList.add('done'); openCoupon(box,JSON.parse(row.dataset.c));
-  })});
-
   /* =====================================================================
-     Живая лента + «Лента под себя»
-     Данные: кадры записи реальной ленты сканера (видео, 03.11.2026).
-     Инициатор (точка) в записи не виден, отмечен для примера.
+     Данные ленты: кадры записи реальной ленты сканера (видео и скриншоты),
+     плюс 4 вилки со скриншота рабочего места. Точки инициатора в записи не видны, отмечены для примера.
      ===================================================================== */
   var SP={
     tt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-label="Настольный теннис"><circle cx="10" cy="10" r="6.5"/><path d="m14.6 14.6 5.4 5.4"/><circle cx="19" cy="6" r="1.6"/></svg>',
     bb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-label="Баскетбол"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c3.3 3.3 3.3 9.5 0 12.8M18.4 5.6c-3.3 3.3-3.3 9.5 0 12.8"/></svg>',
     vb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-label="Волейбол"><circle cx="12" cy="12" r="9"/><path d="M12 3c-1 4 0 7 4 9.5M3.6 15.5C7.5 14 10.5 14.4 12 12M20.4 15.5C17 17 13 17 12 12"/></svg>',
     tn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-label="Теннис"><circle cx="12" cy="12" r="9"/><path d="M5.5 5.8c3 2.8 3 9.6 0 12.4M18.5 5.8c-3 2.8-3 9.6 0 12.4"/></svg>',
-    eb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-label="Кибербаскетбол"><rect x="2.5" y="7" width="19" height="11" rx="3"/><path d="M7 10.5v4M5 12.5h4M15.5 11.5h.01M18 13.5h.01"/></svg>'
+    eb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-label="Кибербаскетбол"><rect x="2.5" y="7" width="19" height="11" rx="3"/><path d="M7 10.5v4M5 12.5h4M15.5 11.5h.01M18 13.5h.01"/></svg>',
+    fb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-label="Футбол"><circle cx="12" cy="12" r="9"/><path d="m12 7.5 4.3 3.1-1.6 5h-5.4l-1.6-5z"/><path d="M12 3v4.5M16.3 10.6l4.4-1.4M14.7 15.6l2.7 3.8M9.3 15.6l-2.7 3.8M7.7 10.6 3.3 9.2"/></svg>'
   };
-  /* лига, событие, спорт, БК1, БК2, рынок1, рынок2, кф1, кф2, живёт (с), инициатор (0|1) */
+  var SPN={tt:'Настольный теннис',bb:'Баскетбол',vb:'Волейбол',tn:'Теннис',eb:'Кибербаскетбол',fb:'Футбол'};
+  var SPU={tt:'TABLE_TENNIS',bb:'BASKETBALL',vb:'VOLLEYBALL',tn:'TENNIS',eb:'E-BASKETBALL',fb:'FOOTBALL'};
+  /* лига, событие, спорт, БК1, БК2, рынок1, рынок2, кф1, кф2, живёт (с), инициатор (0|1), [доп.] */
   var POOL=[
+    ['Premier League International Cup','Middlesbrough U21 - Valencia U21','fb','888sport.com','admiralbet.it','TU(5.5)','TO(5.5)',2.05,4.25,4,1],
+    ['Francia |> Coupe de France','Jda Dijon Basket - Limoges','bb','admiralbet.it','bc.game','Away TO(67.5)','Away TU(67.5)',2.15,2.25,3,0,
+      {ev2:['Jda Dijon Basket - Limoges','JDA Dijon Basket - Limoges CSP'],lg2:['Francia |> Coupe de France','France | Coupe de France'],
+       others:[['admiralbet.it',2.15,1.60],['bc.game',1.55,2.25],['goldenbet.com',1.55,2.30],['parimatch.com',1.55,2.30],['superbet.ro',1.50,2.15]]}],
+    ['French Cup','JDA Dijon Basket - Limoges CSP','bb','888sport.com','admiralbet.it','H1(−22.5)','H2(+22.5)',2.20,2.07,4,1],
+    ['Internazionali |> Europe Cup','Sluc Nancy Basket - Kerametsk','bb','admiralbet.it','bc.game','H2(+14.5)','H1(−14.5)',1.90,2.25,4,0],
     ['TT Elite Series','Jakub Kuzmicz - Konrad Staszczyk','tt','888sport.com','ladbrokes.com','G1 2','G1 1',4.00,1.80,1,0],
     ['TT Elite Series','Amirreza Abbasi - Miroslav Sklenar','tt','bet365.com','ladbrokes.com','G2 H2(−2.5)','G2 H1(+2.5)',3.40,1.80,2,0],
-    ['TT Elite Series','Amirreza Abbasi - Miroslav Sklenar','tt','bet365.com','bc.game','G2 H2(−2.5)','G2 H1(+2.5)',3.40,1.80,2,0],
     ['Kazakh National League','Barsy Atyrau - BC Almaty Legion','bb','888sport.com','goldenbet.com','1H H1(−8.5)','1H H2(+8.5)',2.25,2.30,6,1],
-    ['Kazakh National League','Barsy Atyrau - BC Almaty Legion','bb','888sport.com','ladbrokes.com','1H TO(68.5)','1H TU(68.5)',2.20,2.20,15,0],
-    ['Kazakhstan National League','Zhaiyk - Quanysh','vb','bet365.com','fon.bet','2','1',6.00,1.32,17,0],
     ['Kazakhstan. National liga','Zhaiyk - Kuanysh','vb','fon.bet','lottoland.co.uk','1','2',1.32,6.00,8,1],
     ['Ebasketball › NBA H2H GG League','Denver Nuggets (chief) - Charlotte Hornets','eb','betano.bg','goldenbet.com','1','2',1.67,3.03,11,1],
+    ['World Tennis. Women. Hungary','Nuudi M - Ciocan M','tn','fon.bet','bc.game','2S H1(+2.5)','2S H2(−2.5)',1.85,2.55,1,1],
+    ['Turkey. Efeler League','Istanbul Genclik Spor - Gaziantep','vb','fon.bet','lottoland.co.uk','1S TU(47.5)','1S TO(47.5)',3.00,1.93,1,0],
+    ['Setka Cup |> Men','Viktor Sharpai - Andrii Lifanov','tt','betano.bg','betonline.ag','G2 2','G2 1',1.85,2.60,1,1],
+    ['TT Elite Series','Amirreza Abbasi - Miroslav Sklenar','tt','bet365.com','bc.game','G2 H2(−2.5)','G2 H1(+2.5)',3.40,1.80,2,0],
+    ['Kazakh National League','Barsy Atyrau - BC Almaty Legion','bb','888sport.com','ladbrokes.com','1H TO(68.5)','1H TU(68.5)',2.20,2.20,15,0],
     ['Ebasketball › Liga H2H GG','Charlotte Hornets (HYPER) - Denver Nuggets','eb','betsson.es','goldenbet.com','1','2',1.67,3.03,10,1],
     ['Ebasketball H2H GG League · 4x5','CHA Hornets (HYPER) - DEN Nuggets','eb','bet365.com','betano.bg','2','1',3.00,1.67,11,0],
-    ['World Tennis. Women. Hungary','Nuudi M - Ciocan M','tn','fon.bet','bc.game','2S H1(+2.5)','2S H2(−2.5)',1.85,2.55,1,1],
     ['W15 Sharm El Sheikh WD','Kochta/Smart - Kurt/Medvedeva','tn','bet365.com','fon.bet','2','1',2.38,1.95,11,0],
     ['NBA2K › NBA Blitz League · 4x5','CHA Hornets (HYPER) - DEN Nuggets','eb','goldenbet.com','superbet.ro','2','1',3.03,1.65,10,0],
     ['Setka Cup','Serhii Kryvoshyi - Mykhailo Dunas','tt','bet365.com','bc.game','G1 H2(−2.5)','G1 H1(+2.5)',2.63,1.80,1,0],
-    ['TT Elite Series › Men','Amirreza Abbasi - Miroslav Sklenar','tt','betano.bg','ladbrokes.com','G2 TU(19.5)','G2 TO(19.5)',2.42,1.91,1,0]
+    ['Turkish - Efeler Ligi','Istanbul Genclik Spor - Gaziantep','vb','ladbrokes.com','lottoland.co.uk','1S 2','1S 1',1.40,4.90,4,0],
+    ['World Tennis. Women. Egypt','Kochta T / Smart H - Kurt I / Medvedeva','tn','fon.bet','livescorebet.com','1','2',1.93,2.50,13,1],
+    ['Itf M15 Salvador','Jefferson Wendler Filho - Giovanni Oradini','tn','888sport.com','betano.bg','2S 2','2S 1',3.75,1.47,3,0],
+    ['Kazakhstan. National liga','Zhaiyk - Kuanysh','vb','bet365.com','fon.bet','2','1',6.00,1.32,17,0]
   ];
-  var COLS={lg:['Лига','minmax(0,1.2fr)'],ev:['Событие','minmax(0,1.5fr)'],sp:['Спорт','64px'],bk:['Букмекеры','minmax(0,1.2fr)'],
-            ty:['Тип','minmax(0,1fr)'],kf:['Кф','70px'],pr:['Прибыль','100px'],tm:['Время','76px'],go:['GO','68px']};
-  var DEF={order:['lg','ev','sp','bk','ty','kf','pr','tm','go'],on:{lg:1,ev:1,sp:1,bk:1,ty:1,kf:1,pr:1,tm:1,go:1},round:1,stack:'col',fs:14,sum:100};
-  var cfg=store('alm_feed_v2')||JSON.parse(JSON.stringify(DEF));
-  Object.keys(DEF).forEach(function(k){if(cfg[k]===undefined)cfg[k]=JSON.parse(JSON.stringify(DEF[k]))});
-  function save(){store('alm_feed_v2',cfg)}
+  var BKS=[], SPS=[];
+  POOL.forEach(function(p){[p[3],p[4]].forEach(function(b){if(BKS.indexOf(b)<0)BKS.push(b)});if(SPS.indexOf(p[2])<0)SPS.push(p[2])});
+  BKS.sort();
 
+  /* ---------- настройки ленты (колонки, вид, сумма, фильтры, алиасы) ---------- */
+  var COLS={lg:['Лига','minmax(0,1.2fr)'],ev:['Событие','minmax(0,1.5fr)'],sp:['Спорт','40px'],bk:['Букмекеры','minmax(0,1.2fr)'],
+            ty:['Тип','minmax(0,1fr)'],kf:['Кф','50px'],pr:['Прибыль','72px'],tm:['Время','60px'],go:['GO','52px']};
+  var DEF={order:['lg','ev','sp','bk','ty','kf','pr','tm','go'],on:{lg:1,ev:1,sp:1,bk:1,ty:1,kf:1,pr:1,tm:1,go:1},round:1,stack:'col',fs:13,sum:100,
+           f:{bk:BKS.slice(),sp:SPS.slice(),minP:1,minD:1,half:1,tn3:1},alias:{}};
+  var cfg=store('alm_feed_v3')||clone(DEF);
+  Object.keys(DEF).forEach(function(k){if(cfg[k]===undefined)cfg[k]=clone(DEF[k])});
+  Object.keys(DEF.f).forEach(function(k){if(cfg.f[k]===undefined)cfg.f[k]=clone(DEF.f[k])});
+  function save(){store('alm_feed_v3',cfg)}
+  function al(b){return cfg.alias[b]||b}
+
+  /* ---------- живая лента в окне Arbs ---------- */
   var lf=$('#lf'), lfHead=$('#lf-head'), lfBody=$('#lf-body'), uid=0;
-  var live=POOL.slice(0,10).map(mk);
-  function mk(p){return{id:++uid,lg:p[0],ev:p[1],sp:p[2],b:[p[3],p[4]],t:[p[5],p[6]],k:[p[7],p[8]],age:p[9],ini:p[10],src:p,fresh:0,gone:0,dk:[0,0]}}
+  function mk(p){var x=p[11]||{};return{id:++uid,lg:p[0],ev:p[1],sp:p[2],b:[p[3],p[4]],t:[p[5],p[6]],k:[p[7],p[8]],k0:[p[7],p[8]],age:p[9],ini:p[10],
+    ev2:x.ev2,lg2:x.lg2,others:x.others,src:p,fresh:0,gone:0,dk:[0,0]}}
+  var live=POOL.slice(0,12).map(mk);
+  var picked=live[1].id;
   function pr(r){return roi(r.k)}
+  function byId(id){return live.find(function(x){return x.id===id})}
+  function passes(r){
+    var f=cfg.f;
+    if(r.id===picked)return true;
+    if(f.bk.indexOf(r.b[0])<0||f.bk.indexOf(r.b[1])<0)return false;
+    if(f.sp.indexOf(r.sp)<0)return false;
+    if(pr(r)<f.minP)return false;
+    if(r.age<f.minD)return false;
+    if(f.half&&r.t.some(function(t){var m=/\(([−+\-]?\d+(?:\.\d+)?)\)/.exec(t);return m&&!/\.5$/.test(m[1])}))return false;
+    if(f.tn3&&r.sp==='tn'&&r.t.some(function(t){return /^3S/.test(t)}))return false;
+    return true;
+  }
   function cell(c,r){
     if(c==='lg')return '<div class="c-lg" title="'+esc(r.lg)+'">'+esc(r.lg)+'</div>';
     if(c==='ev')return '<div class="c-ev" title="'+esc(r.ev)+'">'+esc(r.ev)+'</div>';
     if(c==='sp')return '<div class="c-sp">'+SP[r.sp]+'</div>';
-    if(c==='bk')return '<div class="c-bk">'+r.b.map(function(b,i){return '<span>'+esc(b)+(r.ini===i?DOT:'')+'</span>'}).join('')+'</div>';
+    if(c==='bk')return '<div class="c-bk">'+r.b.map(function(b,i){return '<span>'+esc(al(b))+(r.ini===i?DOT:'')+'</span>'}).join('')+'</div>';
     if(c==='ty')return '<div class="c-ty"><span>'+esc(r.t[0])+'</span><span>'+esc(r.t[1])+'</span></div>';
     if(c==='kf')return '<div class="c-kf">'+r.k.map(function(k,i){return '<span class="'+(r.dk[i]>0?'up':r.dk[i]<0?'dn':'')+'">'+k.toFixed(2)+'</span>'}).join('')+'</div>';
     if(c==='pr')return '<div class="c-pr">'+pr(r).toFixed(cfg.round)+'%</div>';
     if(c==='tm')return '<div class="c-tm" data-age="'+r.id+'">'+age(r.age)+'</div>';
-    if(c==='go')return '<div class="c-go">'+[0,1].map(function(i){return '<button type="button" class="gob" data-fgo="'+i+'" aria-label="Открыть купон '+esc(r.b[i])+'">go</button>'}).join('')+'</div>';
+    if(c==='go')return '<div class="c-go">'+[0,1].map(function(i){return '<button type="button" class="gob" data-go title="'+GO_HINT+'" aria-label="go: '+esc(r.b[i])+'. '+GO_HINT+'">go</button>'}).join('')+'</div>';
   }
   function cols(){return cfg.order.filter(function(c){return cfg.on[c]})}
-  var hover=false, picked=0;
+  var hover=false;
   function render(){
     if(!lf)return;
     var cs=cols(), tpl=cs.map(function(c){return COLS[c][1]}).join(' ');
     lf.style.fontSize=cfg.fs+'px';
     lf.classList.toggle('row',cfg.stack==='row');
+    var cnt=$('#fs-count');
     if(!cs.length){lfHead.innerHTML='';lfBody.innerHTML='<div class="lf-empty">Включите хотя бы одну колонку в блоке «Лента под себя»</div>';return;}
     lfHead.style.gridTemplateColumns=tpl;
     lfHead.innerHTML=cs.map(function(c){return '<div>'+(c==='go'?'':COLS[c][0])+(c==='pr'?' ↓':'')+'</div>'}).join('');
     live.sort(function(a,b){return pr(b)-pr(a)});
-    lfBody.innerHTML=live.map(function(r){return '<div class="lf-row'+(r.fresh?' fresh':'')+(r.gone?' gone':'')+(r.id===picked?' picked':'')+'" data-id="'+r.id+'" tabindex="0" role="button" aria-label="Вилка '+esc(r.ev)+' '+pr(r).toFixed(1)+'%, открыть в калькуляторе" style="grid-template-columns:'+tpl+'">'+cs.map(function(c){return cell(c,r)}).join('')+'</div>'}).join('');
+    var vis=live.filter(passes);
+    if(cnt)cnt.textContent='В ленте '+vis.length+' из '+live.length+' вилок';
+    lfBody.innerHTML=vis.length?vis.map(function(r){return '<div class="lf-row'+(r.fresh?' fresh':'')+(r.gone?' gone':'')+(r.id===picked?' picked':'')+'" data-id="'+r.id+'" tabindex="0" role="button" aria-label="Вилка '+esc(r.ev)+' '+pr(r).toFixed(1)+'%, открыть в окне вилки и калькуляторе" style="grid-template-columns:'+tpl+'">'+cs.map(function(c){return cell(c,r)}).join('')+'</div>'}).join('')
+      :'<div class="lf-empty">Под фильтры сейчас нет вилок. Ослабьте их в окне «Настройки» блока «Лента под себя»</div>';
   }
   setInterval(function(){live.forEach(function(r){r.age++;var el=lfBody&&lfBody.querySelector('[data-age="'+r.id+'"]');if(el)el.textContent=age(r.age)})},1000);
   function step(){
     if(!lf||hover)return;
     live.forEach(function(r){r.fresh=0;r.dk=[0,0]});
     live=live.filter(function(r){return !r.gone});
-    var x=Math.random();
+    var x=Math.random(), ch=null;
     if(x<.45&&live.length){
       var r=live[Math.floor(Math.random()*live.length)], i=Math.random()<.5?0:1, d=(Math.random()<.5?-1:1)*(1+Math.floor(Math.random()*4))/100;
-      r.k[i]=Math.max(1.01,Math.round((r.k[i]+d)*100)/100); r.dk[i]=d;
+      r.k[i]=Math.max(1.01,Math.round((r.k[i]+d)*100)/100); r.dk[i]=d; ch=r;
       if(pr(r)<0.3&&r.id!==picked) r.gone=1;
-    } else if(x<.75&&live.length>7){
+      if(r.id===picked&&pr(r)<0.3){r.k[i]=Math.round((r.k[i]-d)*100)/100;r.dk[i]=0;ch=null;}
+    } else if(x<.75&&live.length>9){
       var cand=live.filter(function(r){return r.id!==picked}).sort(function(a,b){return b.age-a.age});
       if(cand.length)cand[Math.floor(Math.random()*Math.min(3,cand.length))].gone=1;
     } else {
       var free=POOL.filter(function(p){return !live.some(function(r){return r.src===p})});
-      if(free.length){var n=mk(free[Math.floor(Math.random()*free.length)]);n.age=0;n.fresh=1;n.k=n.k.slice();live.push(n);}
+      if(free.length){var n=mk(free[Math.floor(Math.random()*free.length)]);n.age=0;n.fresh=1;live.push(n);}
     }
     render();
-  }
-  if(lf){
-    render();
-    lf.addEventListener('pointerenter',function(){hover=true}); lf.addEventListener('pointerleave',function(){hover=false});
-    if(anim && 'IntersectionObserver' in window){var tick=null;new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!tick)tick=setInterval(step,2200);if(!e.isIntersecting&&tick){clearInterval(tick);tick=null}})}).observe(lf);}
-    lfBody.addEventListener('click',function(e){
-      var row=e.target.closest('.lf-row'); if(!row)return; var r=live.find(function(x){return x.id===+row.dataset.id}); if(!r)return;
-      var g=e.target.closest('[data-fgo]');
-      if(g){var i=+g.dataset.fgo; popCoupon({bk:r.b[i],ev:r.ev,lg:r.lg,ty:r.t[i],k:r.k[i]}); return;}
-      picked=r.id; render(); loadArb(r.b,r.k,r.ev);
-    });
-    lfBody.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('lf-row')){e.preventDefault();e.target.click();}});
+    if(ch&&ch.id===picked)selWin();
   }
 
-  /* ---------- «Лента под себя» ---------- */
-  var colsEl=$('#cols');
-  var HD='<svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg>';
-  var UP='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg>', DN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>';
-  function renderCols(){
-    if(!colsEl)return;
-    colsEl.innerHTML=cfg.order.map(function(c,i){return '<li class="col" draggable="true" data-c="'+c+'">'+HD+'<label><input type="checkbox" '+(cfg.on[c]?'checked':'')+' data-on="'+c+'"><span class="nm">'+(c==='go'?'Кнопка GO':COLS[c][0])+'</span></label>'+
-      '<button type="button" data-mv="-1" aria-label="'+COLS[c][0]+' выше" '+(i===0?'disabled':'')+'>'+UP+'</button><button type="button" data-mv="1" aria-label="'+COLS[c][0]+' ниже" '+(i===cfg.order.length-1?'disabled':'')+'>'+DN+'</button></li>'}).join('');
-    $$('[data-opt]').forEach(function(g){$$('button',g).forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.v)===String(cfg[g.dataset.opt]))})});
-    var fs=$('#fs'); if(fs)fs.textContent=cfg.fs+'px';
-    var sm=$('#defsum'); if(sm&&D.activeElement!==sm)sm.value=cfg.sum;
+  /* ---------- кф на других букмекерах: настоящие (Francia) или пример вокруг кф плеч ---------- */
+  var OTH=['bet365.com','parimatch.com','betano.bg','pinnacle.com','888sport.com','admiralbet.it','bc.game','goldenbet.com','superbet.ro','fon.bet','ladbrokes.com','lottoland.co.uk','betsson.es','coral.co.uk','livescorebet.com','paddypower.com','sportingbet.com'];
+  function rng(seed){var s=seed%2147483647;if(s<=0)s+=2147483646;return function(){s=s*16807%2147483647;return (s-1)/2147483646}}
+  function hash(str){var h=7;for(var i=0;i<str.length;i++)h=(h*31+str.charCodeAt(i))%2147483647;return h}
+  function q(v){return Math.max(1.01,Math.round(v*100)/100)}
+  function market(r){
+    if(r.others)return {rows:r.others.map(function(o){return o.slice()}),real:1};
+    var R=rng(hash(r.ev+r.t[0]+r.b.join())), k1=r.k0[0], k2=r.k0[1], p=(1/k1)/(1/k1+1/k2), rows=[];
+    rows.push([r.b[0],k1,Math.min(k2-.04,q(1/(1.055-1/k1)))]);
+    rows.push([r.b[1],Math.min(k1-.04,q(1/(1.055-1/k2))),k2]);
+    var pool=OTH.filter(function(b){return r.b.indexOf(b)<0}), n=8+Math.floor(R()*4);
+    for(var i=0;i<n&&pool.length;i++){
+      var b=pool.splice(Math.floor(R()*pool.length),1)[0], m=.035+R()*.05, e=(R()-.5)*.08;
+      var a=q(1/((p+e)*(1+m))), c=q(1/((1-p-e)*(1+m)));
+      a=Math.min(a,q(k1-.02-R()*.06)); c=Math.min(c,q(k2-.02-R()*.06));
+      if(1/a+1/c<1.02)c=q(1/(1.03-1/a));
+      rows.push([b,Math.max(1.01,a),Math.max(1.01,c)]);
+    }
+    rows.forEach(function(o){if(o[1]<1.01)o[1]=1.01;if(o[2]<1.01)o[2]=1.01});
+    return {rows:rows,real:0};
   }
-  function apply(){save();renderCols();render();}
-  if(colsEl){
-    colsEl.addEventListener('change',function(e){var c=e.target.dataset.on;if(c){cfg.on[c]=e.target.checked?1:0;save();render();}});
-    colsEl.addEventListener('click',function(e){var b=e.target.closest('[data-mv]');if(!b)return;var c=b.closest('.col').dataset.c,i=cfg.order.indexOf(c),j=i+ +b.dataset.mv;
-      if(j<0||j>=cfg.order.length)return;cfg.order.splice(i,1);cfg.order.splice(j,0,c);apply();var nb=colsEl.querySelector('[data-c="'+c+'"] [data-mv="'+b.dataset.mv+'"]');(nb&&!nb.disabled?nb:colsEl.querySelector('[data-c="'+c+'"] input')).focus();});
-    var dragC=null;
-    colsEl.addEventListener('dragstart',function(e){var li=e.target.closest('.col');if(!li)return;dragC=li.dataset.c;li.classList.add('drag');e.dataTransfer.effectAllowed='move';try{e.dataTransfer.setData('text/plain',dragC)}catch(_){}});
-    colsEl.addEventListener('dragover',function(e){var li=e.target.closest('.col');if(!li||!dragC)return;e.preventDefault();$$('.col.over',colsEl).forEach(function(x){x.classList.remove('over')});li.classList.add('over');});
-    colsEl.addEventListener('drop',function(e){var li=e.target.closest('.col');if(!li||!dragC)return;e.preventDefault();var to=cfg.order.indexOf(li.dataset.c);cfg.order.splice(cfg.order.indexOf(dragC),1);cfg.order.splice(to,0,dragC);dragC=null;apply();});
-    colsEl.addEventListener('dragend',function(){dragC=null;$$('.col',colsEl).forEach(function(x){x.classList.remove('drag','over')})});
-    $$('[data-opt]').forEach(function(g){g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var v=b.dataset.v;cfg[g.dataset.opt]=isNaN(+v)?v:+v;apply();})});
-    $$('[data-fs]').forEach(function(b){b.addEventListener('click',function(){cfg.fs=Math.min(18,Math.max(12,cfg.fs+ +b.dataset.fs));apply();})});
-    var sm=$('#defsum'); if(sm)sm.addEventListener('input',function(){var v=parseFloat(sm.value.replace(',','.'));if(v>0){cfg.sum=v;save();wsCalc();}});
-    var rs=$('#cols-reset'); if(rs)rs.addEventListener('click',function(){cfg=JSON.parse(JSON.stringify(DEF));apply();wsCalc();});
-    renderCols();
+
+  /* ---------- окно Selected Arb ---------- */
+  var LINK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg>';
+  var COPY='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg>';
+  var EYE='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/><path d="M4 20 20 4"/></svg>';
+  function people(ev){var i=ev.indexOf(' - ');return i<0?[ev]:[ev.slice(0,i),ev.slice(i+3)]}
+  function pills(ev){return people(ev).map(function(n){return '<button type="button" class="pill" data-copy="'+esc(n)+'" title="Скопировать: '+esc(n)+'"><span>'+esc(n)+'</span>'+COPY+'</button>'}).join('<span class="dash">-</span>')}
+  function selWin(){
+    var el=$('#ws-sel'); if(!el)return; var a=byId(picked); if(!a)return;
+    var mk2=market(a), rows=mk2.rows.slice().sort(function(x,y){return y[1]-x[1]});
+    var m1=Math.max.apply(null,rows.map(function(x){return x[1]})), m2=Math.max.apply(null,rows.map(function(x){return x[2]}));
+    el.innerHTML='<div class="sa-bar"><b>'+roi(a.k0).toFixed(2)+'% → '+pr(a).toFixed(2)+'%</b><span>'+SPU[a.sp]+'</span></div>'+
+      a.b.map(function(b,j){var ev=a.ev2?a.ev2[j]:a.ev, lg=a.lg2?a.lg2[j]:a.lg;
+        return '<div class="sa-leg"><span class="sa-bk"><span class="bkn">'+esc(al(b))+'</span>'+(a.ini===j?DOT:'')+'<button type="button" class="lnk" data-tip="copy event link" aria-label="copy event link">'+LINK+'</button></span>'+
+          '<span class="sa-ev"><span class="pp">'+pills(ev)+'</span><small>'+esc(lg)+'</small></span>'+
+          '<span class="sa-ty"><span>'+esc(a.t[j])+'</span><button type="button" class="eye" data-hide="'+j+'" aria-haspopup="dialog" aria-label="Скрыть: исход, вилку или матч" title="Скрыть">'+EYE+'</button></span>'+
+          '<span class="sa-k">'+a.k0[j].toFixed(2)+' → '+a.k[j].toFixed(2)+'</span><button type="button" class="gob" data-go title="'+GO_HINT+'" aria-label="go: '+esc(b)+'. '+GO_HINT+'">go</button></div>'}).join('')+
+      '<div class="sa-o"><div class="sa-oh"><span>Кф на других букмекерах</span><em>'+(mk2.real?'из сканера':'пример')+'</em></div><table><thead><tr><th>Букмекер</th><th class="n">↓ '+esc(a.t[0])+'</th><th class="n">'+esc(a.t[1])+'</th></tr></thead><tbody>'+
+        rows.map(function(o){var lg=o[0]===a.b[0]||o[0]===a.b[1];return '<tr'+(lg?' class="leg"':'')+'><td>'+esc(al(o[0]))+(o[0]===a.b[a.ini]?DOT:'')+'</td><td class="n'+(o[1]===m1?' best':'')+'">'+o[1].toFixed(2)+'</td><td class="n'+(o[2]===m2?' best':'')+'">'+o[2].toFixed(2)+'</td></tr>'}).join('')+
+      '</tbody></table><div class="sa-ol">В рамке — два плеча вилки, остальное — рынок</div></div>';
+  }
+
+  /* ---------- меню «Скрыть» (пример: вилка не пропадает) ---------- */
+  var hm=D.createElement('div'); hm.className='hm'; hm.setAttribute('role','dialog'); hm.setAttribute('aria-label','Скрыть'); hm.hidden=true; D.body.appendChild(hm);
+  var hmBack=null;
+  var DUR=['10м','30м','1ч','3ч'];
+  function hmRow(t,s){return '<div class="hm-r"><div class="hm-l"><b>'+esc(t)+'</b><small>'+esc(s)+'</small></div><div class="hm-d" role="group" aria-label="'+esc(t)+': на сколько скрыть">'+DUR.map(function(d,i){return '<button type="button" aria-pressed="'+(i===1)+'">'+d+'</button>'}).join('')+'</div></div>'}
+  function hmOpen(btn,j){
+    var a=byId(picked); if(!a)return; hmBack=btn;
+    hm.innerHTML='<div class="hm-t">Скрыть</div>'+hmRow('Исход на '+al(a.b[j]),a.t[j])+hmRow('Вилку','1 / 2')+hmRow('Матч на '+al(a.b[j]),a.ev2?a.ev2[j]:a.ev)+'<div class="hm-n" aria-live="polite">Пример: в сканере выбранное скроется на этот срок</div>';
+    hm.hidden=false;
+    var r=btn.getBoundingClientRect(), w=hm.offsetWidth, h=hm.offsetHeight, x=Math.min(innerWidth-w-8,Math.max(8,r.right-w)), y=r.bottom+6;
+    if(y+h>innerHeight-8)y=Math.max(8,r.top-h-6);
+    hm.style.left=x+'px'; hm.style.top=y+'px';
+    var f=$('[aria-pressed="true"]',hm); if(f)f.focus();
+  }
+  function hmClose(back){if(hm.hidden)return;hm.hidden=true;if(back&&hmBack)hmBack.focus()}
+  hm.addEventListener('click',function(e){
+    var b=e.target.closest('.hm-d button'); if(!b)return;
+    $$('button',b.parentNode).forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
+    var what=b.closest('.hm-r').querySelector('b').textContent;
+    $('.hm-n',hm).textContent='В сканере «'+what+'» скроется на '+b.textContent+'. Здесь это пример, вилка останется';
+    clearTimeout(hm._t); hm._t=setTimeout(function(){hmClose(true)},1800);
+  });
+  D.addEventListener('click',function(e){if(!hm.hidden&&!hm.contains(e.target)&&!e.target.closest('[data-hide]'))hmClose(false)});
+  D.addEventListener('keydown',function(e){if(e.key==='Escape')hmClose(true)});
+  addEventListener('scroll',function(){hmClose(false)},{passive:true});
+
+  function copyText(t,el){
+    function ok(){hint(el,'Скопировано: '+t)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,function(){fallback()})}else fallback();
+    function fallback(){var ta=D.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';D.body.appendChild(ta);ta.select();try{D.execCommand('copy');ok()}catch(_){}D.body.removeChild(ta);}
   }
 
   /* =====================================================================
-     Калькулятор вилок (Arb Calculator)
+     Калькулятор (окно Arb Calculator)
      кружок = округление ставки до 1 (по умолчанию), иначе 0.01
      замок: 0 открыт → 1 закреплена ставка → 2 закреплены ставка и кф
      = выровнять возврат по исходу, ↑ перевес: вся прибыль на исход, остальные в ноль
      ===================================================================== */
   var RATE={USD:1,EUR:1.16,GBP:1.3415}, SYM={USD:'$',EUR:'€',GBP:'£'};
   var AC_DEF=[{bk:'admiralbet.it',cur:'GBP',r1:false,k:'2.15',s:'78.01',lock:0},{bk:'bc.game',cur:'USD',r1:true,k:'2.25',s:'100',lock:0}];
-  function clone(x){return JSON.parse(JSON.stringify(x))}
   function withInit(ls){return ls.map(function(l){l.init={k:l.k,s:l.s};return l})}
-  var legs=withInit(clone(AC_DEF));
+  var legs=withInit(clone(AC_DEF)), lastLoad=clone(AC_DEF);
   var acLegs=$('#ac-legs'), acSrc=$('#ac-src');
   var LOCK0='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="10.5" width="14" height="10" rx="1"/><path d="M8 10.5V7.5a4 4 0 0 1 7.6-1.8"/></svg>';
   var LOCK1='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="10.5" width="14" height="10" rx="1"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>';
@@ -1583,15 +1797,14 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
     legs.forEach(function(l,j){if(j===i||l.lock)return;var kj=num(l.k);l.s=fmtS(rnd(T/(kj*RATE[l.cur]),step1(l)),step1(l));});
     acRender();
   }
-  /* загрузить вилку из ленты: ставки от суммы по умолчанию */
-  function loadArb(bks,ks,ev){
-    if(!acLegs)return;
-    var S=0; ks.forEach(function(k){S+=1/k});
-    legs=withInit(bks.map(function(b,i){var l={bk:b,cur:'USD',r1:true,k:ks[i].toFixed(2),s:'',lock:0};l.s=fmtS(rnd(cfg.sum*(1/ks[i])/S,1),1);return l}));
+  /* вилка из ленты: ставки от суммы вилки по умолчанию */
+  function loadArb(r){
+    if(!acLegs||!r)return;
+    var S=0; r.k.forEach(function(k){S+=1/k});
+    lastLoad=r.b.map(function(b,i){var l={bk:b,cur:'USD',r1:true,k:r.k[i].toFixed(2),s:'',lock:0};l.s=fmtS(rnd(cfg.sum*(1/r.k[i])/S,1),1);return l});
+    legs=withInit(clone(lastLoad));
     acRender();
-    if(acSrc){acSrc.innerHTML='Из ленты: <b>'+esc(ev)+'</b>, сумма вилки '+money(cfg.sum).replace('.00','');acSrc.hidden=false;}
-    var tile=$('.t-calc'); if(tile){tile.classList.remove('flash');void tile.offsetWidth;tile.classList.add('flash');
-      var y=tile.getBoundingClientRect().top+scrollY-90; scrollTo({top:y,behavior:anim?'smooth':'auto'});}
+    if(acSrc){acSrc.innerHTML='Из ленты: <b>'+esc(r.ev)+'</b>, сумма вилки '+money(cfg.sum).replace('.00','');acSrc.hidden=false;}
   }
   if(acLegs){
     acLegs.addEventListener('input',function(e){var f=e.target.dataset.f;if(!f||f==='cur')return;var i=+e.target.closest('.ac-leg').dataset.i;if(f==='k'&&legs[i].lock===2)return;legs[i][f]=e.target.value;acCalc();});
@@ -1604,30 +1817,21 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
       if(b.hasAttribute('data-up')){overweight(i);acLegs.children[i].querySelector('[data-up]').focus();}});
     $('#ac-add').addEventListener('click',function(){if(legs.length<3){legs.push({bk:'',cur:'USD',r1:true,k:'',s:'',lock:0,init:{k:'',s:''}});acRender();acLegs.lastChild.querySelector('[data-f="bk"]').focus();}});
     $('#ac-rm').addEventListener('click',function(){legs.length=2;acRender();});
-    $('#ac-reset').addEventListener('click',function(){legs=withInit(clone(AC_DEF));if(acSrc)acSrc.hidden=true;picked=0;render();acRender();});
+    $('#ac-reset').addEventListener('click',function(){legs=withInit(clone(lastLoad));acRender();});
     acRender();
   }
 
   /* =====================================================================
      Рабочее место: окна Arbs / Selected Arb / Arb Calculator
-     Данные: скриншот рабочего места сканера.
      ===================================================================== */
-  var desk=$('#desk');
-  var WS=[
-    {lg:'Premier League Internati…',ev:'Middlesbrough U21 - Va…',sp:'FOOTBALL',b:['888sport.com','admiralbet.it'],t:['TU(5.5)','TO(5.5)'],k:[2.05,4.25],tm:4,ini:1},
-    {lg:'Francia |> Coupe de France',ev:'Jda Dijon Basket - Limoges',sp:'BASKETBALL',b:['admiralbet.it','bc.game'],t:['Away TO(67.5)','Away TU(67.5)'],k:[2.15,2.25],tm:3,ini:0,
-      ev2:['Jda Dijon Basket - Limoges','JDA Dijon Basket - Limoges CSP'],lg2:['Francia |> Coupe de France','France | Coupe de France'],
-      others:[['admiralbet.it',2.15,1.60],['bc.game',1.55,2.25],['goldenbet.com',1.55,2.30],['parimatch.com',1.55,2.30],['superbet.ro',1.50,2.15]]},
-    {lg:'French Cup',ev:'JDA Dijon Basket - Limo…',sp:'BASKETBALL',b:['888sport.com','admiralbet.it'],t:['H1(−22.5)','H2(+22.5)'],k:[2.20,2.07],tm:4,ini:1},
-    {lg:'Internazionali |> Europe…',ev:'Sluc Nancy Basket - Ker…',sp:'BASKETBALL',b:['admiralbet.it','bc.game'],t:['H2(+14.5)','H1(−14.5)'],k:[1.90,2.25],tm:4,ini:0}
-  ];
+  var desk=$('#desk'), wide=matchMedia('(min-width:900px)');
   var LAY={
-    a:{arbs:[0,0,54,70],sel:[55,0,45,61],calc:[55,63,45,37]},
-    b:{arbs:[0,0,100,42],sel:[0,44,56,56],calc:[57,44,43,56]},
-    c:{sel:[0,0,49,58],calc:[0,60,49,40],arbs:[50,0,50,100]}
+    a:{arbs:[0,0,56,100],sel:[57,0,43,45],calc:[57,47,43,53]},
+    b:{arbs:[0,0,100,45],sel:[0,47,46,53],calc:[47,47,53,53]},
+    c:{sel:[0,0,43,45],calc:[0,47,43,53],arbs:[44,0,56,100]}
   };
-  var wsSel=1, wsStored=store('alm_ws_v1'), wsState=wsStored||{lay:'a',pos:clone(LAY.a),min:{}};
-  function wsSave(){store('alm_ws_v1',wsState)}
+  var wsStored=store('alm_ws_v2'), wsState=wsStored||{lay:'a',pos:clone(LAY.a),min:{}};
+  function wsSave(){store('alm_ws_v2',wsState)}
   function wsPlace(glide){
     if(!desk)return;
     desk.classList.toggle('glide',!!glide);
@@ -1637,47 +1841,44 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
       var mb=$('.wmin',w); if(mb){mb.setAttribute('aria-label',mn?'Развернуть окно':'Свернуть окно');mb.textContent=mn?'+':'–';}});
     $$('[data-lay]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.lay===wsState.lay))});
   }
-  function wsArbs(){
-    var el=$('#ws-arbs'); if(!el)return;
-    el.innerHTML='<div class="wt wt-h"><span>Лига</span><span>Событие</span><span>Букмекеры</span><span>Тип</span><span>Кф</span><span>Прибыль ↓</span><span>Время</span></div>'+
-      WS.map(function(a,i){return '<div class="wt'+(i===wsSel?' on':'')+'" data-ws="'+i+'" role="button" tabindex="0" aria-label="'+esc(a.ev)+', '+roi(a.k).toFixed(1)+'%"><span>'+esc(a.lg)+'</span><span>'+esc(a.ev)+'</span>'+
-        '<span class="st">'+a.b.map(function(b,j){return '<em>'+esc(b)+(a.ini===j?DOT:'')+'</em>'}).join('')+'</span><span class="st">'+a.t.map(function(t){return '<em>'+esc(t)+'</em>'}).join('')+'</span>'+
-        '<span class="st n">'+a.k.map(function(k){return '<em>'+k.toFixed(2)+'</em>'}).join('')+'</span><span class="n pr">'+roi(a.k).toFixed(1)+'%</span><span class="n" data-wtm="'+i+'">'+a.tm+'s</span></div>'}).join('');
+  function flash(w){if(!w)return;w.classList.remove('flash');void w.offsetWidth;w.classList.add('flash')}
+  var touched=false;
+  function pick(id){
+    var r=byId(id); if(!r)return;
+    picked=id; render(); selWin(); loadArb(r);
+    flash($('.win[data-w="sel"]',desk)); flash($('.win[data-w="calc"]',desk));
+    if(!wide.matches){var s=$('.win[data-w="sel"]',desk); if(s){var y=s.getBoundingClientRect().top+scrollY-80; scrollTo({top:y,behavior:anim?'smooth':'auto'});}}
   }
-  function wsSelWin(){
-    var el=$('#ws-sel'); if(!el)return; var a=WS[wsSel], r=roi(a.k).toFixed(2)+'%';
-    var m1=a.others?Math.max.apply(null,a.others.map(function(x){return x[1]})):0, m2=a.others?Math.max.apply(null,a.others.map(function(x){return x[2]})):0;
-    el.innerHTML='<div class="sa-bar"><b>'+r+' → '+r+'</b><span>'+esc(a.sp)+'</span></div>'+
-      a.b.map(function(b,j){var ev=a.ev2?a.ev2[j]:a.ev, lg=a.lg2?a.lg2[j]:a.lg;
-        return '<div class="sa-leg"><span class="sa-bk">'+esc(b)+(a.ini===j?DOT:'')+'</span><span class="sa-ev"><em>'+esc(ev)+'</em><small>'+esc(lg)+'</small></span><span class="sa-ty">'+esc(a.t[j])+'</span>'+
-          '<span class="sa-k">'+a.k[j].toFixed(2)+' → '+a.k[j].toFixed(2)+'</span><button type="button" class="gob" data-wsgo="'+j+'" aria-label="Открыть купон '+esc(b)+'">go</button></div>'}).join('')+
-      (a.others?'<div class="sa-o"><div class="sa-oh">Кф на других букмекерах</div><table><thead><tr><th>Букмекер</th><th>↓ '+esc(a.t[0])+'</th><th>'+esc(a.t[1])+'</th></tr></thead><tbody>'+
-        a.others.map(function(o){return '<tr><td>'+esc(o[0])+(o[0]===a.b[a.ini]?DOT:'')+'</td><td'+(o[1]===m1?' class="best"':'')+'>'+o[1].toFixed(2)+'</td><td'+(o[2]===m2?' class="best"':'')+'>'+o[2].toFixed(2)+'</td></tr>'}).join('')+
-        '</tbody></table></div>':'<div class="sa-none">Кф на других букмекерах подгружаются по каждой вилке</div>');
+  if(lf){
+    render(); selWin();
+    lf.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse')hover=true}); lf.addEventListener('pointerleave',function(e){if(e.pointerType==='mouse')hover=false});
+    /* касание: лента замирает на 3 с, чтобы строка не сменилась под пальцем */
+    var hold=null; lf.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse'){hover=true;clearTimeout(hold);hold=setTimeout(function(){hover=false},3000);}});
+    if(anim && 'IntersectionObserver' in window){var tick=null;new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!tick)tick=setInterval(step,2200);if(!e.isIntersecting&&tick){clearInterval(tick);tick=null}})}).observe(lf);}
+    lfBody.addEventListener('click',function(e){
+      var g=e.target.closest('[data-go]'); if(g){hint(g,GO_HINT);return;}
+      var row=e.target.closest('.lf-row'); if(!row)return; touched=true; pick(+row.dataset.id);
+    });
+    lfBody.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('lf-row')){e.preventDefault();e.target.click();}});
   }
-  function wsCalc(){
-    var el=$('#ws-calc'); if(!el)return; var a=WS[wsSel], S=1/a.k[0]+1/a.k[1];
-    var st=a.k.map(function(k){return Math.round(cfg.sum*(1/k)/S)}), tot=st[0]+st[1];
-    el.innerHTML='<div class="mc mc-h"><span></span><span>Букмекер</span><span>Кф</span><span>Ставка</span><span>Возврат</span><span>Профит</span></div>'+
-      a.b.map(function(b,j){var ret=st[j]*a.k[j],p=ret-tot;return '<div class="mc"><span class="no x'+(j+1)+'">'+(j+1)+'</span><span>'+esc(b)+'</span><span>'+a.k[j].toFixed(2)+'</span><span>$'+st[j]+'</span><span>'+money(ret)+'</span><span class="'+(p>=0?'pos':'neg')+'">'+(p>=0?'+':'')+money(p)+'</span></div>'}).join('')+
-      '<div class="mc-t">Общая ставка <b>$'+tot+'</b> · сумма вилки из фильтра '+money(cfg.sum).replace('.00','')+'</div>';
+  var sel=$('#ws-sel');
+  if(sel){
+    sel.addEventListener('click',function(e){
+      var g=e.target.closest('[data-go]'); if(g){hint(g,GO_HINT);return;}
+      var c=e.target.closest('[data-copy]'); if(c){copyText(c.dataset.copy,c);return;}
+      var h=e.target.closest('[data-hide]'); if(h){if(!hm.hidden&&hmBack===h){hmClose(false);return;}hmOpen(h,+h.dataset.hide);return;}
+      var l=e.target.closest('.lnk'); if(l){hint(l,'copy event link');}
+    });
   }
   if(desk){
-    wsArbs();wsSelWin();wsCalc();wsPlace(false);
-    setInterval(function(){WS.forEach(function(a,i){a.tm++;var e=$('[data-wtm="'+i+'"]',desk);if(e)e.textContent=age(a.tm)})},1000);
-    var touched=false;
-    function flash(w){w.classList.remove('flash');void w.offsetWidth;w.classList.add('flash')}
-    function pick(i){wsSel=i;wsArbs();wsSelWin();wsCalc();flash($('.win[data-w="sel"]',desk));flash($('.win[data-w="calc"]',desk));}
+    wsPlace(false);
     desk.addEventListener('click',function(e){
-      var row=e.target.closest('[data-ws]'); if(row){touched=true;pick(+row.dataset.ws);return;}
-      var g=e.target.closest('[data-wsgo]'); if(g){touched=true;var a=WS[wsSel],j=+g.dataset.wsgo;popCoupon({bk:a.b[j],ev:a.ev2?a.ev2[j]:a.ev,lg:a.lg2?a.lg2[j]:a.lg,ty:a.t[j],k:a.k[j]});return;}
       var m=e.target.closest('.wmin'); if(m){touched=true;var w=m.closest('.win').dataset.w;wsState.min[w]=!wsState.min[w];wsSave();wsPlace(true);}
     });
-    desk.addEventListener('keydown',function(e){var row=e.target.closest('[data-ws]');if(row&&(e.key==='Enter'||e.key===' ')){e.preventDefault();row.click();}});
     $$('[data-lay]').forEach(function(b){b.addEventListener('click',function(){touched=true;var l=b.dataset.lay;
       if(l==='reset'){wsState={lay:'a',pos:clone(LAY.a),min:{}};}else{wsState.lay=l;wsState.pos=clone(LAY[l]);}
       wsSave();wsPlace(true);})});
-    var wide=matchMedia('(min-width:900px)'), drag=null;
+    var drag=null;
     desk.addEventListener('pointerdown',function(e){
       touched=true;
       if(!wide.matches)return;
@@ -1703,22 +1904,96 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
       else{p[0]=Math.min(100-p[2],Math.max(0,p[0]+k[0]));p[1]=Math.min(92,Math.max(0,p[1]+k[1]));}
       wsState.lay='own';wsSave();wsPlace(false);
     });
-    /* автопоказ один раз, пока посетитель ничего не трогал */
+    /* автопоказ раскладок один раз, пока посетитель ничего не трогал */
     if(anim && wide.matches && !wsStored && 'IntersectionObserver' in window){
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.disconnect();
         var seq=['c','b','a'], n=0;
         (function next(){if(touched||n>=seq.length)return;setTimeout(function(){if(touched)return;wsState.lay=seq[n];wsState.pos=clone(LAY[seq[n]]);wsPlace(true);n++;next();},n===0?1400:2400);})();
-      })},{threshold:.5}); io.observe(desk);
+      })},{threshold:.4}); io.observe(desk);
     }
   }
 
+  /* ---------- «Лента под себя»: колонки и вид ---------- */
+  var colsEl=$('#cols');
+  var HD='<svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg>';
+  var UP='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg>', DN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>';
+  function renderCols(){
+    if(!colsEl)return;
+    colsEl.innerHTML=cfg.order.map(function(c,i){return '<li class="col" draggable="true" data-c="'+c+'">'+HD+'<label><input type="checkbox" '+(cfg.on[c]?'checked':'')+' data-on="'+c+'"><span class="nm">'+(c==='go'?'Кнопка GO':COLS[c][0])+'</span></label>'+
+      '<button type="button" data-mv="-1" aria-label="'+COLS[c][0]+' выше" '+(i===0?'disabled':'')+'>'+UP+'</button><button type="button" data-mv="1" aria-label="'+COLS[c][0]+' ниже" '+(i===cfg.order.length-1?'disabled':'')+'>'+DN+'</button></li>'}).join('');
+    $$('[data-opt]').forEach(function(g){$$('button',g).forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.v)===String(cfg[g.dataset.opt]))})});
+    var fs=$('#fs'); if(fs)fs.textContent=cfg.fs+'px';
+    var sm=$('#defsum'); if(sm&&D.activeElement!==sm)sm.value=cfg.sum;
+  }
+  function apply(){save();renderCols();render();}
+  if(colsEl){
+    colsEl.addEventListener('change',function(e){var c=e.target.dataset.on;if(c){cfg.on[c]=e.target.checked?1:0;save();render();}});
+    colsEl.addEventListener('click',function(e){var b=e.target.closest('[data-mv]');if(!b)return;var c=b.closest('.col').dataset.c,i=cfg.order.indexOf(c),j=i+ +b.dataset.mv;
+      if(j<0||j>=cfg.order.length)return;cfg.order.splice(i,1);cfg.order.splice(j,0,c);apply();var nb=colsEl.querySelector('[data-c="'+c+'"] [data-mv="'+b.dataset.mv+'"]');(nb&&!nb.disabled?nb:colsEl.querySelector('[data-c="'+c+'"] input')).focus();});
+    var dragC=null;
+    colsEl.addEventListener('dragstart',function(e){var li=e.target.closest('.col');if(!li)return;dragC=li.dataset.c;li.classList.add('drag');e.dataTransfer.effectAllowed='move';try{e.dataTransfer.setData('text/plain',dragC)}catch(_){}});
+    colsEl.addEventListener('dragover',function(e){var li=e.target.closest('.col');if(!li||!dragC)return;e.preventDefault();$$('.col.over',colsEl).forEach(function(x){x.classList.remove('over')});li.classList.add('over');});
+    colsEl.addEventListener('drop',function(e){var li=e.target.closest('.col');if(!li||!dragC)return;e.preventDefault();var to=cfg.order.indexOf(li.dataset.c);cfg.order.splice(cfg.order.indexOf(dragC),1);cfg.order.splice(to,0,dragC);dragC=null;apply();});
+    colsEl.addEventListener('dragend',function(){dragC=null;$$('.col',colsEl).forEach(function(x){x.classList.remove('drag','over')})});
+    $$('[data-opt]').forEach(function(g){g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var v=b.dataset.v;cfg[g.dataset.opt]=isNaN(+v)?v:+v;apply();})});
+    $$('[data-fs]').forEach(function(b){b.addEventListener('click',function(){cfg.fs=Math.min(17,Math.max(11,cfg.fs+ +b.dataset.fs));apply();})});
+    var sm=$('#defsum'); if(sm)sm.addEventListener('change',function(){var v=parseFloat(sm.value.replace(',','.'));if(v>0){cfg.sum=v;save();loadArb(byId(picked));flash($('.win[data-w="calc"]',desk));}else sm.value=cfg.sum;});
+    var rs=$('#cols-reset'); if(rs)rs.addEventListener('click',function(){var f=cfg.f,a=cfg.alias;cfg=clone(DEF);cfg.f=f;cfg.alias=a;apply();loadArb(byId(picked));});
+    renderCols();
+  }
+
+  /* ---------- окно «Настройки»: фильтры вилок и алиасы букмекеров ---------- */
+  var fsw=$('#fset');
+  if(fsw){
+    var CARET='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z" fill="currentColor"/></svg>';
+    var tabF=$('#fs-tab-f'), tabA=$('#fs-tab-a'), pF=$('#fs-f'), pA=$('#fs-a');
+    function tab(a){tabF.setAttribute('aria-selected',String(!a));tabA.setAttribute('aria-selected',String(a));pF.hidden=a;pA.hidden=!a;}
+    tabF.addEventListener('click',function(){tab(false)}); tabA.addEventListener('click',function(){tab(true)});
+    $('.fs-tabs',fsw).addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){var a=tabF.getAttribute('aria-selected')==='true';tab(a);(a?tabA:tabF).focus();}});
+    function ddLabel(kind){
+      var all=kind==='bk'?BKS:SPS, sel=cfg.f[kind];
+      if(kind==='sp')return sel.length?sel.map(function(s){return '<span class="spi" title="'+SPN[s]+'">'+SP[s]+'</span>'}).join(''):'<span class="dd-none">не выбрано</span>';
+      return sel.length?esc(sel.join(', ')):'<span class="dd-none">не выбрано</span>';
+    }
+    function ddList(kind){
+      var all=kind==='bk'?BKS:SPS, sel=cfg.f[kind];
+      return '<label class="dd-o dd-all"><input type="checkbox" data-all="'+kind+'"'+(sel.length===all.length?' checked':'')+'><span>Все</span></label>'+
+        all.map(function(v){return '<label class="dd-o"><input type="checkbox" data-dd="'+kind+'" value="'+esc(v)+'"'+(sel.indexOf(v)>=0?' checked':'')+'>'+(kind==='sp'?'<span class="spi">'+SP[v]+'</span><span>'+SPN[v]+'</span>':'<span>'+esc(v)+'</span>')+'</label>'}).join('');
+    }
+    function fsRender(){
+      ['bk','sp'].forEach(function(k){$('#dd-'+k+' .dd-v',fsw).innerHTML=ddLabel(k);var p=$('#dd-'+k+' .dd-p',fsw);if(!p.hidden)p.innerHTML=ddList(k);});
+      $('#f-minp').value=cfg.f.minP; $('#f-mind').value=cfg.f.minD; $('#f-half').checked=!!cfg.f.half; $('#f-tn3').checked=!!cfg.f.tn3;
+      $('#fs-al').innerHTML=BKS.map(function(b){return '<div class="al-r"><span>'+esc(b)+'</span><input data-al="'+esc(b)+'" value="'+esc(cfg.alias[b]||'')+'" placeholder="'+esc(b)+'" aria-label="Короткое имя для '+esc(b)+'" autocomplete="off" maxlength="16"></div>'}).join('');
+    }
+    $$('.dd',fsw).forEach(function(dd){
+      var btn=$('.dd-b',dd), p=$('.dd-p',dd), kind=dd.dataset.kind;
+      $('.dd-c',dd).innerHTML=CARET;
+      btn.addEventListener('click',function(){var open=p.hidden;$$('.dd-p',fsw).forEach(function(x){x.hidden=true});$$('.dd-b',fsw).forEach(function(x){x.setAttribute('aria-expanded','false')});
+        if(open){p.innerHTML=ddList(kind);p.hidden=false;btn.setAttribute('aria-expanded','true');}});
+      p.addEventListener('change',function(e){var t=e.target;
+        if(t.dataset.all){cfg.f[kind]=t.checked?(kind==='bk'?BKS:SPS).slice():[];}
+        else{var v=t.value,a=cfg.f[kind];if(t.checked){if(a.indexOf(v)<0)a.push(v)}else cfg.f[kind]=a.filter(function(x){return x!==v});}
+        save();fsRender();render();});
+    });
+    D.addEventListener('click',function(e){if(!e.target.closest('.dd'))$$('.dd-p',fsw).forEach(function(x){if(!x.hidden){x.hidden=true;x.previousElementSibling.setAttribute('aria-expanded','false')}})});
+    D.addEventListener('keydown',function(e){if(e.key==='Escape')$$('.dd-p',fsw).forEach(function(x){if(!x.hidden){x.hidden=true;x.previousElementSibling.setAttribute('aria-expanded','false');x.previousElementSibling.focus()}})});
+    function numIn(id,key){var el=$(id);el.addEventListener('input',function(){var v=parseFloat(el.value.replace(',','.'));if(v>=0){cfg.f[key]=v;save();render();}});}
+    numIn('#f-minp','minP'); numIn('#f-mind','minD');
+    $('#f-half').addEventListener('change',function(e){cfg.f.half=e.target.checked?1:0;save();render();});
+    $('#f-tn3').addEventListener('change',function(e){cfg.f.tn3=e.target.checked?1:0;save();render();});
+    $('#fs-al').addEventListener('input',function(e){var b=e.target.dataset.al;if(!b)return;var v=e.target.value.trim();if(v)cfg.alias[b]=v;else delete cfg.alias[b];save();render();selWin();});
+    $('#fs-reset').addEventListener('click',function(){cfg.f=clone(DEF.f);cfg.alias={};save();fsRender();render();selWin();});
+    fsRender();
+  }
+
   /* ---------- подписка: срок и цена ---------- */
-  var PER={1:{p:100,t:'за 1 месяц',n:'Без скидки'},3:{p:270,t:'за 3 месяца',n:'$90 в месяц, экономия $30'},12:{p:960,t:'за 12 месяцев',n:'$80 в месяц, экономия $240'}};
+  var PER={d:{p:15,t:'за 1 день',n:'Попробовать сканер в деле',tag:'d1'},w:{p:50,t:'за 1 неделю',n:'≈$7.14 в день, на 52% выгоднее дня',tag:'w1'},m:{p:150,t:'за 1 месяц',n:'$5 в день, на 67% выгоднее дня',tag:'m1'}};
   var perG=$('#per');
   if(perG){
-    perG.addEventListener('click',function(e){var b=e.target.closest('[data-per]');if(!b)return;var k=b.dataset.per,x=PER[k];
+    perG.addEventListener('click',function(e){var b=e.target.closest('[data-per]');if(!b)return;var x=PER[b.dataset.per];
       $$('[data-per]',perG).forEach(function(y){y.setAttribute('aria-pressed',String(y===b))});
-      $('#pp').textContent='$'+x.p; $('#pper').textContent=x.t; $('#pnote').textContent=x.n; $('#pbuy').href=WL+'p'+k;$('#pbuy').dataset.wl='p'+k;});
+      $('#pp').textContent='$'+x.p; $('#pper').textContent=x.t; $('#pnote').textContent=x.n;
+      var pb=$('#pbuy'); pb.href=WL+x.tag; pb.dataset.wl=x.tag;});
   }
 
   /* ---------- cookie ---------- */
@@ -1763,19 +2038,6 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
     if(e.key==='Tab'){var f=$$('a,button',wl), a=f[0], z=f[f.length-1];
       if(e.shiftKey&&D.activeElement===a){e.preventDefault();z.focus()} else if(!e.shiftKey&&D.activeElement===z){e.preventDefault();a.focus()}}
   });
-})();
-/* скриншоты: открыть крупно */
-(function(){
-  var D=document, z=D.getElementById('zoom'); if(!z)return;
-  var img=document.createElement('img'), back=null; z.appendChild(img);
-  function close(){z.hidden=true;D.body.style.overflow='';if(back)back.focus()}
-  D.addEventListener('click',function(e){
-    var a=e.target.closest&&e.target.closest('[data-zoom]'); if(!a)return;
-    e.preventDefault(); back=a; img.src=a.getAttribute('href'); img.alt=a.querySelector('img').alt;
-    z.hidden=false; D.body.style.overflow='hidden'; z.querySelector('button').focus();
-  });
-  z.addEventListener('click',close);
-  D.addEventListener('keydown',function(e){if(!z.hidden&&e.key==='Escape')close()});
 })();
 
 </script>
