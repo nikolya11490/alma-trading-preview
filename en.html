@@ -1033,12 +1033,14 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
 @media (max-width:899px){.wb-arbs{max-height:none}}
 
 /* №2: калькулятор — строки в одну линию, всё уменьшается пропорционально, шрифт не мельче 12px */
-.wb-calc .ac{font-size:clamp(12px,2.32cqi,14.5px)}
+.wb-calc .ac-x{container-type:inline-size}
+.wb-calc .ac-in{font-size:clamp(12px,2.38cqi,14.5px)}
+.wb-calc .ac{font-size:13.5px}
 .wb-calc .ac-x{overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
 .wb-calc .ac-x.more{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent)}
-.wb-calc .ac-in{min-width:42.9em}
-.wb-calc .ac .ac-row,.wb-calc .ac .ac-row.ac-leg{grid-template-columns:1.6em minmax(6.2em,1.6fr) 4.2em 2.4em 2em 4.4em 5.2em 2.1em 2.1em minmax(4.6em,1fr) 2.1em 2.1em;
-  grid-template-areas:none;column-gap:.35em;row-gap:0}
+.wb-calc .ac-in{min-width:41.5em}
+.wb-calc .ac .ac-row,.wb-calc .ac .ac-row.ac-leg{grid-template-columns:1.6em minmax(6em,1.6fr) 4.1em 2.4em 2em 4.3em 5.1em 2em 2em minmax(4.5em,1fr) 2em 2em;
+  grid-template-areas:none;column-gap:.3em;row-gap:0}
 .wb-calc .ac .ac-head{display:grid}
 .wb-calc .ac .ac-head>span{font-size:.88em;white-space:nowrap}
 .wb-calc .ac .ac-leg>*{grid-area:auto;grid-column:auto;grid-row:auto}
@@ -1046,7 +1048,7 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
 .wb-calc .ac .ac-leg>:nth-child(10){text-align:right}
 .wb-calc .ac .ac-leg>:nth-child(12){justify-self:auto}
 .wb-calc .ac input,.wb-calc .ac select{min-height:2.3em;font-size:1em;padding:0 .4em}
-.wb-calc .ac .ib,.wb-calc .ac .rd{width:2.1em;height:2.1em;font-size:1em}
+.wb-calc .ac .ib,.wb-calc .ac .rd{width:2em;height:2em;font-size:1em}
 .wb-calc .ac .ib svg{width:1em;height:1em}
 .wb-calc .ac .rd::before{width:1.25em;height:1.25em}
 .wb-calc .ac .no{width:1.55em;height:1.55em;font-size:.95em;min-width:0}
@@ -1057,6 +1059,16 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
 
 /* №2: окна справа шире (52/47), чтобы калькулятор помещался в одну линию без прокрутки; лента уже */
 @media (min-width:761px){.wb-arbs .lf{min-width:600px}}
+/* v9.2 №2: свои полосы прокрутки (Windows рисует серые со стрелками) — тонкие, тёмные, без стрелок */
+*{scrollbar-width:thin;scrollbar-color:#3a3a3a transparent}
+*:hover{scrollbar-color:#5a5a5a transparent}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#3a3a3a;border:2px solid transparent;background-clip:padding-box;border-radius:8px}
+::-webkit-scrollbar-thumb:hover{background:#6a6a6a;background-clip:padding-box;border:2px solid transparent}
+::-webkit-scrollbar-button{display:none;width:0;height:0}
+::-webkit-scrollbar-corner{background:transparent}
+html{scrollbar-color:#3a3a3a #000}
 
 </style>
 </head>
@@ -1098,7 +1110,7 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.5 4.5 2.8 11.7c-.9.4-.9 1.6 0 1.9l4.7 1.6 1.8 5.6c.2.7 1.1.9 1.6.4l2.7-2.5 4.9 3.6c.6.4 1.4.1 1.6-.6l3.3-15.6c.2-1-.7-1.9-1.9-1.6Z"/><path d="m7.5 15.2 10-7.2-7.6 8.6"/></svg>
           Open in Telegram</a>
       </div>
-      <p class="free rv" style="--d:.4s"><b>Free</b> for 1 hour on 2 days a week: the scanner, calculator and GO. Just sign up</p>
+      <p class="free rv" style="--d:.4s"><b>Free</b>: full access with no limits for everyone, 1 hour on 2 days a week</p>
       <p class="have rv" style="--d:.42s">Already have an account? <a href="app/en.html#login">Log in to your account</a></p>
       <a class="scrollhint rv" style="--d:.5s" href="#story"><span class="line" aria-hidden="true"></span>Scroll down: how an arb is born</a>
     </div>
@@ -1249,18 +1261,6 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
         </div>
         <div class="feed-help"><span><i class="ini" title="Arb initiator" aria-label="arb initiator"></i> arb initiator</span><span>Click an arb: the arb window and the calculator fill in with its data</span><span><b>go</b> the bet slip opens at the bookmaker via the extension</span><span>Initiator dots in the recording are placed as an example</span></div>
         <p class="ws-note"><span class="desk-only">Profit is calculated as: (1 / (1/k1 + 1/k2) − 1) · 100. Rows appear, change and disappear just like in the scanner; hovering pauses the feed. The window layout is saved in your browser.</span><span class="mob">On a phone the windows are stacked. You can move and resize them on a computer.</span></p>
-      </article>
-      <article class="tile cut cut-line t-tg rv" style="--d:.1s">
-        <div><h3>Telegram alerts</h3>
-        <p>The bot messages you when an arb matching your filter appears, with the odds and stakes for your bankroll.</p></div>
-        <div class="tgmsg" aria-label="Alert example">
-          <div class="from"><svg viewBox="0 0 490 491" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M247 2 L2 489 L81 489 L138 375 L408 332 L371 413 L409 489 L488 489 Z M246 165 L301 275 L181 294 Z"/></svg><span class="brand"></span>&nbsp;bot</div>
-          Arb <span class="k num">3.73%</span> · Live · Tennis<br>Player A vs Player B<br>
-          <span class="num">W1 2.10</span> bet365.com: <span class="num">$493.98</span><br>
-          <span class="num">W2 2.05</span> 888sport.com: <span class="num">$506.02</span><br>
-          Profit: <span class="k num">+$37.35</span>
-          <div class="time">example message</div>
-        </div>
       </article>
     </div>
   </div>

@@ -1033,12 +1033,14 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
 @media (max-width:899px){.wb-arbs{max-height:none}}
 
 /* №2: калькулятор — строки в одну линию, всё уменьшается пропорционально, шрифт не мельче 12px */
-.wb-calc .ac{font-size:clamp(12px,2.32cqi,14.5px)}
+.wb-calc .ac-x{container-type:inline-size}
+.wb-calc .ac-in{font-size:clamp(12px,2.38cqi,14.5px)}
+.wb-calc .ac{font-size:13.5px}
 .wb-calc .ac-x{overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
 .wb-calc .ac-x.more{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent)}
-.wb-calc .ac-in{min-width:42.9em}
-.wb-calc .ac .ac-row,.wb-calc .ac .ac-row.ac-leg{grid-template-columns:1.6em minmax(6.2em,1.6fr) 4.2em 2.4em 2em 4.4em 5.2em 2.1em 2.1em minmax(4.6em,1fr) 2.1em 2.1em;
-  grid-template-areas:none;column-gap:.35em;row-gap:0}
+.wb-calc .ac-in{min-width:41.5em}
+.wb-calc .ac .ac-row,.wb-calc .ac .ac-row.ac-leg{grid-template-columns:1.6em minmax(6em,1.6fr) 4.1em 2.4em 2em 4.3em 5.1em 2em 2em minmax(4.5em,1fr) 2em 2em;
+  grid-template-areas:none;column-gap:.3em;row-gap:0}
 .wb-calc .ac .ac-head{display:grid}
 .wb-calc .ac .ac-head>span{font-size:.88em;white-space:nowrap}
 .wb-calc .ac .ac-leg>*{grid-area:auto;grid-column:auto;grid-row:auto}
@@ -1046,7 +1048,7 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
 .wb-calc .ac .ac-leg>:nth-child(10){text-align:right}
 .wb-calc .ac .ac-leg>:nth-child(12){justify-self:auto}
 .wb-calc .ac input,.wb-calc .ac select{min-height:2.3em;font-size:1em;padding:0 .4em}
-.wb-calc .ac .ib,.wb-calc .ac .rd{width:2.1em;height:2.1em;font-size:1em}
+.wb-calc .ac .ib,.wb-calc .ac .rd{width:2em;height:2em;font-size:1em}
 .wb-calc .ac .ib svg{width:1em;height:1em}
 .wb-calc .ac .rd::before{width:1.25em;height:1.25em}
 .wb-calc .ac .no{width:1.55em;height:1.55em;font-size:.95em;min-width:0}
@@ -1057,6 +1059,16 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
 
 /* №2: окна справа шире (52/47), чтобы калькулятор помещался в одну линию без прокрутки; лента уже */
 @media (min-width:761px){.wb-arbs .lf{min-width:600px}}
+/* v9.2 №2: свои полосы прокрутки (Windows рисует серые со стрелками) — тонкие, тёмные, без стрелок */
+*{scrollbar-width:thin;scrollbar-color:#3a3a3a transparent}
+*:hover{scrollbar-color:#5a5a5a transparent}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#3a3a3a;border:2px solid transparent;background-clip:padding-box;border-radius:8px}
+::-webkit-scrollbar-thumb:hover{background:#6a6a6a;background-clip:padding-box;border:2px solid transparent}
+::-webkit-scrollbar-button{display:none;width:0;height:0}
+::-webkit-scrollbar-corner{background:transparent}
+html{scrollbar-color:#3a3a3a #000}
 
 </style>
 </head>
@@ -1098,7 +1110,7 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.5 4.5 2.8 11.7c-.9.4-.9 1.6 0 1.9l4.7 1.6 1.8 5.6c.2.7 1.1.9 1.6.4l2.7-2.5 4.9 3.6c.6.4 1.4.1 1.6-.6l3.3-15.6c.2-1-.7-1.9-1.9-1.6Z"/><path d="m7.5 15.2 10-7.2-7.6 8.6"/></svg>
           Открыть в Telegram</a>
       </div>
-      <p class="free rv" style="--d:.4s"><b>Бесплатно</b> 2 дня в неделю по 1 часу: сканер, калькулятор и GO. Нужна только регистрация</p>
+      <p class="free rv" style="--d:.4s"><b>Бесплатно</b>: 2 дня в неделю по одному часу полный доступ без ограничений для всех</p>
       <p class="have rv" style="--d:.42s">Уже есть аккаунт? <a href="app/#login">Войти в кабинет</a></p>
       <a class="scrollhint rv" style="--d:.5s" href="#story"><span class="line" aria-hidden="true"></span>Листайте вниз: как рождается вилка</a>
     </div>
@@ -1249,18 +1261,6 @@ li .soon{margin-left:6px;font-size:10px;padding:2px 6px 3px}
         </div>
         <div class="feed-help"><span><i class="ini" title="Инициатор вилки" aria-label="инициатор вилки"></i> инициатор вилки</span><span>Нажмите на вилку: окно вилки и калькулятор заполнятся её данными</span><span><b>go</b> купон откроется у букмекера через расширение</span><span>Точки инициатора в записи поставлены для примера</span></div>
         <p class="ws-note"><span class="desk-only">Прибыль считается так: (1 / (1/k1 + 1/k2) − 1) · 100. Строки появляются, меняются и исчезают, как в сканере, при наведении лента замирает. Раскладка окон сохраняется в браузере.</span><span class="mob">На телефоне окна идут друг под другом. Двигать и растягивать их можно на компьютере.</span></p>
-      </article>
-      <article class="tile cut cut-line t-tg rv" style="--d:.1s">
-        <div><h3>Уведомления в Telegram</h3>
-        <p>Бот пишет, когда находится вилка под ваш фильтр. Сразу с коэффициентами и суммами под ваш банк.</p></div>
-        <div class="tgmsg" aria-label="Пример уведомления">
-          <div class="from"><svg viewBox="0 0 490 491" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M247 2 L2 489 L81 489 L138 375 L408 332 L371 413 L409 489 L488 489 Z M246 165 L301 275 L181 294 Z"/></svg><span class="brand"></span>&nbsp;бот</div>
-          Вилка <span class="k num">3.73%</span> · Лайв · Теннис<br>Игрок A vs Игрок B<br>
-          <span class="num">П1 2.10</span> bet365.com: <span class="num">$493.98</span><br>
-          <span class="num">П2 2.05</span> 888sport.com: <span class="num">$506.02</span><br>
-          Прибыль: <span class="k num">+$37.35</span>
-          <div class="time">пример сообщения</div>
-        </div>
       </article>
     </div>
   </div>
