@@ -937,6 +937,15 @@ footer .copy{grid-column:1/-1;margin:0;font-size:14px}
   #ws-sel .sa-ev{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:760px){.wb-arbs .lf{min-width:0}}
+/* телефон и планшет: все плитки «Возможностей» во всю ширину (раньше лайв и валуй стояли рядом и слипались) */
+@media (max-width:1000px){.bento>.tile{grid-column:1 / -1!important}}
+.livelist .ll-ev span,.livelist .ll-ev{overflow-wrap:anywhere}
+/* телефон: шапки таблиц кф не дробятся на три строки */
+@media (max-width:600px){.odds{font-size:13px}.odds th{font-size:11px;white-space:nowrap}.odds th,.odds td{padding:6px 5px}.odds .n{width:52px}.odds td:first-child{overflow-wrap:anywhere}.sa-o th{font-size:11px;padding:4px 6px}}
+.feed-help span{flex-wrap:wrap}
+/* узкий телефон: полоса вилки переносит вид спорта, а не обрезает */
+.sa-bar{flex-wrap:wrap}
+.sa-bar span{padding:6px 12px}
 
 /* ===================== v6 ===================== */
 /* переключатель языка */
