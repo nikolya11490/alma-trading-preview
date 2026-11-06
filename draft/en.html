@@ -1112,6 +1112,14 @@ html{scrollbar-color:#3a3a3a #000}
   .bk-n{font-size:12px}
 }
 
+/* v10.2 №8: «How an arb is born» — коэффициенты видны ярко уже на шаге 1 */
+.js .stage .lab{opacity:1}
+@media (max-width:600px){
+  .books-stat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;width:100%}
+  .books-stat b{font-size:clamp(30px,10vw,42px)}
+  .books-stat span{font-size:10px;letter-spacing:.08em}
+}
+
 </style>
 </head>
 <body>
@@ -1226,19 +1234,19 @@ html{scrollbar-color:#3a3a3a #000}
         <div>
           <div class="sa sa-static" aria-label="Arb window, example">
             <div class="sa-top"><span>Selected Arb</span><span>example</span></div>
-            <div class="sa-bar"><b>22.20% → 12.18%</b><span>BASKETBALL</span></div>
-            <div class="sa-leg"><span class="sa-bk">admiralbet.it</span><span class="sa-ev"><em>Sig Strasbourg - Cibona Zagreb</em><small>Internazionali |> Champions League</small></span><span class="sa-ty">H1(−22.5)</span><span class="sa-k">3.60 → 2.85</span><span class="gob gob-s" aria-hidden="true">go</span></div>
-            <div class="sa-leg"><span class="sa-bk">bc.game<i class="ini" title="Arb initiator" aria-label="arb initiator"></i></span><span class="sa-ev"><em>SIG Strasbourg - KK Cibona</em><small>International | Champions League</small></span><span class="sa-ty">H2(+22.5)</span><span class="sa-k">1.85 → 1.85</span><span class="gob gob-s" aria-hidden="true">go</span></div>
+            <div class="sa-bar"><b>7.18% → 6.58%</b><span>TENNIS</span></div>
+            <div class="sa-leg"><span class="sa-bk">bet365.com<i class="ini" title="Arb initiator" aria-label="arb initiator"></i></span><span class="sa-ev"><em>Kochta/Smart - Kurt/Medvedeva</em><small>W15 Sharm El Sheikh WD</small></span><span class="sa-ty">2</span><span class="sa-k">2.38 → 2.38</span><span class="gob gob-s" aria-hidden="true">go</span></div>
+            <div class="sa-leg"><span class="sa-bk">fon.bet</span><span class="sa-ev"><em>Kochta T / Smart H - Kurt I / Medvedeva</em><small>World Tennis. Women. Egypt</small></span><span class="sa-ty">1</span><span class="sa-k">1.95 → 1.93</span><span class="gob gob-s" aria-hidden="true">go</span></div>
           </div>
         </div>
       </article>
       <article class="tile cut cut-line t-live rv">
         <h3>Live, where arbs last seconds</h3>
-        <p>The scanner watches bookmakers’ live lines. The odds change after every point, so every arb shows how long it has been alive.</p>
+        <p>The scanner watches bookmakers’ live lines and refreshes the odds in under 1 second. They change after every point, so every arb shows how long it has been alive.</p>
         <ul class="livelist" aria-label="Live arbs from the scanner, example">
-          <li><span class="ll-ev"><b>TT Elite Series · G1</b>888sport.com · ladbrokes.com</span><b class="ll-p">24.1%</b><span class="ll-t" data-tick="1">1s</span></li>
-          <li><span class="ll-ev"><b>Kazakh National League · 1H handicap</b>888sport.com · goldenbet.com</span><b class="ll-p">13.7%</b><span class="ll-t" data-tick="6">6s</span></li>
-          <li><span class="ll-ev"><b>World Tennis. Women. Hungary · 2S handicap</b>fon.bet · bc.game</span><b class="ll-p">7.2%</b><span class="ll-t" data-tick="1">1s</span></li>
+          <li><span class="ll-ev"><b>Ebasketball H2H GG League · winner</b>bet365.com · betano.bg</span><b class="ll-p">6.0%</b><span class="ll-t" data-tick="26">26s</span></li>
+          <li><span class="ll-ev"><b>HongKong |&gt; Division 1 · handicap</b>goldenbet.com · ladbrokes.com</span><b class="ll-p">4.9%</b><span class="ll-t" data-tick="11">11s</span></li>
+          <li><span class="ll-ev"><b>Qatar U19 League · set 3</b>888sport.com · fon.bet</span><b class="ll-p">4.0%</b><span class="ll-t" data-tick="3">3s</span></li>
         </ul>
       </article>
       <article class="tile cut cut-line t-filter rv">
@@ -1346,8 +1354,8 @@ html{scrollbar-color:#3a3a3a #000}
         <div class="ans"><p>No manual maths: the calculator shows how much to stake on each outcome right away. But it’s worth understanding the basics.</p><p>A beginner’s main risk: while you place the second leg, the odds change and the arb disappears. Then one bet is left unhedged. This happens more often in live, so start with small amounts.</p></div>
       </details>
       <details>
-        <summary>How is an arb different from a value bet?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <div class="ans"><p>Arb: bets on every outcome, the match result doesn’t matter. The return is small but predictable.</p><p>Value: a single bet at odds above the fair price. Any single bet can lose; the edge only shows over the long run.</p></div>
+        <summary>How much can I make?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="ans"><p>It depends on your arb stake, how many bookmakers you use and your limits there. Live arbs in the scanner usually return 2–8% of the arb stake: with a $200 stake that is $4 to $16 per arb.</p><p>Your monthly result is the sum of the arbs you managed to place. Cut limits and legs you didn’t place in time reduce it. Income is not guaranteed, so start with small amounts.</p></div>
       </details>
       <details>
         <summary>How do I pay?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
@@ -1378,7 +1386,7 @@ html{scrollbar-color:#3a3a3a #000}
   <div class="wrap">
     <div class="books-head">
       <div><p class="eyebrow rv">Bookmakers</p><h2 class="h2 rv" style="--d:.1s">36 bookmakers with top lines. <span class="dim">Plus 300+ of their clones.</span></h2></div>
-      <div class="books-stat rv" style="--d:.15s"><p><b>36</b><span>bookmakers in the scanner</span></p><p><b>300+</b><span>clones via GO</span></p></div>
+      <div class="books-stat rv" style="--d:.15s"><p><b>36</b><span>bookmakers in the scanner</span></p><p><b>300+</b><span>clones via GO</span></p><p><b>&lt;1&nbsp;s</b><span>odds refresh</span></p></div>
     </div>
     <p class="books-lead rv" style="--d:.2s">The scanner compares the lines of these bookmakers. Many of them have clones: pick the main bookmaker in the GO extension and you can bet on its clones too. The extension adapts to the clone’s site and its line on its own, and the bet slip opens the same way, in one click.</p>
     <ul class="books-grid rv" style="--d:.25s" aria-label="Bookmakers in the scanner">
@@ -1667,31 +1675,23 @@ html{scrollbar-color:#3a3a3a #000}
   var SPU={tt:'TABLE_TENNIS',bb:'BASKETBALL',vb:'VOLLEYBALL',tn:'TENNIS',eb:'E-BASKETBALL',fb:'FOOTBALL'};
   /* лига, событие, спорт, БК1, БК2, рынок1, рынок2, odds1, odds2, живёт (с), инициатор (0|1), [доп.] */
   var POOL=[
-    ['Premier League International Cup','Middlesbrough U21 - Valencia U21','fb','888sport.com','admiralbet.it','TU(5.5)','TO(5.5)',2.05,4.25,4,1],
-    ['Francia |> Coupe de France','Jda Dijon Basket - Limoges','bb','admiralbet.it','bc.game','Away TO(67.5)','Away TU(67.5)',2.15,2.25,3,0,
-      {ev2:['Jda Dijon Basket - Limoges','JDA Dijon Basket - Limoges CSP'],lg2:['Francia |> Coupe de France','France | Coupe de France'],
-       others:[['admiralbet.it',2.15,1.60],['bc.game',1.55,2.25],['goldenbet.com',1.55,2.30],['parimatch.com',1.55,2.30],['superbet.ro',1.50,2.15]]}],
+    ['Ebasketball H2H GG League · 4x5','CHA Hornets (HYPER) - DEN Nuggets','eb','bet365.com','betano.bg','2','1',2.90,1.67,26,0],
+    ['W15 Sharm El Sheikh WD','Kochta/Smart - Kurt/Medvedeva','tn','bet365.com','fon.bet','2','1',2.38,1.95,14,0,
+      {ev2:['Kochta/Smart - Kurt/Medvedeva','Kochta T / Smart H - Kurt I / Medvedeva'],lg2:['W15 Sharm El Sheikh WD','World Tennis. Women. Egypt']}],
+    ['HongKong |> Division 1','ABLE Hon Friends - Chun Yu BC','bb','goldenbet.com','ladbrokes.com','H2(−4.5)','H1(+4.5)',2.05,2.15,11,1],
+    ['TT Cup','Tomas Krenek - Jan Skvrna','tt','888sport.com','lottoland.co.uk','G3 H2(−3.5)','G3 H1(+3.5)',3.25,1.55,3,0],
+    ['Qatar U19 League','AL Rayyan U19 - AL Sadd U19','vb','888sport.com','fon.bet','3S 1','3S 2',3.25,1.53,3,0],
     ['French Cup','JDA Dijon Basket - Limoges CSP','bb','888sport.com','admiralbet.it','H1(−22.5)','H2(+22.5)',2.20,2.07,4,1],
+    ['WTA Hong Kong','Elena Pridankina - Paula Badosa','tn','bet365.com','goldenbet.com','1S TO(12.5)','1S TU(12.5)',13.00,1.16,3,0],
     ['Internazionali |> Europe Cup','Sluc Nancy Basket - Kerametsk','bb','admiralbet.it','bc.game','H2(+14.5)','H1(−14.5)',1.90,2.25,4,0],
-    ['TT Elite Series','Jakub Kuzmicz - Konrad Staszczyk','tt','888sport.com','ladbrokes.com','G1 2','G1 1',4.00,1.80,1,0],
-    ['TT Elite Series','Amirreza Abbasi - Miroslav Sklenar','tt','bet365.com','ladbrokes.com','G2 H2(−2.5)','G2 H1(+2.5)',3.40,1.80,2,0],
-    ['Kazakh National League','Barsy Atyrau - BC Almaty Legion','bb','888sport.com','goldenbet.com','1H H1(−8.5)','1H H2(+8.5)',2.25,2.30,6,1],
-    ['Kazakhstan. National liga','Zhaiyk - Kuanysh','vb','fon.bet','lottoland.co.uk','1','2',1.32,6.00,8,1],
     ['Ebasketball › NBA H2H GG League','Denver Nuggets (chief) - Charlotte Hornets','eb','betano.bg','goldenbet.com','1','2',1.67,3.03,11,1],
+    ['Hong Kong. A1','Able Hon Friends - Chun Yu','bb','fon.bet','ladbrokes.com','2','1',1.35,4.20,14,0],
     ['World Tennis. Women. Hungary','Nuudi M - Ciocan M','tn','fon.bet','bc.game','2S H1(+2.5)','2S H2(−2.5)',1.85,2.55,1,1],
-    ['Turkey. Efeler League','Istanbul Genclik Spor - Gaziantep','vb','fon.bet','lottoland.co.uk','1S TU(47.5)','1S TO(47.5)',3.00,1.93,1,0],
-    ['Setka Cup |> Men','Viktor Sharpai - Andrii Lifanov','tt','betano.bg','betonline.ag','G2 2','G2 1',1.85,2.60,1,1],
-    ['TT Elite Series','Amirreza Abbasi - Miroslav Sklenar','tt','bet365.com','bc.game','G2 H2(−2.5)','G2 H1(+2.5)',3.40,1.80,2,0],
-    ['Kazakh National League','Barsy Atyrau - BC Almaty Legion','bb','888sport.com','ladbrokes.com','1H TO(68.5)','1H TU(68.5)',2.20,2.20,15,0],
-    ['Ebasketball › Liga H2H GG','Charlotte Hornets (HYPER) - Denver Nuggets','eb','betsson.es','goldenbet.com','1','2',1.67,3.03,10,1],
-    ['Ebasketball H2H GG League · 4x5','CHA Hornets (HYPER) - DEN Nuggets','eb','bet365.com','betano.bg','2','1',3.00,1.67,11,0],
-    ['W15 Sharm El Sheikh WD','Kochta/Smart - Kurt/Medvedeva','tn','bet365.com','fon.bet','2','1',2.38,1.95,11,0],
-    ['NBA2K › NBA Blitz League · 4x5','CHA Hornets (HYPER) - DEN Nuggets','eb','goldenbet.com','superbet.ro','2','1',3.03,1.65,10,0],
     ['Setka Cup','Serhii Kryvoshyi - Mykhailo Dunas','tt','bet365.com','bc.game','G1 H2(−2.5)','G1 H1(+2.5)',2.63,1.80,1,0],
-    ['Turkish - Efeler Ligi','Istanbul Genclik Spor - Gaziantep','vb','ladbrokes.com','lottoland.co.uk','1S 2','1S 1',1.40,4.90,4,0],
-    ['World Tennis. Women. Egypt','Kochta T / Smart H - Kurt I / Medvedeva','tn','fon.bet','livescorebet.com','1','2',1.93,2.50,13,1],
+    ['Ebasketball › Liga H2H GG','Charlotte Hornets (HYPER) - Denver Nuggets','eb','betsson.es','goldenbet.com','1','2',1.67,3.03,10,1],
+    ['NBA2K › NBA Blitz League · 4x5','CHA Hornets (HYPER) - DEN Nuggets','eb','goldenbet.com','superbet.ro','2','1',3.03,1.65,10,0],
     ['Itf M15 Salvador','Jefferson Wendler Filho - Giovanni Oradini','tn','888sport.com','betano.bg','2S 2','2S 1',3.75,1.47,3,0],
-    ['Kazakhstan. National liga','Zhaiyk - Kuanysh','vb','bet365.com','fon.bet','2','1',6.00,1.32,17,0]
+    ['Ebasketball H2H GG League · 4x5','CHA Hornets (HYPER) - DEN Nuggets','eb','bet365.com','betano.bg','2','1',3.00,1.67,11,0]
   ];
   var BKS=[], SPS=[];
   POOL.forEach(function(p){[p[3],p[4]].forEach(function(b){if(BKS.indexOf(b)<0)BKS.push(b)});if(SPS.indexOf(p[2])<0)SPS.push(p[2])});
@@ -1765,6 +1765,7 @@ html{scrollbar-color:#3a3a3a #000}
     if(x<.35&&live.length){
       var r=live[Math.floor(Math.random()*live.length)], i=Math.random()<.5?0:1, d=(Math.random()<.5?-1:1)*(1+Math.floor(Math.random()*4))/100;
       r.k[i]=Math.max(1.01,Math.round((r.k[i]+d)*100)/100); r.dk[i]=d; ch=r;
+      if(pr(r)>8||pr(r)<2){r.k[i]=Math.round((r.k[i]-d)*100)/100;r.dk[i]=0;ch=null;}
       if(pr(r)<0.3&&r.id!==picked) r.gone=1;
       if(r.id===picked&&pr(r)<0.3){r.k[i]=Math.round((r.k[i]-d)*100)/100;r.dk[i]=0;ch=null;}
     } else if(x<.55&&live.length>3){
