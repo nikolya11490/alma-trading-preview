@@ -1208,6 +1208,159 @@ html{scrollbar-color:#3a3a3a #000}
 .books-grid li:hover .bk-img.dark{background:#1b1b1b}
 .books-grid li:hover .bk-img.lite{background:#ececec}
 .books-grid li:hover .bk-img img{filter:none}
+/* ===== v12 ===== */
+/* п.14: первый экран на больших мониторах — крупнее и по центру по высоте */
+@media (min-width:1600px){
+  .hero{justify-content:center;padding-top:140px;padding-bottom:calc(var(--cut)*.5 + 40px)}
+  .hero h1{font-size:clamp(92px,5.6vw,156px)}
+  .hero p.lead{font-size:clamp(21px,1.15vw,28px);max-width:34em;margin-top:34px}
+  .hero .kicker{font-size:15px}
+  .hstat{gap:64px;margin-top:38px}.hstat b{font-size:clamp(42px,2.6vw,66px)}.hstat span{font-size:13px}
+  .hero .cta{margin-top:44px;gap:16px}.hero .cta .btn{font-size:18px;padding:20px 34px}
+  .hero p.free{font-size:19px;margin-top:26px;max-width:40em}.hero p.have{font-size:17px}
+}
+/* п.15: значки букмекеров — квадрат без среза */
+.bk-ic.bk-img{clip-path:none;border:1px solid var(--border-strong)}
+.bk-ic.bk-img::after{display:none}
+
+/* ===== рабочее место как в сканере ===== */
+#desk{--c1:#3d8bfd;--c2:#ff8a3d}
+.win[data-w="arbs"] .wh{justify-content:flex-start;padding-left:2px}
+.win[data-w="arbs"] .wh>span:not(.wh-r){flex:1}
+.wh-r{display:flex;align-items:center;gap:2px}
+.wico{width:30px;height:30px;display:grid;place-items:center;background:none;border:0;color:var(--text2);cursor:pointer;padding:0}
+.wico svg{width:16px;height:16px}
+.wico:hover,.wico[aria-expanded="true"]{color:#fff;background:rgba(255,255,255,.08)}
+/* лента */
+.lf .spi{display:inline-grid;place-items:center}
+.lf .c-sp .spi svg{width:17px;height:17px}
+.lf .c-sc{text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:500 .92em/1.3 var(--mono);color:var(--text2)}
+.lf .c-sc b,.sa-sc b{color:var(--text);font-weight:700}
+.srv{color:#ffd54f;font-weight:700}
+.sdot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#ffd54f;margin:0 4px 1px 0;vertical-align:middle}
+.sh{color:var(--text3)}
+.cn{color:var(--text2)}
+.lf .c-bk>span,.lf .c-ty>span,.lf .c-kf>span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lf .inl>span{display:inline}
+.lf .inl>span+span::before{content:" · ";color:var(--text3)}
+.lf .c-bk>span{display:flex;justify-content:center;align-items:center;gap:5px}
+.lf .c-bk.inl>span{display:inline-flex}
+.ini{display:inline-block;width:7px;height:7px;border-radius:50%;flex:none;vertical-align:middle}
+.lf .c-pr{display:flex;align-items:center;justify-content:center;gap:8px;font-weight:700}
+.lf .c-pr em{font:500 .85em/1 var(--body);font-style:normal;color:var(--text3)}
+.lf .c-pr.pr-tb{flex-direction:column;gap:2px}
+.lf.nodiv .lf-row>div{border-left:0}
+.lf-row.sub{background:rgba(255,255,255,.02)!important}
+.lf-row.sub>div:first-child{padding-left:20px}
+.lf-row{transition:none!important}
+.lf-row.picked{box-shadow:inset 3px 0 0 #fff;background:#1e1e1e!important}
+.lf-more{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--border);color:var(--text3);font:600 11.5px/1 var(--body);padding:4px 10px;cursor:pointer}
+.lf-more:hover{color:#fff;background:rgba(255,255,255,.03)}
+@media (max-width:899px){
+  .lf-row{grid-template-areas:"lg lg tm" "ev ev pr" "sc sc sc" "bk ty kf" "go go go"!important}
+  .lf .c-sc{grid-area:sc;text-align:left;padding:2px 14px!important}
+  .lf .c-pr{justify-content:flex-end}
+}
+/* окно вилки */
+#ws-sel .sa-bar{align-items:stretch}
+#ws-sel .sa-bar b.neg{background:rgba(255,82,82,.18);color:#ff6b6b}
+.sa-spn{font-weight:700;letter-spacing:.04em}
+#ws-sel .sa-sc span,#ws-sel .sa-sc b,#ws-sel .sa-sc i{padding:0;background:none;margin:0}
+#ws-sel .sa-sc .sdot{margin:0 3px 1px 0}
+.sa-sc{margin-left:auto;display:block;align-self:center;padding:0 12px;font:500 12.5px/1.3 var(--mono);color:var(--text2);white-space:nowrap}
+.sa-o .sa-oh{width:100%;display:flex;align-items:center;gap:8px;background:none;border:0;color:var(--text2);font:600 12px/1 var(--body);padding:8px 10px;cursor:pointer;text-align:left}
+.sa-o .sa-oh em{margin-left:auto}
+.sa-o .car{display:inline-block;transition:transform .2s}
+.sa-o.shut .car{transform:rotate(-90deg)}
+.sa-o.shut table{display:none}
+.sa-o th{background:#1d1d1d}
+.sa-o tr.leg td{box-shadow:none!important;background:#191919}
+.sa-o tr.leg td:first-child{box-shadow:inset 3px 0 0 var(--c1)!important}
+.sa-o tr.leg.l2 td:first-child{box-shadow:inset 3px 0 0 var(--c2)!important}
+.sa-o td.own span{display:inline-block;border:1px solid #fff;padding:1px 5px;color:#fff}
+.sa-o td.best{color:var(--up)}
+.sa-o td.own.best span{border-color:var(--up);color:var(--up)}
+.sa-o tfoot td{padding:6px 10px;border-top:1px solid var(--border);color:var(--text2);font-weight:600}
+.sa-o tfoot b.pos{color:var(--up)}.sa-o tfoot b.neg{color:#ff6b6b}
+/* калькулятор */
+.ac .no.x1,.ac-s .no.x1{background:var(--c1);color:#fff}
+.ac .no.x2,.ac-s .no.x2{background:var(--c2);color:#fff}
+.ac-leg input.fixed{color:#ffa94d!important;border-color:#ffa94d!important}
+/* всплывающие окна */
+.wp{position:absolute;z-index:60;width:min(340px,calc(100vw - 16px));max-height:min(78vh,640px);overflow:auto;background:#141414;border:1px solid var(--border-strong);
+  box-shadow:0 18px 50px rgba(0,0,0,.6);padding:12px;font-size:13.5px;color:var(--text)}
+.wp-gear,.wp-menu{width:min(420px,calc(100vw - 16px))}
+.wp-h{font-weight:700;font-size:13px;margin:0 0 10px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.wp-h2{font-size:12px;color:var(--text3);margin:12px 0 6px;text-transform:uppercase;letter-spacing:.08em}
+.wp-row{display:flex;align-items:center;gap:8px;margin:8px 0;color:var(--text3);font-size:12.5px}
+.wp-row>span:first-child{flex:1}
+.wp-list{display:grid;gap:2px;max-height:300px;overflow:auto;margin:4px 0}
+.wsrch{width:100%;background:#1c1c1c;border:1px solid var(--border-strong);color:var(--text);padding:8px 10px;font:inherit;margin-bottom:6px}
+.wck{display:flex;align-items:center;gap:9px;padding:5px 2px;cursor:pointer}
+.wck input{accent-color:#fff;width:15px;height:15px}
+.wck .spi svg{width:16px;height:16px}
+.wck.dim span{color:var(--text3)}
+.wck i{font-style:normal;color:var(--text3);font-size:11px}
+.wf{display:grid;gap:10px}
+.wf .fld{display:flex;flex-direction:column;align-items:flex-start;gap:3px;background:#1c1c1c;border:0;border-bottom:1px solid #555;padding:7px 10px;color:var(--text);text-align:left;font:inherit;width:100%;position:relative}
+.wf .fld small{color:var(--text3);font-size:11px}
+.wf .wdd span{max-width:calc(100% - 20px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:flex;gap:6px}
+.wf .wdd b{position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(--text3);font-weight:400}
+.wf .wdd i{font-style:normal;color:var(--text3)}
+.wf .spl .spi svg{width:16px;height:16px}
+.wf .fs-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.wf .fin{display:flex;align-items:center;gap:6px}.wf .fin input{width:100%;background:none;border:0;color:var(--text);font:inherit}
+.wf .fin em{font-style:normal;color:var(--text3)}
+.wf-f{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--text3);font-size:12px}
+.wpill,.wbadge{display:inline-flex;align-items:center;gap:5px;justify-self:start;background:#262626;border:1px solid var(--border-strong);color:var(--text);border-radius:999px;padding:4px 10px;font:600 12px/1 var(--body);cursor:pointer;white-space:nowrap}
+.wbadge{padding:3px 8px;font-size:11.5px}
+.wbadge .spi svg{width:13px;height:13px}
+.wpill:hover,.wbadge:hover,.wbadge[aria-expanded="true"],.wpill[aria-expanded="true"]{border-color:#fff}
+.wbk{display:flex;align-items:center;gap:6px;padding:3px 2px}
+.wbk label{flex:1;display:flex;align-items:center;gap:9px;min-width:0;cursor:pointer}
+.wbk label span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wbk input{accent-color:#fff}
+.wbk.on label span{font-weight:600}
+.wp .cols{margin:0 0 10px}
+.wp .vopts{display:grid;gap:4px}
+.wp .vrow{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:34px}
+.wp .seg button{font-size:12px;padding:5px 8px}
+.wico2{width:32px;height:30px;display:grid;place-items:center;background:#1c1c1c;border:1px solid var(--border-strong);color:var(--text);cursor:pointer}
+.wico2 svg{width:17px;height:17px}
+.wini{display:flex;gap:6px}
+.wini button{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px;background:#1c1c1c;border:1px solid var(--border-strong);color:var(--text);font:600 12px var(--body);cursor:pointer}
+.wini i{width:10px;height:10px;border-radius:50%;background:var(--c)}
+.wsc{display:flex;align-items:center;gap:8px;padding:4px 2px}
+.wsc>span{flex:1;display:flex;align-items:center;gap:8px}
+.wsc .spi svg{width:16px;height:16px}
+.sw{width:30px;height:20px;border:1px solid var(--border-strong);background:var(--c);cursor:pointer;padding:0}
+.sw.none{background:repeating-linear-gradient(45deg,#2a2a2a 0 4px,#444 4px 8px)}
+.wx{background:none;border:0;color:var(--text3);cursor:pointer;font-size:16px;width:24px;height:24px}
+.wlo{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:3px 2px}
+.wlo>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text2)}
+.wlo>span.on{color:#fff;font-weight:700}
+.wlo .seg{flex:none}
+.wp .fs-tabs{display:flex;gap:18px;border-bottom:1px solid var(--border);margin:0 0 12px}
+.wp .fs-tabs button{background:none;border:0;border-bottom:2px solid transparent;color:var(--text3);padding:8px 0;font:600 13px var(--body);cursor:pointer}
+.wp .fs-tabs button[aria-selected="true"]{color:#fff;border-color:#fff}
+.wp .al-r{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;align-items:center;padding:2px 0}
+.wp .al-r span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text2)}
+.wp .al-r input{background:#1c1c1c;border:1px solid var(--border-strong);color:var(--text);padding:6px 8px;font:inherit;min-width:0}
+@media (max-width:600px){.wp{font-size:14px}.wp .vrow{flex-wrap:wrap}.wp .seg{flex-wrap:wrap}}
+
+.wp,.wp *{box-sizing:border-box}
+.wf .fs-2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.wf .fld{min-width:0;overflow:hidden}
+.wf .fin input{min-width:0}
+.wck>span{display:flex;align-items:center;gap:8px;color:var(--text)}
+.wck .spi{flex:none}
+.wp-row .wck{flex:1}
+.wp-h .chipbtn{padding:4px 10px}
+#ws-sel .sa-bar .sa-sc{display:block}
+#ws-sel .sa-bar .sa-sc *{display:inline}
+#ws-sel .sa-bar .sa-sc .sdot{display:inline-block}
+@media (min-width:900px){.wp-gear{width:min(760px,calc(100vw - 16px))}.wg{display:grid;grid-template-columns:240px minmax(0,1fr);gap:18px;align-items:start}.wg .cols{margin:0}}
+@media (max-width:899px){.lf-more{min-height:30px;padding:6px 14px}}
 
 </style>
 </head>
@@ -1364,19 +1517,19 @@ html{scrollbar-color:#3a3a3a #000}
           <div class="seg ws-lay" role="group" aria-label="Раскладка окон"><button type="button" data-lay="a">Лента слева</button><button type="button" data-lay="b">Лента сверху</button><button type="button" data-lay="c">Лента справа</button><button type="button" data-lay="reset">Сбросить</button></div>
         </div>
         <div class="desk" id="desk">
-          <section class="win" data-w="arbs" aria-label="Окно Arbs"><div class="wh" tabindex="0" aria-label="Окно Arbs: перетащите, стрелки двигают, Shift и стрелки меняют размер"><span>Arbs</span><button type="button" class="wmin" aria-label="Свернуть окно">–</button></div><div class="wb wb-arbs"><div class="lf" id="lf" role="table" aria-label="Лента вилок, запись"><div class="lf-row lf-head" id="lf-head" role="row"></div><div class="lf-body" id="lf-body"></div></div></div><span class="wr" aria-hidden="true"></span></section>
+          <section class="win" data-w="arbs" aria-label="Окно Arbs"><div class="wh" tabindex="0" aria-label="Окно Arbs: перетащите, стрелки двигают, Shift и стрелки меняют размер"><button type="button" class="wico" data-wp="menu" aria-haspopup="dialog" aria-expanded="false" aria-label="Настройки сканера"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><span>Arbs</span><span class="wh-r"><button type="button" class="wico" data-wp="flt" aria-haspopup="dialog" aria-expanded="false" aria-label="Фильтры ленты"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4-2v-4z"/></svg></button><button type="button" class="wico" data-wp="gear" aria-haspopup="dialog" aria-expanded="false" aria-label="Колонки и вид ленты"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.4 13a7.5 7.5 0 0 0 0-2l2-1.6-2-3.4-2.4 1a7 7 0 0 0-1.7-1L15 3.5h-4l-.4 2.5a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L6.6 11a7.5 7.5 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 1.7 1l.4 2.5h4l.4-2.5a7 7 0 0 0 1.7-1l2.4 1 2-3.4zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg></button><button type="button" class="wmin" aria-label="Свернуть окно">–</button></span></div><div class="wb wb-arbs"><div class="lf" id="lf" role="table" aria-label="Лента вилок, запись"><div class="lf-row lf-head" id="lf-head" role="row"></div><div class="lf-body" id="lf-body"></div></div></div><span class="wr" aria-hidden="true"></span></section>
           <section class="win" data-w="sel" aria-label="Окно Selected Arb"><div class="wh" tabindex="0" aria-label="Окно Selected Arb: перетащите, стрелки двигают, Shift и стрелки меняют размер"><span>Selected Arb</span><button type="button" class="wmin" aria-label="Свернуть окно">–</button></div><div class="wb" id="ws-sel"></div><span class="wr" aria-hidden="true"></span></section>
           <section class="win" data-w="calc" aria-label="Окно Arb Calculator"><div class="wh" tabindex="0" aria-label="Окно Arb Calculator: перетащите, стрелки двигают, Shift и стрелки меняют размер"><span>Arb Calculator</span><button type="button" class="wmin" aria-label="Свернуть окно">–</button></div><div class="wb wb-calc"><p class="ac-src" id="ac-src" hidden></p><div class="ac">
           <div class="ac-x" id="ac-x"><div class="ac-in"><div class="ac-row ac-head" aria-hidden="true"><span></span><span>Букмекер</span><span>Вал.</span><span>Окр.</span><span></span><span>Кф</span><span>Ставка</span><span></span><span></span><span class="r">Возврат</span><span></span><span></span></div>
           <div id="ac-legs"></div>
-          <div class="ac-tools"><button type="button" class="chipbtn" id="ac-add">+ исход</button><button type="button" class="chipbtn" id="ac-rm" hidden>− исход</button><button type="button" class="chipbtn" id="ac-reset">Сбросить</button><div class="ac-total">Общая ставка <b id="ac-total">$0.00</b></div></div>
+          <div class="ac-tools"><button type="button" class="chipbtn" id="ac-add">+ событие</button><button type="button" class="chipbtn" id="ac-rm" hidden>− исход</button><button type="button" class="chipbtn" id="ac-reset">clear</button><div class="ac-total">Общая ставка <b id="ac-total">$0.00</b></div></div>
           <div class="ac-sum" id="ac-sum" aria-live="polite"></div></div></div>
           <div class="ac-verdict" id="ac-verdict" aria-live="polite"></div>
           <div class="ac-legend"><span><b>○</b> округление ставки до 1, включено по умолчанию</span><span><b>замок</b> 1-й клик: ставка, 2-й: ставка и кф</span><span><b>↺</b> сброс плеча</span><span><b>=</b> равная прибыль</span><span><b>↑</b> перевес: вся прибыль на исход, остальные в ноль</span></div>
         </div><p class="rate">курс для примера: £1 = $1.34, €1 = $1.16</p></div><span class="wr" aria-hidden="true"></span></section>
         </div>
         <div class="feed-help"><span><i class="ini" title="Инициатор вилки" aria-label="инициатор вилки"></i> инициатор вилки</span><span>Нажмите на вилку: окно вилки и калькулятор заполнятся её данными</span><span><b>go</b> купон откроется у букмекера через расширение</span><span>Точки инициатора в записи поставлены для примера</span></div>
-        <p class="ws-note"><span class="desk-only">Прибыль считается так: (1 / (1/k1 + 1/k2) − 1) · 100. Строки появляются, меняются и исчезают, как в сканере, при наведении лента замирает. Раскладка окон сохраняется в браузере.</span><span class="mob">На телефоне окна идут друг под другом. Двигать и растягивать их можно на компьютере.</span></p>
+        <p class="ws-note"><span class="desk-only">Прибыль считается так: (1 / (1/k1 + 1/k2) − 1) · 100. Строки появляются, меняются и исчезают, как в сканере, при наведении лента замирает. Воронка и шестерёнка в окне Arbs — фильтры и вид ленты, ☰ — настройки, алиасы и порядок плеч. Раскладка окон сохраняется в браузере.</span><span class="mob">На телефоне окна идут друг под другом. Двигать и растягивать их можно на компьютере.</span></p>
       </article>
     </div>
   </div>
@@ -1453,42 +1606,42 @@ html{scrollbar-color:#3a3a3a #000}
     </div>
     <p class="books-lead rv" style="--d:.2s">Сканер сравнивает линии этих букмекеров. У&nbsp;многих из&nbsp;них есть клоны: выберите в&nbsp;расширении GO главного букмекера, и&nbsp;ставить можно и&nbsp;на&nbsp;его клонах. Расширение само подстраивается под сайт клона и&nbsp;его линию, купон открывается так&nbsp;же, в&nbsp;один клик.</p>
     <ul class="books-grid rv" style="--d:.25s" aria-label="Букмекеры в сканере">
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/888sport.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">888sport<wbr>.com</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/888sport.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">888sport<wbr>.it</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/admiralbet.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">admiral<wbr>bet<wbr>.it</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/bc.game.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">bc<wbr>.game</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/bet365.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">bet365<wbr>.com</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betano.bg.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betano<wbr>.bg</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betfair.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betfair<wbr>.com (sports)</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betfred.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betfred<wbr>.com</span></li>
-      <li><span class="bk-ic bk-img lite cut" aria-hidden="true"><img src="assets/bk/betonline.ag.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betonline<wbr>.ag</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betsson.es.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betsson<wbr>.es</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betvictor.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betvictor<wbr>.com</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betway.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betway<wbr>.com</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/bovada.lv.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">bovada<wbr>.lv</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/boylesports.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">boyle<wbr>sports<wbr>.com</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/codere.es.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">codere<wbr>.es</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/coral.co.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">coral<wbr>.co.uk</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/dafabet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">dafabet<wbr>.com (saba)</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/fon.bet.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">fon<wbr>.bet</span></li>
-      <li><span class="bk-ic bk-img dark cut" aria-hidden="true"><img src="assets/bk/goldenbet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">golden<wbr>bet<wbr>.com</span></li>
-      <li><span class="bk-ic bk-img lite cut" aria-hidden="true"><img src="assets/bk/grosvenorcasinos.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">grosvenor<wbr>casinos<wbr>.com</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/ladbrokes.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">ladbrokes<wbr>.com</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/livescorebet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">livescore<wbr>bet<wbr>.com</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/lottoland.co.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">lottoland<wbr>.co.uk</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/lottomatica.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">lotto<wbr>matica<wbr>.it</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/netbet.co.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">netbet<wbr>.co.uk</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/paddypower.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">paddy<wbr>power<wbr>.com</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/parimatch.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">parimatch<wbr>.com</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/pokerstars.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">poker<wbr>stars<wbr>.uk</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/polymarket.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">poly<wbr>market<wbr>.com</span></li>
-      <li><span class="bk-ic bk-img lite cut" aria-hidden="true"><img src="assets/bk/pinnacle.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">silver<wbr>glow58<wbr>.xyz<small>клон Pinnacle</small></span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/sisal.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">sisal<wbr>.it</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/sportingbet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">sporting<wbr>bet<wbr>.com</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/superbet.ro.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">superbet<wbr>.ro</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/vbet.co.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">vbet<wbr>.co.uk</span></li>
-      <li><span class="bk-ic bk-img dark cut" aria-hidden="true"><img src="assets/bk/virginbet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">virgin<wbr>bet<wbr>.com</span></li>
-      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/williamhill.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">william<wbr>hill<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/888sport.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">888sport<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/888sport.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">888sport<wbr>.it</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/admiralbet.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">admiral<wbr>bet<wbr>.it</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/bc.game.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">bc<wbr>.game</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/bet365.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">bet365<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/betano.bg.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betano<wbr>.bg</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/betfair.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betfair<wbr>.com (sports)</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/betfred.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betfred<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img lite" aria-hidden="true"><img src="assets/bk/betonline.ag.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betonline<wbr>.ag</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/betsson.es.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betsson<wbr>.es</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/betvictor.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betvictor<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/betway.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betway<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/bovada.lv.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">bovada<wbr>.lv</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/boylesports.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">boyle<wbr>sports<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/codere.es.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">codere<wbr>.es</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/coral.co.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">coral<wbr>.co.uk</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/dafabet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">dafabet<wbr>.com (saba)</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/fon.bet.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">fon<wbr>.bet</span></li>
+      <li><span class="bk-ic bk-img dark" aria-hidden="true"><img src="assets/bk/goldenbet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">golden<wbr>bet<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img lite" aria-hidden="true"><img src="assets/bk/grosvenorcasinos.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">grosvenor<wbr>casinos<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/ladbrokes.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">ladbrokes<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/livescorebet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">livescore<wbr>bet<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/lottoland.co.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">lottoland<wbr>.co.uk</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/lottomatica.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">lotto<wbr>matica<wbr>.it</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/netbet.co.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">netbet<wbr>.co.uk</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/paddypower.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">paddy<wbr>power<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/parimatch.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">parimatch<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/pokerstars.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">poker<wbr>stars<wbr>.uk</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/polymarket.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">poly<wbr>market<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img lite" aria-hidden="true"><img src="assets/bk/pinnacle.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">silver<wbr>glow58<wbr>.xyz<small>клон Pinnacle</small></span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/sisal.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">sisal<wbr>.it</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/sportingbet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">sporting<wbr>bet<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/superbet.ro.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">superbet<wbr>.ro</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/vbet.co.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">vbet<wbr>.co.uk</span></li>
+      <li><span class="bk-ic bk-img dark" aria-hidden="true"><img src="assets/bk/virginbet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">virgin<wbr>bet<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/williamhill.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">william<wbr>hill<wbr>.com</span></li>
     </ul>
   </div>
 </section>
@@ -1738,109 +1891,351 @@ html{scrollbar-color:#3a3a3a #000}
   var SPU={tt:'TABLE_TENNIS',bb:'BASKETBALL',vb:'VOLLEYBALL',tn:'TENNIS',eb:'E-BASKETBALL',fb:'FOOTBALL'};
   /* лига, событие, спорт, БК1, БК2, рынок1, рынок2, кф1, кф2, живёт (с), инициатор (0|1), [доп.] */
   var POOL=[
-    ['Ebasketball H2H GG League · 4x5','CHA Hornets (HYPER) - DEN Nuggets','eb','bet365.com','betano.bg','2','1',2.90,1.67,26,0],
-    ['W15 Sharm El Sheikh WD','Kochta/Smart - Kurt/Medvedeva','tn','bet365.com','fon.bet','2','1',2.38,1.95,14,0,
-      {ev2:['Kochta/Smart - Kurt/Medvedeva','Kochta T / Smart H - Kurt I / Medvedeva'],lg2:['W15 Sharm El Sheikh WD','World Tennis. Women. Egypt']}],
-    ['HongKong |> Division 1','ABLE Hon Friends - Chun Yu BC','bb','goldenbet.com','ladbrokes.com','H2(−4.5)','H1(+4.5)',2.05,2.15,11,1],
-    ['TT Cup','Tomas Krenek - Jan Skvrna','tt','888sport.com','lottoland.co.uk','G3 H2(−3.5)','G3 H1(+3.5)',3.25,1.55,3,0],
-    ['Qatar U19 League','AL Rayyan U19 - AL Sadd U19','vb','888sport.com','fon.bet','3S 1','3S 2',3.25,1.53,3,0],
-    ['French Cup','JDA Dijon Basket - Limoges CSP','bb','888sport.com','admiralbet.it','H1(−22.5)','H2(+22.5)',2.20,2.07,4,1],
-    ['WTA Hong Kong','Elena Pridankina - Paula Badosa','tn','bet365.com','goldenbet.com','1S TO(12.5)','1S TU(12.5)',13.00,1.16,3,0],
-    ['Internazionali |> Europe Cup','Sluc Nancy Basket - Kerametsk','bb','admiralbet.it','bc.game','H2(+14.5)','H1(−14.5)',1.90,2.25,4,0],
-    ['Ebasketball › NBA H2H GG League','Denver Nuggets (chief) - Charlotte Hornets','eb','betano.bg','goldenbet.com','1','2',1.67,3.03,11,1],
-    ['Hong Kong. A1','Able Hon Friends - Chun Yu','bb','fon.bet','ladbrokes.com','2','1',1.35,4.20,14,0],
-    ['World Tennis. Women. Hungary','Nuudi M - Ciocan M','tn','fon.bet','bc.game','2S H1(+2.5)','2S H2(−2.5)',1.85,2.55,1,1],
-    ['Setka Cup','Serhii Kryvoshyi - Mykhailo Dunas','tt','bet365.com','bc.game','G1 H2(−2.5)','G1 H1(+2.5)',2.63,1.80,1,0],
-    ['Ebasketball › Liga H2H GG','Charlotte Hornets (HYPER) - Denver Nuggets','eb','betsson.es','goldenbet.com','1','2',1.67,3.03,10,1],
-    ['NBA2K › NBA Blitz League · 4x5','CHA Hornets (HYPER) - DEN Nuggets','eb','goldenbet.com','superbet.ro','2','1',3.03,1.65,10,0],
-    ['Itf M15 Salvador','Jefferson Wendler Filho - Giovanni Oradini','tn','888sport.com','betano.bg','2S 2','2S 1',3.75,1.47,3,0],
-    ['Ebasketball H2H GG League · 4x5','CHA Hornets (HYPER) - DEN Nuggets','eb','bet365.com','betano.bg','2','1',3.00,1.67,11,0]
+    ['W15 Sharm El Sheikh WD','Kochta/Smart - Kurt/Medvedeva','tn','bet365.com','fon.bet','2','1',2.38,1.95,21,0,
+      {w:1,sc:{k:'tn',s:[0,1],h:[[3,6]],g:[3,2],p:'15:30',v:1},ev2:['Kochta/Smart - Kurt/Medvedeva','Kochta T / Smart H - Kurt I / Medvedeva'],lg2:['W15 Sharm El Sheikh WD','World Tennis. Women. Egypt']}],
+    ['W15 Sharm El Sheikh WD','Kochta/Smart - Kurt/Medvedeva','tn','bet365.com','fon.bet','2S H2(+1.5)','2S H1(−1.5)',1.75,2.45,9,1,
+      {w:1,sc:{k:'tn',s:[0,1],h:[[3,6]],g:[3,2],p:'15:30',v:1}}],
+    ['Ebasketball H2H GG League · 4x5','CHA Hornets (HYPER) - DEN Nuggets','eb','bet365.com','betano.bg','2','1',2.90,1.67,33,0,
+      {sc:{k:'bb',s:[31,28],q:2,qs:[12,9],m:3,x:41}}],
+    ['HongKong |> Division 1','ABLE Hon Friends - Chun Yu BC','bb','goldenbet.com','ladbrokes.com','H2(−4.5)','H1(+4.5)',2.05,2.15,18,1,
+      {sc:{k:'bb',s:[54,61],q:3,qs:[14,12],m:7,x:12}}],
+    ['HongKong |> Division 1','ABLE Hon Friends - Chun Yu BC','bb','fon.bet','ladbrokes.com','2','1',1.35,4.20,6,0,
+      {sc:{k:'bb',s:[54,61],q:3,qs:[14,12],m:7,x:12}}],
+    ['French Cup','JDA Dijon Basket - Limoges CSP','bb','888sport.com','admiralbet.it','H1(−22.5)','H2(+22.5)',2.20,2.07,4,1,
+      {sc:{k:'bb',s:[61,40],q:3,qs:[18,11],m:4,x:5}}],
+    ['French Cup','JDA Dijon Basket - Limoges CSP','bb','admiralbet.it','bc.game','Away TO(67.5)','Away TU(67.5)',2.10,2.05,3,0,
+      {sc:{k:'bb',s:[61,40],q:3,qs:[18,11],m:4,x:5}}],
+    ['TT Cup','Tomas Krenek - Jan Skvrna','tt','888sport.com','lottoland.co.uk','G3 H2(−3.5)','G3 H1(+3.5)',3.25,1.55,3,0,
+      {sc:{k:'tt',s:[1,1],g:[6,4]}}],
+    ['Qatar U19 League','AL Rayyan U19 - AL Sadd U19','vb','888sport.com','fon.bet','3S 1','3S 2',3.25,1.53,3,0,
+      {y:1,sc:{k:'vb',s:[1,1],g:[18,21]}}],
+    ['WTA Hong Kong','Elena Pridankina - Paula Badosa','tn','bet365.com','goldenbet.com','1S TO(12.5)','1S TU(12.5)',13.00,1.16,3,0,
+      {w:1,sc:{k:'tn',s:[0,0],h:[],g:[5,6],p:'40:30',v:0}}],
+    ['Internazionali |> Europe Cup','Sluc Nancy Basket - Kerametsk','bb','admiralbet.it','bc.game','H2(+14.5)','H1(−14.5)',1.90,2.25,4,0,
+      {sc:{k:'bb',s:[44,52],q:2,qs:[20,23],m:9,x:30}}],
+    ['Ebasketball › NBA H2H GG League','Denver Nuggets (chief) - Charlotte Hornets','eb','betano.bg','goldenbet.com','1','2',1.67,3.03,11,1,
+      {sc:{k:'bb',s:[36,30],q:3,qs:[8,6],m:3,x:18}}],
+    ['World Tennis. Women. Hungary','Nuudi M - Ciocan M','tn','fon.bet','bc.game','2S H1(+2.5)','2S H2(−2.5)',1.85,2.55,1,1,
+      {w:1,sc:{k:'tn',s:[1,0],h:[[6,4]],g:[1,0],p:'30:15',v:0}}],
+    ['Setka Cup','Serhii Kryvoshyi - Mykhailo Dunas','tt','bet365.com','bc.game','G1 H2(−2.5)','G1 H1(+2.5)',2.63,1.80,1,0,
+      {sc:{k:'tt',s:[0,0],g:[3,5]}}],
+    ['Club Friendly Games','FK Krasnodar - Rubin Kazan','fb','888sport.com','parimatch.com','TO(2.5)','TU(2.5)',2.10,2.02,14,0,
+      {fr:1,sc:{k:'fb',s:[1,1],m:54,c:[4,6]}}],
+    ['Premier League International Cup','Middlesbrough U21 - Valencia U21','fb','888sport.com','admiralbet.it','Corners TU(9.5)','Corners TO(9.5)',2.12,2.02,4,1,
+      {y:1,sc:{k:'fb',s:[0,0],m:54,c:[0,6]}}],
+    ['Women. Liga F','Real Madrid W - Barcelona W','fb','bet365.com','superbet.ro','TO(3.5)','TU(3.5)',2.25,1.92,12,0,
+      {w:1,sc:{k:'fb',s:[0,2],m:38,c:[2,5]}}],
+    ['Setka Cup |> Men','Viktor Sharpai - Andrii Lifanov','tt','betano.bg','betonline.ag','G2 2','G2 1',1.85,2.45,1,1,
+      {sc:{k:'tt',s:[1,0],g:[7,9]}}],
+    ['Itf M15 Salvador','Jefferson Wendler Filho - Giovanni Oradini','tn','888sport.com','betano.bg','2S 2','2S 1',3.75,1.47,3,0,
+      {sc:{k:'tn',s:[1,0],h:[[6,4]],g:[2,3],p:'0:15',v:1}}],
+    ['Turkey. Efeler League','Istanbul Genclik Spor - Gaziantep','vb','ladbrokes.com','lottoland.co.uk','1S 2','1S 1',1.40,4.30,4,0,
+      {sc:{k:'vb',s:[0,0],g:[16,14]}}]
   ];
   var BKS=[], SPS=[];
   POOL.forEach(function(p){[p[3],p[4]].forEach(function(b){if(BKS.indexOf(b)<0)BKS.push(b)});if(SPS.indexOf(p[2])<0)SPS.push(p[2])});
   BKS.sort();
 
-  /* ---------- настройки ленты (колонки, вид, сумма, фильтры, алиасы) ---------- */
-  var COLS={lg:['Лига','minmax(0,1.2fr)'],ev:['Событие','minmax(0,1.5fr)'],sp:['Спорт','40px'],bk:['Букмекеры','minmax(0,1.2fr)'],
-            ty:['Тип','minmax(0,1fr)'],kf:['Кф','50px'],pr:['Прибыль','72px'],tm:['Время','60px'],go:['GO','52px']};
-  var DEF={order:['lg','ev','sp','bk','ty','kf','pr','tm','go'],on:{lg:1,ev:1,sp:1,bk:1,ty:1,kf:1,pr:1,tm:1,go:1},round:1,stack:'col',fs:13,sum:100,
-           f:{bk:BKS.slice(),sp:SPS.slice(),minP:1,minD:1,half:1,tn3:1},alias:{}};
-  var cfg=store('alm_feed_v3')||clone(DEF);
-  Object.keys(DEF).forEach(function(k){if(cfg[k]===undefined)cfg[k]=clone(DEF[k])});
-  Object.keys(DEF.f).forEach(function(k){if(cfg.f[k]===undefined)cfg.f[k]=clone(DEF.f[k])});
-  function save(){store('alm_feed_v3',cfg)}
+  /* ===================== v12: лента, фильтры, настройки как в сканере ===================== */
+  var BK36=['888sport.com','888sport.it','admiralbet.it','bc.game','bet365.com','betano.bg','betfair.com','betfred.com','betonline.ag','betsson.es','betvictor.com','betway.com','bovada.lv','boylesports.com','codere.es','coral.co.uk','dafabet.com','fon.bet','goldenbet.com','grosvenorcasinos.com','ladbrokes.com','livescorebet.com','lottoland.co.uk','lottomatica.it','netbet.co.uk','paddypower.com','parimatch.com','pokerstars.uk','polymarket.com','silverglow58.xyz','sisal.it','sportingbet.com','superbet.ro','vbet.co.uk','virginbet.com','williamhill.com'];
+  SP.hb='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3.5 9h17M3.5 15h17"/></svg>';
+  SP.hk='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M7 3l4 13a3 3 0 0 1-3 3H4M17 3l-4 13a3 3 0 0 0 3 3h4"/><ellipse cx="12" cy="20" rx="2.5" ry="1"/></svg>';
+  SPN.hb='Гандбол'; SPN.hk='Хоккей'; SPU.hb='HANDBALL'; SPU.hk='HOCKEY';
+  var SPC={fb:'#66bb6a',bb:'#ff8a3d',tn:'#d4e157',vb:'#4fc3f7',hb:'#ffd54f',tt:'#ef5350',hk:'#90a4ae',eb:'#b388ff'};
+  var WKEEP=['fb','bb','tn','vb','hb','tt','hk'];
+  var COLS={lg:['Лига','minmax(0,1.1fr)'],ev:['Событие','minmax(0,1.5fr)'],sc:['Счёт','minmax(0,1.15fr)'],sp:['Спорт','36px'],bk:['Букмекеры','minmax(0,1.15fr)'],
+            ty:['Тип','minmax(0,.9fr)'],kf:['Кф','48px'],pr:['Прибыль','minmax(64px,.8fr)'],tm:['Время','58px'],n:['+N','']};
+  var DEF={order:['lg','ev','sc','sp','bk','ty','kf','pr','tm','n'],on:{lg:0,ev:1,sc:1,sp:1,bk:1,ty:1,kf:1,pr:1,tm:1,n:1},
+    round:1,bkS:'col',tyS:'col',kfS:'col',kfPr:'lr',spI:'color',div:1,spC:{},ini:['#3d8bfd','#ff8a3d'],fs:13,sum:100,
+    st:{fbC:'bet',bbT:'min',bbTot:1,tnSrv:'color',tnSets:1},lo:{p:{},s:{}},saOpen:1,
+    f:{bk:BK36.slice(),sp:SPS.slice(),bkSp:{},pairOff:{},minP:1,minD:1,half:1,tn3:1,lg:{y:0,fr:0,w:0},wk:[]},alias:{}};
+  var cfg=store('alm_feed_v4')||clone(DEF);
+  (function fill(a,b){Object.keys(b).forEach(function(k){if(a[k]===undefined)a[k]=clone(b[k]);else if(b[k]&&typeof b[k]==='object'&&!Array.isArray(b[k]))fill(a[k],b[k]);})})(cfg,DEF);
+  function save(){store('alm_feed_v4',cfg)}
   function al(b){return cfg.alias[b]||b}
+  function spCol(s){return cfg.spC[s]||SPC[s]||'#bdbdbd'}
+  function spIco(s){return '<span class="spi" style="color:'+(cfg.spI==='color'?spCol(s):'var(--text2)')+'" title="'+esc(SPN[s]||s)+'">'+SP[s]+'</span>'}
+  function dotI(n){return '<i class="ini" style="background:'+cfg.ini[n]+'" title="Инициатор вилки" aria-label="инициатор вилки"></i>'}
+  function deskColors(){var d=$('#desk');if(d){d.style.setProperty('--c1',cfg.ini[0]);d.style.setProperty('--c2',cfg.ini[1]);}}
 
   /* ---------- живая лента в окне Arbs ---------- */
-  var lf=$('#lf'), lfHead=$('#lf-head'), lfBody=$('#lf-body'), uid=0;
+  var lf=$('#lf'), lfHead=$('#lf-head'), lfBody=$('#lf-body'), uid=0, open={};
   function mk(p){var x=p[11]||{};return{id:++uid,lg:p[0],ev:p[1],sp:p[2],b:[p[3],p[4]],t:[p[5],p[6]],k:[p[7],p[8]],k0:[p[7],p[8]],age:p[9],ini:p[10],
-    ev2:x.ev2,lg2:x.lg2,others:x.others,src:p,fresh:0,gone:0,dk:[0,0]}}
-  var live=POOL.slice(0,4).map(mk);
-  var picked=live[1].id;
+    ev2:x.ev2,lg2:x.lg2,others:x.others,sc:clone(x.sc||{}),w:x.w,y:x.y,fr:x.fr,src:p,dk:[0,0]}}
+  var live=[0,1,2,3,4,5].map(function(i){return mk(POOL[i])});
+  var picked=live[0].id;
   function pr(r){return roi(r.k)}
   function byId(id){return live.find(function(x){return x.id===id})}
+  function pkey(a,b){return [a,b].sort().join('|')}
+  function firstIdx(r){var a=r.b[0],b=r.b[1],P=cfg.lo.p,sa=P[a],sb=P[b];
+    if(sa&&sb&&sa===sb){var w=cfg.lo.s[pkey(a,b)];return w===b?1:0;}
+    if(sa==='1'||sb==='2')return 0; if(sa==='2'||sb==='1')return 1; return 0;}
+  function oriented(r){if(!r||firstIdx(r)===0)return r;var o={};Object.keys(r).forEach(function(k){o[k]=r[k]});
+    ['b','t','k','k0','dk'].forEach(function(k){o[k]=r[k].slice().reverse()});o.ini=1-r.ini;o.sw=1;
+    if(r.ev2)o.ev2=r.ev2.slice().reverse(); if(r.lg2)o.lg2=r.lg2.slice().reverse();
+    if(r.others)o.others=r.others.map(function(x){return [x[0],x[2],x[1]]});return o;}
+  function calcR(r){var o=oriented(r),c={};Object.keys(o).forEach(function(k){c[k]=o[k]});c.b=o.b.map(al);return c;}
   function passes(r){
     var f=cfg.f;
-    if(r.id===picked)return true;
     if(f.bk.indexOf(r.b[0])<0||f.bk.indexOf(r.b[1])<0)return false;
+    if(f.pairOff[pkey(r.b[0],r.b[1])])return false;
+    if((f.bkSp[r.b[0]]||[]).indexOf(r.sp)>=0||(f.bkSp[r.b[1]]||[]).indexOf(r.sp)>=0)return false;
     if(f.sp.indexOf(r.sp)<0)return false;
     if(pr(r)<f.minP)return false;
     if(r.age<f.minD)return false;
     if(f.half&&r.t.some(function(t){var m=/\(([−+\-]?\d+(?:\.\d+)?)\)/.exec(t);return m&&!/\.5$/.test(m[1])}))return false;
     if(f.tn3&&r.sp==='tn'&&r.t.some(function(t){return /^3S/.test(t)}))return false;
+    if(f.lg.y&&r.y)return false;
+    if(f.lg.fr&&r.fr)return false;
+    if(f.lg.w&&r.w&&f.wk.indexOf(r.sp==='eb'?'bb':r.sp)<0)return false;
     return true;
   }
-  function cell(c,r){
+  /* счёт по виду спорта и настройкам «Состояние матча» */
+  function score(r,full){
+    var s=r.sc, st=cfg.st, h='';
+    if(!s||!s.k)return '';
+    if(s.k==='tn'){
+      var srv=st.tnSrv, g=s.g.map(function(v,i){return (srv==='color'&&s.v===i)?'<span class="srv">'+v+'</span>':v}).join(':');
+      h='<b>'+s.s.join(':')+'</b>'+(st.tnSets&&s.h&&s.h.length?' <span class="sh">('+s.h.map(function(x){return x.join(':')}).join(' ')+')</span>':'')+
+        ' S'+(s.s[0]+s.s[1]+1)+' '+(srv==='dot'?'<i class="sdot'+(s.v?' r':'')+'"></i>':'')+g+(s.p?' <span class="pt">'+s.p+'</span>':'');
+    } else if(s.k==='fb'){
+      var corn=st.fbC==='always'||r.t.some(function(t){return /Corner/i.test(t)});
+      h='<b>'+s.s.join(':')+'</b> '+s.m+'\''+(corn&&s.c?' <span class="cn">⚑ '+s.c.join(':')+'</span>':'');
+    } else if(s.k==='bb'){
+      var tm=st.bbT==='full'?(s.m<10?'0':'')+s.m+':'+(s.x<10?'0':'')+s.x:s.m+'\'';
+      h=(st.bbTot?'<b>'+s.s.join(':')+'</b> ':'')+'Q'+s.q+(st.bbTot?'':' <b>'+s.qs.join(':')+'</b>')+' '+tm;
+    } else if(s.k==='vb'){ h='<b>'+s.s.join(':')+'</b> S'+(s.s[0]+s.s[1]+1)+' '+s.g.join(':');
+    } else if(s.k==='tt'){ h='<b>'+s.s.join(':')+'</b> G'+(s.s[0]+s.s[1]+1)+' '+s.g.join(':'); }
+    return h;
+  }
+  function stk(arr,mode,cls){return '<div class="'+cls+(mode==='row'?' inl':'')+'">'+arr.join('')+'</div>'}
+  function cell(c,R){
+    var r=oriented(R);
     if(c==='lg')return '<div class="c-lg" title="'+esc(r.lg)+'">'+esc(r.lg)+'</div>';
     if(c==='ev')return '<div class="c-ev" title="'+esc(r.ev)+'">'+esc(r.ev)+'</div>';
-    if(c==='sp')return '<div class="c-sp">'+SP[r.sp]+'</div>';
-    if(c==='bk')return '<div class="c-bk">'+r.b.map(function(b,i){return '<span>'+esc(al(b))+(r.ini===i?DOT:'')+'</span>'}).join('')+'</div>';
-    if(c==='ty')return '<div class="c-ty"><span>'+esc(r.t[0])+'</span><span>'+esc(r.t[1])+'</span></div>';
-    if(c==='kf')return '<div class="c-kf">'+r.k.map(function(k,i){return '<span class="'+(r.dk[i]>0?'up':r.dk[i]<0?'dn':'')+'">'+k.toFixed(2)+'</span>'}).join('')+'</div>';
-    if(c==='pr')return '<div class="c-pr">'+pr(r).toFixed(cfg.round)+'%</div>';
+    if(c==='sc')return '<div class="c-sc">'+score(r)+'</div>';
+    if(c==='sp')return '<div class="c-sp">'+spIco(r.sp)+'</div>';
+    if(c==='bk')return stk(r.b.map(function(b,i){return '<span>'+esc(al(b))+(r.ini===i?dotI(i):'')+'</span>'}),cfg.bkS,'c-bk');
+    if(c==='ty')return stk(r.t.map(function(t){return '<span>'+esc(t)+'</span>'}),cfg.tyS,'c-ty');
+    if(c==='kf')return stk(r.k.map(function(k,i){return '<span class="'+(r.dk[i]>0?'up':r.dk[i]<0?'dn':'')+'">'+k.toFixed(2)+'</span>'}),cfg.kfS,'c-kf');
+    if(c==='pr'){var p='<b>'+pr(r).toFixed(cfg.round)+'%</b>';
+      if(cfg.kfPr==='lr')p='<em>'+r.k[0].toFixed(2)+'</em>'+p+'<em>'+r.k[1].toFixed(2)+'</em>';
+      if(cfg.kfPr==='tb')p='<em>'+r.k[0].toFixed(2)+'</em>'+p+'<em>'+r.k[1].toFixed(2)+'</em>';
+      return '<div class="c-pr pr-'+cfg.kfPr+'">'+p+'</div>';}
     if(c==='tm')return '<div class="c-tm" data-age="'+r.id+'">'+age(r.age)+'</div>';
-    if(c==='go')return '<div class="c-go">'+[0,1].map(function(i){return '<button type="button" class="gob" data-go title="'+GO_HINT+'" aria-label="go: '+esc(r.b[i])+'. '+GO_HINT+'">go</button>'}).join('')+'</div>';
   }
-  function cols(){return cfg.order.filter(function(c){return cfg.on[c]})}
+  function cols(){return cfg.order.filter(function(c){return cfg.on[c]&&c!=='n'})}
   var hover=false;
+  function gkey(r){return r.sp+'|'+r.ev.toLowerCase()}
   function render(){
     if(!lf)return;
-    var cs=cols(), tpl=cs.map(function(c){return COLS[c][1]}).join(' ');
+    deskColors();
+    var cs=cols(), tpl=cs.map(function(c){return COLS[c][1]}).join(' ')+' 52px';
     lf.style.fontSize=cfg.fs+'px';
-    lf.classList.toggle('row',cfg.stack==='row');
-    var cnt=$('#fs-count');
-    if(!cs.length){lfHead.innerHTML='';lfBody.innerHTML='<div class="lf-empty">Включите хотя бы одну колонку в блоке «Лента под себя»</div>';return;}
+    lf.classList.toggle('nodiv',!cfg.div);
+    if(!cs.length){lfHead.innerHTML='';lfBody.innerHTML='<div class="lf-empty">Включите хотя бы одну колонку: шестерёнка в окне Arbs</div>';return;}
     lfHead.style.gridTemplateColumns=tpl;
-    lfHead.innerHTML=cs.map(function(c){return '<div>'+(c==='go'?'':COLS[c][0])+(c==='pr'?' ↓':'')+'</div>'}).join('');
+    lfHead.innerHTML=cs.map(function(c){return '<div>'+COLS[c][0]+(c==='pr'?' ↓':'')+'</div>'}).join('')+'<div></div>';
     live.sort(function(a,b){return pr(b)-pr(a)});
-    var vis=live.filter(passes);
-    if(cnt)cnt.textContent='В ленте '+vis.length+' из '+live.length+' вилок';
-    lfBody.innerHTML=vis.length?vis.map(function(r){return '<div class="lf-row'+(r.fresh?' fresh':'')+(r.gone?' gone':'')+(r.id===picked?' picked':'')+'" data-id="'+r.id+'" tabindex="0" role="button" aria-label="Вилка '+esc(r.ev)+' '+pr(r).toFixed(1)+'%, открыть в окне вилки и калькуляторе" style="grid-template-columns:'+tpl+'">'+cs.map(function(c){return cell(c,r)}).join('')+'</div>'}).join('')
-      :'<div class="lf-empty">Под фильтры сейчас нет вилок. Ослабьте их в окне «Настройки» блока «Лента под себя»</div>';
+    var vis=live.filter(passes), groups=[], gm={};
+    vis.forEach(function(r){var k=cfg.on.n?gkey(r):'#'+r.id;if(!gm[k]){gm[k]=[];groups.push(k);}gm[k].push(r)});
+    var cnt=$('#fs-count'); if(cnt)cnt.textContent='В ленте '+vis.length+' из '+live.length+' вилок';
+    function row(r,sub){return '<div class="lf-row'+(sub?' sub':'')+(r.id===picked?' picked':'')+'" data-id="'+r.id+'" tabindex="0" role="button" aria-label="Вилка '+esc(r.ev)+' '+pr(r).toFixed(1)+'%, открыть в окне вилки и калькуляторе" style="grid-template-columns:'+tpl+'">'+
+      cs.map(function(c){return cell(c,r)}).join('')+'<div class="c-go">'+[0,1].map(function(i){var o=oriented(r);return '<button type="button" class="gob" data-go title="'+GO_HINT+'" aria-label="go: '+esc(o.b[i])+'. '+GO_HINT+'">go</button>'}).join('')+'</div></div>'}
+    lfBody.innerHTML=groups.length?groups.map(function(k){var g=gm[k], head=g.find(function(r){return r.id===picked})||g[0], rest=g.filter(function(r){return r!==head});
+      var h=row(head,false);
+      if(rest.length){ if(open[k])h+=rest.map(function(r){return row(r,true)}).join('');
+        h+='<button type="button" class="lf-more" data-grp="'+esc(k)+'" aria-expanded="'+!!open[k]+'">'+(open[k]?'−':'+')+rest.length+'</button>'; }
+      return h}).join('')
+      :'<div class="lf-empty">Под фильтры сейчас нет вилок. Ослабьте их: воронка в окне Arbs</div>';
   }
   setInterval(function(){live.forEach(function(r){r.age++;var el=lfBody&&lfBody.querySelector('[data-age="'+r.id+'"]');if(el)el.textContent=age(r.age)})},1000);
+  var PTS=['0:0','15:0','15:15','30:15','30:30','40:30','40:40'];
+  function tickScore(r){var s=r.sc;if(!s||!s.k)return;
+    if(s.k==='bb'){var i=Math.random()<.5?0:1;s.s[i]+=2;s.qs[i]+=2;s.x=(s.x+23)%60;if(s.x<23)s.m=Math.max(0,s.m-1);}
+    else if(s.k==='tn'){var j=PTS.indexOf(s.p);s.p=PTS[(j+1)%PTS.length];}
+    else if(s.k==='vb'||s.k==='tt'){var q=Math.random()<.5?0:1;s.g[q]=Math.min(s.k==='tt'?10:24,s.g[q]+1);}}
   function step(){
     if(!lf||hover)return;
-    live.forEach(function(r){r.fresh=0;r.dk=[0,0]});
-    live=live.filter(function(r){return !r.gone});
+    live.forEach(function(r){r.dk=[0,0]});
     var x=Math.random(), ch=null, nL=live.length;
-    if(nL>=5)x=.45;else if(nL<=3)x=.9;   /* держим 3–5 вилок */
-    if(x<.35&&live.length){
-      var r=live[Math.floor(Math.random()*live.length)], i=Math.random()<.5?0:1, d=(Math.random()<.5?-1:1)*(1+Math.floor(Math.random()*4))/100;
+    if(nL>=8)x=.5;else if(nL<=5)x=.9;
+    if(x<.4&&nL){
+      var r=live[Math.floor(Math.random()*nL)], i=Math.random()<.5?0:1, d=(Math.random()<.5?-1:1)*(1+Math.floor(Math.random()*4))/100;
       r.k[i]=Math.max(1.01,Math.round((r.k[i]+d)*100)/100); r.dk[i]=d; ch=r;
       if(pr(r)>8||pr(r)<2){r.k[i]=Math.round((r.k[i]-d)*100)/100;r.dk[i]=0;ch=null;}
-      if(pr(r)<0.3&&r.id!==picked) r.gone=1;
-      if(r.id===picked&&pr(r)<0.3){r.k[i]=Math.round((r.k[i]-d)*100)/100;r.dk[i]=0;ch=null;}
-    } else if(x<.55&&live.length>3){
+      if(Math.random()<.6)tickScore(r);
+    } else if(x<.7&&nL>5){
       var cand=live.filter(function(r){return r.id!==picked}).sort(function(a,b){return b.age-a.age});
-      if(cand.length)cand[Math.floor(Math.random()*Math.min(3,cand.length))].gone=1;
+      if(cand.length){var g=cand[Math.floor(Math.random()*Math.min(3,cand.length))];live=live.filter(function(r){return r!==g});}
     } else {
       var free=POOL.filter(function(p){return !live.some(function(r){return r.src===p})});
-      if(free.length){var n=mk(free[Math.floor(Math.random()*free.length)]);n.age=0;n.fresh=1;live.push(n);}
+      if(free.length){var n=mk(free[Math.floor(Math.random()*free.length)]);n.age=0;live.push(n);}
     }
     render();
     if(ch&&ch.id===picked)selWin();
   }
+
+  /* ---------- всплывающие окна (воронка, шестерёнка, меню) ---------- */
+  var pops=[];
+  function popClose(from){while(pops.length>from){var p=pops.pop();if(p.el.parentNode)p.el.parentNode.removeChild(p.el);if(p.btn)p.btn.setAttribute('aria-expanded','false');}}
+  function popPlace(p){var a=p.btn.getBoundingClientRect(), el=p.el, w=el.offsetWidth, h=el.offsetHeight, x, y;
+    if(p.lv===0){x=a.right-w;y=a.bottom+6;}else{x=a.right+8;y=a.top-8;if(x+w>innerWidth-8)x=a.left-w-8;}
+    x=Math.min(innerWidth-w-8,Math.max(8,x)); if(y+h>innerHeight-8)y=Math.max(8,innerHeight-h-8);
+    el.style.left=(x+scrollX)+'px'; el.style.top=(y+scrollY)+'px';}
+  function popOpen(btn,lv,build,cls){
+    if(pops[lv]&&pops[lv].btn===btn){popClose(lv);return;}
+    popClose(lv); var el=D.createElement('div'); el.className='wp '+(cls||''); el.setAttribute('role','dialog'); D.body.appendChild(el);
+    var p={el:el,btn:btn,lv:lv,build:build}; pops.push(p); btn.setAttribute('aria-expanded','true'); build(el); popPlace(p); return p;}
+  function popRebuild(){pops.forEach(function(p){var y=p.el.scrollTop, l=p.el.querySelector('.wp-list'), ly=l?l.scrollTop:0;p.build(p.el);p.el.scrollTop=y;var l2=p.el.querySelector('.wp-list');if(l2)l2.scrollTop=ly;})}
+  function changed(noPop){save();render();selWin();if(!noPop)popRebuild();}
+  D.addEventListener('pointerdown',function(e){if(!pops.length)return;var t=e.target;
+    if(pops.some(function(p){return p.el.contains(t)||p.btn.contains(t)}))return; if(t.closest&&t.closest('.wp'))return; popClose(0);});
+  D.addEventListener('keydown',function(e){if(e.key==='Escape'&&pops.length){var p=pops[pops.length-1];popClose(pops.length-1);p.btn.focus();}});
+  var CHK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+  function wckH(on,attr,label){return '<label class="wck"><input type="checkbox"'+(on?' checked':'')+' '+attr+'><span>'+label+'</span></label>'}
+  function segH(key,opts,cur){return '<div class="seg wseg" data-k="'+key+'">'+opts.map(function(o){return '<button type="button" data-v="'+o[0]+'" aria-pressed="'+(String(o[0])===String(cur))+'">'+o[1]+'</button>'}).join('')+'</div>'}
+  function setPath(path,v){var o=cfg,ks=path.split('.');for(var i=0;i<ks.length-1;i++)o=o[ks[i]];o[ks[ks.length-1]]=isNaN(+v)||v===''?v:+v;}
+  function getPath(path){var o=cfg;path.split('.').forEach(function(k){o=o[k]});return o;}
+  function pickColor(cur,cb){var i=D.createElement('input');i.type='color';i.value=cur&&cur[0]==='#'&&cur.length===7?cur:'#ffffff';i.style.cssText='position:fixed;left:-99px;top:0;opacity:0';D.body.appendChild(i);
+    i.addEventListener('input',function(){cb(i.value)});i.addEventListener('change',function(){cb(i.value);setTimeout(function(){i.remove()},50)});i.click();}
+
+  /* фильтры (воронка и вкладка окна «Настройки») */
+  var bkQ='';
+  function pairsOn(){var s=cfg.f.bk,n=0;for(var i=0;i<s.length;i++)for(var j=i+1;j<s.length;j++)if(!cfg.f.pairOff[pkey(s[i],s[j])])n++;return n;}
+  function filtersH(){var f=cfg.f, lgn=(f.lg.y?1:0)+(f.lg.fr?1:0)+(f.lg.w?1:0);
+    return '<div class="wf">'+
+      '<button type="button" class="fld wdd" data-sub="bk"><small>Bookmakers</small><span>'+(f.bk.length?esc(f.bk.map(al).join(', ')):'<i>не выбрано</i>')+'</span><b>▾</b></button>'+
+      '<button type="button" class="fld wdd" data-sub="sp"><small>Sports</small><span class="spl">'+(f.sp.length?f.sp.map(spIco).join(''):'<i>не выбрано</i>')+'</span><b>▾</b></button>'+
+      '<div class="fs-2"><label class="fld"><small>Min Profit %</small><span class="fin"><input data-num="f.minP" value="'+f.minP+'" inputmode="decimal" autocomplete="off"><em>%</em></span></label>'+
+      '<label class="fld"><small>Min Duration</small><span class="fin"><input data-num="f.minD" value="'+f.minD+'" inputmode="numeric" autocomplete="off"><em>sec</em></span></label></div>'+
+      wckH(f.half,'data-ck="f.half"','Показывать только 0.5 форы/тоталы')+wckH(f.tn3,'data-ck="f.tn3"','Скрыть теннис на 3-й сет')+
+      '<button type="button" class="wpill" data-sub="lg">🏆 Фильтры лиг '+lgn+'/3</button>'+
+      '<div class="wf-f"><span id="fs-count"></span><button type="button" class="chipbtn" data-act="freset">Сбросить фильтры</button></div></div>';}
+  function bkListH(){var f=cfg.f, q=bkQ.toLowerCase(), list=BK36.filter(function(b){return !q||b.indexOf(q)>=0||al(b).toLowerCase().indexOf(q)>=0});
+    return '<div class="wp-h">Букмекеры</div><input class="wsrch" data-q="bk" value="'+esc(bkQ)+'" placeholder="Поиск букмекера" autocomplete="off">'+
+      '<div class="wp-row"><span>Выбрано '+f.bk.length+', пар '+pairsOn()+'</span><button type="button" class="chipbtn" data-act="bkall">Все</button><button type="button" class="chipbtn" data-act="bknone">Сбросить</button></div>'+
+      '<div class="wp-list">'+list.map(function(b){var on=f.bk.indexOf(b)>=0, off=f.bkSp[b]||[], spn=SPS.length-off.filter(function(s){return SPS.indexOf(s)>=0}).length,
+        others=f.bk.filter(function(x){return x!==b}), pn=others.filter(function(x){return !f.pairOff[pkey(b,x)]}).length;
+        return '<div class="wbk'+(on?' on':'')+'"><label><input type="checkbox" data-bk="'+esc(b)+'"'+(on?' checked':'')+'><span>'+esc(al(b))+'</span></label>'+
+          (on?'<button type="button" class="wbadge" data-sub="bksp" data-b="'+esc(b)+'" title="Виды спорта на этом букмекере">'+spIco('fb')+spn+'/'+SPS.length+'</button>'+
+              '<button type="button" class="wbadge" data-sub="pair" data-b="'+esc(b)+'" title="Пары с другими букмекерами">'+pn+'/'+(BK36.length-1)+' ›</button>':'')+'</div>'}).join('')+'</div>';}
+  function spListH(){return '<div class="wp-h">Виды спорта</div><div class="wp-list">'+SPS.map(function(s){return wckH(cfg.f.sp.indexOf(s)>=0,'data-sp="'+s+'"',spIco(s)+' '+SPU[s])}).join('')+'</div>';}
+  function bkSpH(b){var off=cfg.f.bkSp[b]||[];return '<div class="wp-h">'+esc(al(b))+': виды спорта</div><div class="wp-list">'+SPS.map(function(s){return wckH(off.indexOf(s)<0,'data-bksp="'+s+'" data-b="'+esc(b)+'"',spIco(s)+' '+SPU[s])}).join('')+'</div>';}
+  function pairH(b){var f=cfg.f;return '<div class="wp-h">'+esc(al(b))+': пары с букмекерами</div><div class="wp-row"><button type="button" class="chipbtn" data-act="pall" data-b="'+esc(b)+'">Все</button><button type="button" class="chipbtn" data-act="pnone" data-b="'+esc(b)+'">Ни одной</button></div><div class="wp-list">'+
+    BK36.filter(function(x){return x!==b}).map(function(x){var sel=f.bk.indexOf(x)>=0;return '<label class="wck'+(sel?'':' dim')+'"><input type="checkbox" data-pair="'+esc(x)+'" data-b="'+esc(b)+'"'+(!f.pairOff[pkey(b,x)]?' checked':'')+'><span>'+esc(al(x))+(sel?'':' <i>не выбран</i>')+'</span></label>'}).join('')+'</div>';}
+  function lgH(){var L=cfg.f.lg;return '<div class="wp-h">Фильтры лиг</div>'+wckH(L.y,'data-ck="f.lg.y"','Убрать молодёжки')+wckH(L.fr,'data-ck="f.lg.fr"','Убрать товарищеские матчи')+
+    '<div class="wp-row">'+wckH(L.w,'data-ck="f.lg.w"','Убрать женские матчи')+'<button type="button" class="wbadge" data-sub="wk">⊘ '+cfg.f.wk.length+'/'+WKEEP.length+'</button></div>';}
+  function wkH(){return '<div class="wp-h">Оставить женские матчи <button type="button" class="chipbtn" data-act="wkall">Все</button></div><div class="wp-list">'+WKEEP.map(function(s){return wckH(cfg.f.wk.indexOf(s)>=0,'data-wk="'+s+'"',spIco(s)+' '+SPU[s])}).join('')+'</div>';}
+
+  /* шестерёнка: колонки и вид */
+  var HDL='<svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg>';
+  var UPA='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg>', DNA='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>';
+  var IPAL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 2-.8 2-1.8 0-.5-.2-.9-.5-1.3-.3-.3-.5-.8-.5-1.2 0-1 .8-1.7 1.8-1.7H17a4 4 0 0 0 4-4C21 6.5 17 3 12 3z"/><circle cx="7.5" cy="11" r="1.2" fill="currentColor"/><circle cx="10" cy="7.2" r="1.2" fill="currentColor"/><circle cx="14.5" cy="7.2" r="1.2" fill="currentColor"/></svg>';
+  var ISWAP='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7"/></svg>';
+  var IBOARD='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="13" rx="1.5"/><path d="M12 5v13M7 10v3M16.5 10v3M8 21h8"/></svg>';
+  var RW=[['row','В строку'],['col','Друг под другом']];
+  function gearH(){
+    var colsH=cfg.order.map(function(c,i){return '<li class="col" draggable="true" data-c="'+c+'">'+HDL+'<label><input type="checkbox" data-col="'+c+'"'+(cfg.on[c]?' checked':'')+'><span>'+COLS[c][0]+'</span></label>'+
+      '<button type="button" data-mv="-1" aria-label="Выше" '+(i?'':'disabled')+'>'+UPA+'</button><button type="button" data-mv="1" aria-label="Ниже" '+(i===cfg.order.length-1?'disabled':'')+'>'+DNA+'</button></li>'}).join('');
+    function r(l,c){return '<div class="vrow"><span>'+l+'</span>'+c+'</div>'}
+    return '<div class="wg"><ol class="cols wcols">'+colsH+'</ol><div class="vopts">'+
+      r('Округление прибыли',segH('round',[[2,'0.01'],[1,'0.1'],[0,'1']],cfg.round))+
+      r('Букмекеры',segH('bkS',RW,cfg.bkS))+r('Тип',segH('tyS',RW,cfg.tyS))+r('Кф',segH('kfS',RW,cfg.kfS))+
+      r('Кф в прибыли',segH('kfPr',[['no','Нет'],['lr','Слева и справа'],['tb','Сверху и снизу']],cfg.kfPr))+
+      r('Иконки спорта',segH('spI',[['plain','Обычные'],['color','Цветные']],cfg.spI))+
+      r('Разделители колонок',segH('div',[[1,'Вкл'],[0,'Выкл']],cfg.div))+
+      r('Цвета спорта','<button type="button" class="wico2" data-sub="spc" aria-label="Цвета спорта">'+IPAL+'</button>')+
+      r('Цвет точки инициатора',iniH())+
+      r('Порядок плеч','<button type="button" class="wico2" data-sub="lo" aria-label="Порядок плеч">'+ISWAP+'</button>')+
+      r('Состояние матча','<button type="button" class="wico2" data-sub="st" aria-label="Состояние матча">'+IBOARD+'</button>')+
+      r('Размер шрифта','<div class="stepper"><button type="button" data-fs="-1" aria-label="Шрифт меньше">−</button><b>'+cfg.fs+'px</b><button type="button" data-fs="1" aria-label="Шрифт больше">+</button></div>')+
+      '<div class="vrow"><span></span><button type="button" class="chipbtn" data-act="vreset">Сбросить</button></div></div></div>';}
+  function iniH(){return '<div class="wini">'+[0,1].map(function(i){return '<button type="button" data-ini="'+i+'" style="--c:'+cfg.ini[i]+'" aria-label="Цвет точки плеча '+(i+1)+'"><i></i>'+(i+1)+'</button>'}).join('')+'</div>'}
+  function spcH(){return '<div class="wp-h">Цвета спорта</div><div class="wp-list">'+Object.keys(SPC).map(function(s){var c=cfg.spC[s];
+    return '<div class="wsc"><span>'+spIco(s)+' '+SPU[s]+'</span><button type="button" class="sw'+(c?'':' none')+'" data-spc="'+s+'" style="--c:'+(c||'transparent')+'" aria-label="Цвет: '+SPU[s]+'"></button>'+(c?'<button type="button" class="wx" data-spcx="'+s+'" aria-label="Сбросить цвет">×</button>':'')+'</div>'}).join('')+'</div>';}
+  var loQ='';
+  function loH(){var P=cfg.lo.p, q=loQ.toLowerCase(), list=BK36.filter(function(b){return !q||b.indexOf(q)>=0});
+    var conf=[];['1','2'].forEach(function(side){var g=BK36.filter(function(b){return P[b]===side});for(var i=0;i<g.length;i++)for(var j=i+1;j<g.length;j++)conf.push([g[i],g[j]]);});
+    return '<div class="wp-h">Каким плечом ставить бука в вилке</div><input class="wsrch" data-q="lo" value="'+esc(loQ)+'" placeholder="Поиск букмекера" autocomplete="off">'+
+      '<div class="wp-list">'+list.map(function(b){return '<div class="wlo"><span'+(P[b]?' class="on"':'')+'>'+esc(al(b))+'</span><div class="seg">'+
+        '<button type="button" data-lo="'+esc(b)+'" data-v="1" aria-pressed="'+(P[b]==='1')+'">Первым</button><button type="button" data-lo="'+esc(b)+'" data-v="2" aria-pressed="'+(P[b]==='2')+'">Вторым</button></div></div>'}).join('')+'</div>'+
+      (conf.length?'<div class="wp-h2">Буки на одном плече — кто первым в связке</div>'+conf.map(function(c){var k=pkey(c[0],c[1]), w=cfg.lo.s[k]||c[0];
+        return '<div class="wlo"><span>'+esc(al(c[0]))+' / '+esc(al(c[1]))+'</span><div class="seg">'+c.map(function(b){return '<button type="button" data-los="'+esc(k)+'" data-v="'+esc(b)+'" aria-pressed="'+(w===b)+'">'+esc(al(b))+'</button>'}).join('')+'</div></div>'}).join(''):'')+
+      '<div class="wp-row"><span></span><button type="button" class="chipbtn" data-act="loreset">Сбросить</button></div>';}
+  function stH(){var s=cfg.st;function r(l,c){return '<div class="vrow"><span>'+l+'</span>'+c+'</div>'}
+    return '<div class="wp-h2">Футбол</div>'+r('Угловые',segH('st.fbC',[['bet','Ставка'],['always','Всегда']],s.fbC))+
+      '<div class="wp-h2">Баскетбол</div>'+r('Время матча',segH('st.bbT',[['min','Минуты'],['full','Полное']],s.bbT))+wckH(s.bbTot,'data-ck="st.bbTot"','Общий счёт')+
+      '<div class="wp-h2">Теннис</div>'+r('Подача',segH('st.tnSrv',[['off','Выкл'],['color','Цвет'],['dot','Точка']],s.tnSrv))+wckH(s.tnSets,'data-ck="st.tnSets"','Счёт по сетам')+
+      '<div class="wp-row"><span></span><button type="button" class="chipbtn" data-act="streset">Сбросить</button></div>';}
+  /* окно «Настройки» (меню ☰): фильтры, алиасы, отображение */
+  var setTab='f', alQ='';
+  function setH(){var tabs=[['f','Фильтры вилок'],['a','Алиасы буков'],['d','Отображение']];
+    var body=setTab==='f'?filtersH():setTab==='a'?
+      '<input class="wsrch" data-q="al" value="'+esc(alQ)+'" placeholder="поиск" autocomplete="off"><div class="wp-list wal">'+BK36.filter(function(b){return !alQ||b.indexOf(alQ.toLowerCase())>=0}).map(function(b){
+        return '<div class="al-r"><span>'+esc(b)+'</span><input data-al="'+esc(b)+'" value="'+esc(cfg.alias[b]||'')+'" placeholder="'+esc(b)+'" aria-label="Короткое имя для '+esc(b)+'" autocomplete="off" maxlength="16"></div>'}).join('')+
+        '</div><div class="wp-row"><span>Короткие имена: так букмекеры подписаны в ленте, окне вилки и калькуляторе.</span><button type="button" class="chipbtn" data-act="alreset">Сбросить</button></div>':
+      '<div class="vrow"><span>Цвет точки инициатора</span>'+iniH()+'</div><div class="vrow"><span>Порядок плеч</span><button type="button" class="wico2" data-sub="lo" aria-label="Порядок плеч">'+ISWAP+'</button></div>';
+    return '<div class="wp-h">Настройки</div><div class="fs-tabs" role="tablist">'+tabs.map(function(t){return '<button type="button" role="tab" data-tab="'+t[0]+'" aria-selected="'+(setTab===t[0])+'">'+t[1]+'</button>'}).join('')+'</div>'+body;}
+
+  function subOpen(btn){var k=btn.dataset.sub, b=btn.dataset.b, lv=+(btn.closest('.wp').dataset.lv||0)+1;
+    var map={bk:bkListH,sp:spListH,lg:lgH,wk:wkH,spc:spcH,lo:loH,st:stH,bksp:function(){return bkSpH(b)},pair:function(){return pairH(b)}};
+    var p=popOpen(btn,lv,function(el){el.dataset.lv=lv;el.innerHTML=map[k]();if(k==='bk'||k==='lo'){var s=el.querySelector('.wsrch');}},'wp-sub wp-'+k);}
+  function popHandlers(el){}
+  D.addEventListener('click',function(e){
+    var t=e.target, wp=t.closest&&t.closest('.wp'); if(!wp)return;
+    var b=t.closest('button');
+    if(b&&b.dataset.sub){subOpen(b);return;}
+    if(b&&b.dataset.tab){setTab=b.dataset.tab;popClose(+wp.dataset.lv+1);popRebuild();return;}
+    if(b&&b.closest('.wseg')){var g=b.closest('.wseg');setPath(g.dataset.k,b.dataset.v);changed();return;}
+    if(b&&b.dataset.mv){var c=b.closest('.col').dataset.c,i=cfg.order.indexOf(c),j=i+ +b.dataset.mv;if(j<0||j>=cfg.order.length)return;cfg.order.splice(i,1);cfg.order.splice(j,0,c);changed();return;}
+    if(b&&b.dataset.fs){cfg.fs=Math.min(18,Math.max(11,cfg.fs+ +b.dataset.fs));changed();return;}
+    if(b&&b.dataset.ini){var n=+b.dataset.ini;pickColor(cfg.ini[n],function(v){cfg.ini[n]=v;changed();});return;}
+    if(b&&b.dataset.spc){var s=b.dataset.spc;pickColor(cfg.spC[s]||SPC[s],function(v){cfg.spC[s]=v;changed();});return;}
+    if(b&&b.dataset.spcx){delete cfg.spC[b.dataset.spcx];changed();return;}
+    if(b&&b.dataset.lo){var bb=b.dataset.lo;cfg.lo.p[bb]=cfg.lo.p[bb]===b.dataset.v?undefined:b.dataset.v;if(!cfg.lo.p[bb])delete cfg.lo.p[bb];changed();loadArb(calcR(byId(picked)));return;}
+    if(b&&b.dataset.los){cfg.lo.s[b.dataset.los]=b.dataset.v;changed();loadArb(calcR(byId(picked)));return;}
+    var a=b&&b.dataset.act; if(!a)return;
+    if(a==='freset'){cfg.f=clone(DEF.f);}
+    if(a==='bkall')cfg.f.bk=BK36.slice();
+    if(a==='bknone')cfg.f.bk=[];
+    if(a==='pall'||a==='pnone'){var x=b.dataset.b;BK36.forEach(function(o){if(o===x)return;var k=pkey(x,o);if(a==='pall')delete cfg.f.pairOff[k];else cfg.f.pairOff[k]=1;});}
+    if(a==='wkall')cfg.f.wk=cfg.f.wk.length===WKEEP.length?[]:WKEEP.slice();
+    if(a==='vreset'){['order','on','round','bkS','tyS','kfS','kfPr','spI','div','spC','ini','fs'].forEach(function(k){cfg[k]=clone(DEF[k])});}
+    if(a==='streset')cfg.st=clone(DEF.st);
+    if(a==='loreset')cfg.lo=clone(DEF.lo);
+    if(a==='alreset')cfg.alias={};
+    if(a==='freset'||a==='vreset'||a==='streset'||a==='loreset')popClose(+wp.dataset.lv+1);
+    changed(); if(a==='loreset'||a==='alreset')loadArb(calcR(byId(picked)));
+  });
+  D.addEventListener('change',function(e){
+    var t=e.target, wp=t.closest&&t.closest('.wp'); if(!wp||t.type!=='checkbox')return; var d=t.dataset, f=cfg.f;
+    function tog(arr,v){var i=arr.indexOf(v);if(t.checked&&i<0)arr.push(v);if(!t.checked&&i>=0)arr.splice(i,1);}
+    if(d.ck)setPath(d.ck,t.checked?1:0);
+    else if(d.col)cfg.on[d.col]=t.checked?1:0;
+    else if(d.bk)tog(f.bk,d.bk);
+    else if(d.sp)tog(f.sp,d.sp);
+    else if(d.wk)tog(f.wk,d.wk);
+    else if(d.bksp){f.bkSp[d.b]=f.bkSp[d.b]||[];var o=f.bkSp[d.b],i=o.indexOf(d.bksp);if(!t.checked&&i<0)o.push(d.bksp);if(t.checked&&i>=0)o.splice(i,1);}
+    else if(d.pair){var k=pkey(d.b,d.pair);if(t.checked)delete f.pairOff[k];else f.pairOff[k]=1;}
+    else return;
+    changed();
+  });
+  D.addEventListener('input',function(e){
+    var t=e.target, wp=t.closest&&t.closest('.wp'); if(!wp)return;
+    if(t.dataset.num){var v=parseFloat(t.value.replace(',','.'));if(v>=0){setPath(t.dataset.num,v);changed(true);}return;}
+    if(t.dataset.al){var v2=t.value.trim();if(v2)cfg.alias[t.dataset.al]=v2;else delete cfg.alias[t.dataset.al];save();render();selWin();return;}
+    if(t.dataset.q){var pos=t.selectionStart;if(t.dataset.q==='bk')bkQ=t.value;if(t.dataset.q==='lo')loQ=t.value;if(t.dataset.q==='al')alQ=t.value;
+      var p=pops.find(function(p){return p.el===wp});p.build(p.el);var n=p.el.querySelector('[data-q="'+t.dataset.q+'"]');if(n){n.focus();n.setSelectionRange(pos,pos);}}
+  });
+  /* перетаскивание колонок в шестерёнке */
+  var dragC=null;
+  D.addEventListener('dragstart',function(e){var li=e.target.closest&&e.target.closest('.wcols .col');if(!li)return;dragC=li.dataset.c;try{e.dataTransfer.setData('text/plain',dragC)}catch(_){}});
+  D.addEventListener('dragover',function(e){if(dragC&&e.target.closest&&e.target.closest('.wcols .col'))e.preventDefault();});
+  D.addEventListener('drop',function(e){var li=e.target.closest&&e.target.closest('.wcols .col');if(!li||!dragC)return;e.preventDefault();var to=cfg.order.indexOf(li.dataset.c);cfg.order.splice(cfg.order.indexOf(dragC),1);cfg.order.splice(to,0,dragC);dragC=null;changed();});
+  function wpOpen(btn){var k=btn.dataset.wp;
+    popOpen(btn,0,function(el){el.dataset.lv=0;el.innerHTML=k==='flt'?'<div class="wp-h">Фильтры</div>'+filtersH():k==='gear'?'<div class="wp-h">Лента</div>'+gearH():setH();render();},'wp-'+k);}
+  D.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-wp]');if(!b)return;e.stopPropagation();wpOpen(b);});
 
   /* ---------- кф на других букмекерах: настоящие (Francia) или пример вокруг кф плеч ---------- */
   var OTH=['bet365.com','parimatch.com','betano.bg','pinnacle.com','888sport.com','admiralbet.it','bc.game','goldenbet.com','superbet.ro','fon.bet','ladbrokes.com','lottoland.co.uk','betsson.es','coral.co.uk','livescorebet.com','paddypower.com','sportingbet.com'];
@@ -1871,19 +2266,26 @@ html{scrollbar-color:#3a3a3a #000}
   function people(ev){var i=ev.indexOf(' - ');return i<0?[ev]:[ev.slice(0,i),ev.slice(i+3)]}
   function pills(ev){return people(ev).map(function(n){return '<button type="button" class="pill" data-copy="'+esc(n)+'" title="Скопировать: '+esc(n)+'"><span>'+esc(n)+'</span>'+COPY+'</button>'}).join('<span class="dash">-</span>')}
   function selWin(){
-    var el=$('#ws-sel'); if(!el)return; var a=byId(picked); if(!a)return;
+    var el=$('#ws-sel'); if(!el)return; var A=byId(picked); if(!A)return; var a=oriented(A);
     var mk2=market(a), rows=mk2.rows.slice().sort(function(x,y){return y[1]-x[1]});
     var m1=Math.max.apply(null,rows.map(function(x){return x[1]})), m2=Math.max.apply(null,rows.map(function(x){return x[2]}));
-    el.innerHTML='<div class="sa-bar"><b>'+roi(a.k0).toFixed(2)+'% → '+pr(a).toFixed(2)+'%</b><span>'+SPU[a.sp]+'</span></div>'+
-      a.b.map(function(b,j){var ev=a.ev2?a.ev2[j]:a.ev, lg=a.lg2?a.lg2[j]:a.lg;
-        return '<div class="sa-leg"><span class="sa-bk"><span class="bkn">'+esc(al(b))+'</span>'+(a.ini===j?DOT:'')+'<button type="button" class="lnk" data-tip="copy event link" aria-label="copy event link">'+LINK+'</button></span>'+
+    var p0=roi(a.k0), p1=pr(a), bestR=(1/(1/m1+1/m2)-1)*100;
+    function legOf(b){var i=a.b.indexOf(b);return i<0?-1:i}
+    el.innerHTML='<div class="sa-bar"><b class="'+(p1<0?'neg':'')+'">'+p0.toFixed(2)+'% → '+(p1<0?'−':'')+Math.abs(p1).toFixed(2)+'%</b><span class="sa-spn">'+SPU[a.sp]+'</span><span class="sa-sc">'+score(a,1)+'</span></div>'+
+      a.b.map(function(b,j){var ev=a.ev2?a.ev2[j]:a.ev, lg=a.lg2?a.lg2[j]:a.lg, oj=a.sw?1-j:j;
+        return '<div class="sa-leg"><span class="sa-bk"><span class="bkn">'+esc(al(b))+'</span>'+(a.ini===j?dotI(j):'')+'<button type="button" class="lnk" data-tip="copy event link" aria-label="copy event link">'+LINK+'</button></span>'+
           '<span class="sa-ev"><span class="pp">'+pills(ev)+'</span><small>'+esc(lg)+'</small></span>'+
-          '<span class="sa-ty"><span>'+esc(a.t[j])+'</span><button type="button" class="eye" data-hide="'+j+'" aria-haspopup="dialog" aria-label="Скрыть: исход, вилку или матч" title="Скрыть">'+EYE+'</button></span>'+
+          '<span class="sa-ty"><span>'+esc(a.t[j])+'</span><button type="button" class="eye" data-hide="'+oj+'" aria-haspopup="dialog" aria-label="Скрыть: исход, вилку или матч" title="Скрыть">'+EYE+'</button></span>'+
           '<span class="sa-k">'+a.k0[j].toFixed(2)+' → '+a.k[j].toFixed(2)+'</span><button type="button" class="gob" data-go title="'+GO_HINT+'" aria-label="go: '+esc(b)+'. '+GO_HINT+'">go</button></div>'}).join('')+
-      '<div class="sa-o"><div class="sa-oh"><span>Кф на других букмекерах</span><em>'+(mk2.real?'из сканера':'пример')+'</em></div><table><thead><tr><th>Букмекер</th><th class="n">↓ '+esc(a.t[0])+'</th><th class="n">'+esc(a.t[1])+'</th></tr></thead><tbody>'+
-        rows.map(function(o){var lg=o[0]===a.b[0]||o[0]===a.b[1];return '<tr'+(lg?' class="leg"':'')+'><td>'+esc(al(o[0]))+(o[0]===a.b[a.ini]?DOT:'')+'</td><td class="n'+(o[1]===m1?' best':'')+'">'+o[1].toFixed(2)+'</td><td class="n'+(o[2]===m2?' best':'')+'">'+o[2].toFixed(2)+'</td></tr>'}).join('')+
-      '</tbody></table><div class="sa-ol">В рамке — два плеча вилки, остальное — рынок</div></div>';
+      '<div class="sa-o'+(cfg.saOpen?'':' shut')+'"><button type="button" class="sa-oh" data-otog aria-expanded="'+!!cfg.saOpen+'"><span class="car">⌄</span> Кф на других буках<em>'+(mk2.real?'из сканера':'пример')+'</em></button>'+
+        '<table><thead><tr><th>Букмекер</th><th class="n">↓ '+esc(a.t[0])+'</th><th class="n">'+esc(a.t[1])+'</th></tr></thead><tbody>'+
+        rows.map(function(o){var L=legOf(o[0]);
+          function td(v,col,m){var own=L===col, best=v===m;return '<td class="n'+(own?' own':'')+(best?' best':'')+'"><span>'+v.toFixed(2)+'</span></td>'}
+          return '<tr'+(L>=0?' class="leg l'+(L+1)+'"':'')+'><td>'+esc(al(o[0]))+(L>=0&&a.ini===L?dotI(L):'')+'</td>'+td(o[1],0,m1)+td(o[2],1,m2)+'</tr>'}).join('')+
+        '</tbody><tfoot><tr><td>лучшие кф <b class="'+(bestR>=0?'pos':'neg')+'">'+(bestR<0?'−':'')+Math.abs(bestR).toFixed(2)+'%</b></td><td class="n">'+m1.toFixed(2)+'</td><td class="n">'+m2.toFixed(2)+'</td></tr></tfoot></table></div>';
   }
+  (function(){var s=$('#ws-sel');if(s)s.addEventListener('click',function(e){var t=e.target.closest('[data-otog]');if(!t)return;cfg.saOpen=cfg.saOpen?0:1;save();selWin();});})();
+  if(lfBody)lfBody.addEventListener('click',function(e){var g=e.target.closest('[data-grp]');if(!g)return;open[g.dataset.grp]=!open[g.dataset.grp];render();});
 
   /* ---------- меню «Скрыть» (пример: вилка не пропадает) ---------- */
   var hm=D.createElement('div'); hm.className='hm'; hm.setAttribute('role','dialog'); hm.setAttribute('aria-label','Скрыть'); hm.hidden=true; D.body.appendChild(hm);
@@ -2038,12 +2440,12 @@ html{scrollbar-color:#3a3a3a #000}
   var touched=false;
   function pick(id){
     var r=byId(id); if(!r)return;
-    picked=id; render(); selWin(); loadArb(r);
+    picked=id; render(); selWin(); loadArb(calcR(r));
     flash($('.win[data-w="sel"]',desk)); flash($('.win[data-w="calc"]',desk));
     if(!wide.matches){var s=$('.win[data-w="sel"]',desk); if(s){var y=s.getBoundingClientRect().top+scrollY-80; scrollTo({top:y,behavior:anim?'smooth':'auto'});}}
   }
   if(lf){
-    render(); selWin();
+    render(); selWin(); loadArb(calcR(byId(picked)));
     lf.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse')hover=true}); lf.addEventListener('pointerleave',function(e){if(e.pointerType==='mouse')hover=false});
     /* касание: лента замирает на 3 с, чтобы строка не сменилась под пальцем */
     var hold=null; lf.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse'){hover=true;clearTimeout(hold);hold=setTimeout(function(){hover=false},3000);}});
