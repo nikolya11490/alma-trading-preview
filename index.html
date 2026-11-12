@@ -1119,6 +1119,95 @@ html{scrollbar-color:#3a3a3a #000}
   .books-stat b{font-size:clamp(30px,10vw,42px)}
   .books-stat span{font-size:10px;letter-spacing:.08em}
 }
+/* ===== v11 ===== */
+/* 1: wide screens */
+@media (min-width:1600px){
+  .wrap{width:min(82vw,2200px)}
+  body{font-size:17px}
+}
+/* 2: hero heading in two lines + stats strip */
+.hero h1{font-size:clamp(38px,5.3vw,92px);line-height:1;letter-spacing:-.04em;white-space:nowrap}
+.hero h1 .h-a{display:block}
+.hero h1 em{font-weight:300;color:#bdbdbd}
+.hero p.lead{margin-top:28px}
+.hstat{display:flex;gap:40px;margin:26px 0 0}
+.hstat p{margin:0;display:flex;flex-direction:column;gap:7px}
+.hstat b{font:800 clamp(28px,2.5vw,42px)/.95 var(--display);letter-spacing:-.035em;color:var(--text)}
+.hstat span{font:600 11px/1.2 var(--body);letter-spacing:.15em;text-transform:uppercase;color:var(--text3)}
+@media (max-width:600px){.hstat{gap:26px}.hstat span{font-size:10px;letter-spacing:.1em}}
+/* 7: one size for all section headings: bold line + gray line */
+.h2,.faq .h2,.books-head .h2,.final h2.h2{font:700 clamp(28px,3.05vw,54px)/1.06 var(--display);letter-spacing:-.035em;max-width:none;text-wrap:wrap}
+.h2 .h-a,.h2 .dim{display:block}
+.h2 .dim{font-weight:300;color:var(--text3)}
+@media (min-width:900px){.h2 .h-a,.h2 .dim{white-space:nowrap}}
+@media (max-width:600px){.story .h2{font-size:24px}}
+.final h2.h2{margin:0}
+/* 5: story pill */
+.pill-ex .dot{animation:none!important}
+/* 6: GO tile, Selected Arb as in the live scanner */
+.sa2{border:1px solid var(--border-strong);background:#0b0b0b;font-size:14px}
+.s2-h{display:flex;justify-content:space-between;align-items:center;padding:7px 12px;color:var(--text3);font-size:13px;border-bottom:1px solid var(--border)}
+.s2-hr{display:flex;align-items:center;gap:12px}
+.s2-hr em{font-style:normal;font-size:11px;padding:2px 6px;border:1px dashed var(--border-strong);color:var(--text2)}
+.s2-hr .s2-ic svg{width:15px;height:15px;color:var(--text2)}
+.s2-min{color:var(--text2);font-size:16px;line-height:1}
+.s2-bar{display:flex;align-items:stretch;background:#1d1d1d}
+.s2-bar>b{background:rgba(61,220,132,.16);color:var(--up);padding:8px 12px;font:700 17px/1.2 var(--display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.s2-sp{display:flex;align-items:center;padding:0 12px;font-weight:700;letter-spacing:.04em;color:var(--text)}
+.s2-sc{margin-left:auto;display:flex;align-items:center;gap:6px;padding:0 14px;color:var(--text2);font:500 13px/1 var(--mono);white-space:nowrap}
+.s2-sc b{color:var(--text);font-weight:700}
+.s2-leg{display:grid;grid-template-columns:minmax(118px,auto) minmax(0,1fr) auto 104px 56px;gap:4px 14px;align-items:center;padding:9px 12px;border-top:1px solid var(--border)}
+.s2-bk{display:flex;align-items:center;gap:6px;color:var(--text);white-space:nowrap}
+.s2-bk .ini{margin:0}
+.s2-ic{display:inline-grid;place-items:center;color:var(--text2)}
+.s2-ic svg{width:14px;height:14px}
+.s2-ev{display:grid;gap:3px;min-width:0}
+.s2-ev small{color:var(--text3);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.s2-ev .pp{display:flex;align-items:center;gap:5px;min-width:0}
+.s2-ev .pl{display:inline-flex;align-items:center;gap:5px;min-width:0;max-width:100%;padding:1px 7px 1px 9px;border:1px solid #bdbdbd;border-radius:999px;font-size:12.5px;line-height:1.35;color:var(--text)}
+.s2-ev .pl span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.s2-ev .pl svg{width:12px;height:12px;flex:none;color:var(--text2)}
+.s2-ev .dash{color:var(--text3)}
+.s2-ty{display:flex;align-items:center;gap:7px;color:var(--text2);white-space:nowrap;font-size:13px}
+.s2-k{font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+.sa2 .gob-s{display:inline-grid;place-items:center;cursor:default}
+@media (max-width:760px){
+  .s2-bar{flex-wrap:wrap}.s2-sc{margin-left:0;padding:6px 12px;width:100%;border-top:1px solid #2a2a2a}
+  .s2-bar>b{font-size:14px;padding:6px 10px}
+  .s2-leg{grid-template-columns:minmax(0,1fr) auto auto 48px;grid-template-areas:"bk ty k go" "ev ev ev ev";gap:6px 10px;font-size:13px}
+  .s2-bk{grid-area:bk}.s2-ty{grid-area:ty}.s2-k{grid-area:k}.s2-ev{grid-area:ev}.s2-leg .gob{grid-area:go}
+}
+/* 9-10: two tiles side by side */
+@media (min-width:1001px){
+  .bento>.t-filter{grid-column:span 7!important}
+  .bento>.t-line{grid-column:span 5!important}
+}
+.t-line{display:block!important}
+.t-line .ot{grid-column:auto!important;grid-row:auto!important;margin-top:24px!important}
+.t-x .x-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start;margin-top:22px}
+.t-x .x-cols{margin:0}
+.t-x .x-fset{margin:0}
+.t-x .x-opts{margin-top:18px}
+.t-x .x-fld{display:flex;flex-direction:column;align-items:flex-start;gap:2px;cursor:default;width:100%}
+.t-x .x-fld .dd-v{display:flex;flex-wrap:wrap;gap:6px;overflow:hidden;text-overflow:ellipsis;max-width:100%;font-size:13px;color:var(--text)}
+.t-x .spi svg{width:17px;height:17px;display:block}
+.x-pal{display:flex;gap:4px;flex-wrap:wrap}
+.x-pal button{width:26px;height:26px;padding:0;border:1px solid var(--border-strong);background:none;display:grid;place-items:center;cursor:pointer}
+.x-pal i{width:16px;height:16px;background:var(--c);display:block}
+.x-pal button.off i{opacity:.2}
+@media (max-width:1180px){.t-x .x-top{grid-template-columns:minmax(0,1fr)}}
+/* 13: bookmaker favicons, grayscale, colour on hover */
+.bk-ic.bk-img{padding:0;background:#000;border:1px solid var(--border-strong);overflow:hidden;display:grid;place-items:center}
+.bk-ic.bk-img::before{display:none}
+.bk-img img{display:block;filter:grayscale(1) contrast(1.05);transition:filter .3s var(--ease)}
+.bk-img.full img{width:100%;height:100%;object-fit:cover}
+.bk-img.dark{background:#1b1b1b}
+.bk-img.lite{background:#ececec}
+.bk-img.dark img,.bk-img.lite img{width:70%;height:70%;object-fit:contain}
+.books-grid li:hover .bk-ic.bk-img{background:#000}
+.books-grid li:hover .bk-img.dark{background:#1b1b1b}
+.books-grid li:hover .bk-img.lite{background:#ececec}
+.books-grid li:hover .bk-img img{filter:none}
 
 </style>
 </head>
@@ -1151,8 +1240,9 @@ html{scrollbar-color:#3a3a3a #000}
   <div class="wrap" data-parallax>
     <div class="copy">
       <div class="kicker rv"><i></i><span>лайв-сканер вилок · <b class="dom">alma.trading</b></span></div>
-      <h1 class="rv" style="--d:.1s">Профит при <em>любом исходе</em></h1>
-      <p class="lead rv" style="--d:.25s">Сканер в лайве сравнивает линии букмекеров и находит <b>вилки</b>: ставки на все исходы у разных букмекеров, которые дают плюс при любом результате. Кнопка <b>GO</b> сразу открывает купон у нужного букмекера.</p>
+      <h1 class="rv" style="--d:.1s"><span class="h-a">Профит при</span> <em>любом исходе</em></h1>
+      <p class="lead rv" style="--d:.25s">Лайв-сканер вилок по 36 букмекерам и 300+ клонам. Коэффициенты обновляются быстрее секунды, кнопка <b>GO</b> открывает купон у нужного букмекера в один клик.</p>
+      <div class="hstat rv" style="--d:.3s"><p><b>36</b><span>букмекеров</span></p><p><b>300+</b><span>клонов</span></p><p><b>&lt;1&nbsp;с</b><span>обновление</span></p></div>
       <div class="cta rv" style="--d:.35s">
         <a class="btn btn-main cut" href="app/#signup">Зарегистрироваться
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -1162,7 +1252,6 @@ html{scrollbar-color:#3a3a3a #000}
       </div>
       <p class="free rv" style="--d:.4s"><b>Бесплатно</b>: 2 дня в неделю по одному часу полный доступ без ограничений для всех</p>
       <p class="have rv" style="--d:.42s">Уже есть аккаунт? <a href="app/#login">Войти в кабинет</a></p>
-      <a class="scrollhint rv" style="--d:.5s" href="#story"><span class="line" aria-hidden="true"></span>Листайте вниз: как рождается вилка</a>
     </div>
   </div>
 </section>
@@ -1171,22 +1260,22 @@ html{scrollbar-color:#3a3a3a #000}
 <section class="story slice tone" id="story">
   <div class="wrap story-head">
     <p class="eyebrow rv">Как рождается вилка</p>
-    <h2 class="h2 rv" style="--d:.1s">Два букмекера ошиблись по‑разному. <span class="dim">Вы забираете разницу.</span></h2>
+    <h2 class="h2 rv" style="--d:.1s"><span class="h-a">Один букмекер не успел обновить коэффициент.</span> <span class="dim">Сканер находит это раньше, чем он исправит цену.</span></h2>
   </div>
   <div class="story-track" data-story>
     <div class="story-pin">
       <div class="wrap story-grid">
         <div class="progress" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
         <ol class="steps">
-          <li class="step on"><div class="n">ШАГ 1 / 4</div><h3>Идёт матч</h3><p>Лайв, теннис, рынок «Победа в матче». Два исхода, ничьей нет. Коэффициенты меняются после каждого розыгрыша.</p></li>
-          <li class="step"><div class="n">ШАГ 2 / 4</div><h3>Линии разошлись</h3><p>bet365.com даёт на победу первого игрока 2.10, 888sport.com на победу второго 2.05. Каждый по отдельности выглядит обычно.</p></li>
-          <li class="step"><div class="n">ШАГ 3 / 4</div><h3>Сканер видит расхождение</h3><p>Сумма обратных коэффициентов 1/2.10 + 1/2.05 = 0.9640. Это меньше 1, значит, вилка есть: <b class="num">3.73%</b>.</p></li>
-          <li class="step"><div class="n">ШАГ 4 / 4</div><h3>Две ставки сходятся в профит</h3><p>$1&nbsp;000 раскладываются пропорционально. Кто бы ни выиграл, выплата одна и та же: <b class="num">+$37.35</b>.</p></li>
+          <li class="step on"><div class="n">ШАГ 1 / 4</div><h3>Идёт матч</h3><p>Лайв, теннис, рынок «Победа в матче»: два исхода, ничьей нет. После каждого розыгрыша букмекеры пересчитывают коэффициенты.</p></li>
+          <li class="step"><div class="n">ШАГ 2 / 4</div><h3>Один букмекер отстал</h3><p>Игрок A выиграл гейм, и букмекеры снизили коэффициент на его победу до 1.90. bet365.com ещё держит 2.10. На победу игрока B 888sport.com даёт 2.05.</p></li>
+          <li class="step"><div class="n">ШАГ 3 / 4</div><h3>Сканер видит вилку</h3><p>Сканер складывает вероятности, заложенные в коэффициенты: 47.62% + 48.78% = 96.40%. Меньше 100%, значит, вилка есть: <b class="num">+3.73%</b>.</p></li>
+          <li class="step"><div class="n">ШАГ 4 / 4</div><h3>Успеть поставить</h3><p>Калькулятор делит $1&nbsp;000: $493.98 на игрока A и $506.02 на игрока B. Кто бы ни выиграл, выплата $1&nbsp;037.35, это <b class="num">+$37.35</b>. Кнопка GO открывает купоны, пока bet365.com не исправил цену.</p></li>
         </ol>
         <div class="stage cut cut-line" data-s="1" aria-label="Пример расчёта вилки">
           <div class="match">
             <div><div class="meta">Теннис · Победа в матче</div><div class="t">Игрок A <span>vs</span> Игрок B</div></div>
-            <span class="pill"><span class="dot"></span><span><span class="dk">Лайв · </span>пример</span></span>
+            <span class="pill pill-ex"><span class="dot"></span><span>пример</span></span>
           </div>
           <div class="fig">
             <div class="lab l"><div class="bk">bet365.com</div><div class="mm">П1 · Игрок A</div><div class="odd num">2.10</div><div class="imp"><span class="dk">вероятность </span>в цене <span class="num">47.62%</span></div></div>
@@ -1204,7 +1293,7 @@ html{scrollbar-color:#3a3a3a #000}
             <div class="row"><span>Сумма вероятностей двух исходов</span><b class="num">96.40% &lt; 100%</b></div>
             <div class="bar" aria-hidden="true"><span class="b1" style="width:47.62%"></span><span class="b2" style="width:48.78%"></span><span class="gap" style="width:3.6%"></span></div>
             <div class="hint">меньше 100%, значит вилка есть</div>
-            <div class="verdict"><span class="big num">+3.73%</span><span><span class="dk">гарантированная </span>доходность вилки</span></div>
+            <div class="verdict"><span class="big num">+3.73%</span><span><span class="dk">расчётная </span>доходность вилки</span></div>
           </div>
           <div class="split">
             <div class="cell"><div class="lbl"><span class="dk">Ставка на </span>П1 · 2.10</div><div class="stake num">$493.98</div><div class="out">Выиграл A: <span class="num">$1&nbsp;037.35</span>, <b class="num">+$37.35</b></div></div>
@@ -1222,65 +1311,42 @@ html{scrollbar-color:#3a3a3a #000}
 <section class="band slice ink" id="features" style="padding-top:calc(var(--cut) + 110px)">
   <div class="wrap">
     <p class="eyebrow rv">Возможности</p>
-    <h2 class="h2 rv" style="--d:.1s">Всё, чтобы успеть<br><span class="dim">раньше, чем линия закроется.</span></h2>
+    <h2 class="h2 rv" style="--d:.1s"><span class="h-a">Всё, чтобы успеть</span> <span class="dim">раньше, чем линия закроется.</span></h2>
     <div class="bento">
       <article class="tile cut cut-line t-go rv">
         <div>
           <h3>Одна кнопка GO, и купон открыт</h3>
-          <p class="lead2">Нашли вилку, жмёте GO. Сканер сразу открывает купон этого события у нужного букмекера, с нужным рынком. Не надо искать матч в линии, пока коэффициент не изменился.</p>
-          <ol><li>Скачайте расширение в личном кабинете после регистрации</li><li>Войдите в аккаунты букмекеров в отдельном браузере</li><li>Установите расширение в браузер</li><li>Жмите GO у каждого плеча вилки, и купон автоматически откроется</li></ol>
+          <p class="lead2">Нашли вилку — нажмите GO. Сайт букмекера сам откроется на нужном матче, и ставка уже будет выбрана: останется вписать сумму и подтвердить. Не нужно искать матч вручную, пока коэффициент не изменился.</p>
+          <ol><li>Зарегистрируйтесь и скачайте расширение GO в личном кабинете</li><li>Войдите в аккаунты букмекеров в отдельном браузере</li><li>Установите расширение в браузер</li><li>Нажмите GO у обеих ставок вилки: у каждого букмекера откроется нужная ставка</li></ol>
           <p class="ext"><a href="app/#ext">Скачать в личном кабинете</a><span>работает в бесплатный час и по подписке</span></p>
         </div>
         <div>
-          <div class="sa sa-static" aria-label="Окно вилки, пример">
-            <div class="sa-top"><span>Selected Arb</span><span>пример</span></div>
-            <div class="sa-bar"><b>7.18% → 6.58%</b><span>TENNIS</span></div>
-            <div class="sa-leg"><span class="sa-bk">bet365.com<i class="ini" title="Инициатор вилки" aria-label="инициатор вилки"></i></span><span class="sa-ev"><em>Kochta/Smart - Kurt/Medvedeva</em><small>W15 Sharm El Sheikh WD</small></span><span class="sa-ty">2</span><span class="sa-k">2.38 → 2.38</span><span class="gob gob-s" aria-hidden="true">go</span></div>
-            <div class="sa-leg"><span class="sa-bk">fon.bet</span><span class="sa-ev"><em>Kochta T / Smart H - Kurt I / Medvedeva</em><small>World Tennis. Women. Egypt</small></span><span class="sa-ty">1</span><span class="sa-k">1.95 → 1.93</span><span class="gob gob-s" aria-hidden="true">go</span></div>
+          <div class="sa2" aria-label="Окно вилки, пример">
+            <div class="s2-h"><span>Selected Arb</span><span class="s2-hr"><em>пример</em><span class="s2-ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.4 13a7.5 7.5 0 0 0 0-2l2-1.6-2-3.4-2.4 1a7 7 0 0 0-1.7-1L15 3.5h-4l-.4 2.5a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L6.6 11a7.5 7.5 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 1.7 1l.4 2.5h4l.4-2.5a7 7 0 0 0 1.7-1l2.4 1 2-3.4zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg></span><span class="s2-min">–</span></span></div>
+            <div class="s2-bar"><b>7.18% → 6.58%</b><span class="s2-sp">TENNIS</span><span class="s2-sc"><b>0:1</b> S2 3:2 15:30</span></div>
+            <div class="s2-leg"><span class="s2-bk">bet365.com<i class="ini" title="Инициатор вилки" aria-label="инициатор вилки"></i><span class="s2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span></span><span class="s2-ev"><span class="pp"><span class="pl"><span>Kochta/Smart</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span><span class="dash">-</span><span class="pl"><span>Kurt/Medvedeva</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span></span><small>W15 Sharm El Sheikh WD</small></span><span class="s2-ty">2<span class="s2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/><path d="M4 20 20 4"/></svg></span></span><span class="s2-k">2.38 → 2.38</span><span class="gob gob-s" aria-hidden="true">go</span></div>
+            <div class="s2-leg"><span class="s2-bk">fon.bet<span class="s2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span></span><span class="s2-ev"><span class="pp"><span class="pl"><span>Kochta T / Smart H</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span><span class="dash">-</span><span class="pl"><span>Kurt I / Medvedeva</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span></span><small>World Tennis. Women. Egypt</small></span><span class="s2-ty">1<span class="s2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/><path d="M4 20 20 4"/></svg></span></span><span class="s2-k">1.95 → 1.93</span><span class="gob gob-s" aria-hidden="true">go</span></div>
           </div>
         </div>
       </article>
-      <article class="tile cut cut-line t-live rv">
-        <h3>Лайв, где вилки живут секунды</h3>
-        <p>Сканер следит за лайв-линиями букмекеров и обновляет коэффициенты менее чем за 1 секунду. Они меняются после каждого розыгрыша, поэтому у каждой вилки видно, сколько она уже живёт.</p>
-        <ul class="livelist" aria-label="Пример лайв-вилок из сканера">
-          <li><span class="ll-ev"><b>Ebasketball H2H GG League · победа</b>bet365.com · betano.bg</span><b class="ll-p">6.0%</b><span class="ll-t" data-tick="26">26s</span></li>
-          <li><span class="ll-ev"><b>HongKong |&gt; Division 1 · фора</b>goldenbet.com · ladbrokes.com</span><b class="ll-p">4.9%</b><span class="ll-t" data-tick="11">11s</span></li>
-          <li><span class="ll-ev"><b>Qatar U19 League · 3-й сет</b>888sport.com · fon.bet</span><b class="ll-p">4.0%</b><span class="ll-t" data-tick="3">3s</span></li>
-        </ul>
-      </article>
-      <article class="tile cut cut-line t-filter rv">
-        <h3>Лента под себя</h3>
-        <p>Выберите колонки, их порядок и вид, настройте фильтры. Всё сохраняется в браузере и сразу меняет <a href="#ws">ленту в рабочем месте</a>.</p>
-        <div class="tf-grid">
-          <div class="tf-cols"><ol class="cols" id="cols" aria-label="Колонки ленты: включить, выключить, поменять порядок"></ol></div>
-          <div class="tf-side"><div class="vopts">
-          <div class="vrow"><span>Округление прибыли</span><div class="seg" data-opt="round" role="group" aria-label="Округление прибыли"><button type="button" data-v="2">0.01</button><button type="button" data-v="1">0.1</button><button type="button" data-v="0">1</button></div></div>
-          <div class="vrow"><span>Букмекеры, тип и коэффициенты</span><div class="seg" data-opt="stack" role="group" aria-label="Расположение"><button type="button" data-v="row">В строку</button><button type="button" data-v="col">Друг под другом</button></div></div>
-          <div class="vrow"><span>Размер шрифта</span><div class="stepper"><button type="button" data-fs="-1" aria-label="Шрифт меньше">−</button><b id="fs">14px</b><button type="button" data-fs="1" aria-label="Шрифт больше">+</button></div></div>
-          <div class="vrow"><label for="defsum">Сумма вилки по умолчанию, $</label><input id="defsum" class="sumin" inputmode="decimal" value="100" autocomplete="off"></div>
-          <div class="vrow"><span></span><button type="button" class="chipbtn" id="cols-reset">Сбросить</button></div></div>
-          <section class="fset" id="fset" aria-label="Окно «Настройки»">
+      <article class="tile cut cut-line t-filter t-x rv">
+        <h3>Лента вилок под себя</h3>
+        <p>Выберите колонки, их порядок и вид, настройте фильтры. Всё сохраняется в браузере и сразу меняет ленту в сканере.</p>
+        <div class="x-top">
+          <ol class="cols x-cols" aria-label="Колонки ленты, пример"><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox"><span class="nm">Лига</span></label><button type="button" data-xmv="-1" aria-label="Выше"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Ниже"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Событие</span></label><button type="button" data-xmv="-1" aria-label="Выше"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Ниже"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Счёт</span></label><button type="button" data-xmv="-1" aria-label="Выше"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Ниже"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Спорт</span></label><button type="button" data-xmv="-1" aria-label="Выше"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Ниже"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Букмекеры</span></label><button type="button" data-xmv="-1" aria-label="Выше"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Ниже"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Тип</span></label><button type="button" data-xmv="-1" aria-label="Выше"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Ниже"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Коэффициенты</span></label><button type="button" data-xmv="-1" aria-label="Выше"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Ниже"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Прибыль</span></label><button type="button" data-xmv="-1" aria-label="Выше"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Ниже"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Время</span></label><button type="button" data-xmv="-1" aria-label="Выше"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Ниже"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">+N (ещё вилок в группе)</span></label><button type="button" data-xmv="-1" aria-label="Выше"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Ниже"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li></ol>
+          <section class="fset x-fset" aria-label="Окно «Настройки», пример">
             <div class="fs-h">Настройки</div>
-            <div class="fs-tabs" role="tablist" aria-label="Настройки"><button type="button" role="tab" id="fs-tab-f" aria-selected="true" aria-controls="fs-f">Фильтры вилок</button><button type="button" role="tab" id="fs-tab-a" aria-selected="false" aria-controls="fs-a">Алиасы буков</button></div>
-            <div class="fs-p" id="fs-f" role="tabpanel" aria-labelledby="fs-tab-f">
-              <div class="dd" id="dd-bk" data-kind="bk"><button type="button" class="dd-b fld" aria-expanded="false"><small>Bookmakers</small><span class="dd-v"></span><span class="dd-c"></span></button><div class="dd-p" hidden></div></div>
-              <div class="dd" id="dd-sp" data-kind="sp"><button type="button" class="dd-b fld" aria-expanded="false"><small>Sports</small><span class="dd-v"></span><span class="dd-c"></span></button><div class="dd-p" hidden></div></div>
-              <div class="fs-2"><label class="fld"><small>Min Profit %</small><span class="fin"><input id="f-minp" inputmode="decimal" autocomplete="off"><em>%</em></span></label><label class="fld"><small>Min Duration</small><span class="fin"><input id="f-mind" inputmode="numeric" autocomplete="off"><em>sec</em></span></label></div>
-              <label class="fck"><input type="checkbox" id="f-half"><span>Показывать только 0.5 форы/тоталы</span></label>
-              <label class="fck"><input type="checkbox" id="f-tn3"><span>Скрыть теннис на 3-й сет</span></label>
-            </div>
-            <div class="fs-p" id="fs-a" role="tabpanel" aria-labelledby="fs-tab-a" hidden>
-              <p class="fs-hint">Короткие имена букмекеров: так они подписаны в ленте и окне вилки.</p>
-              <div class="fs-al" id="fs-al"></div>
-            </div>
-            <div class="fs-f"><span id="fs-count" aria-live="polite"></span><button type="button" class="chipbtn" id="fs-reset">Сбросить фильтры</button></div>
-          </section></div>
+            <div class="fs-tabs" role="tablist"><button type="button" role="tab" aria-selected="true" data-xtab="f">Фильтры вилок</button><button type="button" role="tab" aria-selected="false" data-xtab="a">Алиасы буков</button></div>
+            <div class="fs-p" data-xpanel="f"><div class="fld x-fld"><small>Bookmakers</small><span class="dd-v">888sport.com, admiralbet.it, bc.game, bet365.com, betano.bg, fon.bet…</span></div><div class="fld x-fld"><small>Sports</small><span class="dd-v"><span class="spi" style="color:#d4e157"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.5 5.8c3 2.8 3 9.6 0 12.4M18.5 5.8c-3 2.8-3 9.6 0 12.4"/></svg></span><span class="spi" style="color:#ff8a3d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c3.3 3.3 3.3 9.5 0 12.8M18.4 5.6c-3.3 3.3-3.3 9.5 0 12.8"/></svg></span><span class="spi" style="color:#4fc3f7"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3c-1 4 0 7 4 9.5M3.6 15.5C7.5 14 10.5 14.4 12 12M20.4 15.5C17 17 13 17 12 12"/></svg></span><span class="spi" style="color:#ef5350"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="m14.6 14.6 5.4 5.4"/><circle cx="19" cy="6" r="1.6"/></svg></span><span class="spi" style="color:#b388ff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="7" width="19" height="11" rx="3"/><path d="M7 10.5v4M5 12.5h4M15.5 11.5h.01M18 13.5h.01"/></svg></span><span class="spi" style="color:#66bb6a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m12 7.5 4.3 3.1-1.6 5h-5.4l-1.6-5z"/><path d="M12 3v4.5M16.3 10.6l4.4-1.4M14.7 15.6l2.7 3.8M9.3 15.6l-2.7 3.8M7.7 10.6 3.3 9.2"/></svg></span></span></div><div class="fs-2"><label class="fld"><small>Min Profit %</small><span class="fin"><input value="2" inputmode="decimal" autocomplete="off"><em>%</em></span></label><label class="fld"><small>Min Duration</small><span class="fin"><input value="1" inputmode="numeric" autocomplete="off"><em>sec</em></span></label></div><label class="fck"><input type="checkbox" checked><span>Показывать только 0.5 форы/тоталы</span></label><label class="fck"><input type="checkbox" checked><span>Скрыть теннис на 3-й сет</span></label></div>
+            <div class="fs-p" data-xpanel="a" hidden><p class="fs-hint">Короткие имена букмекеров: так они подписаны в ленте и окне вилки.</p><div class="fs-al"><div class="al-r"><span>bet365.com</span><input value="365" aria-label="bet365.com" autocomplete="off" maxlength="16"></div><div class="al-r"><span>888sport.com</span><input value="888" aria-label="888sport.com" autocomplete="off" maxlength="16"></div><div class="al-r"><span>fon.bet</span><input value="fon" aria-label="fon.bet" autocomplete="off" maxlength="16"></div><div class="al-r"><span>ladbrokes.com</span><input value="lad" aria-label="ladbrokes.com" autocomplete="off" maxlength="16"></div></div></div>
+            <div class="fs-f"><span></span><button type="button" class="chipbtn" data-xreset>Сбросить фильтры</button></div>
+          </section>
         </div>
+        <div class="vopts x-opts"><div class="vrow"><span>Округление прибыли</span><div class="seg x-seg" role="group" aria-label="Округление прибыли"><button type="button" aria-pressed="false">0.01</button><button type="button" aria-pressed="true">0.1</button><button type="button" aria-pressed="false">1</button></div></div><div class="vrow"><span>Букмекеры</span><div class="seg x-seg" role="group" aria-label="Букмекеры"><button type="button" aria-pressed="false">В строку</button><button type="button" aria-pressed="true">Друг под другом</button></div></div><div class="vrow"><span>Тип</span><div class="seg x-seg" role="group" aria-label="Тип"><button type="button" aria-pressed="false">В строку</button><button type="button" aria-pressed="true">Друг под другом</button></div></div><div class="vrow"><span>Коэффициенты</span><div class="seg x-seg" role="group" aria-label="Коэффициенты"><button type="button" aria-pressed="false">В строку</button><button type="button" aria-pressed="true">Друг под другом</button></div></div><div class="vrow"><span>Коэффициенты в прибыли</span><div class="seg x-seg" role="group" aria-label="Коэффициенты в прибыли"><button type="button" aria-pressed="false">Нет</button><button type="button" aria-pressed="true">Слева и справа</button><button type="button" aria-pressed="false">Сверху и снизу</button></div></div><div class="vrow"><span>Иконки спорта</span><div class="seg x-seg" role="group" aria-label="Иконки спорта"><button type="button" aria-pressed="false">Обычные</button><button type="button" aria-pressed="true">Цветные</button></div></div><div class="vrow"><span>Разделители колонок</span><div class="seg x-seg" role="group" aria-label="Разделители колонок"><button type="button" aria-pressed="true">Вкл</button><button type="button" aria-pressed="false">Выкл</button></div></div><div class="vrow"><span>Цвета спорта</span><div class="x-pal" role="group" aria-label="Цвета спорта"><button type="button" style="--c:#d4e157" aria-label="tn"><i></i></button><button type="button" style="--c:#ff8a3d" aria-label="bb"><i></i></button><button type="button" style="--c:#4fc3f7" aria-label="vb"><i></i></button><button type="button" style="--c:#ef5350" aria-label="tt"><i></i></button><button type="button" style="--c:#b388ff" aria-label="eb"><i></i></button><button type="button" style="--c:#66bb6a" aria-label="fb"><i></i></button></div></div><div class="vrow"><span>Состояние матча</span><div class="seg x-seg" role="group" aria-label="Состояние матча"><button type="button" aria-pressed="false">Скрыть</button><button type="button" aria-pressed="true">Показать</button></div></div><div class="vrow"><span>Размер шрифта</span><div class="stepper x-fs"><button type="button" data-xfs="-1" aria-label="Шрифт меньше">−</button><b>14px</b><button type="button" data-xfs="1" aria-label="Шрифт больше">+</button></div></div><div class="vrow"><span></span><button type="button" class="chipbtn" data-xreset>Сбросить</button></div></div>
       </article>
       <article class="tile cut cut-line t-line rv" style="--d:.1s">
         <h3>Коэффициенты на других букмекерах</h3>
-        <p>По каждой вилке виден весь рынок: какой коэффициент даёт каждый букмекер и где он лучший. Если у основного букмекера коэффициент уже сдвинулся, видно, где взять замену.</p>
+        <p>По каждой вилке виден весь рынок: какой коэффициент даёт каждый букмекер и где он лучший. Если у вашего букмекера коэффициент уже упал, сразу видно, где поставить вместо него для закрытия вилки.</p>
         <div class="ot">
           <div class="ot-cap"><span>Победа в 6-м гейме · игрок 1 / игрок 2</span><span class="demo">пример из сканера</span></div>
           <table class="odds" id="odds">
@@ -1320,19 +1386,17 @@ html{scrollbar-color:#3a3a3a #000}
 <section class="pricing slice tone" id="pricing">
   <div class="wrap">
     <p class="eyebrow rv">Тарифы</p>
-    <h2 class="h2 rv" style="--d:.1s">Одна подписка. <span class="dim">Чем дольше срок, тем дешевле день.</span></h2>
+    <h2 class="h2 rv" style="--d:.1s"><span class="h-a">Одна подписка.</span> <span class="dim">Чем дольше срок, тем дешевле день.</span></h2>
     <div class="per" id="per" role="group" aria-label="Срок подписки"><button type="button" data-per="d" aria-pressed="false">1 день</button><button type="button" data-per="w" aria-pressed="false">1 неделя<em>−52%</em></button><button type="button" data-per="m" aria-pressed="true">1 месяц<em>−67%</em></button></div>
     <article class="plan one cut cut-line rv">
       <div>
-        <div class="pn">PROJECT ALMANACC</div><div class="who">Одна подписка, все возможности сканера</div>
         <div class="price"><span id="pp">$150</span> <small id="pper">за 1 месяц</small></div>
-        <div class="pnote" id="pnote">$5 в день, на 67% выгоднее дня</div>
+        <div class="pnote" id="pnote">$5 в день вместо $15</div>
         <a class="btn btn-main cut" id="pbuy" href="app/?p=m#signup">Оформить подписку</a>
       </div>
-      <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Лайв-вилки по 36 букмекерам и 300+ клонам</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Кнопка GO: купон в один клик</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Калькулятор с перевесом и замком</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Рабочее место из окон</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Коэффициенты на других букмекерах</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Лента под себя</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Уведомления в Telegram</li></ul>
+      <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Лайв-вилки: 36 букмекеров и 300+ клонов</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Коэффициенты обновляются быстрее секунды</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Кнопка GO: ставка открывается в один клик</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Калькулятор: сколько ставить на каждый исход</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Коэффициенты на других букмекерах</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Лента вилок под себя</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Рабочее место: окна, как в сканере</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Уведомления в Telegram</li></ul>
     </article>
     <div class="team-line free-line"><span><b>Бесплатно</b> 2 дня в неделю по 1 часу, все возможности сканера. Расписание в кабинете и в боте</span><a class="btn btn-ghost btn-sm cut cut-line" href="app/#signup">Зарегистрироваться</a></div>
-    <p class="plans-note">Оплата в USDT через @CryptoBot или с любого кошелька. Подписка не продлевается сама: оплачиваете срок вперёд, бот заранее напомнит о конце срока. Тариф на 1 день не возвращается.</p>
   </div>
 </section>
 
@@ -1385,47 +1449,46 @@ html{scrollbar-color:#3a3a3a #000}
 <section class="books tone" id="books">
   <div class="wrap">
     <div class="books-head">
-      <div><p class="eyebrow rv">Букмекеры</p><h2 class="h2 rv" style="--d:.1s">36 букмекеров с топовыми линиями. <span class="dim">И&nbsp;300+ их&nbsp;клонов.</span></h2></div>
-      <div class="books-stat rv" style="--d:.15s"><p><b>36</b><span>букмекеров в&nbsp;сканере</span></p><p><b>300+</b><span>клонов через GO</span></p><p><b>&lt;1&nbsp;с</b><span>обновление коэф&shy;фициентов</span></p></div>
+      <div><p class="eyebrow rv">Букмекеры</p><h2 class="h2 rv" style="--d:.1s"><span class="h-a">36 крупнейших букмекеров.</span> <span class="dim">И&nbsp;300+ их&nbsp;клонов.</span></h2></div>
     </div>
     <p class="books-lead rv" style="--d:.2s">Сканер сравнивает линии этих букмекеров. У&nbsp;многих из&nbsp;них есть клоны: выберите в&nbsp;расширении GO главного букмекера, и&nbsp;ставить можно и&nbsp;на&nbsp;его клонах. Расширение само подстраивается под сайт клона и&nbsp;его линию, купон открывается так&nbsp;же, в&nbsp;один клик.</p>
     <ul class="books-grid rv" style="--d:.25s" aria-label="Букмекеры в сканере">
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">888</b></span><span class="bk-n">888sport<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">888</b></span><span class="bk-n">888sport<wbr>.it</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">AB</b></span><span class="bk-n">admiral<wbr>bet<wbr>.it</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">BC</b></span><span class="bk-n">bc<wbr>.game</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">365</b></span><span class="bk-n">bet365<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">BTN</b></span><span class="bk-n">betano<wbr>.bg</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">BF</b></span><span class="bk-n">betfair<wbr>.com (sports)</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">BFR</b></span><span class="bk-n">betfred<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">BOL</b></span><span class="bk-n">betonline<wbr>.ag</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">BS</b></span><span class="bk-n">betsson<wbr>.es</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">BV</b></span><span class="bk-n">betvictor<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">BW</b></span><span class="bk-n">betway<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">BOV</b></span><span class="bk-n">bovada<wbr>.lv</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">BOY</b></span><span class="bk-n">boyle<wbr>sports<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">CD</b></span><span class="bk-n">codere<wbr>.es</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">CR</b></span><span class="bk-n">coral<wbr>.co.uk</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">DF</b></span><span class="bk-n">dafabet<wbr>.com (saba)</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">FON</b></span><span class="bk-n">fon<wbr>.bet</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">GB</b></span><span class="bk-n">golden<wbr>bet<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">GR</b></span><span class="bk-n">grosvenor<wbr>casinos<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">LB</b></span><span class="bk-n">ladbrokes<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">LS</b></span><span class="bk-n">livescore<wbr>bet<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">LL</b></span><span class="bk-n">lottoland<wbr>.co.uk</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">LM</b></span><span class="bk-n">lotto<wbr>matica<wbr>.it</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">NB</b></span><span class="bk-n">netbet<wbr>.co.uk</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">PP</b></span><span class="bk-n">paddy<wbr>power<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">PM</b></span><span class="bk-n">parimatch<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">PS</b></span><span class="bk-n">poker<wbr>stars<wbr>.uk</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">PLY</b></span><span class="bk-n">poly<wbr>market<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">SG</b></span><span class="bk-n">silver<wbr>glow58<wbr>.xyz<small>клон Pinnacle</small></span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">SI</b></span><span class="bk-n">sisal<wbr>.it</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">SB</b></span><span class="bk-n">sporting<wbr>bet<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">SPB</b></span><span class="bk-n">superbet<wbr>.ro</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">VB</b></span><span class="bk-n">vbet<wbr>.co.uk</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">VG</b></span><span class="bk-n">virgin<wbr>bet<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">WH</b></span><span class="bk-n">william<wbr>hill<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/888sport.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">888sport<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/888sport.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">888sport<wbr>.it</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/admiralbet.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">admiral<wbr>bet<wbr>.it</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/bc.game.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">bc<wbr>.game</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/bet365.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">bet365<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betano.bg.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betano<wbr>.bg</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betfair.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betfair<wbr>.com (sports)</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betfred.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betfred<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img lite cut" aria-hidden="true"><img src="assets/bk/betonline.ag.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betonline<wbr>.ag</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betsson.es.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betsson<wbr>.es</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betvictor.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betvictor<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betway.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betway<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/bovada.lv.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">bovada<wbr>.lv</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/boylesports.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">boyle<wbr>sports<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/codere.es.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">codere<wbr>.es</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/coral.co.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">coral<wbr>.co.uk</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/dafabet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">dafabet<wbr>.com (saba)</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/fon.bet.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">fon<wbr>.bet</span></li>
+      <li><span class="bk-ic bk-img dark cut" aria-hidden="true"><img src="assets/bk/goldenbet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">golden<wbr>bet<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img lite cut" aria-hidden="true"><img src="assets/bk/grosvenorcasinos.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">grosvenor<wbr>casinos<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/ladbrokes.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">ladbrokes<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/livescorebet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">livescore<wbr>bet<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/lottoland.co.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">lottoland<wbr>.co.uk</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/lottomatica.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">lotto<wbr>matica<wbr>.it</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/netbet.co.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">netbet<wbr>.co.uk</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/paddypower.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">paddy<wbr>power<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/parimatch.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">parimatch<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/pokerstars.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">poker<wbr>stars<wbr>.uk</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/polymarket.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">poly<wbr>market<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img lite cut" aria-hidden="true"><img src="assets/bk/pinnacle.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">silver<wbr>glow58<wbr>.xyz<small>клон Pinnacle</small></span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/sisal.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">sisal<wbr>.it</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/sportingbet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">sporting<wbr>bet<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/superbet.ro.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">superbet<wbr>.ro</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/vbet.co.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">vbet<wbr>.co.uk</span></li>
+      <li><span class="bk-ic bk-img dark cut" aria-hidden="true"><img src="assets/bk/virginbet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">virgin<wbr>bet<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/williamhill.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">william<wbr>hill<wbr>.com</span></li>
     </ul>
   </div>
 </section>
@@ -1436,7 +1499,7 @@ html{scrollbar-color:#3a3a3a #000}
   <div class="wrap">
     <div>
       <p class="eyebrow rv">Попробовать</p>
-      <h2 class="rv" style="--d:.1s">Счёт матча <em>больше не&nbsp;важен</em></h2>
+      <h2 class="h2 rv" style="--d:.1s"><span class="h-a">Счёт матча</span> <span class="dim">больше не&nbsp;важен</span></h2>
       <p class="rv" style="--d:.2s">Зарегистрируйтесь через Google, Telegram или почту. Скачайте расширение GO в кабинете, настройте ленту под своих букмекеров и попробуйте сканер в бесплатный час: 2 дня в неделю, всё работает полностью.</p>
       <div class="cta rv" id="cta" style="--d:.3s">
         <a class="btn btn-main cut" href="app/#signup">Зарегистрироваться
@@ -1457,7 +1520,7 @@ html{scrollbar-color:#3a3a3a #000}
     <a class="logo" href="#hero" aria-label="Наверх"><svg viewBox="0 0 490 491" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M247 2 L2 489 L81 489 L138 375 L408 332 L371 413 L409 489 L488 489 Z M246 165 L301 275 L181 294 Z"/></svg><img src="assets/img/logo.webp" alt="PROJECT ALMANACC" width="98" height="34"></a>
     <nav aria-label="Подвал"><a href="#story">Как это работает</a><a href="#features">Возможности</a><a href="#pricing">Тарифы</a><a href="#faq">Вопросы</a><a href="#books">Букмекеры</a><a href="https://t.me/almanacc_trading_bot?start=footer">Telegram</a><a href="app/#login">Войти</a></nav>
     <nav class="docs" aria-label="Документы"><a href="legal/terms.html">Пользовательское соглашение</a><a href="legal/refund.html">Оплата и возврат</a><a href="legal/privacy.html">Конфиденциальность</a><a href="legal/cookies.html">Cookie</a><a href="legal/risks.html">Риски и 18+</a><button type="button" id="cookie-settings">Настройки cookie</button></nav>
-    <p class="legal">18+. PROJECT ALMANACC не принимает ставки и не является букмекером. Он показывает расхождения коэффициентов и считает суммы. Ставки связаны с риском: коэффициенты меняются, букмекеры могут ограничить аккаунт. Примеры на странице демонстрационные, лента и таблица коэффициентов взяты из записи работы сканера. Названия букмекеров принадлежат их владельцам. Сервис не предоставляется в США, Великобритании, Франции, Нидерландах и Австралии.</p>
+    <p class="legal">18+. PROJECT ALMANACC не принимает ставки и не является букмекером. Он показывает расхождения коэффициентов и считает суммы. Ставки связаны с риском: коэффициенты меняются, букмекеры могут ограничить аккаунт. Примеры на странице демонстрационные, лента и таблица коэффициентов взяты из записи работы сканера. Названия и логотипы букмекеров принадлежат их владельцам. Сервис не предоставляется в США, Великобритании, Франции, Нидерландах и Австралии.</p>
     <p class="copy">© 2026 PROJECT ALMANACC</p>
   </div>
 </footer>
@@ -2117,7 +2180,7 @@ html{scrollbar-color:#3a3a3a #000}
   }
 
   /* ---------- подписка: срок и цена ---------- */
-  var PER={d:{p:15,t:'за 1 день',n:'Попробовать сканер в деле'},w:{p:50,t:'за 1 неделю',n:'≈$7.14 в день, на 52% выгоднее дня'},m:{p:150,t:'за 1 месяц',n:'$5 в день, на 67% выгоднее дня'}};
+  var PER={d:{p:15,t:'за 1 день',n:'Попробовать сканер в деле'},w:{p:50,t:'за 1 неделю',n:'≈$7.14 в день вместо $15'},m:{p:150,t:'за 1 месяц',n:'$5 в день вместо $15'}};
   var perG=$('#per');
   if(perG){
     perG.addEventListener('click',function(e){var b=e.target.closest('[data-per]');if(!b)return;var x=PER[b.dataset.per];
@@ -2143,6 +2206,27 @@ html{scrollbar-color:#3a3a3a #000}
   x.addEventListener('scroll',f,{passive:true}); addEventListener('resize',f);
   if(window.ResizeObserver) new ResizeObserver(f).observe(x);
   setTimeout(f,300); setTimeout(f,1500);
+})();
+
+</script>
+<script>
+/* v11: demo widgets of the "feed your way" tile. Example only: nothing is saved and the workspace feed is not touched. */
+(function(){
+  var t=document.querySelector('.t-x'); if(!t)return;
+  var init=t.innerHTML;
+  t.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b||!t.contains(b))return;
+    if(b.hasAttribute('data-xreset')){t.innerHTML=init;return;}
+    var g=b.closest('.x-seg');
+    if(g){Array.prototype.forEach.call(g.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',String(x===b))});return;}
+    if(b.closest('.x-pal')){b.classList.toggle('off');return;}
+    if(b.hasAttribute('data-xfs')){var v=b.parentNode.querySelector('b'),n=parseInt(v.textContent,10)+(+b.getAttribute('data-xfs'));v.textContent=Math.min(17,Math.max(11,n))+'px';return;}
+    if(b.hasAttribute('data-xmv')){var li=b.closest('li'),d=+b.getAttribute('data-xmv'),o=d<0?li.previousElementSibling:li.nextElementSibling;
+      if(o){if(d<0)li.parentNode.insertBefore(li,o);else li.parentNode.insertBefore(o,li);b.focus();}return;}
+    if(b.hasAttribute('data-xtab')){var k=b.getAttribute('data-xtab');
+      Array.prototype.forEach.call(t.querySelectorAll('[data-xtab]'),function(x){x.setAttribute('aria-selected',String(x===b))});
+      Array.prototype.forEach.call(t.querySelectorAll('[data-xpanel]'),function(p){p.hidden=p.getAttribute('data-xpanel')!==k});}
+  });
 })();
 
 </script>

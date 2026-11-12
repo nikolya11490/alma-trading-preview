@@ -1119,6 +1119,95 @@ html{scrollbar-color:#3a3a3a #000}
   .books-stat b{font-size:clamp(30px,10vw,42px)}
   .books-stat span{font-size:10px;letter-spacing:.08em}
 }
+/* ===== v11 ===== */
+/* 1: wide screens */
+@media (min-width:1600px){
+  .wrap{width:min(82vw,2200px)}
+  body{font-size:17px}
+}
+/* 2: hero heading in two lines + stats strip */
+.hero h1{font-size:clamp(38px,5.3vw,92px);line-height:1;letter-spacing:-.04em;white-space:nowrap}
+.hero h1 .h-a{display:block}
+.hero h1 em{font-weight:300;color:#bdbdbd}
+.hero p.lead{margin-top:28px}
+.hstat{display:flex;gap:40px;margin:26px 0 0}
+.hstat p{margin:0;display:flex;flex-direction:column;gap:7px}
+.hstat b{font:800 clamp(28px,2.5vw,42px)/.95 var(--display);letter-spacing:-.035em;color:var(--text)}
+.hstat span{font:600 11px/1.2 var(--body);letter-spacing:.15em;text-transform:uppercase;color:var(--text3)}
+@media (max-width:600px){.hstat{gap:26px}.hstat span{font-size:10px;letter-spacing:.1em}}
+/* 7: one size for all section headings: bold line + gray line */
+.h2,.faq .h2,.books-head .h2,.final h2.h2{font:700 clamp(28px,3.05vw,54px)/1.06 var(--display);letter-spacing:-.035em;max-width:none;text-wrap:wrap}
+.h2 .h-a,.h2 .dim{display:block}
+.h2 .dim{font-weight:300;color:var(--text3)}
+@media (min-width:900px){.h2 .h-a,.h2 .dim{white-space:nowrap}}
+@media (max-width:600px){.story .h2{font-size:24px}}
+.final h2.h2{margin:0}
+/* 5: story pill */
+.pill-ex .dot{animation:none!important}
+/* 6: GO tile, Selected Arb as in the live scanner */
+.sa2{border:1px solid var(--border-strong);background:#0b0b0b;font-size:14px}
+.s2-h{display:flex;justify-content:space-between;align-items:center;padding:7px 12px;color:var(--text3);font-size:13px;border-bottom:1px solid var(--border)}
+.s2-hr{display:flex;align-items:center;gap:12px}
+.s2-hr em{font-style:normal;font-size:11px;padding:2px 6px;border:1px dashed var(--border-strong);color:var(--text2)}
+.s2-hr .s2-ic svg{width:15px;height:15px;color:var(--text2)}
+.s2-min{color:var(--text2);font-size:16px;line-height:1}
+.s2-bar{display:flex;align-items:stretch;background:#1d1d1d}
+.s2-bar>b{background:rgba(61,220,132,.16);color:var(--up);padding:8px 12px;font:700 17px/1.2 var(--display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.s2-sp{display:flex;align-items:center;padding:0 12px;font-weight:700;letter-spacing:.04em;color:var(--text)}
+.s2-sc{margin-left:auto;display:flex;align-items:center;gap:6px;padding:0 14px;color:var(--text2);font:500 13px/1 var(--mono);white-space:nowrap}
+.s2-sc b{color:var(--text);font-weight:700}
+.s2-leg{display:grid;grid-template-columns:minmax(118px,auto) minmax(0,1fr) auto 104px 56px;gap:4px 14px;align-items:center;padding:9px 12px;border-top:1px solid var(--border)}
+.s2-bk{display:flex;align-items:center;gap:6px;color:var(--text);white-space:nowrap}
+.s2-bk .ini{margin:0}
+.s2-ic{display:inline-grid;place-items:center;color:var(--text2)}
+.s2-ic svg{width:14px;height:14px}
+.s2-ev{display:grid;gap:3px;min-width:0}
+.s2-ev small{color:var(--text3);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.s2-ev .pp{display:flex;align-items:center;gap:5px;min-width:0}
+.s2-ev .pl{display:inline-flex;align-items:center;gap:5px;min-width:0;max-width:100%;padding:1px 7px 1px 9px;border:1px solid #bdbdbd;border-radius:999px;font-size:12.5px;line-height:1.35;color:var(--text)}
+.s2-ev .pl span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.s2-ev .pl svg{width:12px;height:12px;flex:none;color:var(--text2)}
+.s2-ev .dash{color:var(--text3)}
+.s2-ty{display:flex;align-items:center;gap:7px;color:var(--text2);white-space:nowrap;font-size:13px}
+.s2-k{font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+.sa2 .gob-s{display:inline-grid;place-items:center;cursor:default}
+@media (max-width:760px){
+  .s2-bar{flex-wrap:wrap}.s2-sc{margin-left:0;padding:6px 12px;width:100%;border-top:1px solid #2a2a2a}
+  .s2-bar>b{font-size:14px;padding:6px 10px}
+  .s2-leg{grid-template-columns:minmax(0,1fr) auto auto 48px;grid-template-areas:"bk ty k go" "ev ev ev ev";gap:6px 10px;font-size:13px}
+  .s2-bk{grid-area:bk}.s2-ty{grid-area:ty}.s2-k{grid-area:k}.s2-ev{grid-area:ev}.s2-leg .gob{grid-area:go}
+}
+/* 9-10: two tiles side by side */
+@media (min-width:1001px){
+  .bento>.t-filter{grid-column:span 7!important}
+  .bento>.t-line{grid-column:span 5!important}
+}
+.t-line{display:block!important}
+.t-line .ot{grid-column:auto!important;grid-row:auto!important;margin-top:24px!important}
+.t-x .x-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start;margin-top:22px}
+.t-x .x-cols{margin:0}
+.t-x .x-fset{margin:0}
+.t-x .x-opts{margin-top:18px}
+.t-x .x-fld{display:flex;flex-direction:column;align-items:flex-start;gap:2px;cursor:default;width:100%}
+.t-x .x-fld .dd-v{display:flex;flex-wrap:wrap;gap:6px;overflow:hidden;text-overflow:ellipsis;max-width:100%;font-size:13px;color:var(--text)}
+.t-x .spi svg{width:17px;height:17px;display:block}
+.x-pal{display:flex;gap:4px;flex-wrap:wrap}
+.x-pal button{width:26px;height:26px;padding:0;border:1px solid var(--border-strong);background:none;display:grid;place-items:center;cursor:pointer}
+.x-pal i{width:16px;height:16px;background:var(--c);display:block}
+.x-pal button.off i{opacity:.2}
+@media (max-width:1180px){.t-x .x-top{grid-template-columns:minmax(0,1fr)}}
+/* 13: bookmaker favicons, grayscale, colour on hover */
+.bk-ic.bk-img{padding:0;background:#000;border:1px solid var(--border-strong);overflow:hidden;display:grid;place-items:center}
+.bk-ic.bk-img::before{display:none}
+.bk-img img{display:block;filter:grayscale(1) contrast(1.05);transition:filter .3s var(--ease)}
+.bk-img.full img{width:100%;height:100%;object-fit:cover}
+.bk-img.dark{background:#1b1b1b}
+.bk-img.lite{background:#ececec}
+.bk-img.dark img,.bk-img.lite img{width:70%;height:70%;object-fit:contain}
+.books-grid li:hover .bk-ic.bk-img{background:#000}
+.books-grid li:hover .bk-img.dark{background:#1b1b1b}
+.books-grid li:hover .bk-img.lite{background:#ececec}
+.books-grid li:hover .bk-img img{filter:none}
 
 </style>
 </head>
@@ -1151,8 +1240,9 @@ html{scrollbar-color:#3a3a3a #000}
   <div class="wrap" data-parallax>
     <div class="copy">
       <div class="kicker rv"><i></i><span>live arb scanner · <b class="dom">alma.trading</b></span></div>
-      <h1 class="rv" style="--d:.1s">Profit on <em>any outcome</em></h1>
-      <p class="lead rv" style="--d:.25s">The scanner compares bookmakers’ live lines and finds <b>arbs</b>: bets on every outcome at different bookmakers that pay off whatever the result. The <b>GO</b> button instantly opens the bet slip at the right bookmaker.</p>
+      <h1 class="rv" style="--d:.1s"><span class="h-a">Profit on</span> <em>any outcome</em></h1>
+      <p class="lead rv" style="--d:.25s">Live arb scanner across 36 bookmakers and 300+ clones. Odds refresh in under a second, and the <b>GO</b> button opens the bet slip at the right bookmaker in one click.</p>
+      <div class="hstat rv" style="--d:.3s"><p><b>36</b><span>bookmakers</span></p><p><b>300+</b><span>clones</span></p><p><b>&lt;1&nbsp;s</b><span>refresh</span></p></div>
       <div class="cta rv" style="--d:.35s">
         <a class="btn btn-main cut" href="app/en.html#signup">Sign up
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -1162,7 +1252,6 @@ html{scrollbar-color:#3a3a3a #000}
       </div>
       <p class="free rv" style="--d:.4s"><b>Free</b>: full access with no limits for everyone, 1 hour on 2 days a week</p>
       <p class="have rv" style="--d:.42s">Already have an account? <a href="app/en.html#login">Log in to your account</a></p>
-      <a class="scrollhint rv" style="--d:.5s" href="#story"><span class="line" aria-hidden="true"></span>Scroll down: how an arb is born</a>
     </div>
   </div>
 </section>
@@ -1171,22 +1260,22 @@ html{scrollbar-color:#3a3a3a #000}
 <section class="story slice tone" id="story">
   <div class="wrap story-head">
     <p class="eyebrow rv">How an arb is born</p>
-    <h2 class="h2 rv" style="--d:.1s">Two bookmakers got it wrong in different ways. <span class="dim">You take the difference.</span></h2>
+    <h2 class="h2 rv" style="--d:.1s"><span class="h-a">One bookmaker was too slow to update its odds.</span> <span class="dim">The scanner finds it before the price is fixed.</span></h2>
   </div>
   <div class="story-track" data-story>
     <div class="story-pin">
       <div class="wrap story-grid">
         <div class="progress" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
         <ol class="steps">
-          <li class="step on"><div class="n">STEP 1 / 4</div><h3>A match is on</h3><p>Live tennis, “Match winner” market. Two outcomes, no draw. The odds change after every point.</p></li>
-          <li class="step"><div class="n">STEP 2 / 4</div><h3>The lines diverge</h3><p>bet365.com offers 2.10 on player one, 888sport.com offers 2.05 on player two. Each looks ordinary on its own.</p></li>
-          <li class="step"><div class="n">STEP 3 / 4</div><h3>The scanner spots the gap</h3><p>Sum of the inverse odds: 1/2.10 + 1/2.05 = 0.9640. That’s less than 1, so there’s an arb: <b class="num">3.73%</b>.</p></li>
-          <li class="step"><div class="n">STEP 4 / 4</div><h3>Two bets lock in a profit</h3><p>$1&nbsp;000 is split proportionally. Whoever wins, the payout is the same: <b class="num">+$37.35</b>.</p></li>
+          <li class="step on"><div class="n">STEP 1 / 4</div><h3>A match is on</h3><p>Live tennis, “Match winner” market: two outcomes, no draw. After every point bookmakers recalculate their odds.</p></li>
+          <li class="step"><div class="n">STEP 2 / 4</div><h3>One bookmaker lagged behind</h3><p>Player A won a game, and bookmakers cut the odds on his win to 1.90. bet365.com still holds 2.10. On player B, 888sport.com offers 2.05.</p></li>
+          <li class="step"><div class="n">STEP 3 / 4</div><h3>The scanner sees the arb</h3><p>The scanner adds up the probabilities built into the odds: 47.62% + 48.78% = 96.40%. Less than 100% means there is an arb: <b class="num">+3.73%</b>.</p></li>
+          <li class="step"><div class="n">STEP 4 / 4</div><h3>Place it in time</h3><p>The calculator splits $1&nbsp;000: $493.98 on player A and $506.02 on player B. Whoever wins, the payout is $1&nbsp;037.35, that is <b class="num">+$37.35</b>. The GO button opens the bet slips before bet365.com fixes its price.</p></li>
         </ol>
         <div class="stage cut cut-line" data-s="1" aria-label="Arb calculation example">
           <div class="match">
             <div><div class="meta">Tennis · Match winner</div><div class="t">Player A <span>vs</span> Player B</div></div>
-            <span class="pill"><span class="dot"></span><span><span class="dk">Live · </span>example</span></span>
+            <span class="pill pill-ex"><span class="dot"></span><span>example</span></span>
           </div>
           <div class="fig">
             <div class="lab l"><div class="bk">bet365.com</div><div class="mm">W1 · Player A</div><div class="odd num">2.10</div><div class="imp"><span class="dk">probability </span>priced in <span class="num">47.62%</span></div></div>
@@ -1204,7 +1293,7 @@ html{scrollbar-color:#3a3a3a #000}
             <div class="row"><span>Sum of implied probabilities</span><b class="num">96.40% &lt; 100%</b></div>
             <div class="bar" aria-hidden="true"><span class="b1" style="width:47.62%"></span><span class="b2" style="width:48.78%"></span><span class="gap" style="width:3.6%"></span></div>
             <div class="hint">under 100% means there’s an arb</div>
-            <div class="verdict"><span class="big num">+3.73%</span><span><span class="dk">guaranteed </span>arb return</span></div>
+            <div class="verdict"><span class="big num">+3.73%</span><span><span class="dk">estimated </span>arb return</span></div>
           </div>
           <div class="split">
             <div class="cell"><div class="lbl"><span class="dk">Bet on </span>W1 · 2.10</div><div class="stake num">$493.98</div><div class="out">A wins: <span class="num">$1&nbsp;037.35</span>, <b class="num">+$37.35</b></div></div>
@@ -1222,65 +1311,42 @@ html{scrollbar-color:#3a3a3a #000}
 <section class="band slice ink" id="features" style="padding-top:calc(var(--cut) + 110px)">
   <div class="wrap">
     <p class="eyebrow rv">Features</p>
-    <h2 class="h2 rv" style="--d:.1s">Everything you need to get in<br><span class="dim">before the line closes.</span></h2>
+    <h2 class="h2 rv" style="--d:.1s"><span class="h-a">Everything to make it</span> <span class="dim">before the line closes.</span></h2>
     <div class="bento">
       <article class="tile cut cut-line t-go rv">
         <div>
           <h3>One GO button, and the bet slip is open</h3>
-          <p class="lead2">Found an arb? Hit GO. The scanner instantly opens that event’s bet slip at the right bookmaker, on the right market. No hunting for the match before the odds change.</p>
-          <ol><li>Download the extension from your account after you sign up</li><li>Log in to your bookmaker accounts in a separate browser</li><li>Install the extension in that browser</li><li>Hit GO on each leg of the arb and the bet slip opens automatically</li></ol>
+          <p class="lead2">Found an arb? Press GO. The bookmaker’s site opens on the right match with the bet already selected: just enter the stake and confirm. No hunting for the match by hand while the odds change.</p>
+          <ol><li>Sign up and download the GO extension in your account</li><li>Log in to your bookmaker accounts in a separate browser</li><li>Install the extension in that browser</li><li>Press GO on both bets of the arb: the right bet opens at each bookmaker</li></ol>
           <p class="ext"><a href="app/en.html#ext">Download from your account</a><span>works in the free hour and with a subscription</span></p>
         </div>
         <div>
-          <div class="sa sa-static" aria-label="Arb window, example">
-            <div class="sa-top"><span>Selected Arb</span><span>example</span></div>
-            <div class="sa-bar"><b>7.18% → 6.58%</b><span>TENNIS</span></div>
-            <div class="sa-leg"><span class="sa-bk">bet365.com<i class="ini" title="Arb initiator" aria-label="arb initiator"></i></span><span class="sa-ev"><em>Kochta/Smart - Kurt/Medvedeva</em><small>W15 Sharm El Sheikh WD</small></span><span class="sa-ty">2</span><span class="sa-k">2.38 → 2.38</span><span class="gob gob-s" aria-hidden="true">go</span></div>
-            <div class="sa-leg"><span class="sa-bk">fon.bet</span><span class="sa-ev"><em>Kochta T / Smart H - Kurt I / Medvedeva</em><small>World Tennis. Women. Egypt</small></span><span class="sa-ty">1</span><span class="sa-k">1.95 → 1.93</span><span class="gob gob-s" aria-hidden="true">go</span></div>
+          <div class="sa2" aria-label="Arb window, example">
+            <div class="s2-h"><span>Selected Arb</span><span class="s2-hr"><em>example</em><span class="s2-ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.4 13a7.5 7.5 0 0 0 0-2l2-1.6-2-3.4-2.4 1a7 7 0 0 0-1.7-1L15 3.5h-4l-.4 2.5a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L6.6 11a7.5 7.5 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 1.7 1l.4 2.5h4l.4-2.5a7 7 0 0 0 1.7-1l2.4 1 2-3.4zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg></span><span class="s2-min">–</span></span></div>
+            <div class="s2-bar"><b>7.18% → 6.58%</b><span class="s2-sp">TENNIS</span><span class="s2-sc"><b>0:1</b> S2 3:2 15:30</span></div>
+            <div class="s2-leg"><span class="s2-bk">bet365.com<i class="ini" title="Arb initiator" aria-label="arb initiator"></i><span class="s2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span></span><span class="s2-ev"><span class="pp"><span class="pl"><span>Kochta/Smart</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span><span class="dash">-</span><span class="pl"><span>Kurt/Medvedeva</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span></span><small>W15 Sharm El Sheikh WD</small></span><span class="s2-ty">2<span class="s2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/><path d="M4 20 20 4"/></svg></span></span><span class="s2-k">2.38 → 2.38</span><span class="gob gob-s" aria-hidden="true">go</span></div>
+            <div class="s2-leg"><span class="s2-bk">fon.bet<span class="s2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span></span><span class="s2-ev"><span class="pp"><span class="pl"><span>Kochta T / Smart H</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span><span class="dash">-</span><span class="pl"><span>Kurt I / Medvedeva</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span></span><small>World Tennis. Women. Egypt</small></span><span class="s2-ty">1<span class="s2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/><path d="M4 20 20 4"/></svg></span></span><span class="s2-k">1.95 → 1.93</span><span class="gob gob-s" aria-hidden="true">go</span></div>
           </div>
         </div>
       </article>
-      <article class="tile cut cut-line t-live rv">
-        <h3>Live, where arbs last seconds</h3>
-        <p>The scanner watches bookmakers’ live lines and refreshes the odds in under 1 second. They change after every point, so every arb shows how long it has been alive.</p>
-        <ul class="livelist" aria-label="Live arbs from the scanner, example">
-          <li><span class="ll-ev"><b>Ebasketball H2H GG League · winner</b>bet365.com · betano.bg</span><b class="ll-p">6.0%</b><span class="ll-t" data-tick="26">26s</span></li>
-          <li><span class="ll-ev"><b>HongKong |&gt; Division 1 · handicap</b>goldenbet.com · ladbrokes.com</span><b class="ll-p">4.9%</b><span class="ll-t" data-tick="11">11s</span></li>
-          <li><span class="ll-ev"><b>Qatar U19 League · set 3</b>888sport.com · fon.bet</span><b class="ll-p">4.0%</b><span class="ll-t" data-tick="3">3s</span></li>
-        </ul>
-      </article>
-      <article class="tile cut cut-line t-filter rv">
-        <h3>Your feed, your way</h3>
-        <p>Choose the columns, their order and layout, set the filters. Everything is saved in your browser and instantly changes <a href="#ws">the feed in the workspace</a>.</p>
-        <div class="tf-grid">
-          <div class="tf-cols"><ol class="cols" id="cols" aria-label="Feed columns: turn on, turn off, reorder"></ol></div>
-          <div class="tf-side"><div class="vopts">
-          <div class="vrow"><span>Profit rounding</span><div class="seg" data-opt="round" role="group" aria-label="Profit rounding"><button type="button" data-v="2">0.01</button><button type="button" data-v="1">0.1</button><button type="button" data-v="0">1</button></div></div>
-          <div class="vrow"><span>Bookmakers, type and odds</span><div class="seg" data-opt="stack" role="group" aria-label="Layout"><button type="button" data-v="row">In a row</button><button type="button" data-v="col">Stacked</button></div></div>
-          <div class="vrow"><span>Font size</span><div class="stepper"><button type="button" data-fs="-1" aria-label="Smaller font">−</button><b id="fs">14px</b><button type="button" data-fs="1" aria-label="Larger font">+</button></div></div>
-          <div class="vrow"><label for="defsum">Default arb stake, $</label><input id="defsum" class="sumin" inputmode="decimal" value="100" autocomplete="off"></div>
-          <div class="vrow"><span></span><button type="button" class="chipbtn" id="cols-reset">Reset</button></div></div>
-          <section class="fset" id="fset" aria-label="Settings window">
+      <article class="tile cut cut-line t-filter t-x rv">
+        <h3>Arb feed your way</h3>
+        <p>Choose the columns, their order and layout, set up filters. Everything is saved in your browser and changes the scanner feed right away.</p>
+        <div class="x-top">
+          <ol class="cols x-cols" aria-label="Feed columns, example"><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox"><span class="nm">League</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Event</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Score</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Sport</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Bookmakers</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Type</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Odds</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Profit</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Time</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">+N (more arbs in the group)</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li></ol>
+          <section class="fset x-fset" aria-label="“Settings” window, example">
             <div class="fs-h">Settings</div>
-            <div class="fs-tabs" role="tablist" aria-label="Settings"><button type="button" role="tab" id="fs-tab-f" aria-selected="true" aria-controls="fs-f">Arb filters</button><button type="button" role="tab" id="fs-tab-a" aria-selected="false" aria-controls="fs-a">Bookmaker aliases</button></div>
-            <div class="fs-p" id="fs-f" role="tabpanel" aria-labelledby="fs-tab-f">
-              <div class="dd" id="dd-bk" data-kind="bk"><button type="button" class="dd-b fld" aria-expanded="false"><small>Bookmakers</small><span class="dd-v"></span><span class="dd-c"></span></button><div class="dd-p" hidden></div></div>
-              <div class="dd" id="dd-sp" data-kind="sp"><button type="button" class="dd-b fld" aria-expanded="false"><small>Sports</small><span class="dd-v"></span><span class="dd-c"></span></button><div class="dd-p" hidden></div></div>
-              <div class="fs-2"><label class="fld"><small>Min Profit %</small><span class="fin"><input id="f-minp" inputmode="decimal" autocomplete="off"><em>%</em></span></label><label class="fld"><small>Min Duration</small><span class="fin"><input id="f-mind" inputmode="numeric" autocomplete="off"><em>sec</em></span></label></div>
-              <label class="fck"><input type="checkbox" id="f-half"><span>Show only .5 handicaps/totals</span></label>
-              <label class="fck"><input type="checkbox" id="f-tn3"><span>Hide tennis 3rd set</span></label>
-            </div>
-            <div class="fs-p" id="fs-a" role="tabpanel" aria-labelledby="fs-tab-a" hidden>
-              <p class="fs-hint">Short bookmaker names: this is how they appear in the feed and the arb window.</p>
-              <div class="fs-al" id="fs-al"></div>
-            </div>
-            <div class="fs-f"><span id="fs-count" aria-live="polite"></span><button type="button" class="chipbtn" id="fs-reset">Reset filters</button></div>
-          </section></div>
+            <div class="fs-tabs" role="tablist"><button type="button" role="tab" aria-selected="true" data-xtab="f">Arb filters</button><button type="button" role="tab" aria-selected="false" data-xtab="a">Bookmaker aliases</button></div>
+            <div class="fs-p" data-xpanel="f"><div class="fld x-fld"><small>Bookmakers</small><span class="dd-v">888sport.com, admiralbet.it, bc.game, bet365.com, betano.bg, fon.bet…</span></div><div class="fld x-fld"><small>Sports</small><span class="dd-v"><span class="spi" style="color:#d4e157"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.5 5.8c3 2.8 3 9.6 0 12.4M18.5 5.8c-3 2.8-3 9.6 0 12.4"/></svg></span><span class="spi" style="color:#ff8a3d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c3.3 3.3 3.3 9.5 0 12.8M18.4 5.6c-3.3 3.3-3.3 9.5 0 12.8"/></svg></span><span class="spi" style="color:#4fc3f7"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3c-1 4 0 7 4 9.5M3.6 15.5C7.5 14 10.5 14.4 12 12M20.4 15.5C17 17 13 17 12 12"/></svg></span><span class="spi" style="color:#ef5350"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="m14.6 14.6 5.4 5.4"/><circle cx="19" cy="6" r="1.6"/></svg></span><span class="spi" style="color:#b388ff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="7" width="19" height="11" rx="3"/><path d="M7 10.5v4M5 12.5h4M15.5 11.5h.01M18 13.5h.01"/></svg></span><span class="spi" style="color:#66bb6a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m12 7.5 4.3 3.1-1.6 5h-5.4l-1.6-5z"/><path d="M12 3v4.5M16.3 10.6l4.4-1.4M14.7 15.6l2.7 3.8M9.3 15.6l-2.7 3.8M7.7 10.6 3.3 9.2"/></svg></span></span></div><div class="fs-2"><label class="fld"><small>Min Profit %</small><span class="fin"><input value="2" inputmode="decimal" autocomplete="off"><em>%</em></span></label><label class="fld"><small>Min Duration</small><span class="fin"><input value="1" inputmode="numeric" autocomplete="off"><em>sec</em></span></label></div><label class="fck"><input type="checkbox" checked><span>Show only .5 handicaps/totals</span></label><label class="fck"><input type="checkbox" checked><span>Hide tennis 3rd set</span></label></div>
+            <div class="fs-p" data-xpanel="a" hidden><p class="fs-hint">Short bookmaker names: this is how they appear in the feed and the arb window.</p><div class="fs-al"><div class="al-r"><span>bet365.com</span><input value="365" aria-label="bet365.com" autocomplete="off" maxlength="16"></div><div class="al-r"><span>888sport.com</span><input value="888" aria-label="888sport.com" autocomplete="off" maxlength="16"></div><div class="al-r"><span>fon.bet</span><input value="fon" aria-label="fon.bet" autocomplete="off" maxlength="16"></div><div class="al-r"><span>ladbrokes.com</span><input value="lad" aria-label="ladbrokes.com" autocomplete="off" maxlength="16"></div></div></div>
+            <div class="fs-f"><span></span><button type="button" class="chipbtn" data-xreset>Reset filters</button></div>
+          </section>
         </div>
+        <div class="vopts x-opts"><div class="vrow"><span>Profit rounding</span><div class="seg x-seg" role="group" aria-label="Profit rounding"><button type="button" aria-pressed="false">0.01</button><button type="button" aria-pressed="true">0.1</button><button type="button" aria-pressed="false">1</button></div></div><div class="vrow"><span>Bookmakers</span><div class="seg x-seg" role="group" aria-label="Bookmakers"><button type="button" aria-pressed="false">In a row</button><button type="button" aria-pressed="true">Stacked</button></div></div><div class="vrow"><span>Type</span><div class="seg x-seg" role="group" aria-label="Type"><button type="button" aria-pressed="false">In a row</button><button type="button" aria-pressed="true">Stacked</button></div></div><div class="vrow"><span>Odds</span><div class="seg x-seg" role="group" aria-label="Odds"><button type="button" aria-pressed="false">In a row</button><button type="button" aria-pressed="true">Stacked</button></div></div><div class="vrow"><span>Odds in profit</span><div class="seg x-seg" role="group" aria-label="Odds in profit"><button type="button" aria-pressed="false">No</button><button type="button" aria-pressed="true">Left and right</button><button type="button" aria-pressed="false">Top and bottom</button></div></div><div class="vrow"><span>Sport icons</span><div class="seg x-seg" role="group" aria-label="Sport icons"><button type="button" aria-pressed="false">Plain</button><button type="button" aria-pressed="true">Coloured</button></div></div><div class="vrow"><span>Column dividers</span><div class="seg x-seg" role="group" aria-label="Column dividers"><button type="button" aria-pressed="true">On</button><button type="button" aria-pressed="false">Off</button></div></div><div class="vrow"><span>Sport colours</span><div class="x-pal" role="group" aria-label="Sport colours"><button type="button" style="--c:#d4e157" aria-label="tn"><i></i></button><button type="button" style="--c:#ff8a3d" aria-label="bb"><i></i></button><button type="button" style="--c:#4fc3f7" aria-label="vb"><i></i></button><button type="button" style="--c:#ef5350" aria-label="tt"><i></i></button><button type="button" style="--c:#b388ff" aria-label="eb"><i></i></button><button type="button" style="--c:#66bb6a" aria-label="fb"><i></i></button></div></div><div class="vrow"><span>Match state</span><div class="seg x-seg" role="group" aria-label="Match state"><button type="button" aria-pressed="false">Hide</button><button type="button" aria-pressed="true">Show</button></div></div><div class="vrow"><span>Font size</span><div class="stepper x-fs"><button type="button" data-xfs="-1" aria-label="Smaller font">−</button><b>14px</b><button type="button" data-xfs="1" aria-label="Larger font">+</button></div></div><div class="vrow"><span></span><button type="button" class="chipbtn" data-xreset>Reset</button></div></div>
       </article>
       <article class="tile cut cut-line t-line rv" style="--d:.1s">
         <h3>Odds at other bookmakers</h3>
-        <p>Every arb shows the whole market: what odds each bookmaker offers and where they are best. If the main bookmaker has already moved its odds, you can see where to get a replacement.</p>
+        <p>For every arb you see the whole market: what odds each bookmaker offers and where they are best. If your bookmaker’s odds have already dropped, you instantly see where to bet instead to close the arb.</p>
         <div class="ot">
           <div class="ot-cap"><span>Winner of game 6 · player 1 / player 2</span><span class="demo">example from the scanner</span></div>
           <table class="odds" id="odds">
@@ -1320,19 +1386,17 @@ html{scrollbar-color:#3a3a3a #000}
 <section class="pricing slice tone" id="pricing">
   <div class="wrap">
     <p class="eyebrow rv">Pricing</p>
-    <h2 class="h2 rv" style="--d:.1s">One subscription. <span class="dim">The longer the term, the cheaper the day.</span></h2>
+    <h2 class="h2 rv" style="--d:.1s"><span class="h-a">One subscription.</span> <span class="dim">The longer the term, the cheaper the day.</span></h2>
     <div class="per" id="per" role="group" aria-label="Subscription term"><button type="button" data-per="d" aria-pressed="false">1 day</button><button type="button" data-per="w" aria-pressed="false">1 week<em>−52%</em></button><button type="button" data-per="m" aria-pressed="true">1 month<em>−67%</em></button></div>
     <article class="plan one cut cut-line rv">
       <div>
-        <div class="pn">PROJECT ALMANACC</div><div class="who">One subscription, every scanner feature</div>
         <div class="price"><span id="pp">$150</span> <small id="pper">for 1 month</small></div>
-        <div class="pnote" id="pnote">$5 a day, 67% cheaper than daily</div>
+        <div class="pnote" id="pnote">$5 a day instead of $15</div>
         <a class="btn btn-main cut" id="pbuy" href="app/en.html?p=m#signup">Get a subscription</a>
       </div>
-      <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Live arbs across 36 bookmakers and 300+ clones</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>GO button: bet slip in one click</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Calculator with edge and lock</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Workspace of windows</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Odds at other bookmakers</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Your feed, your way</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Telegram alerts</li></ul>
+      <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Live arbs: 36 bookmakers and 300+ clones</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Odds refresh in under a second</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>GO button: the bet opens in one click</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Calculator: how much to stake on each outcome</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Odds at other bookmakers</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Arb feed your way</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Workspace: windows, just like the scanner</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Telegram alerts</li></ul>
     </article>
     <div class="team-line free-line"><span><b>Free</b> for 1 hour on 2 days a week, every scanner feature. The schedule is in your account and in the bot</span><a class="btn btn-ghost btn-sm cut cut-line" href="app/en.html#signup">Sign up</a></div>
-    <p class="plans-note">Pay in USDT via @CryptoBot or from any wallet. The subscription doesn’t renew automatically: you pay for the term upfront, and the bot reminds you before it ends. The 1-day plan is non-refundable.</p>
   </div>
 </section>
 
@@ -1385,47 +1449,46 @@ html{scrollbar-color:#3a3a3a #000}
 <section class="books tone" id="books">
   <div class="wrap">
     <div class="books-head">
-      <div><p class="eyebrow rv">Bookmakers</p><h2 class="h2 rv" style="--d:.1s">36 bookmakers with top lines. <span class="dim">Plus 300+ of their clones.</span></h2></div>
-      <div class="books-stat rv" style="--d:.15s"><p><b>36</b><span>bookmakers in the scanner</span></p><p><b>300+</b><span>clones via GO</span></p><p><b>&lt;1&nbsp;s</b><span>odds refresh</span></p></div>
+      <div><p class="eyebrow rv">Bookmakers</p><h2 class="h2 rv" style="--d:.1s"><span class="h-a">36 largest bookmakers.</span> <span class="dim">And 300+ of their clones.</span></h2></div>
     </div>
     <p class="books-lead rv" style="--d:.2s">The scanner compares the lines of these bookmakers. Many of them have clones: pick the main bookmaker in the GO extension and you can bet on its clones too. The extension adapts to the clone’s site and its line on its own, and the bet slip opens the same way, in one click.</p>
     <ul class="books-grid rv" style="--d:.25s" aria-label="Bookmakers in the scanner">
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">888</b></span><span class="bk-n">888sport<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">888</b></span><span class="bk-n">888sport<wbr>.it</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">AB</b></span><span class="bk-n">admiral<wbr>bet<wbr>.it</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">BC</b></span><span class="bk-n">bc<wbr>.game</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">365</b></span><span class="bk-n">bet365<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">BTN</b></span><span class="bk-n">betano<wbr>.bg</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">BF</b></span><span class="bk-n">betfair<wbr>.com (sports)</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">BFR</b></span><span class="bk-n">betfred<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">BOL</b></span><span class="bk-n">betonline<wbr>.ag</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">BS</b></span><span class="bk-n">betsson<wbr>.es</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">BV</b></span><span class="bk-n">betvictor<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">BW</b></span><span class="bk-n">betway<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">BOV</b></span><span class="bk-n">bovada<wbr>.lv</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">BOY</b></span><span class="bk-n">boyle<wbr>sports<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">CD</b></span><span class="bk-n">codere<wbr>.es</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">CR</b></span><span class="bk-n">coral<wbr>.co.uk</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">DF</b></span><span class="bk-n">dafabet<wbr>.com (saba)</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">FON</b></span><span class="bk-n">fon<wbr>.bet</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">GB</b></span><span class="bk-n">golden<wbr>bet<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">GR</b></span><span class="bk-n">grosvenor<wbr>casinos<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">LB</b></span><span class="bk-n">ladbrokes<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">LS</b></span><span class="bk-n">livescore<wbr>bet<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">LL</b></span><span class="bk-n">lottoland<wbr>.co.uk</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">LM</b></span><span class="bk-n">lotto<wbr>matica<wbr>.it</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">NB</b></span><span class="bk-n">netbet<wbr>.co.uk</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">PP</b></span><span class="bk-n">paddy<wbr>power<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">PM</b></span><span class="bk-n">parimatch<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">PS</b></span><span class="bk-n">poker<wbr>stars<wbr>.uk</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">PLY</b></span><span class="bk-n">poly<wbr>market<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">SG</b></span><span class="bk-n">silver<wbr>glow58<wbr>.xyz<small>Pinnacle clone</small></span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">SI</b></span><span class="bk-n">sisal<wbr>.it</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">SB</b></span><span class="bk-n">sporting<wbr>bet<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="3">SPB</b></span><span class="bk-n">superbet<wbr>.ro</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">VB</b></span><span class="bk-n">vbet<wbr>.co.uk</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">VG</b></span><span class="bk-n">virgin<wbr>bet<wbr>.com</span></li>
-      <li><span class="bk-ic cut cut-line" aria-hidden="true"><b data-n="2">WH</b></span><span class="bk-n">william<wbr>hill<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/888sport.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">888sport<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/888sport.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">888sport<wbr>.it</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/admiralbet.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">admiral<wbr>bet<wbr>.it</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/bc.game.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">bc<wbr>.game</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/bet365.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">bet365<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betano.bg.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betano<wbr>.bg</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betfair.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betfair<wbr>.com (sports)</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betfred.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betfred<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img lite cut" aria-hidden="true"><img src="assets/bk/betonline.ag.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betonline<wbr>.ag</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betsson.es.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betsson<wbr>.es</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betvictor.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betvictor<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/betway.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betway<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/bovada.lv.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">bovada<wbr>.lv</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/boylesports.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">boyle<wbr>sports<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/codere.es.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">codere<wbr>.es</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/coral.co.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">coral<wbr>.co.uk</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/dafabet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">dafabet<wbr>.com (saba)</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/fon.bet.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">fon<wbr>.bet</span></li>
+      <li><span class="bk-ic bk-img dark cut" aria-hidden="true"><img src="assets/bk/goldenbet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">golden<wbr>bet<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img lite cut" aria-hidden="true"><img src="assets/bk/grosvenorcasinos.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">grosvenor<wbr>casinos<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/ladbrokes.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">ladbrokes<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/livescorebet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">livescore<wbr>bet<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/lottoland.co.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">lottoland<wbr>.co.uk</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/lottomatica.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">lotto<wbr>matica<wbr>.it</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/netbet.co.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">netbet<wbr>.co.uk</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/paddypower.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">paddy<wbr>power<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/parimatch.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">parimatch<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/pokerstars.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">poker<wbr>stars<wbr>.uk</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/polymarket.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">poly<wbr>market<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img lite cut" aria-hidden="true"><img src="assets/bk/pinnacle.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">silver<wbr>glow58<wbr>.xyz<small>Pinnacle clone</small></span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/sisal.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">sisal<wbr>.it</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/sportingbet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">sporting<wbr>bet<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/superbet.ro.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">superbet<wbr>.ro</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/vbet.co.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">vbet<wbr>.co.uk</span></li>
+      <li><span class="bk-ic bk-img dark cut" aria-hidden="true"><img src="assets/bk/virginbet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">virgin<wbr>bet<wbr>.com</span></li>
+      <li><span class="bk-ic bk-img full cut" aria-hidden="true"><img src="assets/bk/williamhill.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">william<wbr>hill<wbr>.com</span></li>
     </ul>
   </div>
 </section>
@@ -1436,7 +1499,7 @@ html{scrollbar-color:#3a3a3a #000}
   <div class="wrap">
     <div>
       <p class="eyebrow rv">Try it</p>
-      <h2 class="rv" style="--d:.1s">The match score <em>no longer&nbsp;matters</em></h2>
+      <h2 class="h2 rv" style="--d:.1s"><span class="h-a">The match score</span> <span class="dim">no longer matters</span></h2>
       <p class="rv" style="--d:.2s">Sign up with Google, Telegram or email. Download the GO extension from your account, set up the feed for your bookmakers and try the scanner in the free hour: 2 days a week, everything works in full.</p>
       <div class="cta rv" id="cta" style="--d:.3s">
         <a class="btn btn-main cut" href="app/en.html#signup">Sign up
@@ -1457,7 +1520,7 @@ html{scrollbar-color:#3a3a3a #000}
     <a class="logo" href="#hero" aria-label="Back to top"><svg viewBox="0 0 490 491" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M247 2 L2 489 L81 489 L138 375 L408 332 L371 413 L409 489 L488 489 Z M246 165 L301 275 L181 294 Z"/></svg><img src="assets/img/logo.webp" alt="PROJECT ALMANACC" width="98" height="34"></a>
     <nav aria-label="Footer"><a href="#story">How it works</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="#books">Bookmakers</a><a href="https://t.me/almanacc_trading_bot?start=en_footer">Telegram</a><a href="app/en.html#login">Log in</a></nav>
     <nav class="docs" aria-label="Documents"><a href="legal/terms.html">Terms of use</a><a href="legal/refund.html">Payment and refunds</a><a href="legal/privacy.html">Privacy</a><a href="legal/cookies.html">Cookie</a><a href="legal/risks.html">Risks and 18+</a><button type="button" id="cookie-settings">Cookie settings</button></nav>
-    <p class="legal">18+. PROJECT ALMANACC doesn’t accept bets and isn’t a bookmaker. It shows odds discrepancies and calculates stakes. Betting involves risk: odds change and bookmakers may restrict your account. The examples on this page are demonstrations; the feed and the odds table come from a recording of the scanner. Bookmaker names belong to their owners. The service is not available in the USA, the United Kingdom, France, the Netherlands or Australia. Legal documents are currently available in Russian only.</p>
+    <p class="legal">18+. PROJECT ALMANACC doesn’t accept bets and isn’t a bookmaker. It shows odds discrepancies and calculates stakes. Betting involves risk: odds change and bookmakers may restrict your account. The examples on this page are demonstrations; the feed and the odds table come from a recording of the scanner. Bookmaker names and logos belong to their owners. The service is not available in the USA, the United Kingdom, France, the Netherlands or Australia. Legal documents are currently available in Russian only.</p>
     <p class="copy">© 2026 PROJECT ALMANACC</p>
   </div>
 </footer>
@@ -2117,7 +2180,7 @@ html{scrollbar-color:#3a3a3a #000}
   }
 
   /* ---------- подписка: срок и цена ---------- */
-  var PER={d:{p:15,t:'for 1 day',n:'Try the scanner in action'},w:{p:50,t:'for 1 week',n:'≈$7.14 a day, 52% cheaper than daily'},m:{p:150,t:'for 1 month',n:'$5 a day, 67% cheaper than daily'}};
+  var PER={d:{p:15,t:'for 1 day',n:'Try the scanner in action'},w:{p:50,t:'for 1 week',n:'≈$7.14 a day instead of $15'},m:{p:150,t:'for 1 month',n:'$5 a day instead of $15'}};
   var perG=$('#per');
   if(perG){
     perG.addEventListener('click',function(e){var b=e.target.closest('[data-per]');if(!b)return;var x=PER[b.dataset.per];
@@ -2143,6 +2206,27 @@ html{scrollbar-color:#3a3a3a #000}
   x.addEventListener('scroll',f,{passive:true}); addEventListener('resize',f);
   if(window.ResizeObserver) new ResizeObserver(f).observe(x);
   setTimeout(f,300); setTimeout(f,1500);
+})();
+
+</script>
+<script>
+/* v11: demo widgets of the "feed your way" tile. Example only: nothing is saved and the workspace feed is not touched. */
+(function(){
+  var t=document.querySelector('.t-x'); if(!t)return;
+  var init=t.innerHTML;
+  t.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b||!t.contains(b))return;
+    if(b.hasAttribute('data-xreset')){t.innerHTML=init;return;}
+    var g=b.closest('.x-seg');
+    if(g){Array.prototype.forEach.call(g.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',String(x===b))});return;}
+    if(b.closest('.x-pal')){b.classList.toggle('off');return;}
+    if(b.hasAttribute('data-xfs')){var v=b.parentNode.querySelector('b'),n=parseInt(v.textContent,10)+(+b.getAttribute('data-xfs'));v.textContent=Math.min(17,Math.max(11,n))+'px';return;}
+    if(b.hasAttribute('data-xmv')){var li=b.closest('li'),d=+b.getAttribute('data-xmv'),o=d<0?li.previousElementSibling:li.nextElementSibling;
+      if(o){if(d<0)li.parentNode.insertBefore(li,o);else li.parentNode.insertBefore(o,li);b.focus();}return;}
+    if(b.hasAttribute('data-xtab')){var k=b.getAttribute('data-xtab');
+      Array.prototype.forEach.call(t.querySelectorAll('[data-xtab]'),function(x){x.setAttribute('aria-selected',String(x===b))});
+      Array.prototype.forEach.call(t.querySelectorAll('[data-xpanel]'),function(p){p.hidden=p.getAttribute('data-xpanel')!==k});}
+  });
 })();
 
 </script>
