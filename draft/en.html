@@ -1257,7 +1257,7 @@ html{scrollbar-color:#3a3a3a #000}
 .lf-more{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--border);color:var(--text3);font:600 11.5px/1 var(--body);padding:4px 10px;cursor:pointer}
 .lf-more:hover{color:#fff;background:rgba(255,255,255,.03)}
 @media (max-width:899px){
-  .lf-row{grid-template-areas:"lg lg tm" "ev ev pr" "sc sc sc" "bk ty kf" "go go go"!important}
+  .lf-row{grid-template-areas:"lg lg lg" "ev ev tm" "sc sc pr" "bk ty kf"!important}
   .lf .c-sc{grid-area:sc;text-align:left;padding:2px 14px!important}
   .lf .c-pr{justify-content:flex-end}
 }
@@ -1361,6 +1361,27 @@ html{scrollbar-color:#3a3a3a #000}
 #ws-sel .sa-bar .sa-sc .sdot{display:inline-block}
 @media (min-width:900px){.wp-gear{width:min(760px,calc(100vw - 16px))}.wg{display:grid;grid-template-columns:240px minmax(0,1fr);gap:18px;align-items:start}.wg .cols{margin:0}}
 @media (max-width:899px){.lf-more{min-height:30px;padding:6px 14px}}
+
+/* правки после v12 */
+.lf .c-go{display:none}
+.ws-h>div:first-child .ws-lay{margin-top:16px}
+.ws-h>.demo-tag{margin:0;align-self:flex-end}
+@media (max-width:899px){.ws-h>.demo-tag{align-self:flex-start}}
+/* окно arbs: прокручивается только список odds */
+#ws-sel{display:flex;flex-direction:column;overflow:hidden}
+#ws-sel>*{flex:none}
+#ws-sel>.sa-o{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+#ws-sel .sa-oh{flex:none}
+.sa-ot{flex:1 1 auto;min-height:0;overflow:auto;overscroll-behavior:contain}
+.sa-o.shut .sa-ot{display:none}
+.sa-ot thead th{position:sticky;top:0;z-index:1}
+.sa-ot tfoot td{position:sticky;bottom:0;background:#161616}
+@media (max-width:899px){.sa-ot{max-height:300px}}
+/* калькулятор: нажатый перевес */
+.ac .ib[data-up].on{background:#fff;color:#000;border-color:#fff}
+.ws-h>div:first-child{flex:1 1 480px;min-width:0}
+.ws-h>.demo-tag{flex:none}
+@media (max-width:899px){.ws-h>.demo-tag{flex:1 1 100%;white-space:normal;line-height:1.35}}
 
 </style>
 </head>
@@ -1513,8 +1534,8 @@ html{scrollbar-color:#3a3a3a #000}
       </article>
       <article class="tile cut cut-line t-ws rv" id="ws">
         <div class="ws-h">
-          <div><h3>A workspace that fits you</h3><p>The feed, the arb window and the calculator are separate windows, just like in the scanner. Click an arb in the feed and the arb window and the calculator fill in with its data. Drag windows by the title, resize from the corner, minimise them.</p><p class="demo-tag"><span class="live-dot" aria-hidden="true"></span>A recording of the real scanner feed, odds are not current</p></div>
-          <div class="seg ws-lay" role="group" aria-label="Window layout"><button type="button" data-lay="a">Feed on the left</button><button type="button" data-lay="b">Feed on top</button><button type="button" data-lay="c">Feed on the right</button><button type="button" data-lay="reset">Reset</button></div>
+          <div><h3>A workspace that fits you</h3><p>The feed, the arb window and the calculator are separate windows, just like in the scanner. Click an arb in the feed and the arb window and the calculator fill in with its data. Drag windows by the title, resize from the corner, minimise them.</p><div class="seg ws-lay" role="group" aria-label="Window layout"><button type="button" data-lay="a">Feed on the left</button><button type="button" data-lay="b">Feed on top</button><button type="button" data-lay="c">Feed on the right</button><button type="button" data-lay="reset">Reset</button></div></div>
+          <p class="demo-tag"><span class="live-dot" aria-hidden="true"></span>A recording of the real scanner feed, odds are not current</p>
         </div>
         <div class="desk" id="desk">
           <section class="win" data-w="arbs" aria-label="Arbs window"><div class="wh" tabindex="0" aria-label="Arbs window: drag it, arrows move it, Shift and arrows resize it"><button type="button" class="wico" data-wp="menu" aria-haspopup="dialog" aria-expanded="false" aria-label="Scanner settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><span>Arbs</span><span class="wh-r"><button type="button" class="wico" data-wp="flt" aria-haspopup="dialog" aria-expanded="false" aria-label="Feed filters"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4-2v-4z"/></svg></button><button type="button" class="wico" data-wp="gear" aria-haspopup="dialog" aria-expanded="false" aria-label="Feed columns and view"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.4 13a7.5 7.5 0 0 0 0-2l2-1.6-2-3.4-2.4 1a7 7 0 0 0-1.7-1L15 3.5h-4l-.4 2.5a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L6.6 11a7.5 7.5 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 1.7 1l.4 2.5h4l.4-2.5a7 7 0 0 0 1.7-1l2.4 1 2-3.4zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg></button><button type="button" class="wmin" aria-label="Minimise window">–</button></span></div><div class="wb wb-arbs"><div class="lf" id="lf" role="table" aria-label="Arb feed, recording"><div class="lf-row lf-head" id="lf-head" role="row"></div><div class="lf-body" id="lf-body"></div></div></div><span class="wr" aria-hidden="true"></span></section>
@@ -1944,13 +1965,14 @@ html{scrollbar-color:#3a3a3a #000}
   var SPC={fb:'#66bb6a',bb:'#ff8a3d',tn:'#d4e157',vb:'#4fc3f7',hb:'#ffd54f',tt:'#ef5350',hk:'#90a4ae',eb:'#b388ff'};
   var WKEEP=['fb','bb','tn','vb','hb','tt','hk'];
   var COLS={lg:['League','minmax(0,1.1fr)'],ev:['Event','minmax(0,1.5fr)'],sc:['Score','minmax(0,1.15fr)'],sp:['Sport','36px'],bk:['Bookmakers','minmax(0,1.15fr)'],
-            ty:['Type','minmax(0,.9fr)'],kf:['Odds','48px'],pr:['Profit','minmax(64px,.8fr)'],tm:['Time','58px'],n:['+N','']};
-  var DEF={order:['lg','ev','sc','sp','bk','ty','kf','pr','tm','n'],on:{lg:0,ev:1,sc:1,sp:1,bk:1,ty:1,kf:1,pr:1,tm:1,n:1},
+            ty:['Type','minmax(0,.9fr)'],kf:['Odds','48px'],pr:['Profit','minmax(64px,.8fr)'],tm:['Time','58px']};
+  var DEF={order:['lg','ev','sc','sp','bk','ty','kf','pr','tm'],on:{lg:0,ev:1,sc:1,sp:1,bk:1,ty:1,kf:1,pr:1,tm:1},
     round:1,bkS:'col',tyS:'col',kfS:'col',kfPr:'lr',spI:'color',div:1,spC:{},ini:['#3d8bfd','#ff8a3d'],fs:13,sum:100,
     st:{fbC:'bet',bbT:'min',bbTot:1,tnSrv:'color',tnSets:1},lo:{p:{},s:{}},saOpen:1,
     f:{bk:BK36.slice(),sp:SPS.slice(),bkSp:{},pairOff:{},minP:1,minD:1,half:1,tn3:1,lg:{y:0,fr:0,w:0},wk:[]},alias:{}};
   var cfg=store('alm_feed_v4')||clone(DEF);
   (function fill(a,b){Object.keys(b).forEach(function(k){if(a[k]===undefined)a[k]=clone(b[k]);else if(b[k]&&typeof b[k]==='object'&&!Array.isArray(b[k]))fill(a[k],b[k]);})})(cfg,DEF);
+  cfg.order=cfg.order.filter(function(c){return COLS[c]}); delete cfg.on.n;
   function save(){store('alm_feed_v4',cfg)}
   function al(b){return cfg.alias[b]||b}
   function spCol(s){return cfg.spC[s]||SPC[s]||'#bdbdbd'}
@@ -1959,7 +1981,7 @@ html{scrollbar-color:#3a3a3a #000}
   function deskColors(){var d=$('#desk');if(d){d.style.setProperty('--c1',cfg.ini[0]);d.style.setProperty('--c2',cfg.ini[1]);}}
 
   /* ---------- живая лента в окне Arbs ---------- */
-  var lf=$('#lf'), lfHead=$('#lf-head'), lfBody=$('#lf-body'), uid=0, open={};
+  var lf=$('#lf'), lfHead=$('#lf-head'), lfBody=$('#lf-body'), uid=0;
   function mk(p){var x=p[11]||{};return{id:++uid,lg:p[0],ev:p[1],sp:p[2],b:[p[3],p[4]],t:[p[5],p[6]],k:[p[7],p[8]],k0:[p[7],p[8]],age:p[9],ini:p[10],
     ev2:x.ev2,lg2:x.lg2,others:x.others,sc:clone(x.sc||{}),w:x.w,y:x.y,fr:x.fr,src:p,dk:[0,0]}}
   var live=[0,1,2,3,4,5].map(function(i){return mk(POOL[i])});
@@ -2024,29 +2046,22 @@ html{scrollbar-color:#3a3a3a #000}
       return '<div class="c-pr pr-'+cfg.kfPr+'">'+p+'</div>';}
     if(c==='tm')return '<div class="c-tm" data-age="'+r.id+'">'+age(r.age)+'</div>';
   }
-  function cols(){return cfg.order.filter(function(c){return cfg.on[c]&&c!=='n'})}
+  function cols(){return cfg.order.filter(function(c){return cfg.on[c]})}
   var hover=false;
-  function gkey(r){return r.sp+'|'+r.ev.toLowerCase()}
   function render(){
     if(!lf)return;
     deskColors();
-    var cs=cols(), tpl=cs.map(function(c){return COLS[c][1]}).join(' ')+' 52px';
+    var cs=cols(), tpl=cs.map(function(c){return COLS[c][1]}).join(' ');
     lf.style.fontSize=cfg.fs+'px';
     lf.classList.toggle('nodiv',!cfg.div);
     if(!cs.length){lfHead.innerHTML='';lfBody.innerHTML='<div class="lf-empty">Turn on at least one column: gear icon in the Arbs window</div>';return;}
     lfHead.style.gridTemplateColumns=tpl;
-    lfHead.innerHTML=cs.map(function(c){return '<div>'+COLS[c][0]+(c==='pr'?' ↓':'')+'</div>'}).join('')+'<div></div>';
+    lfHead.innerHTML=cs.map(function(c){return '<div>'+COLS[c][0]+(c==='pr'?' ↓':'')+'</div>'}).join('');
     live.sort(function(a,b){return pr(b)-pr(a)});
-    var vis=live.filter(passes), groups=[], gm={};
-    vis.forEach(function(r){var k=cfg.on.n?gkey(r):'#'+r.id;if(!gm[k]){gm[k]=[];groups.push(k);}gm[k].push(r)});
+    var vis=live.filter(passes);
     var cnt=$('#fs-count'); if(cnt)cnt.textContent='In the feed: '+vis.length+' of '+live.length+' arbs';
-    function row(r,sub){return '<div class="lf-row'+(sub?' sub':'')+(r.id===picked?' picked':'')+'" data-id="'+r.id+'" tabindex="0" role="button" aria-label="Arb '+esc(r.ev)+' '+pr(r).toFixed(1)+'%, open in the arb window and the calculator" style="grid-template-columns:'+tpl+'">'+
-      cs.map(function(c){return cell(c,r)}).join('')+'<div class="c-go">'+[0,1].map(function(i){var o=oriented(r);return '<button type="button" class="gob" data-go title="'+GO_HINT+'" aria-label="go: '+esc(o.b[i])+'. '+GO_HINT+'">go</button>'}).join('')+'</div></div>'}
-    lfBody.innerHTML=groups.length?groups.map(function(k){var g=gm[k], head=g.find(function(r){return r.id===picked})||g[0], rest=g.filter(function(r){return r!==head});
-      var h=row(head,false);
-      if(rest.length){ if(open[k])h+=rest.map(function(r){return row(r,true)}).join('');
-        h+='<button type="button" class="lf-more" data-grp="'+esc(k)+'" aria-expanded="'+!!open[k]+'">'+(open[k]?'−':'+')+rest.length+'</button>'; }
-      return h}).join('')
+    lfBody.innerHTML=vis.length?vis.map(function(r){return '<div class="lf-row'+(r.id===picked?' picked':'')+'" data-id="'+r.id+'" tabindex="0" role="button" aria-label="Arb '+esc(r.ev)+' '+pr(r).toFixed(1)+'%, open in the arb window and the calculator" style="grid-template-columns:'+tpl+'">'+
+      cs.map(function(c){return cell(c,r)}).join('')+'</div>'}).join('')
       :'<div class="lf-empty">No arbs match the filters right now. Loosen them: funnel icon in the Arbs window</div>';
   }
   setInterval(function(){live.forEach(function(r){r.age++;var el=lfBody&&lfBody.querySelector('[data-age="'+r.id+'"]');if(el)el.textContent=age(r.age)})},1000);
@@ -2278,14 +2293,13 @@ html{scrollbar-color:#3a3a3a #000}
           '<span class="sa-ty"><span>'+esc(a.t[j])+'</span><button type="button" class="eye" data-hide="'+oj+'" aria-haspopup="dialog" aria-label="Hide: outcome, arb or match" title="Hide">'+EYE+'</button></span>'+
           '<span class="sa-k">'+a.k0[j].toFixed(2)+' → '+a.k[j].toFixed(2)+'</span><button type="button" class="gob" data-go title="'+GO_HINT+'" aria-label="go: '+esc(b)+'. '+GO_HINT+'">go</button></div>'}).join('')+
       '<div class="sa-o'+(cfg.saOpen?'':' shut')+'"><button type="button" class="sa-oh" data-otog aria-expanded="'+!!cfg.saOpen+'"><span class="car">⌄</span> Odds at other books<em>'+(mk2.real?'from the scanner':'example')+'</em></button>'+
-        '<table><thead><tr><th>Bookmaker</th><th class="n">↓ '+esc(a.t[0])+'</th><th class="n">'+esc(a.t[1])+'</th></tr></thead><tbody>'+
+        '<div class="sa-ot"><table><thead><tr><th>Bookmaker</th><th class="n">↓ '+esc(a.t[0])+'</th><th class="n">'+esc(a.t[1])+'</th></tr></thead><tbody>'+
         rows.map(function(o){var L=legOf(o[0]);
           function td(v,col,m){var own=L===col, best=v===m;return '<td class="n'+(own?' own':'')+(best?' best':'')+'"><span>'+v.toFixed(2)+'</span></td>'}
           return '<tr'+(L>=0?' class="leg l'+(L+1)+'"':'')+'><td>'+esc(al(o[0]))+(L>=0&&a.ini===L?dotI(L):'')+'</td>'+td(o[1],0,m1)+td(o[2],1,m2)+'</tr>'}).join('')+
-        '</tbody><tfoot><tr><td>best odds <b class="'+(bestR>=0?'pos':'neg')+'">'+(bestR<0?'−':'')+Math.abs(bestR).toFixed(2)+'%</b></td><td class="n">'+m1.toFixed(2)+'</td><td class="n">'+m2.toFixed(2)+'</td></tr></tfoot></table></div>';
+        '</tbody><tfoot><tr><td>best odds <b class="'+(bestR>=0?'pos':'neg')+'">'+(bestR<0?'−':'')+Math.abs(bestR).toFixed(2)+'%</b></td><td class="n">'+m1.toFixed(2)+'</td><td class="n">'+m2.toFixed(2)+'</td></tr></tfoot></table></div></div>';
   }
   (function(){var s=$('#ws-sel');if(s)s.addEventListener('click',function(e){var t=e.target.closest('[data-otog]');if(!t)return;cfg.saOpen=cfg.saOpen?0:1;save();selWin();});})();
-  if(lfBody)lfBody.addEventListener('click',function(e){var g=e.target.closest('[data-grp]');if(!g)return;open[g.dataset.grp]=!open[g.dataset.grp];render();});
 
   /* ---------- меню «Hide» (example: вилка не пропадает) ---------- */
   var hm=D.createElement('div'); hm.className='hm'; hm.setAttribute('role','dialog'); hm.setAttribute('aria-label','Hide'); hm.hidden=true; D.body.appendChild(hm);
@@ -2356,7 +2370,7 @@ html{scrollbar-color:#3a3a3a #000}
       '<button type="button" class="ib eq" data-eq aria-label="Equalise the return for this outcome '+(i+1)+'" title="Equalise: the same profit whatever the outcome">=</button>'+
       '<button type="button" class="ib eq" data-up aria-label="Edge on this outcome '+(i+1)+'" title="Edge: all the profit on this outcome, the rest break even">'+ARROW+'</button></div>';
   }
-  function acRender(){if(!acLegs)return;acLegs.innerHTML=legs.map(legRow).join('');acCalc();}
+  function acRender(){if(!acLegs)return;acLegs.innerHTML=legs.map(legRow).join('');acCalc();markUp();}
   function acCalc(){
     if(!acLegs)return;
     var tot=0, ok=true, ks=[];
@@ -2376,25 +2390,51 @@ html{scrollbar-color:#3a3a3a #000}
     else v.textContent='Enter the odds for every outcome';
     var add=$('#ac-add'),rm=$('#ac-rm'); if(add)add.disabled=legs.length>=3; if(rm)rm.hidden=legs.length<3;
   }
-  function equalize(i){
-    var a=legs[i], k=num(a.k), s=num(a.s); if(!(k>1&&s>=0))return;
-    var R=k*s*RATE[a.cur];
-    legs.forEach(function(l,j){if(j===i||l.lock)return;var kj=num(l.k);if(!(kj>1))return;l.s=fmtS(rnd(R/(kj*RATE[l.cur]),step1(l)),step1(l));});
-    acRender();
-  }
+  /* ---------- v12: перевесы и «=» как в сканере ----------
+     Без замка сумма arbs не меняется. S замком закреплённая stake остаётся, остальные считаются от неё.
+     Плечи «в ноль» округляются так, чтобы не уходить в минус. Нажатая ↑ подсвечена до ручной правки. */
+  var upLeg=-1;
+  function markUp(){if(!acLegs)return;$$('[data-up]',acLegs).forEach(function(b,i){var on=i===upLeg;b.classList.toggle('on',on);b.setAttribute('aria-pressed',String(on))});}
+  function ceilS(v,st){return st>=1?Math.ceil(v-1e-9):Math.ceil(v*100-1e-7)/100}
+  function floorS(v,st){return st>=1?Math.floor(v+1e-9):Math.floor(v*100+1e-7)/100}
+  function acK(){return legs.map(function(l){return num(l.k)})}
+  function acOk(){return legs.length>1&&legs.every(function(l){return num(l.k)>1&&num(l.s)>=0})}
+  function U(l){return num(l.s)*RATE[l.cur]}
+  function setU(l,u,mode){var st=step1(l),v=Math.max(0,u/RATE[l.cur]);v=mode>0?ceilS(v,st):mode<0?floorS(v,st):rnd(v,st);l.s=fmtS(v,st);}
+  function acTot(){var t=0;legs.forEach(function(l){t+=U(l)});return t}
+  function acAnchor(ex){for(var j=0;j<legs.length;j++)if(j!==ex&&legs[j].lock)return j;return -1}
   function overweight(i){
-    var a=legs[i], s=num(a.s); if(!(num(a.k)>1&&s>=0))return;
-    var fixedUSD=s*RATE[a.cur], inv=0, bad=false;
-    legs.forEach(function(l,j){if(j===i)return;var kj=num(l.k);if(!(kj>1)){bad=true;return}
-      if(l.lock)fixedUSD+=num(l.s)*RATE[l.cur];else inv+=1/kj;});
-    if(bad||inv>=1)return;
-    var T=fixedUSD/(1-inv);
-    legs.forEach(function(l,j){if(j===i||l.lock)return;var kj=num(l.k);l.s=fmtS(rnd(T/(kj*RATE[l.cur]),step1(l)),step1(l));});
-    acRender();
+    if(!acOk())return;
+    var k=acK(), a=legs[i], y=acAnchor(i), T;
+    if(y>=0)T=U(legs[y])*k[y];
+    else if(a.lock){var inv=0;legs.forEach(function(l,j){if(j!==i)inv+=1/k[j]});if(inv>=1)return;T=U(a)/(1-inv);}
+    else T=acTot();
+    if(!(T>0))return;
+    legs.forEach(function(l,j){if(j===i||l.lock)return;setU(l,T/k[j],1)});
+    if(!a.lock){var rest=0;legs.forEach(function(l,j){if(j!==i)rest+=U(l)});setU(a,T-rest,-1);}
+    for(var n=0;n<300;n++){
+      var t=acTot(),bad=-1;
+      legs.forEach(function(l,j){if(bad<0&&j!==i&&U(l)*k[j]<t-1e-6)bad=j});
+      if(bad<0)break;
+      if(!a.lock&&num(a.s)>0){a.s=fmtS(Math.max(0,num(a.s)-step1(a)),step1(a));}
+      else if(!legs[bad].lock){var lb=legs[bad];lb.s=fmtS(num(lb.s)+step1(lb),step1(lb));}
+      else break;
+    }
+    upLeg=i; acRender();
   }
+  function equalize(i){
+    if(!acOk())return;
+    var k=acK(), y=legs[i].lock?i:acAnchor(-1), R;
+    if(y>=0)R=U(legs[y])*k[y];
+    else{var S=0;k.forEach(function(x){S+=1/x});R=acTot()/S;}
+    if(!(R>0))return;
+    legs.forEach(function(l,j){if(j===y||l.lock)return;setU(l,R/k[j],0)});
+    upLeg=-1; acRender();
+  }
+  if(acLegs)acLegs.addEventListener('input',function(e){var f=e.target.dataset.f;if(f==='s'||f==='k'){upLeg=-1;markUp();}});
   /* вилка of ленты: ставки от суммы arbs по умолчанию */
   function loadArb(r){
-    if(!acLegs||!r)return;
+    if(!acLegs||!r)return; upLeg=-1;
     var S=0; r.k.forEach(function(k){S+=1/k});
     lastLoad=r.b.map(function(b,i){var l={bk:b,cur:'USD',r1:true,k:r.k[i].toFixed(2),s:'',lock:0};l.s=fmtS(rnd(cfg.sum*(1/r.k[i])/S,1),1);return l});
     legs=withInit(clone(lastLoad));
@@ -2500,7 +2540,7 @@ html{scrollbar-color:#3a3a3a #000}
       wsState.lay='own';wsSave();wsPlace(false);
     });
     /* автопоказ раскладок один раз, пока посетитель ничего не трогал */
-    if(anim && wide.matches && !wsStored && 'IntersectionObserver' in window){
+    if(false){
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.disconnect();
         var seq=['c','b','a'], n=0;
         (function next(){if(touched||n>=seq.length)return;setTimeout(function(){if(touched)return;wsState.lay=seq[n];wsState.pos=clone(LAY[seq[n]]);wsPlace(true);n++;next();},n===0?1400:2400);})();
