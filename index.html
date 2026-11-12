@@ -1383,6 +1383,35 @@ html{scrollbar-color:#3a3a3a #000}
 .ws-h>.demo-tag{flex:none}
 @media (max-width:899px){.ws-h>.demo-tag{flex:1 1 100%;white-space:normal;line-height:1.35}}
 
+/* телефон: рабочее место компактно — окна вкладками, строки ленты в 3 линии */
+.ws-tabs{display:none}
+@media (max-width:899px){
+  .ws-h{margin-bottom:14px}
+  .ws-tabs{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border-strong);margin-bottom:10px;background:var(--page)}
+  .ws-tabs button{background:none;border:0;border-left:1px solid var(--border-strong);color:var(--text2);font:600 14px/1 var(--body);padding:12px 4px;min-height:44px;cursor:pointer}
+  .ws-tabs button:first-child{border-left:0}
+  .ws-tabs button[aria-selected="true"]{background:#fff;color:#000}
+  #desk[data-tab] .win{display:none}
+  #desk[data-tab="arbs"] .win[data-w="arbs"],#desk[data-tab="sel"] .win[data-w="sel"],#desk[data-tab="calc"] .win[data-w="calc"]{display:flex}
+  #desk .win .wmin{display:none}
+  .wb-arbs{max-height:62vh!important;overflow:auto}
+  .lf-row{grid-template-columns:minmax(0,1fr) auto!important;grid-template-areas:"ev pr" "sc tm" "bk bk"!important;padding:6px 0!important}
+  .lf-row>div{padding:2px 12px!important}
+  .lf .c-lg,.lf .c-ty,.lf .c-kf,.lf .c-sp{display:none!important}
+  .lf .c-ev{grid-area:ev;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .lf .c-pr{grid-area:pr}.lf .c-tm{grid-area:tm;text-align:right}.lf .c-sc{grid-area:sc;padding:2px 12px!important}
+  .lf .c-bk{grid-area:bk;display:flex!important;gap:4px;color:var(--text2);text-align:left}
+  .lf .c-bk>span{display:inline-flex!important;justify-content:flex-start}
+  .lf .c-bk>span+span::before{content:"·";margin-right:4px;color:var(--text3)}
+  .lf-head{display:none!important}
+}
+@media (max-width:899px){
+  .lf .c-pr em{display:none}
+  .feed-help{gap:4px 14px;font-size:13px;margin-top:10px}
+  .feed-help span:nth-child(4){display:none}
+}
+.feed-help .ini+.ini{margin-left:3px}
+
 </style>
 </head>
 <body>
@@ -1537,6 +1566,7 @@ html{scrollbar-color:#3a3a3a #000}
           <div><h3>Рабочее место под себя</h3><p>Лента, окно вилки и калькулятор — отдельные окна, как в сканере. Нажмите на вилку в ленте: окно вилки и калькулятор заполнятся её данными. Окна двигаются за заголовок, растягиваются за угол и сворачиваются.</p><div class="seg ws-lay" role="group" aria-label="Раскладка окон"><button type="button" data-lay="a">Лента слева</button><button type="button" data-lay="b">Лента сверху</button><button type="button" data-lay="c">Лента справа</button><button type="button" data-lay="reset">Сбросить</button></div></div>
           <p class="demo-tag"><span class="live-dot" aria-hidden="true"></span>Запись реальной ленты сканера, коэффициенты не текущие</p>
         </div>
+        <div class="ws-tabs" role="tablist" aria-label="Окна рабочего места"><button type="button" role="tab" data-wt="arbs">Лента</button><button type="button" role="tab" data-wt="sel">Вилка</button><button type="button" role="tab" data-wt="calc">Калькулятор</button></div>
         <div class="desk" id="desk">
           <section class="win" data-w="arbs" aria-label="Окно Arbs"><div class="wh" tabindex="0" aria-label="Окно Arbs: перетащите, стрелки двигают, Shift и стрелки меняют размер"><button type="button" class="wico" data-wp="menu" aria-haspopup="dialog" aria-expanded="false" aria-label="Настройки сканера"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><span>Arbs</span><span class="wh-r"><button type="button" class="wico" data-wp="flt" aria-haspopup="dialog" aria-expanded="false" aria-label="Фильтры ленты"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4-2v-4z"/></svg></button><button type="button" class="wico" data-wp="gear" aria-haspopup="dialog" aria-expanded="false" aria-label="Колонки и вид ленты"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.4 13a7.5 7.5 0 0 0 0-2l2-1.6-2-3.4-2.4 1a7 7 0 0 0-1.7-1L15 3.5h-4l-.4 2.5a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L6.6 11a7.5 7.5 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 1.7 1l.4 2.5h4l.4-2.5a7 7 0 0 0 1.7-1l2.4 1 2-3.4zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg></button><button type="button" class="wmin" aria-label="Свернуть окно">–</button></span></div><div class="wb wb-arbs"><div class="lf" id="lf" role="table" aria-label="Лента вилок, запись"><div class="lf-row lf-head" id="lf-head" role="row"></div><div class="lf-body" id="lf-body"></div></div></div><span class="wr" aria-hidden="true"></span></section>
           <section class="win" data-w="sel" aria-label="Окно Selected Arb"><div class="wh" tabindex="0" aria-label="Окно Selected Arb: перетащите, стрелки двигают, Shift и стрелки меняют размер"><span>Selected Arb</span><button type="button" class="wmin" aria-label="Свернуть окно">–</button></div><div class="wb" id="ws-sel"></div><span class="wr" aria-hidden="true"></span></section>
@@ -1549,8 +1579,8 @@ html{scrollbar-color:#3a3a3a #000}
           <div class="ac-legend"><span><b>○</b> округление ставки до 1, включено по умолчанию</span><span><b>замок</b> 1-й клик: ставка, 2-й: ставка и кф</span><span><b>↺</b> сброс плеча</span><span><b>=</b> равная прибыль</span><span><b>↑</b> перевес: вся прибыль на исход, остальные в ноль</span></div>
         </div><p class="rate">курс для примера: £1 = $1.34, €1 = $1.16</p></div><span class="wr" aria-hidden="true"></span></section>
         </div>
-        <div class="feed-help"><span><i class="ini" title="Инициатор вилки" aria-label="инициатор вилки"></i> инициатор вилки</span><span>Нажмите на вилку: окно вилки и калькулятор заполнятся её данными</span><span><b>go</b> купон откроется у букмекера через расширение</span><span>Точки инициатора в записи поставлены для примера</span></div>
-        <p class="ws-note"><span class="desk-only">Прибыль считается так: (1 / (1/k1 + 1/k2) − 1) · 100. Строки появляются, меняются и исчезают, как в сканере, при наведении лента замирает. Воронка и шестерёнка в окне Arbs — фильтры и вид ленты, ☰ — настройки, алиасы и порядок плеч. Раскладка окон сохраняется в браузере.</span><span class="mob">На телефоне окна идут друг под другом. Двигать и растягивать их можно на компьютере.</span></p>
+        <div class="feed-help"><span><i class="ini" style="background:var(--c1,#3d8bfd)" aria-hidden="true"></i><i class="ini" style="background:var(--c2,#ff8a3d)" aria-hidden="true"></i> инициатор вилки: точка у первого или второго плеча</span><span>Нажмите на вилку: окно вилки и калькулятор заполнятся её данными</span><span><b>go</b> в окне вилки: купон откроется у букмекера через расширение</span><span>Точки инициатора в записи поставлены для примера</span></div>
+        <p class="ws-note"><span class="desk-only">Прибыль считается так: (1 / (1/k1 + 1/k2) − 1) · 100. Строки появляются, меняются и исчезают, как в сканере, при наведении лента замирает. Воронка и шестерёнка в окне Arbs — фильтры и вид ленты, ☰ — настройки, алиасы и порядок плеч. Раскладка окон сохраняется в браузере.</span><span class="mob">На телефоне окна переключаются вкладками. Двигать и растягивать их можно на компьютере.</span></p>
       </article>
     </div>
   </div>
@@ -1635,7 +1665,7 @@ html{scrollbar-color:#3a3a3a #000}
       <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/betano.bg.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betano<wbr>.bg</span></li>
       <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/betfair.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betfair<wbr>.com (sports)</span></li>
       <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/betfred.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betfred<wbr>.com</span></li>
-      <li><span class="bk-ic bk-img lite" aria-hidden="true"><img src="assets/bk/betonline.ag.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betonline<wbr>.ag</span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/betonline.ag.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betonline<wbr>.ag</span></li>
       <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/betsson.es.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betsson<wbr>.es</span></li>
       <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/betvictor.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betvictor<wbr>.com</span></li>
       <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/betway.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">betway<wbr>.com</span></li>
@@ -1656,7 +1686,7 @@ html{scrollbar-color:#3a3a3a #000}
       <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/parimatch.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">parimatch<wbr>.com</span></li>
       <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/pokerstars.uk.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">poker<wbr>stars<wbr>.uk</span></li>
       <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/polymarket.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">poly<wbr>market<wbr>.com</span></li>
-      <li><span class="bk-ic bk-img lite" aria-hidden="true"><img src="assets/bk/pinnacle.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">silver<wbr>glow58<wbr>.xyz<small>клон Pinnacle</small></span></li>
+      <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/pinnacle.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">silver<wbr>glow58<wbr>.xyz<small>клон Pinnacle</small></span></li>
       <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/sisal.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">sisal<wbr>.it</span></li>
       <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/sportingbet.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">sporting<wbr>bet<wbr>.com</span></li>
       <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/superbet.ro.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">superbet<wbr>.ro</span></li>
@@ -2251,6 +2281,16 @@ html{scrollbar-color:#3a3a3a #000}
   function wpOpen(btn){var k=btn.dataset.wp;
     popOpen(btn,0,function(el){el.dataset.lv=0;el.innerHTML=k==='flt'?'<div class="wp-h">Фильтры</div>'+filtersH():k==='gear'?'<div class="wp-h">Лента</div>'+gearH():setH();render();},'wp-'+k);}
   D.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-wp]');if(!b)return;e.stopPropagation();wpOpen(b);});
+
+  /* ---------- телефон: окна вкладками, вилка открывается по нажатию на строку ---------- */
+  (function(){
+    var desk=$('#desk'), bar=$('.ws-tabs'); if(!desk||!bar)return;
+    var mq=matchMedia('(max-width:899px)');
+    function setT(t){desk.dataset.tab=t;$$('[data-wt]',bar).forEach(function(b){b.setAttribute('aria-selected',String(b.dataset.wt===t))});}
+    setT('arbs');
+    bar.addEventListener('click',function(e){var b=e.target.closest('[data-wt]');if(b)setT(b.dataset.wt);});
+    if(lfBody)lfBody.addEventListener('click',function(e){if(!mq.matches||!e.target.closest('.lf-row'))return;setTimeout(function(){setT('sel');var y=bar.getBoundingClientRect().top;if(y<0||y>innerHeight*.5)scrollBy({top:y-70,behavior:'smooth'});},120);});
+  })();
 
   /* ---------- кф на других букмекерах: настоящие (Francia) или пример вокруг кф плеч ---------- */
   var OTH=['bet365.com','parimatch.com','betano.bg','pinnacle.com','888sport.com','admiralbet.it','bc.game','goldenbet.com','superbet.ro','fon.bet','ladbrokes.com','lottoland.co.uk','betsson.es','coral.co.uk','livescorebet.com','paddypower.com','sportingbet.com'];
