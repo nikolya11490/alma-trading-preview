@@ -1412,6 +1412,37 @@ html{scrollbar-color:#3a3a3a #000}
 }
 .feed-help .ini+.ini{margin-left:3px}
 
+/* ===== v13 (пачка 19.11): окно arbs как в сканере — зелёная плашка прибыли, синяя строка счёта,
+   иконка спорта, угловые и карточки. Исключение of монохрома (решение владельца), см. DESIGN.md ===== */
+#ws-sel .sa-bar,.s2-bar{background:#1f4f8f}
+#ws-sel .sa-bar>b,.s2-bar>b{background:#216f3d;color:#fff;padding:6px 12px;font:700 14px/1.2 var(--display);font-variant-numeric:tabular-nums;white-space:nowrap;display:flex;align-items:center}
+#ws-sel .sa-bar>b.neg{background:#a3302b;color:#fff}
+#ws-sel .sa-bar .sa-spn,.s2-sp{color:#fff;padding:0 10px;display:flex;align-items:center}
+.sa-spn svg,.s2-sp svg{width:18px;height:18px;display:block}
+#ws-sel .sa-bar .sa-sc,.s2-sc{flex:1 1 auto;margin:0;text-align:center;justify-content:center;color:#fff;padding:6px 12px}
+#ws-sel .sa-sc b,.s2-sc b{color:#fff}
+.s2-sc .cn,#ws-sel .sa-sc .cn{color:#fff}
+.yc,.rc,#ws-sel .sa-sc i.yc,#ws-sel .sa-sc i.rc{display:inline-block!important;width:7px;height:10px;border-radius:1px;margin:0 3px 0 6px!important;vertical-align:-1px}
+.yc,#ws-sel .sa-sc i.yc{background:#f5c518!important}
+.rc,#ws-sel .sa-sc i.rc{background:#e53935!important}
+@media (max-width:600px){
+  .s2-sc,#ws-sel .sa-bar .sa-sc{border-top:1px solid rgba(255,255,255,.18)}
+}
+/* v13 №19: под рабочим местом одна строка */
+.feed-help{justify-content:flex-start}
+/* v13 №4: подпись под коэффициентом в деньгах видна и на телефоне */
+.stage .imp .num{color:var(--text)}
+/* v13: телефон — окно arbs в плитке GO: длинный рынок TO(3.5) не налезает на bookmakerа */
+@media (max-width:600px){
+  .s2-leg{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"bk go" "ev ev" "ty k"}
+  .s2-leg .gob{grid-area:go}
+  .s2-sc,#ws-sel .sa-bar .sa-sc{white-space:normal;font-size:12px;line-height:1.5}
+}
+/* v13: 320 px — адрес bookmakerа в карточке story переносится по точке, подпись вершины прячется (налезала на адрес) */
+@media (max-width:360px){
+  .stage .apex span{display:none}
+}
+
 </style>
 <style>/* v12 бренд Alma.trading */
 .bwm{display:inline-flex;align-items:baseline;font:800 23px/1 var(--display,Manrope),sans-serif;letter-spacing:-.025em;color:#fff;white-space:nowrap}
@@ -1472,47 +1503,47 @@ footer .copy .b18{display:inline-grid;place-items:center;height:26px;padding:0 9
 <section class="story slice tone" id="story">
   <div class="wrap story-head">
     <p class="eyebrow rv">How an arb is born</p>
-    <h2 class="h2 rv" style="--d:.1s"><span class="h-a">One bookmaker was too slow to update its odds.</span> <span class="dim">The scanner finds it before the price is fixed.</span></h2>
+    <h2 class="h2 rv" style="--d:.1s"><span class="h-a">An arb lives for a few seconds.</span> <span class="dim">The scanner finds it.</span></h2>
   </div>
   <div class="story-track" data-story>
     <div class="story-pin">
       <div class="wrap story-grid">
         <div class="progress" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
         <ol class="steps">
-          <li class="step on"><div class="n">STEP 1 / 4</div><h3>A match is on</h3><p>Live tennis, “Match winner” market: two outcomes, no draw. After every point bookmakers recalculate their odds.</p></li>
-          <li class="step"><div class="n">STEP 2 / 4</div><h3>One bookmaker lagged behind</h3><p>Player A won a game, and bookmakers cut the odds on his win to 1.90. bet365.com still holds 2.10. On player B, 888sport.com offers 2.05.</p></li>
-          <li class="step"><div class="n">STEP 3 / 4</div><h3>The scanner sees the arb</h3><p>The scanner adds up the probabilities built into the odds: 47.62% + 48.78% = 96.40%. Less than 100% means there is an arb: <b class="num">+3.73%</b>.</p></li>
-          <li class="step"><div class="n">STEP 4 / 4</div><h3>Place it in time</h3><p>The calculator splits $1&nbsp;000: $493.98 on player A and $506.02 on player B. Whoever wins, the payout is $1&nbsp;037.35, that is <b class="num">+$37.35</b>. The GO button opens the bet slips before bet365.com fixes its price.</p></li>
+          <li class="step on"><div class="n">STEP 1 / 4</div><h3>A match is on</h3><p>Liverpool vs Chelsea, live. “Total 3.5” market: two outcomes, over or under 3.5 goals. After every chance bookmakers recalculate their odds.</p></li>
+          <li class="step"><div class="n">STEP 2 / 4</div><h3>One bookmaker lagged behind</h3><p>79th minute, 1:2. Time is running out, and bookmakers cut the odds on “under 3.5” to 2.25. superbet.ro still holds 2.38. On “over 3.5” 888sport.com offers 1.87.</p></li>
+          <li class="step"><div class="n">STEP 3 / 4</div><h3>The scanner sees the arb</h3><p>The scanner splits $1&nbsp;000: $560 on “over” and $440 on “under”. Whatever the outcome, $1&nbsp;047 comes back, more than you staked. So there is an arb: <b class="num">+$47 (+4.7%)</b>.</p></li>
+          <li class="step"><div class="n">STEP 4 / 4</div><h3>Place it in time</h3><p>The calculator helps you stay in profit. The GO button opens the bet slips before superbet.ro fixes its price.</p></li>
         </ol>
         <div class="stage cut cut-line" data-s="1" aria-label="Arb calculation example">
           <div class="match">
-            <div><div class="meta">Tennis · Match winner</div><div class="t">Player A <span>vs</span> Player B</div></div>
+            <div><div class="meta">Football · Total 3.5</div><div class="t">Liverpool <span>vs</span> Chelsea</div></div>
             <span class="pill pill-ex"><span class="dot"></span><span>example</span></span>
           </div>
           <div class="fig">
-            <div class="lab l"><div class="bk">bet365.com</div><div class="mm">W1 · Player A</div><div class="odd num">2.10</div><div class="imp"><span class="dk">probability </span>priced in <span class="num">47.62%</span></div></div>
+            <div class="lab l"><div class="bk">888sport<wbr>.com</div><div class="mm">Over 3.5</div><div class="odd num">1.87</div><div class="imp"><span class="num">$560</span> of $1&nbsp;000</div></div>
             <div class="mk">
-              <div class="apex"><b class="num">+3.73%</b><span>apex = profit</span></div>
-              <svg viewBox="0 0 490 491" role="img" aria-label="Letter A: the left leg is the bet at bet365.com, the right one at 888sport.com, the bar below is the sum of implied probabilities, the apex is the profit">
+              <div class="apex"><b class="num">+4.7%</b><span>apex = profit</span></div>
+              <svg viewBox="0 0 490 491" role="img" aria-label="The A mark: left leg is the bet at 888sport.com, right leg at superbet.ro, the bar below is the stakes and the payout, the apex is the profit">
                 <polygon class="g gl" points="247,2 2,489 81,489 246,165"/>
                 <g class="g gr"><polygon points="247,2 246,165 335,343.6 408,332"/><polygon points="408,332 371,413 409,489 488,489"/></g>
                 <polygon class="g gb" points="138,375 181,294 301,275 408,332"/>
               </svg>
             </div>
-            <div class="lab r"><div class="bk">888sport.com</div><div class="mm">W2 · Player B</div><div class="odd num">2.05</div><div class="imp"><span class="dk">probability </span>priced in <span class="num">48.78%</span></div></div>
+            <div class="lab r"><div class="bk">superbet<wbr>.ro</div><div class="mm">Under 3.5</div><div class="odd num">2.38</div><div class="imp"><span class="num">$440</span> of $1&nbsp;000</div></div>
           </div>
           <div class="stack"><div class="calc">
-            <div class="row"><span>Sum of implied probabilities</span><b class="num">96.40% &lt; 100%</b></div>
-            <div class="bar" aria-hidden="true"><span class="b1" style="width:47.62%"></span><span class="b2" style="width:48.78%"></span><span class="gap" style="width:3.6%"></span></div>
-            <div class="hint">under 100% means there’s an arb</div>
-            <div class="verdict"><span class="big num">+3.73%</span><span><span class="dk">estimated </span>arb return</span></div>
+            <div class="row"><span>Stakes $1&nbsp;000 → payout</span><b class="num">$1&nbsp;047</b></div>
+            <div class="bar" aria-hidden="true"><span class="b1" style="width:53.48%"></span><span class="b2" style="width:42.02%"></span><span class="gap" style="width:4.5%"></span></div>
+            <div class="hint">the payout is bigger than the stakes, so there is an arb</div>
+            <div class="verdict"><span class="big num">+4.7%</span><span><span class="dk">estimated </span>arb return</span></div>
           </div>
           <div class="split">
-            <div class="cell"><div class="lbl"><span class="dk">Bet on </span>W1 · 2.10</div><div class="stake num">$493.98</div><div class="out">A wins: <span class="num">$1&nbsp;037.35</span>, <b class="num">+$37.35</b></div></div>
-            <div class="cell"><div class="lbl"><span class="dk">Bet on </span>W2 · 2.05</div><div class="stake num">$506.02</div><div class="out">B wins: <span class="num">$1&nbsp;037.35</span>, <b class="num">+$37.35</b></div></div>
+            <div class="cell"><div class="lbl"><span class="dk">Bet on </span>over 3.5 · 1.87</div><div class="stake num">$560</div><div class="out">Over 3.5: <span class="num">$1&nbsp;047</span>, <b class="num">+$47</b></div></div>
+            <div class="cell"><div class="lbl"><span class="dk">Bet on </span>under 3.5 · 2.38</div><div class="stake num">$440</div><div class="out">Under 3.5: <span class="num">$1&nbsp;047</span>, <b class="num">+$47</b></div></div>
           </div>
           </div>
-          <div class="formula">ROI = (1 / (1/2.10 + 1/2.05) − 1) · 100 = 3.73% · stake = $1 000 · (1/k) / 0.9640</div>
+          <div class="formula">ROI = (1 / (1/1.87 + 1/2.38) − 1) · 100 = 4.72% · stake = $1 000 · (1/k) / 0.9549</div>
         </div>
       </div>
     </div>
@@ -1527,23 +1558,23 @@ footer .copy .b18{display:inline-grid;place-items:center;height:26px;padding:0 9
     <div class="bento">
       <article class="tile cut cut-line t-go rv">
         <div>
-          <h3>One GO button, and the bet slip is open</h3>
-          <p class="lead2">Found an arb? Press GO. The bookmaker’s site opens on the right match with the bet already selected: just enter the stake and confirm. No hunting for the match by hand while the odds change.</p>
-          <ol><li>Sign up and download the GO extension in your account</li><li>Log in to your bookmaker accounts in a separate browser</li><li>Install the extension in that browser</li><li>Press GO on both bets of the arb: the right bet opens at each bookmaker</li></ol>
+          <h3>One click, and the outcome is in your bet slip</h3>
+          <p class="lead2">Found an arb? Press the GO button. No need to look for the match and the outcome by hand: our service does it all for you.</p>
+          <ol><li>Sign up, then download and install the extension in your account</li><li>Log in to your bookmaker accounts in your own browser</li><li>Open the bookmaker’s site</li><li>Press the GO button</li></ol>
           <p class="ext"><a href="app/en.html#ext">Download from your account</a><span>works in the free hour and with a subscription</span></p>
         </div>
         <div>
           <div class="sa2" aria-label="Arb window, example">
             <div class="s2-h"><span>Selected Arb</span><span class="s2-hr"><em>example</em><span class="s2-ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.4 13a7.5 7.5 0 0 0 0-2l2-1.6-2-3.4-2.4 1a7 7 0 0 0-1.7-1L15 3.5h-4l-.4 2.5a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L6.6 11a7.5 7.5 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 1.7 1l.4 2.5h4l.4-2.5a7 7 0 0 0 1.7-1l2.4 1 2-3.4zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg></span><span class="s2-min">–</span></span></div>
-            <div class="s2-bar"><b>7.18% → 6.58%</b><span class="s2-sp">TENNIS</span><span class="s2-sc"><b>0:1</b> S2 3:2 15:30</span></div>
-            <div class="s2-leg"><span class="s2-bk">bet365.com<i class="ini" title="Arb initiator" aria-label="arb initiator"></i><span class="s2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span></span><span class="s2-ev"><span class="pp"><span class="pl"><span>Kochta/Smart</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span><span class="dash">-</span><span class="pl"><span>Kurt/Medvedeva</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span></span><small>W15 Sharm El Sheikh WD</small></span><span class="s2-ty">2<span class="s2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/><path d="M4 20 20 4"/></svg></span></span><span class="s2-k">2.38 → 2.38</span><span class="gob gob-s" aria-hidden="true">go</span></div>
-            <div class="s2-leg"><span class="s2-bk">fon.bet<span class="s2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span></span><span class="s2-ev"><span class="pp"><span class="pl"><span>Kochta T / Smart H</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span><span class="dash">-</span><span class="pl"><span>Kurt I / Medvedeva</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span></span><small>World Tennis. Women. Egypt</small></span><span class="s2-ty">1<span class="s2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/><path d="M4 20 20 4"/></svg></span></span><span class="s2-k">1.95 → 1.93</span><span class="gob gob-s" aria-hidden="true">go</span></div>
+            <div class="s2-bar"><b>4.72% → 2.12%</b><span class="s2-sp" title="Football"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m12 7.5 4.3 3.1-1.6 5h-5.4l-1.6-5z"/><path d="M12 3v4.5M16.3 10.6l4.4-1.4M14.7 15.6l2.7 3.8M9.3 15.6l-2.7 3.8M7.7 10.6 3.3 9.2"/></svg></span><span class="s2-sc"><b>1:2</b> (1:1) 79' <span class="cn">⚑ 1:4</span> <i class="yc" title="yellow cards"></i>2:1 <i class="rc" title="red cards"></i>0:0</span></div>
+            <div class="s2-leg"><span class="s2-bk">888sport.com<span class="s2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span></span><span class="s2-ev"><span class="pp"><span class="pl"><span>Liverpool</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span><span class="dash">-</span><span class="pl"><span>Chelsea</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span></span><small>England. Premier League</small></span><span class="s2-ty">TO(3.5)<span class="s2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/><path d="M4 20 20 4"/></svg></span></span><span class="s2-k">1.87 → 1.87</span><span class="gob gob-s" aria-hidden="true">go</span></div>
+            <div class="s2-leg"><span class="s2-bk">superbet.ro<i class="ini" title="Arb initiator" aria-label="arb initiator"></i><span class="s2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span></span><span class="s2-ev"><span class="pp"><span class="pl"><span>Liverpool</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span><span class="dash">-</span><span class="pl"><span>Chelsea FC</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span></span><small>England |&gt; England - Premier League</small></span><span class="s2-ty">TU(3.5)<span class="s2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/><path d="M4 20 20 4"/></svg></span></span><span class="s2-k">2.38 → 2.25</span><span class="gob gob-s" aria-hidden="true">go</span></div>
           </div>
         </div>
       </article>
       <article class="tile cut cut-line t-filter t-x rv">
         <h3>Arb feed your way</h3>
-        <p>Choose the columns, their order and layout, set up filters. Everything is saved in your browser and changes the scanner feed right away.</p>
+        <p>You can set up the whole feed to look the way you need.</p>
         <div class="x-top">
           <ol class="cols x-cols" aria-label="Feed columns, example"><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox"><span class="nm">League</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Event</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Score</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Sport</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Bookmakers</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Type</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Odds</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Profit</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">Time</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li><li class="col"><svg class="hd" viewBox="0 0 14 14" aria-hidden="true"><g fill="currentColor"><circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/><circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/></g></svg><label><input type="checkbox" checked><span class="nm">+N (more arbs in the group)</span></label><button type="button" data-xmv="-1" aria-label="Up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-xmv="1" aria-label="Down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button></li></ol>
           <section class="fset x-fset" aria-label="“Settings” window, example">
@@ -1558,7 +1589,7 @@ footer .copy .b18{display:inline-grid;place-items:center;height:26px;padding:0 9
       </article>
       <article class="tile cut cut-line t-line rv" style="--d:.1s">
         <h3>Odds at other bookmakers</h3>
-        <p>For every arb you see the whole market: what odds each bookmaker offers and where they are best. If your bookmaker’s odds have already dropped, you instantly see where to bet instead to close the arb.</p>
+        <p>For every arb you see the whole market: what odds each bookmaker offers and where they pay more. If your bookmaker’s odds have already dropped, you instantly see where to bet instead to close the arb.</p>
         <div class="ot">
           <div class="ot-cap"><span>Winner of game 6 · player 1 / player 2</span><span class="demo">example from the scanner</span></div>
           <table class="odds" id="odds">
@@ -1567,12 +1598,12 @@ footer .copy .b18{display:inline-grid;place-items:center;height:26px;padding:0 9
             <tfoot><tr><td>Best odds · arb <span class="roi" id="ot-roi">0.64%</span></td><td class="n" id="ot-b1">1.90</td><td class="n" id="ot-b2">2.14</td></tr></tfoot>
           </table>
           <div class="ot-fx" id="ot-fx">1/1.90 + 1/2.14 = 0.9936 &lt; 1 → arb 0.64%</div>
-          <div class="ot-legend"><span class="ini-legend"><i class="ini" title="Arb initiator" aria-label="arb initiator"></i> arb initiator: the bookmaker whose odds deviated from the market. It is usually the first to fix its line</span><span class="ini-legend">Framed: the two legs of the arb, the rest is the market</span></div>
+          <div class="ot-legend"><span class="ini-legend"><i class="ini" title="Arb initiator" aria-label="arb initiator"></i> possible arb initiator: the bookmaker whose odds deviated from the market. It is usually the first to fix its line</span><span class="ini-legend">Framed: the two legs of the arb, the rest is the market</span></div>
         </div>
       </article>
       <article class="tile cut cut-line t-ws rv" id="ws">
         <div class="ws-h">
-          <div><h3>A workspace that fits you</h3><p>The feed, the arb window and the calculator are separate windows, just like in the scanner. Click an arb in the feed and the arb window and the calculator fill in with its data. Drag windows by the title, resize from the corner, minimise them.</p><div class="seg ws-lay" role="group" aria-label="Window layout"><button type="button" data-lay="a">Feed on the left</button><button type="button" data-lay="b">Feed on top</button><button type="button" data-lay="c">Feed on the right</button><button type="button" data-lay="reset">Reset</button></div></div>
+          <div><h3>A workspace that fits you</h3><p>The feed, the arb window and the calculator are separate windows. Click an arb in the feed, and the arb window and the calculator fill in. Arrange the windows however suits you.</p><div class="seg ws-lay" role="group" aria-label="Window layout"><button type="button" data-lay="a">Feed on the left</button><button type="button" data-lay="b">Feed on top</button><button type="button" data-lay="c">Feed on the right</button><button type="button" data-lay="reset">Reset</button></div></div>
           <p class="demo-tag"><span class="live-dot" aria-hidden="true"></span>A recording of the real scanner feed, odds are not current</p>
         </div>
         <div class="ws-tabs" role="tablist" aria-label="Workspace windows"><button type="button" role="tab" data-wt="arbs">Feed</button><button type="button" role="tab" data-wt="sel">Arb</button><button type="button" role="tab" data-wt="calc">Calculator</button></div>
@@ -1588,8 +1619,7 @@ footer .copy .b18{display:inline-grid;place-items:center;height:26px;padding:0 9
           <div class="ac-legend"><span><b>○</b> round the stake to 1, on by default</span><span><b>lock</b> 1st click: stake, 2nd: stake and odds</span><span><b>↺</b> reset the leg</span><span><b>=</b> equal profit</span><span><b>↑</b> edge: all the profit on one outcome, the rest break even</span></div>
         </div><p class="rate">example rate: £1 = $1.34, €1 = $1.16</p></div><span class="wr" aria-hidden="true"></span></section>
         </div>
-        <div class="feed-help"><span><i class="ini" style="background:var(--c1,#3d8bfd)" aria-hidden="true"></i><i class="ini" style="background:var(--c2,#ff8a3d)" aria-hidden="true"></i> arb initiator: dot on the first or second leg</span><span>Click an arb: the arb window and the calculator fill in with its data</span><span><b>go</b> in the arb window: the bet slip opens at the bookmaker via the extension</span><span>Initiator dots in the recording are placed as an example</span></div>
-        <p class="ws-note"><span class="desk-only">Profit is calculated as: (1 / (1/k1 + 1/k2) − 1) · 100. Rows appear, change and disappear just like in the scanner; hovering pauses the feed. The funnel and gear in the Arbs window hold the feed filters and view, ☰ holds settings, aliases and leg order. The window layout is saved in your browser.</span><span class="mob">On a phone the windows switch as tabs. You can move and resize them on a computer.</span></p>
+        <div class="feed-help"><span><i class="ini" style="background:var(--c1,#3d8bfd)" aria-hidden="true"></i><i class="ini" style="background:var(--c2,#ff8a3d)" aria-hidden="true"></i> possible arb initiator: dot on the first or second leg</span></div>
       </article>
     </div>
   </div>
@@ -1607,7 +1637,7 @@ footer .copy .b18{display:inline-grid;place-items:center;height:26px;padding:0 9
         <div class="pnote" id="pnote">$5 a day instead of $15</div>
         <a class="btn btn-main cut" id="pbuy" href="app/en.html?p=m#signup">Get a subscription</a>
       </div>
-      <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Live arbs: 36 bookmakers and 300+ clones</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Odds refresh in under a second</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>GO button: the bet opens in one click</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Calculator: how much to stake on each outcome</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Odds at other bookmakers</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Arb feed your way</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Workspace: windows, just like the scanner</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Telegram alerts</li></ul>
+      <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Live arbs: 36 bookmakers and 300+ clones</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Odds refresh in under a second</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>GO button: the bet opens in one click</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Calculator: how much to stake on each outcome</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Odds at other bookmakers</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Arb feed your way</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Workspace with windows</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Telegram alerts</li></ul>
     </article>
     <div class="team-line free-line"><span><b>Free</b> for 1 hour on 2 days a week, every scanner feature. The schedule is in your account and in the bot</span><a class="btn btn-ghost btn-sm cut cut-line" href="app/en.html#signup">Sign up</a></div>
   </div>
@@ -1652,7 +1682,7 @@ footer .copy .b18{display:inline-grid;place-items:center;height:26px;padding:0 9
       </details>
       <details>
         <summary>Do I have to give the service my bookmaker logins?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <div class="ans"><p>No. You log in to bookmakers yourself, in your own browser. The GO extension only opens the right bet slip in the bookmaker’s tab. You enter and confirm the stake yourself.</p><p>The scanner doesn’t store bookmaker passwords and can’t see your balances.</p></div>
+        <div class="ans"><p>No. You log in to bookmakers yourself, in your own browser. The extension only opens the right bet slip in the bookmaker’s tab. You enter and confirm the stake yourself.</p><p>The scanner doesn’t store bookmaker passwords and can’t see your balances.</p></div>
       </details>
     </div>
   </div>
@@ -1664,7 +1694,7 @@ footer .copy .b18{display:inline-grid;place-items:center;height:26px;padding:0 9
     <div class="books-head">
       <div><p class="eyebrow rv">Bookmakers</p><h2 class="h2 rv" style="--d:.1s"><span class="h-a">36 largest bookmakers.</span> <span class="dim">And 300+ of their clones.</span></h2></div>
     </div>
-    <p class="books-lead rv" style="--d:.2s">The scanner compares the lines of these bookmakers. Many of them have clones: pick the main bookmaker in the GO extension and you can bet on its clones too. The extension adapts to the clone’s site and its line on its own, and the bet slip opens the same way, in one click.</p>
+    <p class="books-lead rv" style="--d:.2s">The scanner compares the lines of these bookmakers. Many of them have clones: pick the main bookmaker in the extension and you can bet on its clones too. The extension adapts to the clone’s site and its line on its own, and the bet slip opens the same way, in one click.</p>
     <ul class="books-grid rv" style="--d:.25s" aria-label="Bookmakers in the scanner">
       <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/888sport.com.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">888sport<wbr>.com</span></li>
       <li><span class="bk-ic bk-img full" aria-hidden="true"><img src="assets/bk/888sport.it.webp" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span class="bk-n">888sport<wbr>.it</span></li>
@@ -1712,8 +1742,8 @@ footer .copy .b18{display:inline-grid;place-items:center;height:26px;padding:0 9
   <div class="wrap">
     <div>
       <p class="eyebrow rv">Try it</p>
-      <h2 class="h2 rv" style="--d:.1s"><span class="h-a">The match score</span> <span class="dim">no longer matters</span></h2>
-      <p class="rv" style="--d:.2s">Sign up with Google, Telegram or email. Download the GO extension from your account, set up the feed for your bookmakers and try the scanner in the free hour: 2 days a week, everything works in full.</p>
+      <h2 class="h2 rv" style="--d:.1s"><span class="h-a">No more</span> <span class="dim">relying on&nbsp;luck</span></h2>
+      <p class="rv" style="--d:.2s">Sign up with Google, Telegram or email. Download the extension from your account, set up the feed for your bookmakers and try the scanner in the free hour: 2 days a week, everything works in full.</p>
       <div class="cta rv" id="cta" style="--d:.3s">
         <a class="btn btn-main cut" href="app/en.html#signup">Sign up
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -1951,8 +1981,8 @@ footer .copy .b18{display:inline-grid;place-items:center;height:26px;padding:0 9
   var SPU={tt:'TABLE_TENNIS',bb:'BASKETBALL',vb:'VOLLEYBALL',tn:'TENNIS',eb:'E-BASKETBALL',fb:'FOOTBALL'};
   /* лига, событие, спорт, БК1, БК2, рынок1, рынок2, odds1, odds2, живёт (с), инициатор (0|1), [доп.] */
   var POOL=[
-    ['W15 Sharm El Sheikh WD','Kochta/Smart - Kurt/Medvedeva','tn','bet365.com','fon.bet','2','1',2.38,1.95,21,0,
-      {w:1,sc:{k:'tn',s:[0,1],h:[[3,6]],g:[3,2],p:'15:30',v:1},ev2:['Kochta/Smart - Kurt/Medvedeva','Kochta T / Smart H - Kurt I / Medvedeva'],lg2:['W15 Sharm El Sheikh WD','World Tennis. Women. Egypt']}],
+    ['England. Premier League','Liverpool - Chelsea','fb','888sport.com','superbet.ro','TO(3.5)','TU(3.5)',1.87,2.38,21,1,
+      {sc:{k:'fb',s:[1,2],m:79,c:[1,4],h:[1,1],y:[2,1],r:[0,0]},ev2:['Liverpool - Chelsea','Liverpool - Chelsea FC'],lg2:['England. Premier League','England |> England - Premier League']}],
     ['W15 Sharm El Sheikh WD','Kochta/Smart - Kurt/Medvedeva','tn','bet365.com','fon.bet','2S H2(+1.5)','2S H1(−1.5)',1.75,2.45,9,1,
       {w:1,sc:{k:'tn',s:[0,1],h:[[3,6]],g:[3,2],p:'15:30',v:1}}],
     ['Ebasketball H2H GG League · 4x5','CHA Hornets (HYPER) - DEN Nuggets','eb','bet365.com','betano.bg','2','1',2.90,1.67,33,0,
@@ -2024,6 +2054,7 @@ footer .copy .b18{display:inline-grid;place-items:center;height:26px;padding:0 9
   function mk(p){var x=p[11]||{};return{id:++uid,lg:p[0],ev:p[1],sp:p[2],b:[p[3],p[4]],t:[p[5],p[6]],k:[p[7],p[8]],k0:[p[7],p[8]],age:p[9],ini:p[10],
     ev2:x.ev2,lg2:x.lg2,others:x.others,sc:clone(x.sc||{}),w:x.w,y:x.y,fr:x.fr,src:p,dk:[0,0]}}
   var live=[0,1,2,3,4,5].map(function(i){return mk(POOL[i])});
+  live[0].k[1]=2.25; /* superbet.ro уже исправил цену: окно «4.72% → 2.12%», как в exampleе */
   var picked=live[0].id;
   function pr(r){return roi(r.k)}
   function byId(id){return live.find(function(x){return x.id===id})}
@@ -2060,8 +2091,9 @@ footer .copy .b18{display:inline-grid;place-items:center;height:26px;padding:0 9
       h='<b>'+s.s.join(':')+'</b>'+(st.tnSets&&s.h&&s.h.length?' <span class="sh">('+s.h.map(function(x){return x.join(':')}).join(' ')+')</span>':'')+
         ' S'+(s.s[0]+s.s[1]+1)+' '+(srv==='dot'?'<i class="sdot'+(s.v?' r':'')+'"></i>':'')+g+(s.p?' <span class="pt">'+s.p+'</span>':'');
     } else if(s.k==='fb'){
-      var corn=st.fbC==='always'||r.t.some(function(t){return /Corner/i.test(t)});
-      h='<b>'+s.s.join(':')+'</b> '+s.m+'\''+(corn&&s.c?' <span class="cn">⚑ '+s.c.join(':')+'</span>':'');
+      var corn=full||st.fbC==='always'||r.t.some(function(t){return /Corner/i.test(t)});
+      h='<b>'+s.s.join(':')+'</b>'+(full&&s.h?' ('+s.h.join(':')+')':'')+' '+s.m+'\''+(corn&&s.c?' <span class="cn">⚑ '+s.c.join(':')+'</span>':'')+
+        (full&&s.y?' <i class="yc" title="yellow cards"></i>'+s.y.join(':'):'')+(full&&s.r?' <i class="rc" title="red cards"></i>'+s.r.join(':'):'');
     } else if(s.k==='bb'){
       var tm=st.bbT==='full'?(s.m<10?'0':'')+s.m+':'+(s.x<10?'0':'')+s.x:s.m+'\'';
       h=(st.bbTot?'<b>'+s.s.join(':')+'</b> ':'')+'Q'+s.q+(st.bbTot?'':' <b>'+s.qs.join(':')+'</b>')+' '+tm;
@@ -2335,7 +2367,7 @@ footer .copy .b18{display:inline-grid;place-items:center;height:26px;padding:0 9
     var m1=Math.max.apply(null,rows.map(function(x){return x[1]})), m2=Math.max.apply(null,rows.map(function(x){return x[2]}));
     var p0=roi(a.k0), p1=pr(a), bestR=(1/(1/m1+1/m2)-1)*100;
     function legOf(b){var i=a.b.indexOf(b);return i<0?-1:i}
-    el.innerHTML='<div class="sa-bar"><b class="'+(p1<0?'neg':'')+'">'+p0.toFixed(2)+'% → '+(p1<0?'−':'')+Math.abs(p1).toFixed(2)+'%</b><span class="sa-spn">'+SPU[a.sp]+'</span><span class="sa-sc">'+score(a,1)+'</span></div>'+
+    el.innerHTML='<div class="sa-bar"><b class="'+(p1<0?'neg':'')+'">'+p0.toFixed(2)+'% → '+(p1<0?'−':'')+Math.abs(p1).toFixed(2)+'%</b><span class="sa-spn" title="'+esc(SPN[a.sp]||'')+'">'+(SP[a.sp]||SPU[a.sp])+'</span><span class="sa-sc">'+score(a,1)+'</span></div>'+
       a.b.map(function(b,j){var ev=a.ev2?a.ev2[j]:a.ev, lg=a.lg2?a.lg2[j]:a.lg, oj=a.sw?1-j:j;
         return '<div class="sa-leg"><span class="sa-bk"><span class="bkn">'+esc(al(b))+'</span>'+(a.ini===j?dotI(j):'')+'<button type="button" class="lnk" data-tip="copy event link" aria-label="copy event link">'+LINK+'</button></span>'+
           '<span class="sa-ev"><span class="pp">'+pills(ev)+'</span><small>'+esc(lg)+'</small></span>'+
