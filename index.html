@@ -1412,21 +1412,21 @@ html{scrollbar-color:#3a3a3a #000}
 }
 .feed-help .ini+.ini{margin-left:3px}
 
-/* ===== v13 (пачка 19.11): окно вилки как в сканере — зелёная плашка прибыли, синяя строка счёта,
+/* ===== v13 (пачка 19.11): окно вилки как в сканере — зелёная плашка прибыли, графитовая строка счёта #1f1f1f (серый счёт, белые цифры),
    иконка спорта, угловые и карточки. Исключение из монохрома (решение владельца), см. DESIGN.md ===== */
-#ws-sel .sa-bar,.s2-bar{background:#1f4f8f}
+#ws-sel .sa-bar,.s2-bar{background:#1f1f1f}
 #ws-sel .sa-bar>b,.s2-bar>b{background:#216f3d;color:#fff;padding:6px 12px;font:700 14px/1.2 var(--display);font-variant-numeric:tabular-nums;white-space:nowrap;display:flex;align-items:center}
 #ws-sel .sa-bar>b.neg{background:#a3302b;color:#fff}
-#ws-sel .sa-bar .sa-spn,.s2-sp{color:#fff;padding:0 10px;display:flex;align-items:center}
+#ws-sel .sa-bar .sa-spn,.s2-sp{color:#c9c9c9;padding:0 10px;display:flex;align-items:center}
 .sa-spn svg,.s2-sp svg{width:18px;height:18px;display:block}
-#ws-sel .sa-bar .sa-sc,.s2-sc{flex:1 1 auto;margin:0;text-align:center;justify-content:center;color:#fff;padding:6px 12px}
+#ws-sel .sa-bar .sa-sc,.s2-sc{flex:1 1 auto;margin:0;text-align:center;justify-content:center;color:#c9c9c9;padding:6px 12px}
 #ws-sel .sa-sc b,.s2-sc b{color:#fff}
-.s2-sc .cn,#ws-sel .sa-sc .cn{color:#fff}
+.s2-sc .cn,#ws-sel .sa-sc .cn{color:#c9c9c9}
 .yc,.rc,#ws-sel .sa-sc i.yc,#ws-sel .sa-sc i.rc{display:inline-block!important;width:7px;height:10px;border-radius:1px;margin:0 3px 0 6px!important;vertical-align:-1px}
 .yc,#ws-sel .sa-sc i.yc{background:#f5c518!important}
 .rc,#ws-sel .sa-sc i.rc{background:#e53935!important}
 @media (max-width:600px){
-  .s2-sc,#ws-sel .sa-bar .sa-sc{border-top:1px solid rgba(255,255,255,.18)}
+  .s2-sc,#ws-sel .sa-bar .sa-sc{border-top:1px solid #2a2a2a}
 }
 /* v13 №19: под рабочим местом одна строка */
 .feed-help{justify-content:flex-start}
